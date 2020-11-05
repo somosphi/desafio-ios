@@ -21,8 +21,9 @@ Vamos avaliar como você lida com as seguintes situações:
 - Fluxo da aplicação.
 
 Os pré-requisitos são: 
-1 - que o código seja feito em Swift, de preferência na versão mais atual, dando suporte a iOS 13.0.0+.
-2 - que você siga nossa [Style Guide](https://github.com/somosphi/style-guides/blob/master/swift.md). 
+
+1. que o código seja feito em Swift, de preferência na versão mais atual, dando suporte a iOS 13.0.0+.
+1. que você siga nossa [Style Guide](https://github.com/somosphi/style-guides/blob/master/swift.md). 
 
 Fora isso, sinta-se a vontade para:
 
