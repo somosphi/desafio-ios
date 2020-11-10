@@ -9,21 +9,45 @@
 /* Begin PBXBuildFile section */
 		CAD2BC0F255A1A1600781FA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC0E255A1A1600781FA0 /* AppDelegate.swift */; };
 		CAD2BC11255A1A1600781FA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC10255A1A1600781FA0 /* SceneDelegate.swift */; };
-		CAD2BC13255A1A1600781FA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC12255A1A1600781FA0 /* ViewController.swift */; };
-		CAD2BC16255A1A1600781FA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAD2BC14255A1A1600781FA0 /* Main.storyboard */; };
+		CAD2BC13255A1A1600781FA0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC12255A1A1600781FA0 /* MainViewController.swift */; };
 		CAD2BC18255A1A1900781FA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD2BC17255A1A1900781FA0 /* Assets.xcassets */; };
 		CAD2BC1B255A1A1900781FA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAD2BC19255A1A1900781FA0 /* LaunchScreen.storyboard */; };
+		CAD2BC2D255A1B9C00781FA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC2C255A1B9C00781FA0 /* Constants.swift */; };
+		CAD2BC31255A1BE100781FA0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC30255A1BE100781FA0 /* Path.swift */; };
+		CAD2BC35255A1BEC00781FA0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC34255A1BEC00781FA0 /* APIRequest.swift */; };
+		CAD2BC38255A1BF500781FA0 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC37255A1BF500781FA0 /* APILogger.swift */; };
+		CAD2BC3C255A1C4C00781FA0 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC3B255A1C4B00781FA0 /* AppError.swift */; };
+		CAD2BC40255A1CB100781FA0 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */; };
+		CAD2BC44255A1EB200781FA0 /* MyBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC43255A1EB200781FA0 /* MyBalance.swift */; };
+		CAD2BC68255B0E9000781FA0 /* MyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC67255B0E9000781FA0 /* MyStatement.swift */; };
+		CAD2BC6C255B146F00781FA0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC6B255B146F00781FA0 /* UIColor.swift */; };
+		CAD2BC70255B167800781FA0 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC6F255B167800781FA0 /* StyleSheet.swift */; };
+		CAD2BC75255B1AF700781FA0 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */; };
+		CAD2BC7A255B1D8F00781FA0 /* StatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */; };
+		CAD2BC7F255B2A1000781FA0 /* MyBalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CAD2BC0B255A1A1600781FA0 /* PhiChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhiChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD2BC0E255A1A1600781FA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD2BC10255A1A1600781FA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CAD2BC12255A1A1600781FA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CAD2BC15255A1A1600781FA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CAD2BC12255A1A1600781FA0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CAD2BC17255A1A1900781FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD2BC1A255A1A1900781FA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAD2BC1C255A1A1900781FA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD2BC2C255A1B9C00781FA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CAD2BC30255A1BE100781FA0 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CAD2BC34255A1BEC00781FA0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		CAD2BC37255A1BF500781FA0 /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
+		CAD2BC3B255A1C4B00781FA0 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		CAD2BC43255A1EB200781FA0 /* MyBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalance.swift; sourceTree = "<group>"; };
+		CAD2BC67255B0E9000781FA0 /* MyStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStatement.swift; sourceTree = "<group>"; };
+		CAD2BC6B255B146F00781FA0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		CAD2BC6F255B167800781FA0 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
+		CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCell.swift; sourceTree = "<group>"; };
+		CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalanceHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +82,121 @@
 			children = (
 				CAD2BC0E255A1A1600781FA0 /* AppDelegate.swift */,
 				CAD2BC10255A1A1600781FA0 /* SceneDelegate.swift */,
-				CAD2BC12255A1A1600781FA0 /* ViewController.swift */,
-				CAD2BC14255A1A1600781FA0 /* Main.storyboard */,
-				CAD2BC17255A1A1900781FA0 /* Assets.xcassets */,
-				CAD2BC19255A1A1900781FA0 /* LaunchScreen.storyboard */,
+				CAD2BC26255A1B4400781FA0 /* API */,
+				CAD2BC3A255A1C3300781FA0 /* Error */,
+				CAD2BC42255A1D2500781FA0 /* Sources */,
+				CAD2BC28255A1B5C00781FA0 /* Scenes */,
+				CAD2BC2A255A1B6F00781FA0 /* Extensions */,
+				CAD2BC29255A1B6800781FA0 /* Components */,
+				CAD2BC2B255A1B8900781FA0 /* Supporting */,
 				CAD2BC1C255A1A1900781FA0 /* Info.plist */,
 			);
 			path = PhiChallenge;
+			sourceTree = "<group>";
+		};
+		CAD2BC26255A1B4400781FA0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC30255A1BE100781FA0 /* Path.swift */,
+				CAD2BC34255A1BEC00781FA0 /* APIRequest.swift */,
+				CAD2BC37255A1BF500781FA0 /* APILogger.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CAD2BC27255A1B5100781FA0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC43255A1EB200781FA0 /* MyBalance.swift */,
+				CAD2BC67255B0E9000781FA0 /* MyStatement.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CAD2BC28255A1B5C00781FA0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC77255B1D5200781FA0 /* MainScreen */,
+				CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CAD2BC29255A1B6800781FA0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CAD2BC2A255A1B6F00781FA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC6A255B146400781FA0 /* Colors */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CAD2BC2B255A1B8900781FA0 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC2C255A1B9C00781FA0 /* Constants.swift */,
+				CAD2BC17255A1A1900781FA0 /* Assets.xcassets */,
+				CAD2BC19255A1A1900781FA0 /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		CAD2BC3A255A1C3300781FA0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC3B255A1C4B00781FA0 /* AppError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		CAD2BC42255A1D2500781FA0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC27255A1B5100781FA0 /* Entity */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CAD2BC6A255B146400781FA0 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC6B255B146F00781FA0 /* UIColor.swift */,
+				CAD2BC6F255B167800781FA0 /* StyleSheet.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		CAD2BC77255B1D5200781FA0 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC7D255B29F600781FA0 /* Header */,
+				CAD2BC78255B1D6F00781FA0 /* Cell */,
+				CAD2BC12255A1A1600781FA0 /* MainViewController.swift */,
+				CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		CAD2BC78255B1D6F00781FA0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CAD2BC7D255B29F600781FA0 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +258,6 @@
 			files = (
 				CAD2BC1B255A1A1900781FA0 /* LaunchScreen.storyboard in Resources */,
 				CAD2BC18255A1A1900781FA0 /* Assets.xcassets in Resources */,
-				CAD2BC16255A1A1600781FA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +268,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAD2BC13255A1A1600781FA0 /* ViewController.swift in Sources */,
+				CAD2BC70255B167800781FA0 /* StyleSheet.swift in Sources */,
+				CAD2BC13255A1A1600781FA0 /* MainViewController.swift in Sources */,
+				CAD2BC75255B1AF700781FA0 /* MainProtocols.swift in Sources */,
+				CAD2BC6C255B146F00781FA0 /* UIColor.swift in Sources */,
+				CAD2BC7F255B2A1000781FA0 /* MyBalanceHeader.swift in Sources */,
+				CAD2BC7A255B1D8F00781FA0 /* StatementCell.swift in Sources */,
 				CAD2BC0F255A1A1600781FA0 /* AppDelegate.swift in Sources */,
 				CAD2BC11255A1A1600781FA0 /* SceneDelegate.swift in Sources */,
+				CAD2BC38255A1BF500781FA0 /* APILogger.swift in Sources */,
+				CAD2BC44255A1EB200781FA0 /* MyBalance.swift in Sources */,
+				CAD2BC3C255A1C4C00781FA0 /* AppError.swift in Sources */,
+				CAD2BC31255A1BE100781FA0 /* Path.swift in Sources */,
+				CAD2BC35255A1BEC00781FA0 /* APIRequest.swift in Sources */,
+				CAD2BC40255A1CB100781FA0 /* ServiceLayer.swift in Sources */,
+				CAD2BC68255B0E9000781FA0 /* MyStatement.swift in Sources */,
+				CAD2BC2D255A1B9C00781FA0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CAD2BC14255A1A1600781FA0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CAD2BC15255A1A1600781FA0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CAD2BC19255A1A1900781FA0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

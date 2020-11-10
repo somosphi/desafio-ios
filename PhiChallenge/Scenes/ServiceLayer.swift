@@ -34,7 +34,6 @@ final class ServiceLayer {
     }
     
     
-    
     //MARK: - MyStatement API Request
     func requestMyStatement() {
         
