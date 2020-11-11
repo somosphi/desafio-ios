@@ -11,6 +11,9 @@ final class MainViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.rowHeight = 100
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         
         return tableView
     }()
@@ -25,7 +28,8 @@ final class MainViewController: UIViewController {
         setupViewConfiguration()
         setup()
         service.requestMyBalance()
-        service.requestMyStatement()
+        service.requestMyStatement(offset: "0")
+        service.requestDetails(id: "EC5C75A4-444B-433E-9097-680A22D3FD62")
     }
 
     private func setup() {
@@ -46,9 +50,6 @@ final class MainViewController: UIViewController {
         tableView.register(StatementCell.self, forCellReuseIdentifier: StatementCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100
-        tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = .white
         
         let header = MyBalanceHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         tableView.tableHeaderView = header
@@ -69,17 +70,20 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementCell.identifier) as? StatementCell else { return UITableViewCell()}
         
+        let  selectedView = UIView()
+        selectedView.backgroundColor = .lightGrayHex
+        cell.selectedBackgroundView = selectedView
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       
         return 50
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
      
-        return "Suas Movimentações"
+        return K.yourTransactions
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
