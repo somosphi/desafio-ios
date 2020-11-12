@@ -24,3 +24,11 @@ extension ViewConfiguration {
         
     }
 }
+
+protocol MainScreenView: AnyObject {
+    func showLoader()
+    func hideLoader()
+    func showError(message: String)
+    func reloadTableViewData()
+    func didUpdateBalance(of value: Int)
+}
