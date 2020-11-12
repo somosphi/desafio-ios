@@ -8,8 +8,15 @@
 import Foundation
 
 enum K {
+    static let yourAmount = "Seu Saldo"
     static let yourTransactions = "Suas Movimentações"
-    
+    static let pix = "Pix"
+    static let statement = "Extrato"
+}
+
+enum Images {
+    static let showEye = "show-eye"
+    static let hideEye = "hide-eye"
 }
 
 

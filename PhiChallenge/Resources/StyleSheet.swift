@@ -19,6 +19,7 @@ extension UIColor {
 enum Fonts {
     static let arial = "ArialMT"
     static let arialBold = "Arial-BoldMT"
+    static let KohinoorBanglaSemiBold = "KohinoorBangla-Semibold"
     
     
 }
