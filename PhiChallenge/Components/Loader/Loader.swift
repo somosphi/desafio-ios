@@ -10,7 +10,7 @@ import UIKit
 struct Loader {
     static private var loader: UIActivityIndicatorView?
     
-    static func show(in context: UIViewController, color: UIColor = .lightGray) {
+    static func show(in context: UIViewController, color: UIColor = UIColor.darkGrayHex ?? UIColor.darkGray) {
         guard self.loader == nil else { return }
         let loader = ActivityIndicator(frame: .zero, loaderColor: color)
         self.loader = loader
@@ -32,3 +32,5 @@ struct Loader {
         self.loader = nil
     }
 }
+
+

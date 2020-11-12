@@ -31,8 +31,9 @@ final class ActivityIndicator: UIActivityIndicatorView {
     
     private func setup() {
         self.color = loaderColor
-        self.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        self.backgroundColor = UIColor.lightGrayHex?.withAlphaComponent(0.5)
         style = .large
         
     }
 }
+
