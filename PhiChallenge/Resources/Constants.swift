@@ -12,6 +12,11 @@ enum K {
     static let yourTransactions = "Suas Movimentações"
     static let pix = "Pix"
     static let statement = "Extrato"
+    static let tryAgain = "Try Again"
+    static let eyeType = "eyeType"
+    static let hideAmountView = "hideAmountView"
+    static let hideAmountLabel = "hideAmountLabel"
+    static let didTap = "didTap"
 }
 
 enum Images {
