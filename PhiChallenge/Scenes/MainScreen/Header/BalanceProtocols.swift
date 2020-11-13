@@ -8,6 +8,6 @@
 import Foundation
 protocol BalanceHeaderView: AnyObject {
     func setAmount(with value: Int)
-    func hideAmount(with flag: Bool)
-    
+    func hideAmount(with flag: Bool, image: String)
 }
+
