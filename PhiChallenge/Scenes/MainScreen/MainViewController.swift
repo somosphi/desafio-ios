@@ -8,6 +8,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    //MARK: - Properties
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -18,20 +19,39 @@ final class MainViewController: UIViewController {
         return tableView
     }()
     
-    let service = ServiceLayer()
-    
-    override func viewDidLoad() {
+    private lazy var header: BalanceHeader = {
+       let header = BalanceHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         
+        return header
+    }()
+    
+    private let presenter: MainPresenter
+    
+    //MARK: - Initialization
+    
+    init(presenter: MainPresenter) {
+        self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
+        presenter.view = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Object Lifecycle
+    override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setupViewConfiguration()
         setup()
-        service.requestMyBalance()
-        service.requestMyStatement(offset: "0")
-        service.requestDetails(id: "EC5C75A4-444B-433E-9097-680A22D3FD62")
+        presenter.viewDidload()
+       
     }
-
+    
+    //MARK: - Functions
     private func setup() {
         setupNavigationBar()
         setupTableView()
@@ -41,7 +61,7 @@ final class MainViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .white
-        title = "Extrato"
+        title = K.statement
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
@@ -51,24 +71,34 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let header = MyBalanceHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         tableView.tableHeaderView = header
     }
 }
 
+//MARK: - UITableViewDelegate Interface Implementation
+
 extension MainViewController: UITableViewDelegate {
     
-    // tableView delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectItemAt(index: indexPath.row)
+    }
+   
 }
+
+//MARK: - UITableViewDataSource Interface Implementation
 
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return presenter.userStatements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementCell.identifier) as? StatementCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementCell.identifier) as? StatementCell else { return UITableViewCell() }
+        
+        let statements: Items = presenter.userStatements[indexPath.row]
+        let cellPresenter = StatementCellPresenter(myStatements: statements)
+        cell.attachPresenter(cellPresenter)
         
         let  selectedView = UIView()
         selectedView.backgroundColor = .lightGrayHex
@@ -82,7 +112,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-     
+        
         return K.yourTransactions
     }
     
@@ -92,7 +122,59 @@ extension MainViewController: UITableViewDataSource {
     
     
 }
+//MARK: - MainScreenView Inteface Implementation
+extension MainViewController: MainScreenView {
+    
+    func showLoader() {
+        Loader.show(in: self)
+    }
+    
+    func hideLoader() {
+        Loader.hide()
+    }
+    
+    func showError(message: String) {
+        let alertAction = UIAlertAction(title: K.tryAgain, style: .default, handler: { [weak self] handler -> Void in
+            self?.presenter.tryAgain()
+    })
+        showAlert(message: message, alertAction: alertAction)
+    }
+    
+    func reloadTableViewData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    func didUpdateBalance(of value: Int) {
+        DispatchQueue.main.async  { [weak self] in 
+            let headerPresenter = BalancePresenter(myBalance: value)
+            self?.header.attachPresenter(headerPresenter)
+        }
+    }
+    
+}
 
+
+//MARK: - UIScrollViewDelegate Interface Implementation
+extension MainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let distanceToBottom = contentHeight - offsetY
+       
+        if distanceToBottom < tableView.frame.height && !presenter.isFetchingStatements {
+            loadMoreStatementsFromServer()
+        }
+    }
+    
+    private func loadMoreStatementsFromServer() {
+        presenter.fetchMyStatements()
+    }
+}
+
+//MARK: - ViewConfiguration
 extension MainViewController: ViewConfiguration {
     
     func setupConstraints() {
@@ -113,3 +195,5 @@ extension MainViewController: ViewConfiguration {
     
     
 }
+
+
