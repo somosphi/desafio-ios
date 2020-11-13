@@ -17,14 +17,29 @@
 		CAD2BC35255A1BEC00781FA0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC34255A1BEC00781FA0 /* APIRequest.swift */; };
 		CAD2BC38255A1BF500781FA0 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC37255A1BF500781FA0 /* APILogger.swift */; };
 		CAD2BC3C255A1C4C00781FA0 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC3B255A1C4B00781FA0 /* AppError.swift */; };
-		CAD2BC40255A1CB100781FA0 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */; };
-		CAD2BC44255A1EB200781FA0 /* MyBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC43255A1EB200781FA0 /* MyBalance.swift */; };
-		CAD2BC68255B0E9000781FA0 /* MyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC67255B0E9000781FA0 /* MyStatement.swift */; };
+		CAD2BC44255A1EB200781FA0 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC43255A1EB200781FA0 /* Balance.swift */; };
+		CAD2BC68255B0E9000781FA0 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC67255B0E9000781FA0 /* Statement.swift */; };
 		CAD2BC6C255B146F00781FA0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC6B255B146F00781FA0 /* UIColor.swift */; };
 		CAD2BC70255B167800781FA0 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC6F255B167800781FA0 /* StyleSheet.swift */; };
 		CAD2BC75255B1AF700781FA0 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */; };
 		CAD2BC7A255B1D8F00781FA0 /* StatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */; };
-		CAD2BC7F255B2A1000781FA0 /* MyBalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */; };
+		CAD2BC7F255B2A1000781FA0 /* BalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC7E255B2A1000781FA0 /* BalanceHeader.swift */; };
+		CAD2BC86255B703800781FA0 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC85255B703800781FA0 /* MainPresenter.swift */; };
+		CAD2BC8A255B704E00781FA0 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC89255B704E00781FA0 /* MainRouter.swift */; };
+		CAD2BC8D255B706000781FA0 /* StatementCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC8C255B706000781FA0 /* StatementCellPresenter.swift */; };
+		CAD2BC90255B706B00781FA0 /* StatementCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC8F255B706B00781FA0 /* StatementCellProtocols.swift */; };
+		CAD2BC93255B709F00781FA0 /* BalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC92255B709F00781FA0 /* BalancePresenter.swift */; };
+		CAD2BC96255B70AE00781FA0 /* BalanceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC95255B70AE00781FA0 /* BalanceProtocols.swift */; };
+		CAD2BC9B255B71BA00781FA0 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC9A255B71BA00781FA0 /* Loader.swift */; };
+		CAD2BC9F255B71C700781FA0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BC9E255B71C700781FA0 /* ActivityIndicator.swift */; };
+		CAD2BCA6255C16E400781FA0 /* ServicesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCA5255C16E300781FA0 /* ServicesProtocols.swift */; };
+		CAD2BCB0255C1F5300781FA0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCAF255C1F5300781FA0 /* UIViewController.swift */; };
+		CAD2BCB3255C1FAA00781FA0 /* BalanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCB2255C1FAA00781FA0 /* BalanceService.swift */; };
+		CAD2BCB6255C1FBB00781FA0 /* StatementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCB5255C1FBB00781FA0 /* StatementService.swift */; };
+		CAD2BCB9255C1FC800781FA0 /* DetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCB8255C1FC800781FA0 /* DetailsService.swift */; };
+		CAD2BCBC255C21E700781FA0 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCBB255C21E700781FA0 /* UIAlertAction.swift */; };
+		CAD2BCCD255C8D8D00781FA0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCCC255C8D8D00781FA0 /* String.swift */; };
+		CAD2BCD0255CB64300781FA0 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD2BCCF255CB64200781FA0 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,14 +55,29 @@
 		CAD2BC34255A1BEC00781FA0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CAD2BC37255A1BF500781FA0 /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		CAD2BC3B255A1C4B00781FA0 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
-		CAD2BC43255A1EB200781FA0 /* MyBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalance.swift; sourceTree = "<group>"; };
-		CAD2BC67255B0E9000781FA0 /* MyStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStatement.swift; sourceTree = "<group>"; };
+		CAD2BC43255A1EB200781FA0 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		CAD2BC67255B0E9000781FA0 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		CAD2BC6B255B146F00781FA0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CAD2BC6F255B167800781FA0 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCell.swift; sourceTree = "<group>"; };
-		CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalanceHeader.swift; sourceTree = "<group>"; };
+		CAD2BC7E255B2A1000781FA0 /* BalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeader.swift; sourceTree = "<group>"; };
+		CAD2BC85255B703800781FA0 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		CAD2BC89255B704E00781FA0 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		CAD2BC8C255B706000781FA0 /* StatementCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCellPresenter.swift; sourceTree = "<group>"; };
+		CAD2BC8F255B706B00781FA0 /* StatementCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCellProtocols.swift; sourceTree = "<group>"; };
+		CAD2BC92255B709F00781FA0 /* BalancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancePresenter.swift; sourceTree = "<group>"; };
+		CAD2BC95255B70AE00781FA0 /* BalanceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProtocols.swift; sourceTree = "<group>"; };
+		CAD2BC9A255B71BA00781FA0 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		CAD2BC9E255B71C700781FA0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		CAD2BCA5255C16E300781FA0 /* ServicesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocols.swift; sourceTree = "<group>"; };
+		CAD2BCAF255C1F5300781FA0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		CAD2BCB2255C1FAA00781FA0 /* BalanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceService.swift; sourceTree = "<group>"; };
+		CAD2BCB5255C1FBB00781FA0 /* StatementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementService.swift; sourceTree = "<group>"; };
+		CAD2BCB8255C1FC800781FA0 /* DetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsService.swift; sourceTree = "<group>"; };
+		CAD2BCBB255C21E700781FA0 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
+		CAD2BCCC255C8D8D00781FA0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		CAD2BCCF255CB64200781FA0 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +114,12 @@
 				CAD2BC10255A1A1600781FA0 /* SceneDelegate.swift */,
 				CAD2BC26255A1B4400781FA0 /* API */,
 				CAD2BC3A255A1C3300781FA0 /* Error */,
+				CAD2BCA1255B731E00781FA0 /* Services */,
 				CAD2BC42255A1D2500781FA0 /* Sources */,
 				CAD2BC28255A1B5C00781FA0 /* Scenes */,
 				CAD2BC2A255A1B6F00781FA0 /* Extensions */,
 				CAD2BC29255A1B6800781FA0 /* Components */,
-				CAD2BC2B255A1B8900781FA0 /* Supporting */,
+				CAD2BC2B255A1B8900781FA0 /* Resources */,
 				CAD2BC1C255A1A1900781FA0 /* Info.plist */,
 			);
 			path = PhiChallenge;
@@ -107,8 +138,8 @@
 		CAD2BC27255A1B5100781FA0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CAD2BC43255A1EB200781FA0 /* MyBalance.swift */,
-				CAD2BC67255B0E9000781FA0 /* MyStatement.swift */,
+				CAD2BC43255A1EB200781FA0 /* Balance.swift */,
+				CAD2BC67255B0E9000781FA0 /* Statement.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -117,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CAD2BC77255B1D5200781FA0 /* MainScreen */,
-				CAD2BC3F255A1CB100781FA0 /* ServiceLayer.swift */,
+				CAD2BCA2255B737200781FA0 /* DetailsScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -125,6 +156,7 @@
 		CAD2BC29255A1B6800781FA0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CAD2BC99255B71A500781FA0 /* Loader */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -132,19 +164,22 @@
 		CAD2BC2A255A1B6F00781FA0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CAD2BCD3255CC34A00781FA0 /* String */,
+				CAD2BCAE255C1F3E00781FA0 /* UI */,
 				CAD2BC6A255B146400781FA0 /* Colors */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CAD2BC2B255A1B8900781FA0 /* Supporting */ = {
+		CAD2BC2B255A1B8900781FA0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CAD2BC6F255B167800781FA0 /* StyleSheet.swift */,
 				CAD2BC2C255A1B9C00781FA0 /* Constants.swift */,
 				CAD2BC17255A1A1900781FA0 /* Assets.xcassets */,
 				CAD2BC19255A1A1900781FA0 /* LaunchScreen.storyboard */,
 			);
-			path = Supporting;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		CAD2BC3A255A1C3300781FA0 /* Error */ = {
@@ -167,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				CAD2BC6B255B146F00781FA0 /* UIColor.swift */,
-				CAD2BC6F255B167800781FA0 /* StyleSheet.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -178,6 +212,8 @@
 				CAD2BC7D255B29F600781FA0 /* Header */,
 				CAD2BC78255B1D6F00781FA0 /* Cell */,
 				CAD2BC12255A1A1600781FA0 /* MainViewController.swift */,
+				CAD2BC85255B703800781FA0 /* MainPresenter.swift */,
+				CAD2BC89255B704E00781FA0 /* MainRouter.swift */,
 				CAD2BC74255B1AF700781FA0 /* MainProtocols.swift */,
 			);
 			path = MainScreen;
@@ -187,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				CAD2BC79255B1D8F00781FA0 /* StatementCell.swift */,
+				CAD2BC8C255B706000781FA0 /* StatementCellPresenter.swift */,
+				CAD2BC8F255B706B00781FA0 /* StatementCellProtocols.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -194,9 +232,56 @@
 		CAD2BC7D255B29F600781FA0 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				CAD2BC7E255B2A1000781FA0 /* MyBalanceHeader.swift */,
+				CAD2BC7E255B2A1000781FA0 /* BalanceHeader.swift */,
+				CAD2BC92255B709F00781FA0 /* BalancePresenter.swift */,
+				CAD2BC95255B70AE00781FA0 /* BalanceProtocols.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		CAD2BC99255B71A500781FA0 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BC9A255B71BA00781FA0 /* Loader.swift */,
+				CAD2BC9E255B71C700781FA0 /* ActivityIndicator.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		CAD2BCA1255B731E00781FA0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BCB2255C1FAA00781FA0 /* BalanceService.swift */,
+				CAD2BCB5255C1FBB00781FA0 /* StatementService.swift */,
+				CAD2BCB8255C1FC800781FA0 /* DetailsService.swift */,
+				CAD2BCA5255C16E300781FA0 /* ServicesProtocols.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CAD2BCA2255B737200781FA0 /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		CAD2BCAE255C1F3E00781FA0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BCCF255CB64200781FA0 /* UIView.swift */,
+				CAD2BCAF255C1F5300781FA0 /* UIViewController.swift */,
+				CAD2BCBB255C21E700781FA0 /* UIAlertAction.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CAD2BCD3255CC34A00781FA0 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				CAD2BCCC255C8D8D00781FA0 /* String.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,20 +355,35 @@
 			files = (
 				CAD2BC70255B167800781FA0 /* StyleSheet.swift in Sources */,
 				CAD2BC13255A1A1600781FA0 /* MainViewController.swift in Sources */,
+				CAD2BC86255B703800781FA0 /* MainPresenter.swift in Sources */,
+				CAD2BC9B255B71BA00781FA0 /* Loader.swift in Sources */,
+				CAD2BC9F255B71C700781FA0 /* ActivityIndicator.swift in Sources */,
 				CAD2BC75255B1AF700781FA0 /* MainProtocols.swift in Sources */,
+				CAD2BCB9255C1FC800781FA0 /* DetailsService.swift in Sources */,
 				CAD2BC6C255B146F00781FA0 /* UIColor.swift in Sources */,
-				CAD2BC7F255B2A1000781FA0 /* MyBalanceHeader.swift in Sources */,
+				CAD2BCA6255C16E400781FA0 /* ServicesProtocols.swift in Sources */,
+				CAD2BC7F255B2A1000781FA0 /* BalanceHeader.swift in Sources */,
 				CAD2BC7A255B1D8F00781FA0 /* StatementCell.swift in Sources */,
 				CAD2BC0F255A1A1600781FA0 /* AppDelegate.swift in Sources */,
+				CAD2BCCD255C8D8D00781FA0 /* String.swift in Sources */,
 				CAD2BC11255A1A1600781FA0 /* SceneDelegate.swift in Sources */,
 				CAD2BC38255A1BF500781FA0 /* APILogger.swift in Sources */,
-				CAD2BC44255A1EB200781FA0 /* MyBalance.swift in Sources */,
+				CAD2BC44255A1EB200781FA0 /* Balance.swift in Sources */,
 				CAD2BC3C255A1C4C00781FA0 /* AppError.swift in Sources */,
+				CAD2BCD0255CB64300781FA0 /* UIView.swift in Sources */,
+				CAD2BCB6255C1FBB00781FA0 /* StatementService.swift in Sources */,
 				CAD2BC31255A1BE100781FA0 /* Path.swift in Sources */,
+				CAD2BCBC255C21E700781FA0 /* UIAlertAction.swift in Sources */,
 				CAD2BC35255A1BEC00781FA0 /* APIRequest.swift in Sources */,
-				CAD2BC40255A1CB100781FA0 /* ServiceLayer.swift in Sources */,
-				CAD2BC68255B0E9000781FA0 /* MyStatement.swift in Sources */,
+				CAD2BC93255B709F00781FA0 /* BalancePresenter.swift in Sources */,
+				CAD2BCB3255C1FAA00781FA0 /* BalanceService.swift in Sources */,
+				CAD2BC68255B0E9000781FA0 /* Statement.swift in Sources */,
+				CAD2BCB0255C1F5300781FA0 /* UIViewController.swift in Sources */,
 				CAD2BC2D255A1B9C00781FA0 /* Constants.swift in Sources */,
+				CAD2BC90255B706B00781FA0 /* StatementCellProtocols.swift in Sources */,
+				CAD2BC8D255B706000781FA0 /* StatementCellPresenter.swift in Sources */,
+				CAD2BC96255B70AE00781FA0 /* BalanceProtocols.swift in Sources */,
+				CAD2BC8A255B704E00781FA0 /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,9 +21,9 @@ final class StatementService: StatementServiceInput {
     func fetchStatement(offset: String) {
         
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "desafio-ios-phi-bff.herokuapp.com"
-        urlComponents.path = "/myStatement/10/" + offset
+        urlComponents.scheme = Path.scheme
+        urlComponents.host = Path.host
+        urlComponents.path = Path.Statement + offset
                
         guard let urlString = urlComponents.url?.absoluteString else { return }
         

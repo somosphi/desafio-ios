@@ -16,7 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let rootViewController = MainViewController()
+        let api = APIRequest()
+        let balanceService = BalanceService(api: api)
+        let statementService = StatementService(api: api)
+        
+        let presenter = MainPresenter(balanceService: balanceService, statementService: statementService)
+        let rootViewController = MainViewController(presenter: presenter)
        
         let navigationController = UINavigationController(rootViewController: rootViewController)
         

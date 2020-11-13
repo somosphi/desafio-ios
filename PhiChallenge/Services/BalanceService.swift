@@ -23,9 +23,9 @@ final class BalanceService: BalanceServiceInput {
     func fetchBalance() {
         
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "desafio-ios-phi-bff.herokuapp.com"
-        urlComponents.path = "/myBalance"
+        urlComponents.scheme = Path.scheme
+        urlComponents.host = Path.host
+        urlComponents.path = Path.Balance
         
         guard let urlString = urlComponents.url?.absoluteString else { return }
         

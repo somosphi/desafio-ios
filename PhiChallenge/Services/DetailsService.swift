@@ -21,9 +21,9 @@ final class DetailsService: DetailsServiceInput {
     func fetchStatementID(id: String) {
     
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "desafio-ios-phi-bff.herokuapp.com"
-        urlComponents.path = "/myStatement/detail/" + id
+        urlComponents.scheme = Path.scheme
+        urlComponents.host = Path.host
+        urlComponents.path = Path.details + id
         
         guard let urlString = urlComponents.url?.absoluteString else { return }
         
