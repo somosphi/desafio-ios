@@ -7,28 +7,30 @@
 
 import Foundation
 
+//MARK: - Application Global Constants
+
 enum MainHeaders {
     static let yourAmount = "Seu Saldo"
     static let yourTransactions = "Suas Movimentações"
 }
 
-enum MainTitle {
-    static let statement = "Extrato"
+enum Main {
+    static let title = "Extrato"
 }
 
-enum PixFlagtitle {
-    static let pix = "Pix"
+enum PixFlag {
+    static let title = "Pix"
 }
 
-enum DetailsTitle {
-    static let receipt = "Comprovante"
+enum Details {
+    static let title = "Comprovante"
 }
 
-enum DetailsShareButtonTitle {
-    static let share = "Compartilhar"
+enum ShareButton {
+    static let title = "Compartilhar"
 }
 
-enum DetailsHeaders {
+enum DetailsViewHeaders {
     static let transferType = "Tipo de Movimentação"
     static let value = "Valor"
     static let receiver = "Recebedor"
@@ -37,15 +39,13 @@ enum DetailsHeaders {
     static let authentication = "Autenticação"
 }
 
-enum AlertButtonTitle {
-    static let tryAgain = "Try Again"
-    
+enum AlertAction {
+    static let title = "Try Again"
 }
 
 enum DefaultsKey {
     static let eyeType = "eyeType"
     static let isAmountHide = "isAmountHide"
-    
 }
 
 enum Images {

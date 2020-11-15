@@ -12,8 +12,6 @@ extension UIViewController {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
-            //let alertAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-            
             alertAction.titleTextColor = .cyanHex
             
             alertController.addAction(alertAction)
