@@ -15,8 +15,10 @@ extension String {
         return components.joined(separator: " ")
     }
     
-
-    
+    var filterNumbers: String {
+        let okayChars = Set("1234567890")
+        return self.filter {okayChars.contains($0) }
+    }
     
     func dataFormatter(dateFormat: String, dateToBeFormatted: String) -> String {
         

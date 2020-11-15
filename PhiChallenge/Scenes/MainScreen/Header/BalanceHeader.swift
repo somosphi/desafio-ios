@@ -10,12 +10,12 @@ import UIKit
 final class BalanceHeader: UIView {
     //MARK: - Properties
     
-    private let myBalanceLabel: UILabel = {
+    private let balanceLabel: UILabel = {
         let label = UILabel()
-        label.text = K.yourAmount
+        label.text = MainHeaders.yourAmount
         label.textColor = .blackHex
         label.textAlignment = .left
-        label.font = UIFont(name: Fonts.arial, size: 16)
+        label.font = UIFont(name: Fonts.arialMT, size: 16)
         
         return label
     }()
@@ -32,7 +32,7 @@ final class BalanceHeader: UIView {
     private let eyeButton: UIImageView = {
         let imageview = UIImageView()
         imageview.backgroundColor = .clear
-        imageview.contentMode = .scaleAspectFill
+        imageview.contentMode = .scaleToFill
         imageview.isUserInteractionEnabled = true
         
         return imageview
@@ -45,7 +45,7 @@ final class BalanceHeader: UIView {
         return imageView
     }()
     
-    private var presenter: BalancePresenter?
+    private var presenter: BalanceHeaderViewPresenter?
     
     private let defaults = UserDefaults.standard
     
@@ -76,38 +76,37 @@ final class BalanceHeader: UIView {
         backgroundColor = .lightGrayHex
     }
     
-    func attachPresenter(_ presenter: BalancePresenter) {
+    func attachPresenter(_ presenter: BalanceHeaderViewPresenter) {
         presenter.attachView(self)
         self.presenter = presenter
         
-        hideAmountView.isHidden = defaults.bool(forKey: K.hideAmountView)
-        amountLabel.isHidden = defaults.bool(forKey: K.hideAmountLabel)
+        amountLabel.isHidden = defaults.bool(forKey: DefaultsKey.isAmountHide)
+        hideAmountView.isHidden = !defaults.bool(forKey: DefaultsKey.isAmountHide)
         
-        eyeButton.image = UIImage(named: defaults.string(forKey: K.eyeType) ?? Images.hideEye)
+        eyeButton.image = UIImage(named: defaults.string(forKey: DefaultsKey.eyeType) ?? Images.hideEye)
     }
     
     //MARK: - Objective-C Method
     
     @objc func eyeButtonDidTap() {
-        
         presenter?.shouldHideAmount()
-        print("tapped!")
     }
 }
 
 //MARK: - BalanceHeaderView Interface Implementation
 
-extension BalanceHeader: BalanceHeaderView {
+extension BalanceHeader: BalanceHeaderViewProtocol {
     
-    func setAmount(with value: Int) {
-        amountLabel.text = String(format: "R$ %.02i,00", value)
+    func setAmount(with text: String) {
+        amountLabel.text = text
     }
     
     func hideAmount(with flag: Bool, image: String) {
+        
         eyeButton.image = UIImage(named: image)
         hideAmountView.isHidden = !flag
         amountLabel.isHidden = flag
-        
+
     }
 }
 
@@ -115,26 +114,26 @@ extension BalanceHeader: BalanceHeaderView {
 
 extension BalanceHeader: ViewConfiguration {
     func setupConstraints() {
-        myBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            myBalanceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            myBalanceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            balanceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            balanceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
         
         
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            amountLabel.topAnchor.constraint(equalTo: myBalanceLabel.bottomAnchor, constant: 10),
-            amountLabel.leadingAnchor.constraint(equalTo: myBalanceLabel.leadingAnchor)
+            amountLabel.topAnchor.constraint(equalTo: balanceLabel.bottomAnchor, constant: 10),
+            amountLabel.leadingAnchor.constraint(equalTo: balanceLabel.leadingAnchor)
         ])
         
         eyeButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            eyeButton.leadingAnchor.constraint(equalTo: myBalanceLabel.trailingAnchor, constant: 10),
-            eyeButton.centerYAnchor.constraint(equalTo: myBalanceLabel.centerYAnchor),
+            eyeButton.leadingAnchor.constraint(equalTo: balanceLabel.trailingAnchor, constant: 10),
+            eyeButton.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor),
             eyeButton.heightAnchor.constraint(equalToConstant: 20),
             eyeButton.widthAnchor.constraint(equalToConstant: 20)
         ])
@@ -151,7 +150,7 @@ extension BalanceHeader: ViewConfiguration {
     }
     
     func buildViewHierarchy() {
-        addSubview(myBalanceLabel)
+        addSubview(balanceLabel)
         addSubview(amountLabel)
         addSubview(eyeButton)
         addSubview(hideAmountView)
