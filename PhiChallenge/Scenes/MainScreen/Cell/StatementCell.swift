@@ -9,6 +9,7 @@ import UIKit
 
 final class StatementCell: UITableViewCell {
     //MARK: - Properties
+    
     private let lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGrayHex
@@ -30,7 +31,7 @@ final class StatementCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .blackHex
         label.textAlignment = .left
-        label.font = UIFont(name: Fonts.arial, size: 16)
+        label.font = UIFont(name: Fonts.arialMT, size: 16)
         
         return label
     }()
@@ -39,7 +40,7 @@ final class StatementCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .darkGrayHex
         label.textAlignment = .left
-        label.font = UIFont(name: Fonts.arial, size: 15)
+        label.font = UIFont(name: Fonts.arialMT, size: 15)
         
         return label
     }()
@@ -57,17 +58,17 @@ final class StatementCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .darkGrayHex
         label.textAlignment = .center
-        label.font = UIFont(name: Fonts.arial, size: 16)
+        label.font = UIFont(name: Fonts.arialMT, size: 16)
         
         return label
     }()
     
     private let pixFlagLabel: UILabel = {
         let label = UILabel()
-        label.text = K.pix
+        label.text = PixFlag.title
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont(name: Fonts.arial, size: 12)
+        label.font = UIFont(name: Fonts.arialMT, size: 12)
         label.backgroundColor = .cyanHex
         label.isHidden = true
         
@@ -114,8 +115,8 @@ extension StatementCell: StatementCellView {
         receiverlabel.text = text
     }
     
-    func setAmount(with value: Int) {
-        amountLabel.text = String(format: "R$ %.02i,00", value)
+    func setAmount(with text: String) {
+        amountLabel.text = text
     }
     
     func setCreatedAt(with text: String) {

@@ -45,7 +45,7 @@ final class BalanceHeader: UIView {
         return imageView
     }()
     
-    private var presenter: BalanceHeaderViewPresenter?
+    private var presenter: BalanceHeaderPresenter?
     
     private let defaults = UserDefaults.standard
     
@@ -76,7 +76,7 @@ final class BalanceHeader: UIView {
         backgroundColor = .lightGrayHex
     }
     
-    func attachPresenter(_ presenter: BalanceHeaderViewPresenter) {
+    func attachPresenter(_ presenter: BalanceHeaderPresenter) {
         presenter.attachView(self)
         self.presenter = presenter
         
@@ -95,7 +95,7 @@ final class BalanceHeader: UIView {
 
 //MARK: - BalanceHeaderView Interface Implementation
 
-extension BalanceHeader: BalanceHeaderViewProtocol {
+extension BalanceHeader: BalanceHeaderView {
     
     func setAmount(with text: String) {
         amountLabel.text = text

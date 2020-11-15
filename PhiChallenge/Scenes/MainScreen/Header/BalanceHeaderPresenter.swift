@@ -13,7 +13,7 @@ final class BalanceHeaderPresenter {
     private let defaults = UserDefaults.standard
     
     private let balance: Int
-    private weak var view: BalanceHeaderViewProtocol?
+    private weak var view: BalanceHeaderView?
     
     //MARK: - Initialization
     
@@ -23,7 +23,7 @@ final class BalanceHeaderPresenter {
     
     //MARK: - Functions
     
-    func attachView(_ view: BalanceHeaderViewProtocol) {
+    func attachView(_ view: BalanceHeaderView) {
         self.view = view
         
         view.setAmount(with: String(format: "R$ %.02i,00", balance))

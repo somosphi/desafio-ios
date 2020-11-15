@@ -10,7 +10,6 @@ import Foundation
 public protocol ViewConfiguration: AnyObject {
     func setupConstraints()
     func buildViewHierarchy()
-    func configureViews()
     func setupViewConfiguration()
 }
 
@@ -18,10 +17,6 @@ extension ViewConfiguration {
     public func setupViewConfiguration() {
         buildViewHierarchy()
         setupConstraints()
-        configureViews()
-    }
-    public func configureViews() {
-        
     }
 }
 
@@ -31,4 +26,8 @@ protocol MainScreenView: AnyObject {
     func showError(message: String)
     func reloadTableViewData()
     func didUpdateBalance(of value: Int)
+}
+
+protocol StatementRoutering: AnyObject {
+    func navigateToDetailsScene(id: String)
 }
