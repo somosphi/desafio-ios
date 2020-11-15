@@ -13,7 +13,7 @@ final class DetailsService: DetailsServiceInput {
     
     private let api: APIRequestProtocol
     
-    init(api: APIRequestProtocol) {
+    init(api: APIRequestProtocol = APIRequest()) {
         self.api = api
     }
     

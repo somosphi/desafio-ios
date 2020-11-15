@@ -29,7 +29,7 @@ final class StatementService: StatementServiceInput {
         
         api.request(urlString: urlString,
                     method: .get,
-                    parameters: nil) { [weak self] (response: Statement) in
+                    parameters: nil) { [weak self] (response: StatementResponse) in
             self?.outputStatement?.didUpdateStatementSuccess(response.items)
         } failure: { [weak self] (error) in
             self?.outputStatement?.didUpdatStatementFail(error)

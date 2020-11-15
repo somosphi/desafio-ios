@@ -12,7 +12,6 @@ import Foundation
 final class BalanceService: BalanceServiceInput {
     
     weak var outputBalance: BalanceServiceOutput?
-
     private let api: APIRequestProtocol
     
     init(api: APIRequestProtocol) {
@@ -31,7 +30,7 @@ final class BalanceService: BalanceServiceInput {
         
         api.request(urlString: urlString,
                     method: .get,
-                    parameters: nil) { [weak self] (response: Balance) in
+                    parameters: nil) { [weak self] (response: BalanceResponse) in
             print(response.amount)
             self?.outputBalance?.didUpdateBalanceSuccess(response.amount)
             
