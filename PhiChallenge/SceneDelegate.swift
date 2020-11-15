@@ -16,13 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let api = APIRequest()
-        let balanceService = BalanceService(api: api)
-        let statementService = StatementService(api: api)
-        
-        let presenter = MainPresenter(balanceService: balanceService, statementService: statementService)
-        let rootViewController = MainViewController(presenter: presenter)
-       
+        let router = MainRouter()
+        let rootViewController = router.makeViewController()
+    
         let navigationController = UINavigationController(rootViewController: rootViewController)
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
