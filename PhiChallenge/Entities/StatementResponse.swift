@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Statement: Decodable {
+struct StatementResponse: Decodable {
     var items: [Items]
 }
 

@@ -14,16 +14,18 @@ final class MainPresenter {
     
     private let balanceService: BalanceServiceInput
     private let statementService: StatementServiceInput
+    private let router: StatementRoutering
     
-    private var userBalance: Int = 0
-    var userStatements: [Items] = []
+    private var balance: Int = 0
+    var statements: [Items] = []
     var isFetchingBalance: Bool = false
     var isFetchingStatements: Bool = false
     private var offset: Int = 0
     
     //MARK: - Initialization
     
-    init(balanceService: BalanceServiceInput, statementService: StatementServiceInput) {
+    init(router: StatementRoutering, balanceService: BalanceServiceInput, statementService: StatementServiceInput) {
+        self.router = router
         self.balanceService = balanceService
         self.statementService = statementService
         
@@ -66,7 +68,7 @@ final class MainPresenter {
         
         view?.showLoader()
         offset = 0
-        userStatements = []
+        statements = []
         view?.reloadTableViewData()
         fetchMyBalance()
         fetchMyStatements()
@@ -74,7 +76,10 @@ final class MainPresenter {
         view?.hideLoader()
     }
     
-    func didSelectItemAt(index: Int) {
+    func didSelectItemAt(id: Int) {
+        let statementId = statements[id].id
+        
+        router.navigateToDetailsScene(id: statementId)
         
     }
 }
@@ -84,10 +89,10 @@ final class MainPresenter {
 extension MainPresenter: BalanceServiceOutput {
     func didUpdateBalanceSuccess(_ response: Int) {
         
-        userBalance = response
+        balance = response
         
         isFetchingBalance = false
-        view?.didUpdateBalance(of: userBalance)
+        view?.didUpdateBalance(of: balance)
     }
     
     func didUpdatBalanceFail(_ error: Error) {
@@ -103,7 +108,7 @@ extension MainPresenter: StatementServiceOutput {
     func didUpdateStatementSuccess(_ response: [Items]) {
         
         for item in response {
-            self.userStatements.append(item)
+            self.statements.append(item)
         }
         
         isFetchingStatements = false

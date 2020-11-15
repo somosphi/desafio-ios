@@ -19,7 +19,7 @@ final class MainViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var header: BalanceHeader = {
+    private lazy var tableHeaderView: BalanceHeader = {
        let header = BalanceHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         
         return header
@@ -52,16 +52,26 @@ final class MainViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
     private func setup() {
         setupNavigationBar()
         setupTableView()
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.tintColor = .white
+        
+        navigationController?.navigationBar.tintColor = .blackHex
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blackHex ?? UIColor.black]
+        
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
+        
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .white
-        title = K.statement
+        title = Main.title
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
@@ -71,7 +81,7 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.tableHeaderView = header
+        tableView.tableHeaderView = tableHeaderView
     }
 }
 
@@ -80,7 +90,8 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectItemAt(index: indexPath.row)
+        presenter.didSelectItemAt(id: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
    
 }
@@ -90,14 +101,14 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.userStatements.count
+        return presenter.statements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementCell.identifier) as? StatementCell else { return UITableViewCell() }
         
-        let statements: Items = presenter.userStatements[indexPath.row]
-        let cellPresenter = StatementCellPresenter(myStatements: statements)
+        let statements: Items = presenter.statements[indexPath.row]
+        let cellPresenter = StatementCellPresenter(statements: statements)
         cell.attachPresenter(cellPresenter)
         
         let  selectedView = UIView()
@@ -113,11 +124,13 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return K.yourTransactions
+        return MainHeaders.yourTransactions
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .white
+        let headerInSection = view as? UITableViewHeaderFooterView
+        headerInSection?.textLabel?.textColor = UIColor.blackHex
+        headerInSection?.tintColor = .white
     }
     
     
@@ -134,7 +147,7 @@ extension MainViewController: MainScreenView {
     }
     
     func showError(message: String) {
-        let alertAction = UIAlertAction(title: K.tryAgain, style: .default, handler: { [weak self] handler -> Void in
+        let alertAction = UIAlertAction(title: AlertAction.title, style: .default, handler: { [weak self] handler -> Void in
             self?.presenter.tryAgain()
     })
         showAlert(message: message, alertAction: alertAction)
@@ -147,8 +160,8 @@ extension MainViewController: MainScreenView {
     }
     func didUpdateBalance(of value: Int) {
         DispatchQueue.main.async  { [weak self] in 
-            let headerPresenter = BalancePresenter(myBalance: value)
-            self?.header.attachPresenter(headerPresenter)
+            let headerPresenter = BalanceHeaderPresenter(balance: value)
+            self?.tableHeaderView.attachPresenter(headerPresenter)
         }
     }
     

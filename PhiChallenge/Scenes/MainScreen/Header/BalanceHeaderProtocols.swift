@@ -7,7 +7,7 @@
 
 import Foundation
 protocol BalanceHeaderView: AnyObject {
-    func setAmount(with value: Int)
+    func setAmount(with text: String)
     func hideAmount(with flag: Bool, image: String)
 }
 

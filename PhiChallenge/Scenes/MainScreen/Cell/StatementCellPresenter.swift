@@ -10,13 +10,13 @@ import Foundation
 final class StatementCellPresenter {
     //MARK: - Properties
     
-    private let myStatements: Items
+    private let statements: Items
     private weak var view: StatementCellView?
     
     //MARK: - Initialization
     
-    init(myStatements: Items) {
-        self.myStatements = myStatements
+    init(statements: Items) {
+        self.statements = statements
     }
     
     //MARK: - Functions
@@ -24,8 +24,8 @@ final class StatementCellPresenter {
     func attachView(_ view: StatementCellView) {
         self.view = view
         
-        view.setAmount(with: myStatements.amount)
-        view.setDescription(with: myStatements.description)
+        view.setAmount(with: String(format: "R$ %.02i,00", statements.amount))
+        view.setDescription(with: statements.description)
         setReceiver()
         setCreatedAt()
         shouldShowPixFlag()
@@ -33,7 +33,7 @@ final class StatementCellPresenter {
     
     func setCreatedAt() {
         
-        let createdAt = myStatements.createdAt
+        let createdAt = statements.createdAt
         let createdAtFiltered = createdAt.removeCharacters(charactersOf: "TZ")
         let formattedDate = createdAtFiltered.dataFormatter(dateFormat: "yyyy-MM-dd HH:mm:ss",
                                                             dateToBeFormatted: "dd/MM")
@@ -41,9 +41,9 @@ final class StatementCellPresenter {
     }
     
     func setReceiver() {
-        if let receiver = myStatements.from {
+        if let receiver = statements.from {
             view?.setReceiver(with: receiver)
-        } else if let receiver = myStatements.to {
+        } else if let receiver = statements.to {
             view?.setReceiver(with: receiver)
         }
     }
@@ -55,7 +55,7 @@ final class StatementCellPresenter {
 
     func shouldShowPixFlag() {
         
-        let pixFlag = myStatements.tType
+        let pixFlag = statements.tType
         
         switch pixFlag {
         case TransferType.pixIn.rawValue:
