@@ -28,8 +28,6 @@ protocol APIRequestProtocol {
 
 final class APIRequest: APIRequestProtocol {
     
-    private let logger = APILogger()
-    
     func request<T>(
         urlString: String,
         method: HTTPMethod,
@@ -46,12 +44,10 @@ final class APIRequest: APIRequestProtocol {
             parameters: parameters
         )
         
-        logger.logRequest(request)
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { [logger] (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) {  (data, response, error) in
             guard let response = response else { return failure(AppError.generic) }
-            logger.logResponse((data,response,error))
-            if response.isValid, let object:T = try? data?.decode(logger: logger) {
+        
+            if response.isValid, let object:T = try? data?.decode(response: response) {
                 success(object)
             } else {
                 failure(AppError.generic)
@@ -98,12 +94,11 @@ private extension URLResponse {
 }
 
 private extension Data {
-    func decode<T: Decodable>(logger: APILogger) throws -> T {
+    func decode<T: Decodable>(response: URLResponse) throws -> T {
         do {
             let object = try JSONDecoder().decode(T.self, from: self)
             return object
-        } catch let error {
-            logger.logError(error)
+        } catch {
             throw AppError.generic
         }
     }
