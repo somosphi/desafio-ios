@@ -22,7 +22,7 @@ final class StatementCellPresenterTests: XCTestCase {
         XCTAssertEqual(view.setDescriptionPassed, "Transferência Realizada")
     }
     
-    func test_attachView_givenReceiverIsFromReceivedIsNotNil_shouldDelegateSetReceiver() {
+    func test_attachView_givenFromReceiverDataReceivedIsNotNil_shouldDelegateSetReceiver() {
         let sut = StatementCellPresenter(statements: Items.fixture(from: "Laura Sacura"))
         
         sut.attachView(view)
@@ -31,7 +31,7 @@ final class StatementCellPresenterTests: XCTestCase {
         XCTAssertEqual(view.setReceiverPassed, "Laura Sacura")
     }
     
-    func test_attachView_givenReceiverIsFromReceivedIsNil_shouldDelegateSetReceiver() {
+    func test_attachView_givenFromDataReceiverReceivedIsNil_shouldDelegateSetReceiver() {
         let sut = StatementCellPresenter(statements: Items.fixture(from: nil))
         
         sut.attachView(view)
@@ -40,7 +40,7 @@ final class StatementCellPresenterTests: XCTestCase {
         XCTAssertEqual(view.setReceiverPassed, "")
     }
     
-    func test_attachView_givenReceiverIsToReceivedIsNil_shouldDelegateSetReceiver() {
+    func test_attachView_givenToReceiverDataReceivedIsNil_shouldDelegateSetReceiver() {
         let sut = StatementCellPresenter(statements: Items.fixture(to: nil))
         
         sut.attachView(view)

@@ -39,7 +39,6 @@ final class BalanceHeaderPresenterTests: XCTestCase {
         
         sut.shouldHideAmount()
         
-        
         XCTAssertTrue(view.hideAmountCalled)
         XCTAssertEqual(view.hideAmountFlagPassed, false)
         XCTAssertEqual(view.hideAmountImagePassed, "hide-eye")
