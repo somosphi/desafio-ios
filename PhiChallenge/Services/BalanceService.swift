@@ -31,11 +31,10 @@ final class BalanceService: BalanceServiceInput {
         api.request(urlString: urlString,
                     method: .get,
                     parameters: nil) { [weak self] (response: BalanceResponse) in
-            print(response.amount)
             self?.outputBalance?.didUpdateBalanceSuccess(response.amount)
             
         } failure: { [weak self] (error) in
-            self?.outputBalance?.didUpdatBalanceFail(error)
+            self?.outputBalance?.didUpdateBalanceFail(error)
         }
     }
 }

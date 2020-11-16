@@ -90,7 +90,7 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectItemAt(id: indexPath.row)
+        presenter.didSelectItemAt(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
    
@@ -158,7 +158,7 @@ extension MainViewController: MainScreenView {
             self.tableView.reloadData()
         }
     }
-    func didUpdateBalance(of value: Int) {
+    func didUpdateBalance(with value: Int) {
         DispatchQueue.main.async  { [weak self] in 
             let headerPresenter = BalanceHeaderPresenter(balance: value)
             self?.tableHeaderView.attachPresenter(headerPresenter)
@@ -183,7 +183,7 @@ extension MainViewController: UIScrollViewDelegate {
     }
     
     private func loadMoreStatementsFromServer() {
-        presenter.fetchMyStatements()
+        presenter.fetchStatements()
     }
 }
 

@@ -38,8 +38,7 @@ final class DetailsPresenter {
     
     func tryAgain() {
         
-        view?.showLoader()
-        service.fetchStatementID(id: id)
+        fetchStatementID()
     }
     
 }
@@ -92,7 +91,8 @@ extension DetailsPresenter: DetailsServiceOutput {
         view?.hideLoader()
     }
 
-    func didUpdatDetailsFail(_ error: Error) {
+    func didUpdateDetailsFail(_ error: Error) {
+        
         view?.showError(message: error.localizedDescription)
         view?.hideLoader()
     }

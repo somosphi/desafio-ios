@@ -25,9 +25,9 @@ protocol MainScreenView: AnyObject {
     func hideLoader()
     func showError(message: String)
     func reloadTableViewData()
-    func didUpdateBalance(of value: Int)
+    func didUpdateBalance(with value: Int)
 }
 
-protocol StatementRoutering: AnyObject {
+protocol MainRoutering: AnyObject {
     func navigateToDetailsScene(id: String)
 }

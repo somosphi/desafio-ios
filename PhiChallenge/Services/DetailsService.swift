@@ -32,7 +32,7 @@ final class DetailsService: DetailsServiceInput {
                     parameters: nil) { [weak self] (response: Items) in
             self?.outputDetails?.didUpdateDetailsSuccess(response)
         } failure: { [weak self] (error) in
-            self?.outputDetails?.didUpdatDetailsFail(error)
+            self?.outputDetails?.didUpdateDetailsFail(error)
         }
     }
 }
