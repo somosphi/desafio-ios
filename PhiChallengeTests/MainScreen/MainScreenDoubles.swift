@@ -56,21 +56,21 @@ final class MainScreenStatementsServiceSpy: StatementServiceInput {
     var outputStatement: StatementServiceOutput?
     
     private(set) var fetchStatementCalled = false
-    private(set) var fetchStatementPassed: String?
+    private(set) var fetchStatementOffsetPassed: String?
     func fetchStatement(offset: String) {
         fetchStatementCalled = true
-        fetchStatementPassed = offset
+        fetchStatementOffsetPassed = offset
     }
 }
 
 final class MainScreenRouterSpy: MainRoutering {
     
     private(set) var navigateToDetailsSceneCalled = false
-    private(set) var navigateToDetailsScenePassed: String?
+    private(set) var statementIdPassed: String?
     
     func navigateToDetailsScene(id: String) {
         navigateToDetailsSceneCalled = true
-        navigateToDetailsScenePassed = id
+        statementIdPassed = id
         
     }
     
