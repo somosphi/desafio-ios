@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LinkPresentation
 
 final class DetailsViewController: UIViewController {
     //MARK: - Properties
@@ -20,13 +21,13 @@ final class DetailsViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.bounces = true
         scrollView.alwaysBounceVertical = true
-
+        
         return scrollView
     }()
     
     private let contentView: UIView = {
         let view = UIView()
-    
+        
         return view
     }()
     
@@ -123,13 +124,33 @@ final class DetailsViewController: UIViewController {
     }
     
     @objc func shareDidTap() {
-       
-        let viewToshare = contentViewToShare.getImage()
-        let activityViewController = UIActivityViewController(activityItems: [viewToshare], applicationActivities: nil)
+        
+        let activityViewController = UIActivityViewController(activityItems: [self], applicationActivities: nil)
         present(activityViewController, animated: true)
     }
-    
 }
+
+
+//MARK: - UIActivityItemSource Interface Implementation
+extension DetailsViewController: UIActivityItemSource {
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return UIImage()
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+         return contentViewToShare.getImage()
+    }
+    
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = "Phi App"
+        metadata.originalURL = URL(fileURLWithPath: "Comprovante")
+        metadata.imageProvider = NSItemProvider(object: contentViewToShare.getImage())
+        
+        return metadata
+    }
+}
+
 //MARK: - DetailsScreenView Interface Implementation
 
 extension DetailsViewController: DetailsScreenView {
@@ -260,7 +281,7 @@ extension DetailsViewController: ViewConfiguration {
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: shareButton.topAnchor, constant: -30)
         ])
-    
+        
         
     }
     
@@ -275,7 +296,7 @@ extension DetailsViewController: ViewConfiguration {
         contentViewToShare.addSubview(titleLabel)
         contentViewToShare.addSubview(lineView)
         contentViewToShare.addSubview(scrollView)
-   
+        
     }
     
 }
