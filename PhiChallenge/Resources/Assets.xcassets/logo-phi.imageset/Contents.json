@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "logo-phi.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
