@@ -32,7 +32,7 @@ final class MainRouter {
     }
 }
 //MARK: - StatementRoutering Interface Implementation
-extension MainRouter: StatementRoutering {
+extension MainRouter: MainRoutering {
     
     func navigateToDetailsScene(id: String) {
         

@@ -30,7 +30,7 @@ enum ShareButton {
     static let title = "Compartilhar"
 }
 
-enum DetailsViewHeaders {
+enum ReceiptReusableViewTitle {
     static let transferType = "Tipo de Movimentação"
     static let value = "Valor"
     static let receiver = "Recebedor"

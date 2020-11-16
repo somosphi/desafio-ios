@@ -32,7 +32,7 @@ final class StatementService: StatementServiceInput {
                     parameters: nil) { [weak self] (response: StatementResponse) in
             self?.outputStatement?.didUpdateStatementSuccess(response.items)
         } failure: { [weak self] (error) in
-            self?.outputStatement?.didUpdatStatementFail(error)
+            self?.outputStatement?.didUpdateStatementFail(error)
         }
     }
 }

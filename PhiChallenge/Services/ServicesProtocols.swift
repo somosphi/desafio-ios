@@ -15,7 +15,7 @@ protocol BalanceServiceInput: AnyObject {
 
 protocol BalanceServiceOutput: AnyObject {
     func didUpdateBalanceSuccess(_ response: Int)
-    func didUpdatBalanceFail(_ error: Error)
+    func didUpdateBalanceFail(_ error: Error)
 }
 
 //MARK: - MyStatement API Request Protocols
@@ -26,7 +26,7 @@ protocol StatementServiceInput: AnyObject {
 
 protocol StatementServiceOutput: AnyObject {
     func didUpdateStatementSuccess(_ response: [Items])
-    func didUpdatStatementFail(_ error: Error)
+    func didUpdateStatementFail(_ error: Error)
 }
 
 
@@ -38,7 +38,7 @@ protocol DetailsServiceInput: AnyObject {
 
 protocol DetailsServiceOutput: AnyObject {
     func didUpdateDetailsSuccess(_ response: Items)
-    func didUpdatDetailsFail(_ error: Error)
+    func didUpdateDetailsFail(_ error: Error)
 }
 
 

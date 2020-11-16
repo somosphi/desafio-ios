@@ -91,8 +91,6 @@ final class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        
         setupViewConfiguration()
         setup()
         actions()
@@ -106,6 +104,7 @@ final class DetailsViewController: UIViewController {
     //MARK: - Functions
     
     private func setup() {
+        view.backgroundColor = .white
         setupNavigationBar()
     }
     
@@ -152,35 +151,35 @@ extension DetailsViewController: DetailsScreenView {
     
     func setAmount(with text: String) {
         DispatchQueue.main.async  { [weak self] in
-            self?.amountView = ReceiptReusableView(title: DetailsViewHeaders.value, text: text, font: Fonts.KohinoorBanglaRegular)
+            self?.amountView = ReceiptReusableView(title: ReceiptReusableViewTitle.value, text: text, font: Fonts.KohinoorBanglaRegular)
             self?.stackView.addArrangedSubview(self?.amountView ?? UIView())
         }
     }
     
     func setReceiver(with text: String) {
         DispatchQueue.main.async  { [weak self] in
-            self?.receiverView = ReceiptReusableView(title: DetailsViewHeaders.receiver, text: text)
+            self?.receiverView = ReceiptReusableView(title: ReceiptReusableViewTitle.receiver, text: text)
             self?.stackView.addArrangedSubview(self?.receiverView ?? UIView())
         }
     }
     
     func setDescription(with text: String) {
         DispatchQueue.main.async  { [weak self] in
-            self?.transferTypeView = ReceiptReusableView(title: DetailsViewHeaders.transferType, text: text)
+            self?.transferTypeView = ReceiptReusableView(title: ReceiptReusableViewTitle.transferType, text: text)
             self?.stackView.addArrangedSubview(self?.transferTypeView ?? UIView())
         }
     }
     
     func setAuthentication(with text: String) {
         DispatchQueue.main.async  { [weak self] in
-            self?.authenticationView = ReceiptReusableView(title: DetailsViewHeaders.authentication, text: text)
+            self?.authenticationView = ReceiptReusableView(title: ReceiptReusableViewTitle.authentication, text: text)
             self?.stackView.addArrangedSubview(self?.authenticationView ?? UIView())
         }
     }
     
     func setCreatedAt(with text: String) {
         DispatchQueue.main.async  { [weak self] in
-            self?.createdAtView = ReceiptReusableView(title: DetailsViewHeaders.dateHour, text: text)
+            self?.createdAtView = ReceiptReusableView(title: ReceiptReusableViewTitle.dateHour, text: text)
             self?.stackView.addArrangedSubview(self?.createdAtView ?? UIView())
         }
     }
@@ -188,7 +187,7 @@ extension DetailsViewController: DetailsScreenView {
     func setBankName(with text: String) {
         if text != "" {
             DispatchQueue.main.async  { [weak self] in
-                self?.bankNameView = ReceiptReusableView(title: DetailsViewHeaders.bankName, text: text)
+                self?.bankNameView = ReceiptReusableView(title: ReceiptReusableViewTitle.bankName, text: text)
                 self?.stackView.addArrangedSubview(self?.bankNameView ?? UIView())
             }
         }

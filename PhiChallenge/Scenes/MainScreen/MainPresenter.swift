@@ -14,7 +14,7 @@ final class MainPresenter {
     
     private let balanceService: BalanceServiceInput
     private let statementService: StatementServiceInput
-    private let router: StatementRoutering
+    private let router: MainRoutering
     
     private var balance: Int = 0
     var statements: [Items] = []
@@ -24,7 +24,7 @@ final class MainPresenter {
     
     //MARK: - Initialization
     
-    init(router: StatementRoutering, balanceService: BalanceServiceInput, statementService: StatementServiceInput) {
+    init(router: MainRoutering, balanceService: BalanceServiceInput, statementService: StatementServiceInput) {
         self.router = router
         self.balanceService = balanceService
         self.statementService = statementService
@@ -37,26 +37,18 @@ final class MainPresenter {
     
     func viewDidload() {
         
-        fetchMyBalance()
-        fetchMyStatements()
+        fetchBalance()
+        fetchStatements()
     }
     
-    func fetchMyBalance() {
-        
-        guard !isFetchingBalance else {
-            return
-        }
+    func fetchBalance() {
         
         isFetchingBalance = true
         balanceService.fetchBalance()
     }
     
-    func fetchMyStatements() {
-        
-        guard !isFetchingStatements else {
-            return
-        }
-        
+    func fetchStatements() {
+    
         view?.showLoader()
         
         isFetchingStatements = true
@@ -70,14 +62,13 @@ final class MainPresenter {
         offset = 0
         statements = []
         view?.reloadTableViewData()
-        fetchMyBalance()
-        fetchMyStatements()
-        view?.reloadTableViewData()
-        view?.hideLoader()
+        fetchBalance()
+        fetchStatements()
     }
     
-    func didSelectItemAt(id: Int) {
-        let statementId = statements[id].id
+    func didSelectItemAt(index: Int) {
+        
+        let statementId = statements[index].id
         
         router.navigateToDetailsScene(id: statementId)
         
@@ -92,14 +83,15 @@ extension MainPresenter: BalanceServiceOutput {
         balance = response
         
         isFetchingBalance = false
-        view?.didUpdateBalance(of: balance)
+        view?.didUpdateBalance(with: balance)
     }
     
-    func didUpdatBalanceFail(_ error: Error) {
-        
-        view?.showError(message: error.localizedDescription)
+    func didUpdateBalanceFail(_ error: Error) {
         
         isFetchingBalance = false
+        view?.showError(message: error.localizedDescription)
+        
+        
     }
 }
 
@@ -112,12 +104,15 @@ extension MainPresenter: StatementServiceOutput {
         }
         
         isFetchingStatements = false
-        view?.reloadTableViewData()
         view?.hideLoader()
+        view?.reloadTableViewData()
+        
     }
     
-    func didUpdatStatementFail(_ error: Error) {
+    func didUpdateStatementFail(_ error: Error) {
+        
         isFetchingStatements = false
+        view?.hideLoader()
         view?.showError(message: error.localizedDescription)
     }
 }

@@ -41,6 +41,7 @@ final class StatementCellPresenter {
     }
     
     func setReceiver() {
+        
         if let receiver = statements.from {
             view?.setReceiver(with: receiver)
         } else if let receiver = statements.to {
@@ -49,19 +50,19 @@ final class StatementCellPresenter {
     }
     
     private enum TransferType: String {
-    case pixIn = "PIXCASHIN"
-    case pixOut = "PIXCASHOUT"
+        case pixIn = "PIXCASHIN"
+        case pixOut = "PIXCASHOUT"
     }
-
+    
     func shouldShowPixFlag() {
         
         let pixFlag = statements.tType
         
         switch pixFlag {
         case TransferType.pixIn.rawValue:
-             view?.showPixFlag(with: true)
+            view?.showPixFlag(with: true)
         case TransferType.pixOut.rawValue:
-             view?.showPixFlag(with: true)
+            view?.showPixFlag(with: true)
         default:
             view?.showPixFlag(with: false)
         }

@@ -35,7 +35,7 @@ final class BalanceService: BalanceServiceInput {
             self?.outputBalance?.didUpdateBalanceSuccess(response.amount)
             
         } failure: { [weak self] (error) in
-            self?.outputBalance?.didUpdatBalanceFail(error)
+            self?.outputBalance?.didUpdateBalanceFail(error)
         }
     }
 }
