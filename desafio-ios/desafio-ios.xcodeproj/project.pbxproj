@@ -10,6 +10,7 @@
 		2EBB8C281AFD832C1411AECE /* libPods-desafio-iosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2922E1D11A6ED544949232AB /* libPods-desafio-iosUITests.a */; };
 		86D0533B19D0D5EC31F611BC /* libPods-desafio-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9A3733DDE5A58EAF47394A /* libPods-desafio-iosTests.a */; };
 		AC84D545257E4EE800DA8CC7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84D544257E4EE800DA8CC7 /* MainCoordinator.swift */; };
+		AC84D54F257E533800DA8CC7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC84D54E257E533800DA8CC7 /* Colors.xcassets */; };
 		ACBFE914257C260E00D7CA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBFE913257C260E00D7CA99 /* AppDelegate.swift */; };
 		ACBFE916257C260E00D7CA99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBFE915257C260E00D7CA99 /* SceneDelegate.swift */; };
 		ACBFE918257C260E00D7CA99 /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBFE917257C260E00D7CA99 /* StatementViewController.swift */; };
@@ -49,6 +50,7 @@
 		4F3384C635C13111685B67AF /* Pods-desafio-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.release.xcconfig"; path = "Target Support Files/Pods-desafio-ios/Pods-desafio-ios.release.xcconfig"; sourceTree = "<group>"; };
 		6E9A3733DDE5A58EAF47394A /* libPods-desafio-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-desafio-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC84D544257E4EE800DA8CC7 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AC84D54E257E533800DA8CC7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		ACBFE910257C260E00D7CA99 /* desafio-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBFE913257C260E00D7CA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACBFE915257C260E00D7CA99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				ACBFE913257C260E00D7CA99 /* AppDelegate.swift */,
 				ACBFE915257C260E00D7CA99 /* SceneDelegate.swift */,
+				AC84D54E257E533800DA8CC7 /* Colors.xcassets */,
 				ACBFE91F257C261200D7CA99 /* Assets.xcassets */,
 				ACBFE921257C261200D7CA99 /* LaunchScreen.storyboard */,
 				ACBFE924257C261200D7CA99 /* Info.plist */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBFE923257C261200D7CA99 /* LaunchScreen.storyboard in Resources */,
+				AC84D54F257E533800DA8CC7 /* Colors.xcassets in Resources */,
 				ACBFE920257C261200D7CA99 /* Assets.xcassets in Resources */,
 				ACBFE91B257C260E00D7CA99 /* StatementView.storyboard in Resources */,
 			);
