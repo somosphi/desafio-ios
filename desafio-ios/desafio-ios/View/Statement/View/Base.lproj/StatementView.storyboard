@@ -35,6 +35,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHx-xh-MXL">
                                         <rect key="frame" x="95" y="15" width="27" height="22"/>
                                         <state key="normal" image="eye.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="toggleExtractView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5a6-to-Egm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="LightGray"/>
@@ -150,6 +153,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Fm-Pi-Dpz" secondAttribute="trailing" id="xxQ-2f-UBs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="extractLabel" destination="Wgd-3S-3Z8" id="Flk-N3-ETF"/>
+                        <outlet property="showExtractButton" destination="cHx-xh-MXL" id="EED-re-i24"/>
+                        <outlet property="transferStatementTableView" destination="9ux-R4-cMz" id="lSa-R0-0Tr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
