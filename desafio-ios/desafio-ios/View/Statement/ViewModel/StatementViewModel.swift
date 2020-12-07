@@ -9,5 +9,11 @@ import Foundation
 import RxSwift
 
 final class StatementViewModel{
+    
+    let service = NetworkService()
 
+    init() {
+        service.fetchCurrentAmmount()
+        service.fetchMyStatement(offset: 0)
+    }
 }
