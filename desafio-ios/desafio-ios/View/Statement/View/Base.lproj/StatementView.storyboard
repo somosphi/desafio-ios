@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="154" width="414" height="708"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="H6k-dW-phz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="H6k-dW-phz" customClass="StatementTableViewCell" customModule="desafio_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6k-dW-phz" id="xSa-v9-1lj">
@@ -126,6 +126,13 @@
                                                 <constraint firstItem="zNl-Uv-a76" firstAttribute="top" secondItem="xSa-v9-1lj" secondAttribute="top" constant="30" id="vn2-eb-Laj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="zNl-Uv-a76" id="emd-AT-aMy"/>
+                                            <outlet property="pixLabel" destination="DOg-Jq-fJ4" id="Ul3-70-FqW"/>
+                                            <outlet property="subjectLabel" destination="Jjo-2r-DOS" id="EZa-xK-vw4"/>
+                                            <outlet property="transferenceTypeLabel" destination="fR0-Ss-O0b" id="tzN-V5-MuR"/>
+                                            <outlet property="valueLabel" destination="BDI-Sv-xuP" id="76t-qF-rtd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
