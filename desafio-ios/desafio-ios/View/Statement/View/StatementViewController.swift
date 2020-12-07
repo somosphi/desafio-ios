@@ -10,9 +10,15 @@ import RxSwift
 
 class StatementViewController: UIViewController {
     
+    @IBOutlet weak var showExtractButton: UIButton!
+    @IBOutlet weak var extractLabel: UILabel!
+    
+    @IBOutlet weak var transferStatementTableView: UITableView!
+    
     let disposeBag = DisposeBag()
     private var viewModel: StatementViewModel!
     var coordinator: MainCoordinator?
+    var showExtract: Bool = false
 
     static func instantiate(with viewModel: StatementViewModel) -> StatementViewController {
         let storyboard = UIStoryboard(name: "StatementView", bundle: .main)
@@ -25,6 +31,10 @@ class StatementViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func toggleExtractView(_ sender: Any) {
+    }
+    
 
 
 }
