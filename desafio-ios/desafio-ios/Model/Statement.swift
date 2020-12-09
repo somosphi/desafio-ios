@@ -13,6 +13,7 @@ struct Statement: Decodable {
     var description: String
     var amount: Int
     var id: String
+    var authentication: String?
 }
 
 struct StatementList: Decodable {

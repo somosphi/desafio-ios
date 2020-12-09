@@ -64,7 +64,7 @@ class NetworkService {
                 guard let data = data else { return }
                 do {
                     print(data)
-                    let statement = try JSONDecoder().decode(StatementList.self, from: data)
+                    let statement = try JSONDecoder().decode(Statement.self, from: data)
                     print(statement)
                 }
                 catch {
