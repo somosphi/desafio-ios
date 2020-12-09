@@ -11,7 +11,7 @@ import RxSwift
 final class StatementViewModel{
     
     let service: NetworkService
-
+    
     init(service: NetworkService = NetworkService()) {
         self.service = service
         //service.fetchCurrentAmmount()
@@ -25,8 +25,17 @@ final class StatementViewModel{
         }
     }
     
-    func fetchStatement(offset: Int) -> Observable<StatementList> {
-        service.fetchMyStatement(offset: offset)
+    func fetchStatement(offset: Int) -> Observable<[Statement]> {
+        service.fetchMyStatement(offset: offset).map{
+            $0.items
+        }
+    }
+    
+    func setTableRowHeight() -> Observable<CGFloat> {
+        return Observable.create { observer -> Disposable in
+            observer.onNext(80.0)
+            return Disposables.create()
+        }
     }
     
     
