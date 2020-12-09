@@ -98,7 +98,7 @@ class StatementViewController: UIViewController {
             }
             .bind(to: transferStatementTableView.rx.items){ [self] (tableView, row, item) -> UITableViewCell in
                 let cell = transferStatementTableView.dequeueReusableCell(withIdentifier: "StatementCell") as! StatementTableViewCell
-                cell.setData(transferenceType: item.tType, subject: item.to, value: String(item.amount), date: item.createdAt)
+                cell.setData(transferenceType: item.transferenceType, subject: ((item.to ?? item.from) ?? item.bankName) ?? "Sem informação", value: item.amountString, date: item.createdAt)
                 cell.alpha = 0
                 UIView.animate(withDuration: 0.5) {
                     cell.alpha = 1

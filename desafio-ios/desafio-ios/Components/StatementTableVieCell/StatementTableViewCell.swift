@@ -33,7 +33,7 @@ class StatementTableViewCell: UITableViewCell {
     }
     
     func setData(transferenceType: String, subject: String, value: String, date: String){
-        if transferenceType.contains("PIX"){
+        if transferenceType.contains("Pix"){
             self.backgroundColor = UIColor(named: "LightGray")
             pixLabel.isHidden = false
         }

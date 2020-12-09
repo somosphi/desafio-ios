@@ -42,7 +42,7 @@ class NetworkService {
     
     func fetchMyStatement(offset: Int) -> Observable<StatementList>{
         return Observable.create { [self] observer -> Disposable in
-        var request = URLRequest(url: URL(string: baseURL+"/myStatement/10/\(offset)")!)
+        var request = URLRequest(url: URL(string: baseURL+"/myStatement/100/\(offset)")!)
         request.setValue(token, forHTTPHeaderField: "token")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if response != nil {
