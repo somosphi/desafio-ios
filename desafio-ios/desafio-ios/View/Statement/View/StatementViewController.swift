@@ -29,7 +29,12 @@ class StatementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewModel.fetchAmmount().observe(on: MainScheduler.instance).subscribe(onNext: { result in
+            print("amount: \(result)")
+        }).disposed(by: disposeBag)
+        viewModel.fetchStatement(offset: 0).observe(on: MainScheduler.instance).subscribe(onNext: {result in
+            print(result)
+        }).disposed(by: disposeBag)
     }
     
     @IBAction func toggleExtractView(_ sender: Any) {

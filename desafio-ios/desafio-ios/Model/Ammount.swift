@@ -8,5 +8,5 @@
 import Foundation
 
 struct Amount: Decodable {
-    let amount: Int
+    let amount: Double
 }
