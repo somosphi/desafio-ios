@@ -36,6 +36,9 @@ class StatementTableViewCell: UITableViewCell {
         if transferenceType.contains("Pix"){
             self.backgroundColor = UIColor(named: "LightGray")
             pixLabel.isHidden = false
+        } else {
+            self.backgroundColor = UIColor(named: "BackgroundColor")
+            pixLabel.isHidden = true
         }
         transferenceTypeLabel.text = transferenceType
         subjectLabel.text = subject
