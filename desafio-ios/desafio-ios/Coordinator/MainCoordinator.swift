@@ -16,6 +16,8 @@ class MainCoordinator {
     init (window: UIWindow, navigationController: UINavigationController = UINavigationController()) {
         self.window = window
         self.navigationController = navigationController
+        self.navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController.navigationBar.shadowImage = UIImage()
     }
     func start() {
         let viewController = StatementViewController.instantiate(with: StatementViewModel())

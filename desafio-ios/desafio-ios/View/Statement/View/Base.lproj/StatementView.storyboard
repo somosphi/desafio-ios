@@ -39,23 +39,42 @@
                                             <action selector="toggleExtractView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5a6-to-Egm"/>
                                         </connections>
                                     </button>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thl-MG-QvT">
+                                        <rect key="frame" x="15" y="69" width="240" height="10"/>
+                                        <color key="backgroundColor" name="CustomTeal"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="KjL-Ze-tDG"/>
+                                            <constraint firstAttribute="width" constant="240" id="dI7-ys-VIw"/>
+                                        </constraints>
+                                    </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Hmt-zP-GIV">
+                                        <rect key="frame" x="96" y="64" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="LTu-Fo-FGx"/>
+                                            <constraint firstAttribute="height" constant="20" id="bXb-81-8ag"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" name="LightGray"/>
                                 <constraints>
+                                    <constraint firstItem="Hmt-zP-GIV" firstAttribute="top" secondItem="cHx-xh-MXL" secondAttribute="bottom" constant="27" id="5qm-hf-voS"/>
                                     <constraint firstItem="cHx-xh-MXL" firstAttribute="leading" secondItem="lcY-Lm-g0q" secondAttribute="trailing" constant="5" id="BAB-93-iRi"/>
+                                    <constraint firstItem="thl-MG-QvT" firstAttribute="top" secondItem="cHx-xh-MXL" secondAttribute="bottom" constant="32" id="Ebr-wy-6XM"/>
                                     <constraint firstItem="lcY-Lm-g0q" firstAttribute="top" secondItem="4Fm-Pi-Dpz" secondAttribute="top" constant="15" id="SuS-0I-qjV"/>
+                                    <constraint firstItem="thl-MG-QvT" firstAttribute="leading" secondItem="4Fm-Pi-Dpz" secondAttribute="leading" constant="15" id="XCn-e0-KfJ"/>
                                     <constraint firstItem="Wgd-3S-3Z8" firstAttribute="top" secondItem="lcY-Lm-g0q" secondAttribute="bottom" constant="20" id="bp7-4F-yzi"/>
                                     <constraint firstAttribute="height" constant="110" id="l5b-UX-Bie"/>
                                     <constraint firstItem="Wgd-3S-3Z8" firstAttribute="leading" secondItem="4Fm-Pi-Dpz" secondAttribute="leading" constant="15" id="ozB-6K-3pJ"/>
+                                    <constraint firstItem="Hmt-zP-GIV" firstAttribute="leading" secondItem="4Fm-Pi-Dpz" secondAttribute="leading" constant="96" id="uZZ-45-QlS"/>
                                     <constraint firstItem="cHx-xh-MXL" firstAttribute="top" secondItem="4Fm-Pi-Dpz" secondAttribute="top" constant="15" id="xAZ-N3-Qlr"/>
                                     <constraint firstItem="lcY-Lm-g0q" firstAttribute="leading" secondItem="4Fm-Pi-Dpz" secondAttribute="leading" constant="15" id="xdd-8W-xMj"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ux-R4-cMz">
-                                <rect key="frame" x="0.0" y="154" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="154" width="414" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="H6k-dW-phz" customClass="StatementTableViewCell" customModule="desafio_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatementCell" rowHeight="80" id="H6k-dW-phz" customClass="StatementTableViewCell" customModule="desafio_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6k-dW-phz" id="xSa-v9-1lj">
@@ -145,7 +164,7 @@
                         <color key="tintColor" name="CustomTeal"/>
                         <constraints>
                             <constraint firstItem="4Fm-Pi-Dpz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="45z-3H-hyA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ux-R4-cMz" secondAttribute="bottom" id="TYP-du-Aq4"/>
+                            <constraint firstAttribute="bottom" secondItem="9ux-R4-cMz" secondAttribute="bottom" id="TYP-du-Aq4"/>
                             <constraint firstItem="4Fm-Pi-Dpz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bWh-aX-HS4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ux-R4-cMz" secondAttribute="trailing" id="dIJ-cM-6EU"/>
                             <constraint firstItem="9ux-R4-cMz" firstAttribute="top" secondItem="4Fm-Pi-Dpz" secondAttribute="bottom" id="nYe-zN-fyI"/>
@@ -155,6 +174,8 @@
                     </view>
                     <connections>
                         <outlet property="extractLabel" destination="Wgd-3S-3Z8" id="Flk-N3-ETF"/>
+                        <outlet property="extractSpinner" destination="Hmt-zP-GIV" id="bbJ-cx-SG0"/>
+                        <outlet property="hideExtractView" destination="thl-MG-QvT" id="Tqh-EY-NXB"/>
                         <outlet property="showExtractButton" destination="cHx-xh-MXL" id="EED-re-i24"/>
                         <outlet property="transferStatementTableView" destination="9ux-R4-cMz" id="lSa-R0-0Tr"/>
                     </connections>
@@ -168,19 +189,19 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
         <namedColor name="BackgroundColor">
-            <color red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomGray">
-            <color red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.50999999046325684" green="0.50999999046325684" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CustomTeal">
-            <color red="0.0" green="0.75686274509803919" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.75700002908706665" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ElementsColor">
-            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.125" green="0.125" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightGray">
-            <color red="0.97256201509999995" green="0.972525537" blue="0.9725503325" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

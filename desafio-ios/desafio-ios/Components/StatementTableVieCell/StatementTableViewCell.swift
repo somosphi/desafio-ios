@@ -19,7 +19,6 @@ class StatementTableViewCell: UITableViewCell {
     
     @IBOutlet weak var pixLabel: UILabel!
     
-    let pixTransference: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,10 +32,13 @@ class StatementTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(transferenceType: String, subject: String, value: String, date: String, isPixTransfer: Bool = false){
-        if isPixTransfer {
+    func setData(transferenceType: String, subject: String, value: String, date: String){
+        if transferenceType.contains("Pix"){
             self.backgroundColor = UIColor(named: "LightGray")
             pixLabel.isHidden = false
+        } else {
+            self.backgroundColor = UIColor(named: "BackgroundColor")
+            pixLabel.isHidden = true
         }
         transferenceTypeLabel.text = transferenceType
         subjectLabel.text = subject
