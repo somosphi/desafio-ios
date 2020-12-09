@@ -26,4 +26,10 @@ class MainCoordinator {
         window.makeKeyAndVisible()
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func goToDetail(){
+        let detailViewModel = DetailViewModel()
+        let destinationViewController = DetailViewController.instantiate(with: detailViewModel)
+        self.navigationController.pushViewController(destinationViewController, animated: true)
+    }
 }

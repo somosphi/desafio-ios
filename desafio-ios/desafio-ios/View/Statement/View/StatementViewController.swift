@@ -107,6 +107,12 @@ class StatementViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        transferStatementTableView.rx
+            .modelSelected(Statement.self)
+            .subscribe(onNext: { [self] value in
+                coordinator?.goToDetail()
+            }).disposed(by: disposeBag)
+        
         transferStatementTableView.rx.contentOffset.subscribe{
             guard let offset = $0.element?.y else { return }
             if offset > 106{
