@@ -52,6 +52,7 @@ class StatementViewController: UIViewController {
     
     private func setupNavBar() {
         navigationItem.title = "Extrato"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func setupExtract(){
@@ -110,7 +111,7 @@ class StatementViewController: UIViewController {
         transferStatementTableView.rx
             .modelSelected(Statement.self)
             .subscribe(onNext: { [self] value in
-                coordinator?.goToDetail()
+                coordinator?.goToDetail(with: value.id)
             }).disposed(by: disposeBag)
         
         transferStatementTableView.rx.contentOffset.subscribe{

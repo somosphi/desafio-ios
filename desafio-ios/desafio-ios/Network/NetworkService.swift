@@ -42,51 +42,57 @@ class NetworkService {
     
     func fetchMyStatement(offset: Int) -> Observable<StatementList>{
         return Observable.create { [self] observer -> Disposable in
-        var request = URLRequest(url: URL(string: baseURL+"/myStatement/100/\(offset)")!)
-        request.setValue(token, forHTTPHeaderField: "token")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if response != nil {
-                guard let data = data else { return }
-                do {
-                    print(data)
-                    let statement = try JSONDecoder().decode(StatementList.self, from: data)
-                    observer.onNext(statement)
+            var request = URLRequest(url: URL(string: baseURL+"/myStatement/100/\(offset)")!)
+            request.setValue(token, forHTTPHeaderField: "token")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if response != nil {
+                    guard let data = data else { return }
+                    do {
+                        print(data)
+                        let statement = try JSONDecoder().decode(StatementList.self, from: data)
+                        observer.onNext(statement)
+                    }
+                    catch {
+                        observer.onError(error)
+                    }
+                    
+                } else {
+                    return
                 }
-                catch {
-                    observer.onError(error)
-                }
-                
-            } else {
-                return
             }
-        }
-        
-        task.resume()
+            
+            task.resume()
             return Disposables.create {
                 task.cancel()
             }
         }
     }
-    func fetchTransferDetails(id: String){
-        var request = URLRequest(url: URL(string: baseURL+"/myStatement/detail/"+id)!)
-        request.setValue(token, forHTTPHeaderField: "token")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if response != nil {
-                guard let data = data else { return }
-                do {
-                    print(data)
-                    let statement = try JSONDecoder().decode(Statement.self, from: data)
-                    print(statement)
+    func fetchTransferDetails(id: String) -> Observable<Statement>{
+        return Observable.create { [self] observer -> Disposable in
+            var request = URLRequest(url: URL(string: baseURL+"/myStatement/detail/"+id)!)
+            request.setValue(token, forHTTPHeaderField: "token")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if response != nil {
+                    guard let data = data else { return }
+                    do {
+                        print(data)
+                        let statement = try JSONDecoder().decode(Statement.self, from: data)
+                        observer.onNext(statement)
+                    }
+                    catch {
+                        observer.onError(error)
+                    }
+                    
+                } else {
+                    return
                 }
-                catch {
-                    print(error)
-                }
-                
-            } else {
-                return
+            }
+            
+            task.resume()
+            
+            return Disposables.create{
+                task.cancel()
             }
         }
-        
-        task.resume()
     }
 }

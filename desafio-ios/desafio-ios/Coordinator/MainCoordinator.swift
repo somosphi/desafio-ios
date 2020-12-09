@@ -18,6 +18,10 @@ class MainCoordinator {
         self.navigationController = navigationController
         self.navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController.navigationBar.shadowImage = UIImage()
+        let color = UIColor(named: "ElementsColor")
+        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: color as Any]
+        navigationController.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: color as Any]
+        navigationController.navigationBar.tintColor = color
     }
     func start() {
         let viewController = StatementViewController.instantiate(with: StatementViewModel())
@@ -27,8 +31,9 @@ class MainCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func goToDetail(){
-        let detailViewModel = DetailViewModel()
+    func goToDetail(with id: String){
+        print(id)
+        let detailViewModel = DetailViewModel(id: id)
         let destinationViewController = DetailViewController.instantiate(with: detailViewModel)
         self.navigationController.pushViewController(destinationViewController, animated: true)
     }

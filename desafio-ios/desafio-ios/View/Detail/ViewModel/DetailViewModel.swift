@@ -6,7 +6,21 @@
 //
 
 import Foundation
+import RxSwift
 
 class DetailViewModel{
     
+    let service = NetworkService()
+    let id: String
+    
+    init(id: String) {
+        self.id = id
+    }
+    
+    func retrieveAuth() -> Observable<Statement> {
+        service.fetchTransferDetails(id: id).map{
+            $0
+        }
+        
+    }
 }
