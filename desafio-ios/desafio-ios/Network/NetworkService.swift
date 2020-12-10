@@ -48,7 +48,6 @@ class NetworkService {
                 if response != nil {
                     guard let data = data else { return }
                     do {
-                        print(data)
                         let statement = try JSONDecoder().decode(StatementList.self, from: data)
                         observer.onNext(statement)
                     }
@@ -75,7 +74,6 @@ class NetworkService {
                 if response != nil {
                     guard let data = data else { return }
                     do {
-                        print(data)
                         let statement = try JSONDecoder().decode(Statement.self, from: data)
                         observer.onNext(statement)
                     }

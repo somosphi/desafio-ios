@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var printView: UIView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     
     let disposeBag = DisposeBag()
     var name: String = ""
@@ -42,19 +44,19 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
         viewModel.retrieveAuth().observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] element in
+            self?.spinner.stopAnimating()
             self?.transferTypeLabel.text = element.transferenceType
             self?.payerReceiverLabel.text = ((element.to ?? element.from) ?? element.bankName) ?? "Sem infornação"
             self?.amountLabel.text = element.amountString
             self?.dateLabel.text = element.createdAt
             self?.authLabel.text = element.authentication
+            UIView.animate(withDuration: 0.5){
+                self?.printView.alpha = 1
+                self?.shareButton.alpha = 1
+            }
         })
         .disposed(by: disposeBag)
-    }
-    
-    private func setupNavBar(){
-        
     }
     
     func takeScreenshot(of view: UIView) {

@@ -158,6 +158,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="krP-Sz-N32">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -167,7 +170,9 @@
                             <constraint firstAttribute="bottom" secondItem="9ux-R4-cMz" secondAttribute="bottom" id="TYP-du-Aq4"/>
                             <constraint firstItem="4Fm-Pi-Dpz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bWh-aX-HS4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ux-R4-cMz" secondAttribute="trailing" id="dIJ-cM-6EU"/>
+                            <constraint firstItem="krP-Sz-N32" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gQc-UY-H06"/>
                             <constraint firstItem="9ux-R4-cMz" firstAttribute="top" secondItem="4Fm-Pi-Dpz" secondAttribute="bottom" id="nYe-zN-fyI"/>
+                            <constraint firstItem="krP-Sz-N32" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r4c-BU-x9z"/>
                             <constraint firstItem="9ux-R4-cMz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uaF-Ls-0Ck"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Fm-Pi-Dpz" secondAttribute="trailing" id="xxQ-2f-UBs"/>
                         </constraints>
@@ -177,6 +182,7 @@
                         <outlet property="extractSpinner" destination="Hmt-zP-GIV" id="bbJ-cx-SG0"/>
                         <outlet property="hideExtractView" destination="thl-MG-QvT" id="Tqh-EY-NXB"/>
                         <outlet property="showExtractButton" destination="cHx-xh-MXL" id="EED-re-i24"/>
+                        <outlet property="tableViewSpinner" destination="krP-Sz-N32" id="fIb-Ix-gZq"/>
                         <outlet property="transferStatementTableView" destination="9ux-R4-cMz" id="lSa-R0-0Tr"/>
                     </connections>
                 </viewController>
