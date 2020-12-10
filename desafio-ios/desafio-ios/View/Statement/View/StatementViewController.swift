@@ -25,6 +25,8 @@ class StatementViewController: UIViewController {
     @IBOutlet weak var hideExtractView: UIView!
     @IBOutlet weak var extractSpinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var tableViewSpinner: UIActivityIndicatorView!
+    
     let disposeBag = DisposeBag()
     private var viewModel: StatementViewModel!
     var coordinator: MainCoordinator?
@@ -42,19 +44,17 @@ class StatementViewController: UIViewController {
         setupNavBar()
         setupExtract()
         setupTableView()
-        viewModel.fetchAmmount().observe(on: MainScheduler.instance).subscribe(onNext: { result in
-            print("amount: \(result)")
-        }).disposed(by: disposeBag)
-        //        viewModel.fetchStatement(offset: 0).observe(on: MainScheduler.instance).subscribe(onNext: {result in
-        //            print(result)
-        //        }).disposed(by: disposeBag)
     }
     
     private func setupNavBar() {
         navigationItem.title = "Extrato"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func setupExtract(){
+        if let previousShowExtractStatus = UserDefaults.standard.value(forKey: "showExtract") as? Bool {
+            showExtract = previousShowExtractStatus
+        }
         setExtractButtonImage(for: showExtract)
         if showExtract {
             loadAmount()
@@ -69,6 +69,10 @@ class StatementViewController: UIViewController {
         extractLabel.alpha = 0
         extractSpinner.startAnimating()
         viewModel.fetchAmmount().observe(on: MainScheduler.instance)
+            .catch({ error -> Observable<String> in
+                print(error)
+                return .just("Um erro ocorreu, tente novamente mais tarde")
+            })
             .bind(onNext: { [self] result in
                 extractLabel.text = result
                 extractSpinner.stopAnimating()
@@ -97,6 +101,7 @@ class StatementViewController: UIViewController {
                 return .just([])
             }
             .bind(to: transferStatementTableView.rx.items){ [self] (tableView, row, item) -> UITableViewCell in
+                self.tableViewSpinner.stopAnimating()
                 let cell = transferStatementTableView.dequeueReusableCell(withIdentifier: "StatementCell") as! StatementTableViewCell
                 cell.setData(transferenceType: item.transferenceType, subject: ((item.to ?? item.from) ?? item.bankName) ?? "Sem informação", value: item.amountString, date: item.createdAt)
                 cell.alpha = 0
@@ -106,6 +111,12 @@ class StatementViewController: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+        
+        transferStatementTableView.rx
+            .modelSelected(Statement.self)
+            .subscribe(onNext: { [self] value in
+                coordinator?.goToDetail(with: value.id)
+            }).disposed(by: disposeBag)
         
         transferStatementTableView.rx.contentOffset.subscribe{
             guard let offset = $0.element?.y else { return }
@@ -138,10 +149,8 @@ class StatementViewController: UIViewController {
                 self.extractLabel.alpha = 0
             }
         }
+        UserDefaults.standard.setValue(showExtract, forKey: "showExtract")
         
     }
-    
-    
-    
 }
 
