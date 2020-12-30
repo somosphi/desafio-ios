@@ -8,8 +8,11 @@
 import Foundation
 
 protocol NetworkWorkerProtocol {
-    func performGenericRequest<T: Decodable>(endPoint: Endpoint, completion: @escaping(Result<T, CustomError>) -> Void)
-    func performGenericRequest<T: Decodable>(endPoint: Endpoint, parameters: [String: Any]?, completion: @escaping (Result<T, CustomError>) -> Void)
+    func performGenericRequest<T: Decodable>(endPoint: Endpoint,
+                                             completion: @escaping(Result<T, CustomError>) -> Void)
+    func performGenericRequest<T: Decodable>(endPoint: Endpoint,
+                                             parameters: [String: Any]?,
+                                             completion: @escaping (Result<T, CustomError>) -> Void)
 }
 
 class NetworkWorker: NetworkWorkerProtocol {
@@ -26,11 +29,14 @@ class NetworkWorker: NetworkWorkerProtocol {
         self.requestParser = requestParser
     }
     
-    func performGenericRequest<T: Decodable>(endPoint: Endpoint, completion: @escaping (Result<T, CustomError>) -> Void){
+    func performGenericRequest<T: Decodable>(endPoint: Endpoint,
+                                             completion: @escaping (Result<T, CustomError>) -> Void){
         performGenericRequest(endPoint: endPoint, parameters: nil, completion: completion)
     }
     
-    func performGenericRequest<T: Decodable>(endPoint: Endpoint, parameters: [String: Any]?, completion: @escaping (Result<T, CustomError>) -> Void) {
+    func performGenericRequest<T: Decodable>(endPoint: Endpoint,
+                                             parameters: [String: Any]?,
+                                             completion: @escaping (Result<T, CustomError>) -> Void) {
         do {
             let requestResult = try requestHandler.makeRequest(endPoint: endPoint, parameters: parameters).get()
             
@@ -39,15 +45,17 @@ class NetworkWorker: NetworkWorkerProtocol {
                     let parsedResult: T = try self.requestParser.parseData(data: response.get()).get()
                     completion(.success(parsedResult))
                 } catch {
-                    if let customError = error as? CustomError {
-                        completion(.failure(customError))
+                    guard let customError = error as? CustomError else {
+                        return
                     }
+                    completion(.failure(customError))
                 }
             }
         } catch {
-            if let customError = error as? CustomError {
-                completion(.failure(customError))
+            guard let customError = error as? CustomError else {
+                return
             }
+            completion(.failure(customError))
         }
     }
 }

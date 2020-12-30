@@ -6,16 +6,21 @@
 //
 
 import Foundation
+import KeychainSwift
 
 typealias URLRequestInputValues = (url: URL, endPoint: Endpoint, parameters: [String: Any]?)
 
 protocol RequestHandlerProtocol {
-    func makeRequest(endPoint: Endpoint, parameters: [String: Any]?) -> Result<URLRequest, Error>
+    func makeRequest(endPoint: Endpoint,
+                     parameters: [String: Any]?) -> Result<URLRequest, Error>
 }
 
 extension RequestHandlerProtocol {
     
-    func makeRequest(endPoint: Endpoint, parameters: [String: Any]?) -> Result<URLRequest, Error> {
+    // MARK: -  Request Handler Functions Default Implementation
+    
+    func makeRequest(endPoint: Endpoint,
+                     parameters: [String: Any]?) -> Result<URLRequest, Error> {
         do {
             let urlResult = try createURL(path: endPoint.completePath).get()
             let urlRequestResult = try createURLRequest(inputValues: (urlResult, endPoint, parameters)).get()
@@ -38,7 +43,8 @@ extension RequestHandlerProtocol {
         
         // MARK: Token
         if inputValues.endPoint.parameters.isAuth {
-            urlRequest.setValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c", forHTTPHeaderField: StringConstants.authHeaderToken)
+            let token = KeychainSwift().get(StringConstants.keychainTokenKey) ?? "blankToken"
+            urlRequest.setValue(token, forHTTPHeaderField: StringConstants.authHeaderToken)
         }
         
         // MARK: Parameters

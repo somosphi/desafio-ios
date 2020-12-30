@@ -9,7 +9,10 @@ import Foundation
 
 extension URLRequest {
     func containsToken() -> Bool {
-        guard let headerFields = self.allHTTPHeaderFields else { return false }
+        guard let headerFields = self.allHTTPHeaderFields else {
+            return false
+        }
+        
         for (key, _) in headerFields {
             if key == StringConstants.authHeaderToken {
                 return true

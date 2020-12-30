@@ -9,12 +9,14 @@ import Foundation
 
 enum Endpoint {
     
-    //MARK:- Main endpoints
+    // MARK: - Main endpoints
+    
     case myBalance
     case myStatement(limit: Int = 10, offset: Int)
     case statementDetail(id: String)
     
-    //MARK:- Test endpoints
+    // MARK: - Test endpoints
+    
     case invalidPath
     case withoutToken
 }

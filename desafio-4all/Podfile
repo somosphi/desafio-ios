@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'desafio-4all' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for desafio-4all
+  pod 'KeychainSwift', '~> 19.0'
+
+  target 'desafio-4allTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'desafio-4allUITests' do
+    # Pods for testing
+  end
+
+end

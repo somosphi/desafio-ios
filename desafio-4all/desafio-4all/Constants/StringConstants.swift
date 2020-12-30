@@ -9,10 +9,12 @@ import Foundation
 
 struct StringConstants {
     // MARK: - Not Localizable
-//    static let userDefaultsKeychain = "UserDefaultsKeychain"
+    
+    static let keychainTokenKey = "KeychainToken"
     static let authHeaderToken = "token"
     
     // MARK: - Localizable
+    
     static var letsGoTitle = NSLocalizedString("", comment: "")
 }
 

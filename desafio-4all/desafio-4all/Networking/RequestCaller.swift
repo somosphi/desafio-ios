@@ -11,25 +11,33 @@ typealias RequestResponse = (data: Data?, response: URLResponse?, error: Error?)
 
 protocol RequestCallerProtocol {
     var session: NetworkSession { get }
-    func callRequest(urlRequest: URLRequest, completion: @escaping (Result<Data?, Error>) -> Void)
-    func handleResponse(requestResponse: RequestResponse, completion: @escaping (Result<Data?, Error>) -> Void)
+    func callRequest(urlRequest: URLRequest,
+                     completion: @escaping (Result<Data?, Error>) -> Void)
+    func handleResponse(requestResponse: RequestResponse,
+                        completion: @escaping (Result<Data?, Error>) -> Void)
 }
 
 class RequestCaller: RequestCallerProtocol {
     
     let session: NetworkSession
     
+    // MARK: - Initialization
+
     init(session: NetworkSession = URLSession.shared) {
         self.session = session
     }
     
-    func callRequest(urlRequest: URLRequest, completion: @escaping (Result<Data?, Error>) -> Void) {
+    // MARK: - Functions
+    
+    func callRequest(urlRequest: URLRequest,
+                     completion: @escaping (Result<Data?, Error>) -> Void) {
         session.loadData(from: urlRequest) { (response) in
             self.handleResponse(requestResponse: response, completion: completion)
         }
     }
     
-    func handleResponse(requestResponse: RequestResponse, completion: @escaping (Result<Data?, Error>) -> Void) {
+    func handleResponse(requestResponse: RequestResponse,
+                        completion: @escaping (Result<Data?, Error>) -> Void) {
         if let _ = requestResponse.error {
             completion(.failure(CustomError.requestResponseError))
             return
@@ -41,22 +49,31 @@ class RequestCaller: RequestCallerProtocol {
         }
         
         switch httpResponse.statusCode {
-        case 200...299: completion(.success(requestResponse.data))
-        case 400...499: completion(.failure(CustomError.clientError(httpResponse.statusCode)))
-        case 500...599: completion(.failure(CustomError.serverError(httpResponse.statusCode)))
-        default:        completion(.failure(CustomError.unknowCode(httpResponse.statusCode)))
+        case 200...299:
+            completion(.success(requestResponse.data))
+            
+        case 400...499:
+            completion(.failure(CustomError.clientError(httpResponse.statusCode)))
+            
+        case 500...599:
+            completion(.failure(CustomError.serverError(httpResponse.statusCode)))
+            
+        default:
+            completion(.failure(CustomError.unknowCode(httpResponse.statusCode)))
         }
     }
 }
 
-//MARK:- NetworkSession Protocol
+// MARK: - NetworkSession Protocol
 
 protocol NetworkSession {
-    func loadData(from url: URLRequest, completion: @escaping (RequestResponse) -> Void)
+    func loadData(from url: URLRequest,
+                  completion: @escaping (RequestResponse) -> Void)
 }
 
 extension URLSession: NetworkSession {
-    func loadData(from url: URLRequest, completion: @escaping (RequestResponse) -> Void) {
+    func loadData(from url: URLRequest,
+                  completion: @escaping (RequestResponse) -> Void) {
         let task = dataTask(with: url) { (data, response, error) in
             completion((data, response, error))
         }
@@ -65,18 +82,21 @@ extension URLSession: NetworkSession {
     }
 }
 
-//MARK:- NetworkSessionMock
+// MARK: - NetworkSessionMock
 
 class NetworkSessionMock: NetworkSession {
+    
     var data: Data?
-    var statusCode: Int? {
-        didSet {
-            guard let code = statusCode else { return }
-            self.response = HTTPURLResponse(url: URL(string: "blankURL")!, statusCode: code, httpVersion: nil, headerFields: nil)
-        }
-    }
     var response: URLResponse?
     var error: Error?
+    var statusCode: Int? {
+        didSet {
+            guard let statusCode = statusCode else {
+                return
+            }
+            self.response = HTTPURLResponse(url: URL(string: "blankURL")!, statusCode: statusCode, httpVersion: nil, headerFields: nil)
+        }
+    }
     
     func loadData(from url: URLRequest, completion: @escaping (RequestResponse) -> Void) {
         completion((data, response, error))

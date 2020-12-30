@@ -8,6 +8,7 @@
 import Foundation
 
 enum CustomError: Error {
+    
     case responseDataNil
     case failedToDecode
     case invalidURL
@@ -21,15 +22,32 @@ enum CustomError: Error {
     var localizedDescription: String {
         get {
             switch self {
-            case .responseDataNil:              return ErrorConstants.responseDataNil
-            case .failedToDecode:               return ErrorConstants.failedToDecode
-            case .invalidURL:                   return ErrorConstants.invalidURL
-            case .failedAddParameters:          return ErrorConstants.failedAddParameters
-            case .requestResponseError:         return ErrorConstants.requestResponseError
-            case .failedCastResponse:           return ErrorConstants.failedCastResponse
-            case .unknowCode(let statusCode):   return ErrorConstants.unknowCode + statusCode.codeString
-            case .clientError(let statusCode):  return ErrorConstants.clientError + statusCode.codeString
-            case .serverError(let statusCode):  return ErrorConstants.serverError + statusCode.codeString
+            case .responseDataNil:
+                return ErrorConstants.responseDataNil
+                
+            case .failedToDecode:
+                return ErrorConstants.failedToDecode
+                
+            case .invalidURL:
+                return ErrorConstants.invalidURL
+                
+            case .failedAddParameters:
+                return ErrorConstants.failedAddParameters
+                
+            case .requestResponseError:
+                return ErrorConstants.requestResponseError
+                
+            case .failedCastResponse:
+                return ErrorConstants.failedCastResponse
+                
+            case .unknowCode(let statusCode):
+                return ErrorConstants.unknowCode + statusCode.codeString
+                
+            case .clientError(let statusCode):
+                return ErrorConstants.clientError + statusCode.codeString
+                
+            case .serverError(let statusCode):
+                return ErrorConstants.serverError + statusCode.codeString
             }
         }
     }

@@ -12,9 +12,9 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
     
     let requestParser = RequestParser()
     
-    //MARK: - Test Parse Objects
+    // MARK: - Test Parse Objects
     
-    //MARK: Parse Balance Object
+    // MARK: Parse Balance Object
     func testParseBalanceObject() throws {
         let result = requestParser.parseData(data: validBalanceObject) as Result<Balance, CustomError>
         
@@ -24,7 +24,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: Parse Statement Object
+    // MARK: Parse Statement Object
     func testParseStatementObject() throws {
         let result = requestParser.parseData(data: validStatementObject) as Result<Statement, CustomError>
         
@@ -34,7 +34,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: Parse StatementDetail Object
+    // MARK: Parse StatementDetail Object
     func testStatementDetailObject() throws {
         let result = requestParser.parseData(data: validStatementDetailObject) as Result<StatementDetail, CustomError>
         
@@ -44,7 +44,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: Parse Empty Statement Items Object
+    // MARK: Parse Empty Statement Items Object
     func testParseEmptyItemsArray() throws {
         let result = requestParser.parseData(data: validEmptyItemsArray) as Result<Statement, CustomError>
         
@@ -54,9 +54,9 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: - Test Error Handle
+    // MARK: - Test Error Handle
     
-    //MARK:  Failed to Decode Balance Object
+    // MARK:  Failed to Decode Balance Object
     func testFailedParseInvalidBalanceObject() throws {
         let result = requestParser.parseData(data: invalidBalanceObject) as Result<Balance, CustomError>
         
@@ -67,7 +67,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK:  Failed to Decode Statement Object
+    // MARK:  Failed to Decode Statement Object
     func testFailedParseInvalidStatementObject() throws {
         let result = requestParser.parseData(data: invalidStatementObject) as Result<Statement, CustomError>
         
@@ -78,7 +78,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK:  Failed to Decode Statement Detail Object
+    // MARK:  Failed to Decode Statement Detail Object
     func testFailedParseInvalidStatementDetailObject() throws {
         let result = requestParser.parseData(data: invalidStatementDetailObject) as Result<StatementDetail, CustomError>
         
@@ -89,7 +89,7 @@ class RequestParserTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK:  Response Data Nil
+    // MARK:  Response Data Nil
     func testResponseDataIsNil() throws {
         let result = requestParser.parseData(data: nil) as Result<Statement, CustomError>
         

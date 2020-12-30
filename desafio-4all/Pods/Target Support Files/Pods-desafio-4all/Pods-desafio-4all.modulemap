@@ -1,0 +1,6 @@
+framework module Pods_desafio_4all {
+  umbrella header "Pods-desafio-4all-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,9 +12,9 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
     
     let requestHandler = RequestHandler()
     
-    //MARK:- Test Requests Handler
+    // MARK: - Test Requests Handler
     
-    //MARK: myBalance Request Handler
+    // MARK: myBalance Request Handler
     func testMyBalanceRequestHandler() throws {
         let endpoint = Endpoint.myBalance
         let result = requestHandler.makeRequest(endPoint: endpoint, parameters: nil)
@@ -29,7 +29,7 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
 
-    //MARK: myStatement Request Handler
+    // MARK: myStatement Request Handler
     func testMyStatementRequestHandler() throws {
         let endpoint = Endpoint.myStatement(offset: 1)
         let result = requestHandler.makeRequest(endPoint: endpoint, parameters: nil)
@@ -44,7 +44,7 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: statmentDetail Request Handler
+    // MARK: statmentDetail Request Handler
     func testStatementDetailRequestHandler() throws {
         let endpoint = Endpoint.statementDetail(id: testID)
         let result = requestHandler.makeRequest(endPoint: endpoint, parameters: nil)
@@ -59,7 +59,7 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: statmentDetail Request Handler with Parameters
+    // MARK: statmentDetail Request Handler with Parameters
     func testStatementDetailRequestHandlerWithParameters() throws {
         let parameters = ["id": 1]
         let endpoint = Endpoint.statementDetail(id: testID)
@@ -76,9 +76,9 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
    
-    //MARK:- Test Error Handler
+    // MARK: - Test Error Handler
     
-    //MARK: Invalid URL Error Handler
+    // MARK: Invalid URL Error Handler
     func testInvalidURLError() throws {
         let result = requestHandler.makeRequest(endPoint: .invalidPath, parameters: nil)
         
@@ -90,7 +90,7 @@ class RequestHandlerTests: XCTestCase, RequestTestsDataProtocol {
         }
     }
     
-    //MARK: Handler Request Without Token
+    // MARK: Handler Request Without Token
     func testHandlerRequestWithoutToken() throws {
         
         let result = requestHandler.makeRequest(endPoint: .withoutToken, parameters: nil)

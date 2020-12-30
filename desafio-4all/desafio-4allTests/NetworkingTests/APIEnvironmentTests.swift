@@ -10,7 +10,7 @@ import XCTest
 
 class APIEnvironmentTests: XCTestCase, RequestTestsDataProtocol {
     
-    //MARK: myBalance Endpoint
+    // MARK: myBalance Endpoint
     func testMyBalanceEndpoint() throws {
         XCTAssertEqual(Endpoint.myBalance.parameters.path, "myBalance")
         XCTAssertEqual(Endpoint.myBalance.parameters.method, .get)
@@ -18,7 +18,7 @@ class APIEnvironmentTests: XCTestCase, RequestTestsDataProtocol {
         XCTAssertEqual(Endpoint.myBalance.completePath, "https://desafio-mobile-bff.herokuapp.com/myBalance")
     }
 
-    //MARK: myStatement Endpoint
+    // MARK: myStatement Endpoint
     func testMyStatementEndpoint() throws {
         let offset = 1
         XCTAssertEqual(Endpoint.myStatement(offset: offset).parameters.path, "myStatement/10/1")
@@ -27,7 +27,7 @@ class APIEnvironmentTests: XCTestCase, RequestTestsDataProtocol {
         XCTAssertEqual(Endpoint.myStatement(offset: offset).completePath, "https://desafio-mobile-bff.herokuapp.com/myStatement/10/1")
     }
     
-    //MARK: statementDetail Endpoint
+    // MARK: statementDetail Endpoint
     func testStatementDetailEndpoint() throws {
         XCTAssertEqual(Endpoint.statementDetail(id: testID).parameters.path, "myStatement/detail/\(testID)/")
         XCTAssertEqual(Endpoint.statementDetail(id: testID).parameters.method, .get)

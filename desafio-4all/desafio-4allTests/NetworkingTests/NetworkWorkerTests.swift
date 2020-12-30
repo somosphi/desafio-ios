@@ -10,9 +10,9 @@ import XCTest
 
 class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
 
-    //MARK:- Test Requests
+    // MARK: - Test Requests
     
-    //MARK: GET/myBalance Succeed Request
+    // MARK: GET/myBalance Succeed Request
     func testMyBalanceSucceedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -34,7 +34,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: GET/myStatement Succeed Request
+    // MARK: GET/myStatement Succeed Request
     func testMyStatementSucceedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -56,7 +56,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: GET/myStatement/detail Succeed Request
+    // MARK: GET/myStatement/detail Succeed Request
     func testMyStatementDetailSucceedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -78,7 +78,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: GET/myStatement/detail Succeed with Parameters
+    // MARK: GET/myStatement/detail Succeed with Parameters
     func testMyStatementDetailSucceedRequestWithParameters() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -100,9 +100,9 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK:- Test Error Handler
+    // MARK: - Test Error Handler
  
-    //MARK: GET/myBalance Failed Request
+    // MARK: GET/myBalance Failed Request
     func testMyBalanceFailedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -121,7 +121,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myBalance, completion: completion)
     }
     
-    //MARK: GET/myStatement Failed Request
+    // MARK: GET/myStatement Failed Request
     func testMyStatementFailedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -140,7 +140,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: GET/myStatement/detail Failed Request
+    // MARK: GET/myStatement/detail Failed Request
     func testStatementDetailFailedRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -159,7 +159,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .statementDetail(id: testID), completion: completion)
     }
     
-    //MARK: Failed Parse with Data Nil
+    // MARK: Failed Parse with Data Nil
     func testFailedParserWithDataNil() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -179,7 +179,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: Failed Parser with Invalid Object
+    // MARK: Failed Parser with Invalid Object
     func testFailedParserWithInvalidObject() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -199,7 +199,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: Failed Handle Invalid URL
+    // MARK: Failed Handle Invalid URL
     func testFailedHandleWithInvalidURL() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -216,7 +216,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .invalidPath, completion: completion)
     }
     
-    //MARK: Failed Cast Response
+    // MARK: Failed Cast Response
     func testFailedCastResponse() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -233,7 +233,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: Failed Response Error Status Code 400
+    // MARK: Failed Response Error Status Code 400
     func testFailedResponseErrorStatusCode400() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -253,7 +253,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: Failed Response Error Status Code 500
+    // MARK: Failed Response Error Status Code 500
     func testFailedResponseErrorStatusCode500() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -273,7 +273,7 @@ class NetworkWorkerTests: XCTestCase, RequestTestsDataProtocol {
         network.performGenericRequest(endPoint: .myStatement(offset: 1), completion: completion)
     }
     
-    //MARK: Failed Response Error Unknow Status Code
+    // MARK: Failed Response Error Unknow Status Code
     func testFailedResponseErrorUnknowStatusCode() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)

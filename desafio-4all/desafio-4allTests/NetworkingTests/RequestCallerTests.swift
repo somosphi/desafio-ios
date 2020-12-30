@@ -10,9 +10,9 @@ import XCTest
 
 class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
     
-    //MARK:- Test Requests
+    // MARK: - Test Requests
 
-    //MARK: GET/myStatement
+    // MARK: GET/myStatement
     func testMyStatementRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -36,7 +36,7 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: GET/myBalance
+    // MARK: GET/myBalance
     func testMyBalanceRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -60,7 +60,7 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: GET/myStatement/detail
+    // MARK: GET/myStatement/detail
     func testStatementDetailRequest() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -84,9 +84,9 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK:- Test Error Handler
+    // MARK: - Test Error Handler
     
-    //MARK: Request Response Error
+    // MARK: Request Response Error
     func testResquestResponseError() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -110,7 +110,7 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: Request Response Error Status Code 400
+    // MARK: Request Response Error Status Code 400
     func testResponseErrorStatusCode400() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -135,7 +135,7 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: Request Response Error Status Code 500
+    // MARK: Request Response Error Status Code 500
     func testResponseErrorStatusCode500() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
@@ -160,7 +160,7 @@ class RequestCallerTests: XCTestCase, RequestTestsDataProtocol {
         } catch { XCTFail(error.localizedDescription) }
     }
     
-    //MARK: Request Response Error Unknow Status Code
+    // MARK: Request Response Error Unknow Status Code
     func testResponseErrorStatusCodeUnknow() throws {
         let session = NetworkSessionMock()
         let requestCaller = RequestCaller(session: session)
