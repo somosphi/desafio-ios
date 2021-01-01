@@ -12,10 +12,14 @@ struct StringConstants {
     
     static let keychainTokenKey = "KeychainToken"
     static let authHeaderToken = "token"
+    static let balanceIsHiddenUserDefaults = "balanceIsHidden"
     
     // MARK: - Localizable
     
-    static var letsGoTitle = NSLocalizedString("", comment: "")
+    static var statementTitle = NSLocalizedString("Extrato", comment: "")
+    static var balanceTitle = NSLocalizedString("Seu saldo", comment: "")
+    static var statementTableViewHeaderTitle = NSLocalizedString("Suas movimentações", comment: "")
+    static var yourAccount = NSLocalizedString("Sua conta", comment: "")
 }
 
 struct ErrorConstants {

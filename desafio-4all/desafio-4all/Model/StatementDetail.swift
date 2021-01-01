@@ -8,7 +8,7 @@
 import Foundation
 
 struct StatementDetail: Decodable, Equatable {
-    let amount: Int
+    let amount: Double
     let id: String
     let authentication: String
     let tType: String

@@ -8,5 +8,5 @@
 import Foundation
 
 class Balance: Decodable {
-    let amount: Int
+    let amount: Double
 }
