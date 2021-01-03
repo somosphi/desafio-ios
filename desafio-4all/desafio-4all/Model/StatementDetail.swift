@@ -23,17 +23,14 @@ struct StatementDetail: Decodable, Equatable {
 extension StatementDetail: StatementProtocol {
     
     func isTransferOut() -> Bool {
-        return self.tType?.lowercased().contains("out") ?? false
+        return isTransferOut(tType: self.tType)
     }
     
     func getCorrectlyAmount() -> Double {
-        return isTransferOut() ? (amount * -1) : amount
+        return getCorrectlyAmount(amount: self.amount)
     }
     
     func getCorrectlyFromString() -> String {
-        guard let from = self.to else {
-            return StringConstants.yourAccount
-        }
-        return from
+        return getCorrectlyFromString(from: self.to)
     }
 }
