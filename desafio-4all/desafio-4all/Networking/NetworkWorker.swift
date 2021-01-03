@@ -17,9 +17,13 @@ protocol NetworkWorkerProtocol {
 
 class NetworkWorker: NetworkWorkerProtocol {
     
+    // MARK: - Variables
+    
     let requestHandler: RequestHandlerProtocol
     let requestCaller: RequestCallerProtocol
     let requestParser: RequestParserProtocol
+    
+    // MARK: - Initialization
     
     init(requestHandler: RequestHandlerProtocol = RequestHandler(),
          requestCaller:  RequestCallerProtocol  = RequestCaller(),
@@ -28,6 +32,8 @@ class NetworkWorker: NetworkWorkerProtocol {
         self.requestCaller = requestCaller
         self.requestParser = requestParser
     }
+    
+    // MARK: - Functions
     
     func performGenericRequest<T: Decodable>(endPoint: Endpoint,
                                              completion: @escaping (Result<T, CustomError>) -> Void){

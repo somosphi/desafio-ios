@@ -14,4 +14,10 @@ extension Date {
         dateFormatterPrint.dateFormat = "dd/MM"
         return dateFormatterPrint.string(from: self)
     }
+    
+    func getCompleteFormat() -> String {
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy - HH:mm:ss"
+        return dateFormatterPrint.string(from: self)
+    }
 }

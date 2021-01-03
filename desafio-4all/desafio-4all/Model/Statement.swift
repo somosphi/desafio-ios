@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol StatementProtocol {
+    func isTransferOut() -> Bool
+    func getCorrectlyAmount() -> Double
+    func getCorrectlyFromString() -> String
+}
+
 struct Statement: Decodable {
     let items: [Item]
 }
@@ -21,12 +27,14 @@ struct Item: Decodable, Equatable {
     let bankName: String?
     let createdAt: Date?
     
+}
+
+// MARK: - Statement Protocol
+
+extension Item: StatementProtocol {
+    
     func isTransferOut() -> Bool {
         return self.tType?.lowercased().contains("out") ?? false
-    }
-    
-    func isPix() -> Bool {
-        return self.tType?.lowercased().contains("pix") ?? false
     }
     
     func getCorrectlyAmount() -> Double {
@@ -38,6 +46,10 @@ struct Item: Decodable, Equatable {
             return StringConstants.yourAccount
         }
         return from
+    }
+    
+    func isPix() -> Bool {
+        return self.tType?.lowercased().contains("pix") ?? false
     }
 }
 

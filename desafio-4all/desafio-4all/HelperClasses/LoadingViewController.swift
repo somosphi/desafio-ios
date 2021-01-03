@@ -16,6 +16,7 @@ extension LoadingViewController {
     func showLoadingPopup(){
         loadingAlert = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = .appGreen
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.isUserInteractionEnabled = false
         activityIndicator.startAnimating()
@@ -30,18 +31,17 @@ extension LoadingViewController {
         activityIndicator.bottomAnchor.constraint(equalTo: alert.view.centerYAnchor, constant: (activityIndicator.frame.height/2)).isActive = true
         
         DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: false, completion: nil)
         }
     }
     
     func hideLoadingPopup(){
         if let alert = loadingAlert {
             DispatchQueue.main.async {
-                alert.dismiss(animated: true, completion: nil)
+                alert.dismiss(animated: false, completion: nil)
             }
         }
     }
-    
     
     func present(message: String) {
         let alert = UIAlertController(title: "4all Challenge", message: message, preferredStyle: .alert)

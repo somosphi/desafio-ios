@@ -15,15 +15,21 @@ protocol HomeViewModelDelegate {
 
 class HomeViewModel {
     
+    // MARK: - Variables
+    
     let network: NetworkWorker
     let delegate: HomeViewModelDelegate
     
     var items: [Item] = []
     
+    // MARK: - Initialization
+    
     init(network: NetworkWorker = NetworkWorker(), delegate: HomeViewModelDelegate) {
         self.network = network
         self.delegate = delegate
     }
+    
+    // MARK: - Functions
     
     func getMyStatement(page: Int){
         let completion: (Result<Statement, CustomError>) -> Void = { result in

@@ -9,6 +9,8 @@ import UIKit
 
 class StatementCell: UITableViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var lineTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var typeLabel: BaseLabel!
@@ -16,6 +18,8 @@ class StatementCell: UITableViewCell {
     @IBOutlet weak var fromLabel: SmallGreyLabel!
     @IBOutlet weak var dateLabel: MediumGrayLabel!
     @IBOutlet weak var valueLabel: MediumSemiboldLabel!
+    
+    // MARK: - Setup
     
     var item: Item? {
         didSet{

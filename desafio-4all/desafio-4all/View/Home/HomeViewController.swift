@@ -18,6 +18,8 @@ class HomeViewController: LoadingViewController {
     @IBOutlet weak var hideBalanceView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Variables
+    
     var headerView: UIView = UIView()
     var headerLabel: UILabel = UILabel()
     
@@ -26,6 +28,8 @@ class HomeViewController: LoadingViewController {
     
     var currentPage: Int = 1
     var firstLoaded: Bool = false
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +47,7 @@ class HomeViewController: LoadingViewController {
         showLoadingPopup()
     }
     
-    // MARK: - Setup
+    // MARK: - Setups
     
     func setupBalanceView(){
         balanceBackgroundView.backgroundColor = .appWhite
@@ -72,9 +76,11 @@ class HomeViewController: LoadingViewController {
     
 }
 
-// MARK: - UITable View Functions
+// MARK: - UITableView Functions
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK:  Setup Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.items.count ?? 0
@@ -91,6 +97,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    // MARK: Did Selected Row
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = viewModel?.items[indexPath.row] else {
+            return
+        }
+        coordinator?.goToStatementDetailScreen(statementId: item.id, bankName: item.bankName)
+    }
+    
+    // MARK: Infine Scroll
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let count = viewModel?.items.count else {
@@ -146,9 +163,9 @@ extension HomeViewController: HomeViewModelDelegate {
     
     func didGetStatement() {
         DispatchQueue.main.async {
+            self.hideLoadingPopup()
             self.tableView.reloadData()
             self.headerView.isHidden = false
-            self.hideLoadingPopup()
         }
     }
     
