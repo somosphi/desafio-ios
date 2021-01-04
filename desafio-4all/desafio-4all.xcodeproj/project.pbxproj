@@ -30,6 +30,8 @@
 		CFA2F46425A3809500E9C046 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEAF7C259F6A9500686A51 /* Label.swift */; };
 		CFA2F46825A380A400E9C046 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2F42025A2B55600E9C046 /* Data.swift */; };
 		CFA2F46C25A380B400E9C046 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEAF9B259FD32800686A51 /* Date.swift */; };
+		CFA2F47225A381BD00E9C046 /* ExportManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2F47125A381BD00E9C046 /* ExportManagerTests.swift */; };
+		CFA2F47A25A381D200E9C046 /* ReceiptCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2F47925A381D200E9C046 /* ReceiptCreatorTests.swift */; };
 		CFAEAE28259B8A9900686A51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEAE27259B8A9900686A51 /* AppDelegate.swift */; };
 		CFAEAE2A259B8A9900686A51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEAE29259B8A9900686A51 /* SceneDelegate.swift */; };
 		CFAEAE2C259B8A9900686A51 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEAE2B259B8A9900686A51 /* HomeViewController.swift */; };
@@ -122,6 +124,8 @@
 		CFA2F42A25A2B94700E9C046 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
 		CFA2F43325A2BB1500E9C046 /* ReceiptCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCreator.swift; sourceTree = "<group>"; };
 		CFA2F44425A3802200E9C046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFA2F47125A381BD00E9C046 /* ExportManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManagerTests.swift; sourceTree = "<group>"; };
+		CFA2F47925A381D200E9C046 /* ReceiptCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCreatorTests.swift; sourceTree = "<group>"; };
 		CFAEAE24259B8A9900686A51 /* desafio-4all.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-4all.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAEAE27259B8A9900686A51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFAEAE29259B8A9900686A51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +255,15 @@
 			path = ExportManager;
 			sourceTree = "<group>";
 		};
+		CFA2F47025A381A100E9C046 /* ExportManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFA2F47125A381BD00E9C046 /* ExportManagerTests.swift */,
+				CFA2F47925A381D200E9C046 /* ReceiptCreatorTests.swift */,
+			);
+			path = ExportManagerTests;
+			sourceTree = "<group>";
+		};
 		CFAEAE1B259B8A9900686A51 = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +309,7 @@
 		CFAEAE3D259B8A9D00686A51 /* desafio-4allTests */ = {
 			isa = PBXGroup;
 			children = (
+				CFA2F47025A381A100E9C046 /* ExportManagerTests */,
 				CFA2F3ED25A231EC00E9C046 /* ModelTests */,
 				CFAEAEA8259B921700686A51 /* RequestTestsData.swift */,
 				CFAEAE63259B8AEA00686A51 /* NetworkingTests */,
@@ -735,6 +749,7 @@
 				CFAEAE90259B8C3D00686A51 /* StringConstants.swift in Sources */,
 				CFAEAEF1259BED0B00686A51 /* APIEnvironmentTests.swift in Sources */,
 				CFA2F3C125A225B400E9C046 /* HomeViewModelTests.swift in Sources */,
+				CFA2F47A25A381D200E9C046 /* ReceiptCreatorTests.swift in Sources */,
 				CFAEAE75259B8B5300686A51 /* RequestHandler.swift in Sources */,
 				CFAEAEF6259BEF7200686A51 /* RequestHandlerTests.swift in Sources */,
 				CFAEAED6259B95AB00686A51 /* StatementDetail.swift in Sources */,
@@ -753,6 +768,7 @@
 				CFAEAE81259B8B7200686A51 /* RequestParser.swift in Sources */,
 				CFA2F3D025A22DAE00E9C046 /* StatementDetailViewModelTests.swift in Sources */,
 				CFAEAE6F259B8B4300686A51 /* NetworkWorker.swift in Sources */,
+				CFA2F47225A381BD00E9C046 /* ExportManagerTests.swift in Sources */,
 				CFAEAE9F259B8C7F00686A51 /* URLRequest.swift in Sources */,
 				CFA2F46825A380A400E9C046 /* Data.swift in Sources */,
 			);

@@ -13,9 +13,13 @@ class ExportManager {
     
     let pdfCreator: PDFCreator
     
+    // MARK: - Initialize
+    
     init(pdfCreator: PDFCreator) {
         self.pdfCreator = pdfCreator
     }
+    
+    // MARK: - Functions
     
     func getImage(exportValue: Exportable) -> Result<UIImage, CustomError>{
         do {
@@ -23,6 +27,7 @@ class ExportManager {
             let resultURL = try resultData.get().getURL()
             let resultImage = try resultURL.get().convertPDF()
             let image = try  resultImage.get()
+            image.accessibilityIdentifier = "ExportImage"
             return .success(image)
         } catch {
             if let customError = error as? CustomError {
