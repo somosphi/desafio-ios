@@ -29,6 +29,7 @@ class StatementDetailViewController: LoadingViewController {
     // MARK: - Variables
     
     var viewModel: StatementDetailViewModel?
+    var exportManager = ExportManager(pdfCreator: ReceiptCreator())
     
     // MARK: - View Lifecycle
 
@@ -70,6 +71,18 @@ class StatementDetailViewController: LoadingViewController {
     // MARK: - Actions
     
     @IBAction func shareButtonTouched(_ sender: Any) {
+        guard let statementDetail = viewModel?.statementDetail else {
+            return
+        }
+        
+        let result = exportManager.getImage(exportValue: statementDetail)
+        
+        switch result {
+        case .success(let image):
+            self.presentShareActivity(with: image)
+        case .failure(let error):
+            self.present(message: error.localizedDescription)
+        }
         
     }
 }
@@ -82,7 +95,7 @@ extension StatementDetailViewController: StatementDetailViewModelDelegate {
             self.hideLoadingPopup()
             self.setupTexts()
             self.movementTypeValue.text = statementDetail.description
-            self.valueLabel.setCurrencyText(amount: statementDetail.getCorrectlyAmount())
+            self.valueLabel.text = statementDetail.getCorrectlyAmount().getReaisValue()
             self.fromValueLabel.text = statementDetail.getCorrectlyFromString()
             self.bankNameValueLabel.text = self.viewModel?.bankName
             self.dateValueLabel.text = statementDetail.createdAt?.getCompleteFormat()

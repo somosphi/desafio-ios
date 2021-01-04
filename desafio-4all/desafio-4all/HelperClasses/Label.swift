@@ -28,18 +28,6 @@ class BaseLabel: UILabel {
         textColor = .appBlack
         font = UIFont.systemFont(ofSize: fontSize17)
     }
-    
-    func setCurrencyText(amount: Double) {
-        var resultAmount = amount
-        var symbol = ""
-        if amount < 0 {
-            resultAmount = amount * -1
-            symbol = "-"
-        }
-        
-        let amountFormatString = String(format: "%.2f", resultAmount)
-        text = "\(symbol) R$ \(amountFormatString)"
-    }
 }
 
 // MARK: - Large
@@ -75,7 +63,7 @@ class MediumGrayLabel: BaseLabel {
     
     override func setup() {
         super.setup()
-        textColor = .appGrey
+        textColor = .appGray
         font = UIFont.systemFont(ofSize: fontSize17)
     }
 }
@@ -86,7 +74,7 @@ class SmallGreyLabel: BaseLabel {
     
     override func setup() {
         super.setup()
-        textColor = .appGrey
+        textColor = .appGray
         font = UIFont.systemFont(ofSize: fontSize14)
     }
 }

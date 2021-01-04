@@ -50,7 +50,7 @@ class HomeViewController: LoadingViewController {
     // MARK: - Setups
     
     func setupBalanceView(){
-        balanceBackgroundView.backgroundColor = .appWhite
+        balanceBackgroundView.backgroundColor = .appLightGray
         hideBalanceView.backgroundColor = .appGreen
         balanceTitle.text = StringConstants.balanceTitle
     }
@@ -156,7 +156,7 @@ extension HomeViewController: HomeViewModelDelegate {
         DispatchQueue.main.async {
             self.balanceTitle.isHidden = false
             self.hideBalanceButton.isHidden = false
-            self.balanceValue.setCurrencyText(amount: Double(balance.amount))
+            self.balanceValue.text = balance.amount.getReaisValue()
             self.updateBalanceHiddenStatus()
         }
     }

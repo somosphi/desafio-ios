@@ -36,6 +36,7 @@ struct StringConstants {
 
 struct ErrorConstants {
     
+    static let unknowError = NSLocalizedString("UnknowError", comment: "")
     static let responseDataNil = NSLocalizedString("ResponseDataNil", comment: "")
     static let failedToDecode = NSLocalizedString("FailedToDecode", comment: "")
     static let invalidURL = NSLocalizedString("InvalidURL", comment: "")
@@ -45,5 +46,10 @@ struct ErrorConstants {
     static let unknowCode = NSLocalizedString("UnknowCode", comment: "")
     static let clientError = NSLocalizedString("ClientError", comment: "")
     static let serverError = NSLocalizedString("ServerError", comment: "")
+    static let failedCastObject = NSLocalizedString("FailedCastObject", comment: "")
+    static let incorrectOSVersion = NSLocalizedString("IncorrectOSVersion", comment: "")
+    static let castToDocumentError = NSLocalizedString("CastToDocumentError", comment: "")
+    static let getPageError = NSLocalizedString("GetPageError", comment: "")
+    static let writeFileError = NSLocalizedString("WriteFileError", comment: "")
 }
 

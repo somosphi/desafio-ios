@@ -26,7 +26,7 @@ extension UIColor {
         )
     }
     
-    static var appGrey: UIColor {
+    static var appGray: UIColor {
         return UIColor(hex: "828282")
     }
     
@@ -34,7 +34,7 @@ extension UIColor {
         return UIColor(hex: "202021")
     }
     
-    static var appWhite: UIColor {
+    static var appLightGray: UIColor {
         return UIColor(hex: "F8F8F8")
     }
     

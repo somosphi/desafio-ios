@@ -42,13 +42,4 @@ extension LoadingViewController {
             }
         }
     }
-    
-    func present(message: String) {
-        let alert = UIAlertController(title: "4all Challenge", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
 }

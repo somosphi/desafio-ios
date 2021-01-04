@@ -9,6 +9,7 @@ import Foundation
 
 enum CustomError: Error {
     
+    case unknowError
     case responseDataNil
     case failedToDecode
     case invalidURL
@@ -18,10 +19,18 @@ enum CustomError: Error {
     case unknowCode(Int)
     case clientError(Int)
     case serverError(Int)
+    case failedCastObject
+    case incorrectOSVersion
+    case castToDocumentError
+    case getPageError
+    case writeFileError
     
     var localizedDescription: String {
         get {
             switch self {
+            case .unknowError:
+                return ErrorConstants.unknowError
+                
             case .responseDataNil:
                 return ErrorConstants.responseDataNil
                 
@@ -48,6 +57,21 @@ enum CustomError: Error {
                 
             case .serverError(let statusCode):
                 return ErrorConstants.serverError + statusCode.codeString
+                
+            case .failedCastObject:
+                return ErrorConstants.failedCastObject
+                
+            case .incorrectOSVersion:
+                return ErrorConstants.incorrectOSVersion
+                
+            case .castToDocumentError:
+                return ErrorConstants.castToDocumentError
+                
+            case .getPageError:
+                return ErrorConstants.getPageError
+                
+            case .writeFileError:
+                return ErrorConstants.writeFileError
             }
         }
     }

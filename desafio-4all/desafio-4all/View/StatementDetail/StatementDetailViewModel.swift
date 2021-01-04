@@ -21,6 +21,7 @@ class StatementDetailViewModel {
     
     let statementId: String
     var bankName: String = StringConstants.emptyBankName
+    var statementDetail: StatementDetail?
     
     // MARK: - Initialization
     
@@ -36,6 +37,7 @@ class StatementDetailViewModel {
         let completion: (Result<StatementDetail, CustomError>) -> Void = { result in
             switch result {
             case .success(let statementDetail):
+                self.statementDetail = statementDetail
                 self.delegate.didGetStatementDetail(statementDetail: statementDetail)
                 break
             case .failure(let error):

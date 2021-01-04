@@ -24,12 +24,12 @@ class StatementCell: UITableViewCell {
     var item: Item? {
         didSet{
             guard let item = item else { return }
-            mainBackgroundView.backgroundColor = item.isPix() ? .appWhite : .white
+            mainBackgroundView.backgroundColor = item.isPix() ? .appLightGray : .white
             typeLabel.text = item.description
             pixView.isHidden = !(item.isPix())
             fromLabel.text = item.getCorrectlyFromString()
             dateLabel.text = item.createdAt?.getDayMonthFormat()
-            valueLabel.setCurrencyText(amount: item.getCorrectlyAmount())
+            valueLabel.text = item.getCorrectlyAmount().getReaisValue() 
         }
     }
 

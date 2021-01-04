@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StatementDetail: Decodable, Equatable {
+struct StatementDetail: Decodable, Equatable, Exportable {
     let amount: Double
     let id: String
     let authentication: String?
