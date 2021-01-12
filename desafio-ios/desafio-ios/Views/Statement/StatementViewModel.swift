@@ -32,6 +32,6 @@ extension StatementViewModel {
     }
     
     func getStatement() {
-        service.getStatement()
+        service.getStatement(offset: 0)
     }
 }
