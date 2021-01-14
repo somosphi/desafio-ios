@@ -34,14 +34,12 @@ extension StatementViewModel {
     func getBalance(completion: @escaping (Balance) -> Void) {
         service.getBalance() { response, error in
             completion(response)
-            print(response)
         }
     }
     
     func getStatementList(completion: @escaping (StatementArray) -> Void) {
         service.getStatementList(offset: 100) { response, error in
             completion(response)
-            print(response)
         }
     }
     

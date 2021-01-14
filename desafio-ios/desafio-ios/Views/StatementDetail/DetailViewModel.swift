@@ -37,8 +37,6 @@ extension DetailViewModel {
     
     func getStatementDetail(completion: @escaping (Statement) -> Void) {
         service.getStatementDetail(id: id) { response, error in
-            print(response)
-            print(error)
             completion(response)
         }
     }
