@@ -28,6 +28,6 @@ extension DetailViewModel {
     // MARK: - Internal methods
     
     func getStatementDetail() {
-        service.getStatementDetail(id: "")
+        service.getStatementDetail(id: "") { response, error in }
     }
 }

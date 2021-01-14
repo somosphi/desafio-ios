@@ -7,17 +7,18 @@
 
 import Foundation
 
-// MARK: - Struct
-
 struct Statement: Decodable {
     let createdAt: String
     let id: String
     let amount: Double
-    let to: String
     let description: String
     let tType: String
+    let to: String?
+    let from: String?
+    var bankName: String?
+    let authentication: String?
 }
 
 struct StatementArray: Decodable {
-    var array: [Statement]
+    var items: [Statement]
 }

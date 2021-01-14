@@ -27,11 +27,19 @@ extension StatementViewModel {
     
     // MARK: - Internal methods
     
-    func getBalance() {
-        service.getBalance()
+    func getBalance(completion: @escaping (Balance) -> Void) {
+        service.getBalance() { response, error in
+            completion(response)
+            print(response)
+            print(error)
+        }
     }
     
-    func getStatement() {
-        service.getStatement(offset: 0)
+    func getStatementList(completion: @escaping (StatementArray) -> Void) {
+        service.getStatementList(offset: 100) { response, error in
+            completion(response)
+            print(response)
+            print(error)
+        }
     }
 }

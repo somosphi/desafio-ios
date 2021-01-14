@@ -18,26 +18,74 @@ final class Service {
 }
 
 extension Service {
+    
     // MARK: - Internal methods
     
-    func getBalance() {
+    func getBalance(completionHandler: @escaping (Balance, Error?) -> Void) {
         var request = URLRequest(url: URL(string: baseURL + "/myBalance")!)
         request.setValue(token, forHTTPHeaderField: "token")
         
-        // TODO: Request
+        print(request)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let response = try  decoder.decode(Balance.self, from: data)
+                completionHandler(response, error)
+            }
+            catch let error {
+                let balance = Balance(amount: 0)
+                 completionHandler(balance, error)
+            }
+        }.resume()
     }
     
-    func getStatement(offset: Int) {
+    func getStatementList(offset: Int, completionHandler: @escaping (StatementArray, Error?) -> Void) {
         var request = URLRequest(url: URL(string: baseURL + "/myStatement/100/\(offset)")!)
         request.setValue(token, forHTTPHeaderField: "token")
         
-        // TODO: Request
+        print(request)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(StatementArray.self, from: data)
+                completionHandler(response, error)
+            }
+            catch let error {
+                let statementArray = StatementArray(items: [])
+                 completionHandler(statementArray, error)
+            }
+        }.resume()
     }
     
-    func getStatementDetail(id: String) {
+    func getStatementDetail(id: String, completionHandler: @escaping (Statement, Error?) -> Void) {
         var request = URLRequest(url: URL(string: baseURL + "/myStatement/detail/" + id)!)
         request.setValue(token, forHTTPHeaderField: "token")
         
-        // TODO: Request
+        print(request)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let response = try  decoder.decode(Statement.self, from: data)
+                completionHandler(response, error)
+            }
+            catch let error {
+                let statement = Statement(createdAt: "",
+                                          id: "",
+                                          amount: 0.0,
+                                          description: "",
+                                          tType: "",
+                                          to: nil,
+                                          from: nil,
+                                          bankName: nil,
+                                          authentication: nil)
+                completionHandler(statement, error)
+            }
+        }.resume()
     }
 }
