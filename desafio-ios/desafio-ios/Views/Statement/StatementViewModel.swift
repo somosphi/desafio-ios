@@ -44,4 +44,8 @@ extension StatementViewModel {
             print(response)
         }
     }
+    
+    func goToDetail(id: String) {
+        coordinator.routeToDetail(id: id)
+    }
 }

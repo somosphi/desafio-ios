@@ -30,7 +30,6 @@ public class LoadingOverlay {
         overlayView.frame = UIScreen.main.nativeBounds
         overlayView.backgroundColor = UIColor(white: 0, alpha: 0.7)
         overlayView.clipsToBounds = true
-//        overlayView.layer.cornerRadius = 10
         overlayView.layer.zPosition = 1
         
         activityIndicator.color = .phiGreen

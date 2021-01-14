@@ -102,6 +102,13 @@ extension StatementViewController {
 
 extension StatementViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - TableView Delegate + DataSource
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = viewModel.model?.items[indexPath.row].id else { return }
+        viewModel.goToDetail(id: id)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.model?.items.count ?? 0
     }
