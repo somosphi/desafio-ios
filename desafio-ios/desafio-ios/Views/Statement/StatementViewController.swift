@@ -27,12 +27,7 @@ final class StatementViewController: BaseViewController<StatementView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavBar()
-        setupTableView()
-        addTargets()
-        
-        serviceGetBalance()
-        serviceGetStatementList()
+        setup()
     }
 }
 
@@ -40,17 +35,35 @@ extension StatementViewController {
     
     // MARK: - Private methods
     
+    private func setup() {
+        setupNavBar()
+        setupTableView()
+        addTargets()
+        
+        serviceGetBalance()
+        serviceGetStatementList()
+    }
+    
     private func serviceGetBalance() {
+        customView.toggleRevealButton()
+        
         viewModel.getBalance() { [weak self] response in
             guard let self = self else { return }
-            
             self.setupBalance(amount: response.amount)
         }
     }
     
     private func serviceGetStatementList() {
+        if let window = UIApplication.shared.windows.first {
+            LoadingOverlay.shared.showOverlay(view: window)
+        }
+        
         viewModel.getStatementList() { [weak self] response in
             guard let self = self else { return }
+            self.viewModel.model = response
+            self.reloadTableView()
+            
+            LoadingOverlay.shared.hideOverlayView()
         }
     }
     
@@ -58,9 +71,16 @@ extension StatementViewController {
         navigationItem.title = "Extrato"
     }
     
+    private func reloadTableView() {
+        DispatchQueue.main.async {
+            self.customView.tableView.reloadData()
+        }
+    }
+    
     private func setupBalance(amount: Double) {
         DispatchQueue.main.async {
-            self.customView.amountLabel.text = "\(amount)"
+            self.customView.amountLabel.text = String(amount).formatToCurrency
+            self.customView.toggleRevealButton()
         }
     }
     
@@ -83,14 +103,18 @@ extension StatementViewController {
 extension StatementViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.model?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementTableViewCell.id, for: indexPath) as? StatementTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatementTableViewCell.id,
+                                                       for: indexPath) as? StatementTableViewCell
         else {
-            return .init()
+            return UITableViewCell()
         }
+        
+        guard let statementArray = viewModel.model else { return UITableViewCell() }
+        cell.setupLabel(statement: statementArray.items[indexPath.row])
         
         return cell
     }

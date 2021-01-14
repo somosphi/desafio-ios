@@ -25,8 +25,6 @@ extension Service {
         var request = URLRequest(url: URL(string: baseURL + "/myBalance")!)
         request.setValue(token, forHTTPHeaderField: "token")
         
-        print(request)
-        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
             do {
@@ -42,10 +40,8 @@ extension Service {
     }
     
     func getStatementList(offset: Int, completionHandler: @escaping (StatementArray, Error?) -> Void) {
-        var request = URLRequest(url: URL(string: baseURL + "/myStatement/100/\(offset)")!)
+        var request = URLRequest(url: URL(string: baseURL + "/myStatement/10/\(offset)")!)
         request.setValue(token, forHTTPHeaderField: "token")
-        
-        print(request)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
@@ -64,8 +60,6 @@ extension Service {
     func getStatementDetail(id: String, completionHandler: @escaping (Statement, Error?) -> Void) {
         var request = URLRequest(url: URL(string: baseURL + "/myStatement/detail/" + id)!)
         request.setValue(token, forHTTPHeaderField: "token")
-        
-        print(request)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }

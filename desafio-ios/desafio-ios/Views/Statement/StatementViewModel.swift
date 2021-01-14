@@ -16,6 +16,10 @@ final class StatementViewModel {
     private let coordinator: Coordinator
     private let service = Service()
     
+    // MARK: - Internal variables
+    
+    var model: StatementArray?
+    
     // MARK: - Initializers
     
     init(coordinator: Coordinator) {
@@ -31,7 +35,6 @@ extension StatementViewModel {
         service.getBalance() { response, error in
             completion(response)
             print(response)
-            print(error)
         }
     }
     
@@ -39,7 +42,6 @@ extension StatementViewModel {
         service.getStatementList(offset: 100) { response, error in
             completion(response)
             print(response)
-            print(error)
         }
     }
 }

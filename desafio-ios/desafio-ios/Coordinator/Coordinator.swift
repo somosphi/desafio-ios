@@ -37,6 +37,7 @@ final class Coordinator {
         window.makeKeyAndVisible()
         
         routeToStatement()
+//        routeToDetail(id: "49E27207-F3A7-4264-B021-0188690F7D43")
     }
 }
 
@@ -51,8 +52,8 @@ extension Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func routeToDetail() {
-        let viewModel = DetailViewModel(coordinator: self)
+    func routeToDetail(id: String) {
+        let viewModel = DetailViewModel(coordinator: self, id: id)
         let viewController = DetailViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)

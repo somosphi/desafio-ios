@@ -49,6 +49,14 @@ final class StatementTableViewCell: UITableViewCell {
         return view
     }()
     
+    private lazy var pixLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        view.textColor = .white
+        view.text = "Pix"
+        return view
+    }()
+    
     private lazy var upperView: UIView = {
         let view = UIView()
         view.backgroundColor = .phiGray
@@ -69,6 +77,15 @@ final class StatementTableViewCell: UITableViewCell {
     }()
     
     private lazy var designView = UIView()
+    
+    private lazy var pixView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 4
+        view.layer.masksToBounds = true
+        view.backgroundColor = .phiGreen
+        view.isHidden = true
+        return view
+    }()
     
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
@@ -100,16 +117,33 @@ extension StatementTableViewCell {
     
     // MARK: - Internal methods
     
+    func setupLabel(statement: Statement) {
+        transferTypeLabel.text = statement.transferenceType
+        forLabel.text = statement.from
+        dateLabel.text = statement.createdAt.formatDate(inputSymbols: "yyyy-MM-dd'T'HH:mm:ss", outputSymbols: "dd/MM")
+        valueLabel.text = statement.amountToString
+        
+        if statement.tType.contains("PIX") {
+            pixView.isHidden = false
+            backgroundColor = .phiOffWhite
+        }
+    }
+    
+    // MARK: - Private methods
+    
     private func setupLayout() {
         contentView.backgroundColor = .white
         
         addSubviews([designView,
                      stackView,
+                     pixView,
                      dateLabel], constraints: true)
         
-        addSubviews([circleView,
+        designView.addSubviews([circleView,
                      upperView,
                      lowerView], constraints: true)
+        
+        pixView.addSubview(pixLabel, constraints: true)
     }
     
     private func createConstraints() {
@@ -149,6 +183,20 @@ extension StatementTableViewCell {
                 .constraint(equalTo: designView.centerXAnchor),
             lowerView.widthAnchor
                 .constraint(equalToConstant: 1),
+            
+            pixView.topAnchor
+                .constraint(equalTo: contentView.topAnchor, constant: 4),
+            pixView.trailingAnchor
+                .constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            
+            pixLabel.topAnchor
+                .constraint(equalTo: pixView.topAnchor, constant: 4),
+            pixLabel.leadingAnchor
+                .constraint(equalTo: pixView.leadingAnchor, constant: 4),
+            pixLabel.trailingAnchor
+                .constraint(equalTo: pixView.trailingAnchor, constant: -4),
+            pixLabel.bottomAnchor
+                .constraint(equalTo: pixView.bottomAnchor, constant: -4),
             
             stackView.topAnchor
                 .constraint(equalTo: contentView.topAnchor, constant: 4),

@@ -13,7 +13,7 @@ final class StatementView: UIView {
     
     private lazy var myBalanceLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        view.font = UIFont.systemFont(ofSize: 16, weight: .thin)
         view.textColor = .phiBlack
         view.text = "Seu saldo"
         return view
@@ -50,9 +50,8 @@ final class StatementView: UIView {
     
     lazy var amountLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        view.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         view.textColor = .phiGreen
-        view.text = "R$ 1.345,00"
         return view
     }()
     
@@ -66,23 +65,27 @@ final class StatementView: UIView {
     
     lazy var revealButton: UIButton = {
         let view = UIButton()
-        view.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         view.tintColor = .phiGreen
         return view
     }()
     
-    var isAmountHidden = false
+    var isAmountHidden: Bool
     
     // MARK: - Initializers
     
     init() {
+        self.isAmountHidden = UserDefaults.standard.bool(forKey: "isAmountHidden")
+        
         super.init(frame: .zero)
+        
         setupLayout()
         createConstraints()
     }
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
+        self.isAmountHidden = UserDefaults.standard.bool(forKey: "isAmountHidden")
+        
         super.init(coder: aDecoder)
     }
 }
@@ -91,8 +94,25 @@ extension StatementView {
     
     // MARK: - Private methods
     
+    private func changeRevealButtonImage() {
+        if isAmountHidden {
+            amountLabel.alpha = 0
+            hiddenView.alpha = 1
+            revealButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+            
+            UserDefaults.standard.set(isAmountHidden, forKey: "isAmountHidden")
+        } else {
+            amountLabel.alpha = 1
+            hiddenView.alpha = 0
+            revealButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+            UserDefaults.standard.set(isAmountHidden, forKey: "isAmountHidden")
+        }
+    }
+    
     private func setupLayout() {
         backgroundColor = .white
+        
+        changeRevealButtonImage()
         
         addSubviews([balanceView,
                      tableViewHeaderView,
@@ -125,11 +145,11 @@ extension StatementView {
                 .constraint(equalTo: balanceView.bottomAnchor, constant: -16),
             
             hiddenView.topAnchor
-                .constraint(equalTo: amountLabel.topAnchor, constant: 8),
+                .constraint(equalTo: amountLabel.topAnchor, constant: 12),
             hiddenView.leadingAnchor
                 .constraint(equalTo: amountLabel.leadingAnchor),
             hiddenView.bottomAnchor
-                .constraint(equalTo: amountLabel.bottomAnchor, constant: -8),
+                .constraint(equalTo: amountLabel.bottomAnchor, constant: -12),
             hiddenView.trailingAnchor
                 .constraint(equalTo: amountLabel.trailingAnchor),
             
@@ -175,15 +195,6 @@ extension StatementView {
     
     func toggleRevealButton() {
         isAmountHidden.toggle()
-        
-        if isAmountHidden {
-            amountLabel.alpha = 0
-            hiddenView.alpha = 1
-            revealButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        } else {
-            amountLabel.alpha = 1
-            hiddenView.alpha = 0
-            revealButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
-        }
+        changeRevealButtonImage()
     }
 }

@@ -24,6 +24,8 @@
 		27E0AA7725AE3033009691D4 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA7625AE3033009691D4 /* Statement.swift */; };
 		27E0AA7C25AF30EC009691D4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA7B25AF30EC009691D4 /* Extensions.swift */; };
 		27E0AA8425AF6F72009691D4 /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8325AF6F72009691D4 /* StatementTableViewCell.swift */; };
+		27E0AA8A25B089C9009691D4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8925B089C9009691D4 /* DetailTableViewCell.swift */; };
+		27E0AA8D25B0B1B1009691D4 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		27E0AA7625AE3033009691D4 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		27E0AA7B25AF30EC009691D4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		27E0AA8325AF6F72009691D4 /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
+		27E0AA8925B089C9009691D4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +152,10 @@
 		27E0AA5425AE207C009691D4 /* StatementDetail */ = {
 			isa = PBXGroup;
 			children = (
-				27E0AA5B25AE20E1009691D4 /* DetailViewController.swift */,
 				27E0AA5E25AE20E9009691D4 /* DetailViewModel.swift */,
+				27E0AA5B25AE20E1009691D4 /* DetailViewController.swift */,
 				27E0AA6E25AE2A6D009691D4 /* DetailView.swift */,
+				27E0AA8925B089C9009691D4 /* DetailTableViewCell.swift */,
 			);
 			path = StatementDetail;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				27E0AA6825AE2986009691D4 /* BaseViewController.swift */,
 				27E0AA7B25AF30EC009691D4 /* Extensions.swift */,
+				27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -242,7 +248,9 @@
 				27E0AA7725AE3033009691D4 /* Statement.swift in Sources */,
 				27E0AA5F25AE20E9009691D4 /* DetailViewModel.swift in Sources */,
 				27E0AA6925AE2986009691D4 /* BaseViewController.swift in Sources */,
+				27E0AA8D25B0B1B1009691D4 /* LoadingOverlay.swift in Sources */,
 				27E0AA7C25AF30EC009691D4 /* Extensions.swift in Sources */,
+				27E0AA8A25B089C9009691D4 /* DetailTableViewCell.swift in Sources */,
 				27E0AA5125AE1EE3009691D4 /* Service.swift in Sources */,
 				27E0AA3425AE1472009691D4 /* AppDelegate.swift in Sources */,
 				27E0AA3625AE1472009691D4 /* SceneDelegate.swift in Sources */,
@@ -393,7 +401,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.me.desafio-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gustavotravassos.desafio-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.me.desafio-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gustavotravassos.desafio-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
