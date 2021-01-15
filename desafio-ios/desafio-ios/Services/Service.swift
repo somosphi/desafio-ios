@@ -40,7 +40,7 @@ extension Service {
     }
     
     func getStatementList(offset: Int, completionHandler: @escaping (StatementArray, Error?) -> Void) {
-        var request = URLRequest(url: URL(string: baseURL + "/myStatement/100/\(offset)")!)
+        var request = URLRequest(url: URL(string: baseURL + "/myStatement/10/\(offset)")!)
         request.setValue(token, forHTTPHeaderField: "token")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
