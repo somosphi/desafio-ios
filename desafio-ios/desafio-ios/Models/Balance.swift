@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Struct
+
 struct Balance: Decodable {
     let amount: Double
 }

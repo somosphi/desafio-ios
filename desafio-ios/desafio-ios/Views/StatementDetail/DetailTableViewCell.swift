@@ -20,7 +20,7 @@ final class DetailTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .phiBlack
-        view.font = UIFont.systemFont(ofSize: 14)
+        view.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         view.text = "Título"
         return view
     }()
@@ -28,7 +28,7 @@ final class DetailTableViewCell: UITableViewCell {
     private lazy var contentLabel: UILabel = {
         let view = UILabel()
         view.textColor = .phiBlack
-        view.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        view.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         view.text = "Conteúdo"
         view.numberOfLines = 0
         return view

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Struct
+
 struct Statement: Decodable {
     let createdAt: String
     let id: String

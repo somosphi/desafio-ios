@@ -120,7 +120,7 @@ extension StatementTableViewCell {
     func setupLabel(statement: Statement) {
         transferTypeLabel.text = statement.transferenceType
         forLabel.text = statement.to
-        dateLabel.text = statement.createdAt.formatDate(inputSymbols: "yyyy-MM-dd'T'HH:mm:ss", outputSymbols: "dd/MM")
+        dateLabel.text = statement.createdAt.formatDate(inputSymbols: "yyyy-MM-dd'T'HH:mm:ss'Z'", outputSymbols: "dd/MM")
         valueLabel.text = statement.amountToString
         
         if statement.tType.contains("PIX") {
