@@ -38,7 +38,7 @@ extension StatementViewModel {
     }
     
     func getStatementList(completion: @escaping (StatementArray) -> Void) {
-        service.getStatementList(offset: 100) { response, error in
+        service.getStatementList(offset: 0) { response, error in
             completion(response)
         }
     }

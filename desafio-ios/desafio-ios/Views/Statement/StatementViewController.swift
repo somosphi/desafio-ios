@@ -61,8 +61,12 @@ extension StatementViewController {
         viewModel.getStatementList() { [weak self] response in
             guard let self = self else { return }
             self.viewModel.model = response
-            self.reloadTableView()
             
+            if response.items.isEmpty {
+                self.showErrorOverlay()
+            }
+            
+            self.reloadTableView()
             LoadingOverlay.shared.hideOverlayView()
         }
     }
@@ -74,6 +78,14 @@ extension StatementViewController {
     private func reloadTableView() {
         DispatchQueue.main.async {
             self.customView.tableView.reloadData()
+        }
+    }
+    
+    private func showErrorOverlay() {
+        DispatchQueue.main.async {
+            ErrorOverlay.shared.showOverlay(view: self.customView.tableView,
+                                            errorImage: UIImage(systemName: "xmark.octagon") ?? UIImage(),
+                                            message: "Algo deu errado! \nTente novamente")
         }
     }
     

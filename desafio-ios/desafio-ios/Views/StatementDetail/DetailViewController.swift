@@ -49,7 +49,6 @@ extension DetailViewController {
         
         viewModel.getStatementDetail() { [weak self] response in
             guard let self = self else { return }
-            
             self.viewModel.model = response
             self.viewModel.setupDataArray()
             self.reloadTableView()
@@ -69,6 +68,14 @@ extension DetailViewController {
     private func reloadTableView() {
         DispatchQueue.main.async {
             self.customView.tableView.reloadData()
+        }
+    }
+    
+    private func showErrorOverlay() {
+        DispatchQueue.main.async {
+            ErrorOverlay.shared.showOverlay(view: self.customView.tableView,
+                                            errorImage: UIImage(systemName: "xmark.octagon") ?? UIImage(),
+                                            message: "Algo deu errado! \nTente novamente")
         }
     }
     

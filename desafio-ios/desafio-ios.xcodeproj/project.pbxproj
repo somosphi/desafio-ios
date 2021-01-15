@@ -26,6 +26,7 @@
 		27E0AA8425AF6F72009691D4 /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8325AF6F72009691D4 /* StatementTableViewCell.swift */; };
 		27E0AA8A25B089C9009691D4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8925B089C9009691D4 /* DetailTableViewCell.swift */; };
 		27E0AA8D25B0B1B1009691D4 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */; };
+		27E0AA9225B1DB42009691D4 /* ErrorOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0AA9125B1DB42009691D4 /* ErrorOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		27E0AA8325AF6F72009691D4 /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		27E0AA8925B089C9009691D4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		27E0AA9125B1DB42009691D4 /* ErrorOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				27E0AA6825AE2986009691D4 /* BaseViewController.swift */,
 				27E0AA7B25AF30EC009691D4 /* Extensions.swift */,
 				27E0AA8C25B0B1B1009691D4 /* LoadingOverlay.swift */,
+				27E0AA9125B1DB42009691D4 /* ErrorOverlay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				27E0AA5125AE1EE3009691D4 /* Service.swift in Sources */,
 				27E0AA3425AE1472009691D4 /* AppDelegate.swift in Sources */,
 				27E0AA3625AE1472009691D4 /* SceneDelegate.swift in Sources */,
+				27E0AA9225B1DB42009691D4 /* ErrorOverlay.swift in Sources */,
 				27E0AA5C25AE20E1009691D4 /* DetailViewController.swift in Sources */,
 				27E0AA8425AF6F72009691D4 /* StatementTableViewCell.swift in Sources */,
 			);

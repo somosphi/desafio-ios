@@ -44,7 +44,7 @@ extension DetailViewModel {
     func setupDataArray() {
         guard let model = model else { return }
         
-        var amount = "R$ \(String(format: "%.2f", model.amount))"
+        var amount = "\(String(model.amount).formatToCurrency)"
         amount = amount.replacingOccurrences(of: ".", with: ",")
         
         dataArray.append((title: "Tipo de movimentação", description: model.transferenceType))

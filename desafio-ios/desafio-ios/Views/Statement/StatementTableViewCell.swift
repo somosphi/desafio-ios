@@ -119,7 +119,7 @@ extension StatementTableViewCell {
     
     func setupLabel(statement: Statement) {
         transferTypeLabel.text = statement.transferenceType
-        forLabel.text = statement.from
+        forLabel.text = statement.to
         dateLabel.text = statement.createdAt.formatDate(inputSymbols: "yyyy-MM-dd'T'HH:mm:ss", outputSymbols: "dd/MM")
         valueLabel.text = statement.amountToString
         

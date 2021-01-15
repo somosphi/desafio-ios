@@ -27,13 +27,13 @@ struct Statement: Decodable {
             return "Transferência Pix realizada"
             
         case "TRANSFEROUT":
-            return "Transferência enviada"
+            return "Transferência realizada"
             
         case "TRANSFERIN":
-            return "Transferência enviada"
+            return "Transferência recebida"
             
-        case "BANKSLIPIN":
-            return "Tranferência recebida"
+        case "BANKSLIPCASHIN":
+            return "Depósito via boleto"
             
         default:
             return "Outros"
