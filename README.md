@@ -30,6 +30,7 @@ Fora isso, sinta-se a vontade para:
 - Usar ou não usar bibliotecas;
 - Estruturar seu layout com storyboards, xibs ou ViewCode;
 - Adotar a arquitetura que você quiser.
+- Gostaríamos muito de ver você aplicando técnicas de acessibilidade em seu desafio.
 
 Nos preocupamos com qualidade e acreditamos bastante em testes automatizados. Entretanto, sabemos que não é um tópico dominado por todos, por isso aceitamos desafios com todos os perfis e diferentes momentos de experiência e conhecimento técnico.
 
