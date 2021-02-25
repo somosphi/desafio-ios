@@ -31,7 +31,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setNavigationBarAppearance() {
-        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.backgroundColor = .white
+            
+            //Setando fontes e cores
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.appBlack]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.appBlack]
+            
+            //Setando sombra para tirar a linha da navbar
+            appearance.shadowColor = .clear
+
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            
+            UIBarButtonItem.appearance().tintColor = .appBlack
+            
+        } else {
+            // Fallback on earlier versions
+            UINavigationBar.appearance().barTintColor = .white
+            UIBarButtonItem.appearance().tintColor = .appBlack
+            
+            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.appBlack]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.appBlack]
+            
+            //Setando sombra e background para tirar a linha da navbar
+            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+            UINavigationBar.appearance().shadowImage = UIImage()
+        }
     }
 }
 

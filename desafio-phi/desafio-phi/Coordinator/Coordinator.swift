@@ -18,6 +18,9 @@ final class Coordinator {
     }
     
     func start() {
+        window.rootViewController =  navigationController
+        window.makeKeyAndVisible()
+        
         routeToStatement()
     }
 }

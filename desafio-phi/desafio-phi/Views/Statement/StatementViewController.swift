@@ -29,7 +29,7 @@ extension StatementViewController {
     
     // MARK: - Private methods
     private func setup() {
-        print("viewDidLoad")
+        title = "Extrato"
     }
 }
 
