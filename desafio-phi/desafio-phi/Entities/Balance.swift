@@ -9,6 +9,10 @@ import Foundation
 
 struct Balance: Codable {
     let amount: Double
+    
+    init() {
+        self.amount = 0
+    }
 }
 
 extension Balance {

@@ -18,9 +18,10 @@ final class StatementTableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var circleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .appGreen
+    private lazy var circleView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(systemName: "circle.fill")
+        view.tintColor = .appGreen
         return view
     }()
     
@@ -42,6 +43,7 @@ final class StatementTableViewCell: UITableViewCell {
                             textColor: .appGrey,
                             fontStyle: .footnote,
                             font: .systemFont(ofSize: 14, weight: .regular))
+        return view
     }()
     
     private lazy var amountLabel: PHILabel = {
@@ -49,6 +51,7 @@ final class StatementTableViewCell: UITableViewCell {
                             textColor: .appBlack,
                             fontStyle: .footnote,
                             font: .systemFont(ofSize: 14, weight: .bold))
+        return view
     }()
     
     private lazy var dateLabel: PHILabel = {
@@ -56,6 +59,7 @@ final class StatementTableViewCell: UITableViewCell {
                             textColor: .appGrey,
                             fontStyle: .subheadline,
                             font: .systemFont(ofSize: 16, weight: .regular))
+        return view
     }()
     
     private lazy var pixLabel: PHILabel = {
@@ -68,12 +72,19 @@ final class StatementTableViewCell: UITableViewCell {
         return view
     }()
     
+    private lazy var labelsStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [transferLabel, forLabel, amountLabel])
+        view.axis = .vertical
+        view.alignment = .leading
+        view.spacing = 5
+        return view
+    }()
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
         createConstraints()
-        setCircleViewCornerRadius()
     }
     
     required init?(coder: NSCoder) {
@@ -83,20 +94,95 @@ final class StatementTableViewCell: UITableViewCell {
 
 extension StatementTableViewCell {
     
+    //MARK: - Internal methods
+    func setupCell(transferText: String, forText: String, value: String, date: String ,isPix: Bool) {
+        setupDefaultCell()
+        transferLabel.text = transferText
+        forLabel.text = forText
+        amountLabel.text = value
+        dateLabel.text = date
+        showPixLabel(show: isPix)
+    }
+    
     // MARK: - Private methods
+    private func setupDefaultCell() {
+        transferLabel.text = ""
+        forLabel.text = ""
+        amountLabel.text = ""
+        dateLabel.text = ""
+        showPixLabel(show: false)
+    }
+    
     private func setCircleViewCornerRadius() {
         circleView.layer.cornerRadius = circleView.frame.size.width / 2
         circleView.clipsToBounds = true
     }
     
+    private func showPixLabel(show: Bool) {
+        pixLabel.alpha = show ? 1 : 0
+    }
+    
     private func setupLayout() {
         backgroundColor = .white
         
+        addSubviews([upperCircleLine, circleView, lowerCircleLine,
+                     labelsStack, pixLabel, dateLabel], constraints: true)
     }
     
     private func createConstraints() {
         NSLayoutConstraint.activate([
-
+            
+            circleView.centerYAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            circleView.leadingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            circleView.widthAnchor
+                .constraint(equalToConstant: 15),
+            circleView.heightAnchor
+                .constraint(equalToConstant: 15),
+            
+            upperCircleLine.centerXAnchor
+                .constraint(equalTo: circleView.centerXAnchor),
+            upperCircleLine.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            upperCircleLine.bottomAnchor
+                .constraint(equalTo: circleView.topAnchor),
+            upperCircleLine.widthAnchor
+                .constraint(equalToConstant: 1),
+            
+            lowerCircleLine.centerXAnchor
+                .constraint(equalTo: circleView.centerXAnchor),
+            lowerCircleLine.topAnchor
+                .constraint(equalTo: circleView.bottomAnchor),
+            lowerCircleLine.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            lowerCircleLine.widthAnchor
+                .constraint(equalToConstant: 1),
+            
+            labelsStack.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            labelsStack.leadingAnchor
+                .constraint(equalTo: circleView.trailingAnchor, constant: 20),
+            labelsStack.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            labelsStack.trailingAnchor
+                .constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -10),
+            
+            dateLabel.centerYAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            dateLabel.trailingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            
+            pixLabel.centerXAnchor
+                .constraint(equalTo: dateLabel.centerXAnchor),
+            pixLabel.centerYAnchor
+                .constraint(equalTo: labelsStack.topAnchor),
+            pixLabel.widthAnchor
+                .constraint(equalTo: dateLabel.widthAnchor),
+            pixLabel.heightAnchor
+                .constraint(equalToConstant: 20),
+            pixLabel.bottomAnchor
+                .constraint(lessThanOrEqualTo: dateLabel.topAnchor),
         ])
     }
 }

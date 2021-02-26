@@ -33,4 +33,11 @@ extension Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func routeToStatementDetail(statementId: String) {
+        let viewModel = StatementDetailViewModel(coordinator: self, statementId: statementId)
+        let viewController = StatementDetailViewController(viewModel: viewModel)
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

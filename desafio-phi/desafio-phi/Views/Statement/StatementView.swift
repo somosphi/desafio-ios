@@ -26,12 +26,14 @@ final class StatementView: UIView {
     private lazy var balanceCurrency: PHILabel = {
         let view = PHILabel(fontStyle: .title3,
                             font: .systemFont(ofSize: 24, weight: .bold))
+        view.textColor = .appGreen
         return view
     }()
     
     private lazy var hiddenView: UIView = {
         let view = UIView()
         view.backgroundColor = .appGreen
+        view.alpha = 0
         return view
     }()
     
@@ -74,15 +76,75 @@ final class StatementView: UIView {
 
 extension StatementView {
     
+    //MARK: - Internal methods
+    func toggleBalanceVisibility() {
+        eyeButton.isSelected = !eyeButton.isSelected
+        
+        balanceCurrency.alpha = eyeButton.isSelected ? 0 : 1
+        hiddenView.alpha = eyeButton.isSelected ? 1 : 0
+    }
+    
+    func setBalanceAmount(value: Double) {
+        balanceCurrency.text = "R$ \(value)"
+    }
+    
     // MARK: - Private methods
     private func setupLayout() {
         backgroundColor = .white
         
+        addSubviews([myBalanceView, tableViewHeader, tableView], constraints: true)
+        myBalanceView.addSubviews([balanceTitle, balanceCurrency, eyeButton, hiddenView], constraints: true)
     }
     
     private func createConstraints() {
         NSLayoutConstraint.activate([
-
+            
+            myBalanceView.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            myBalanceView.leadingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            myBalanceView.trailingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            
+            balanceTitle.topAnchor
+                .constraint(equalTo: myBalanceView.topAnchor, constant: 20),
+            balanceTitle.leadingAnchor
+                .constraint(equalTo: myBalanceView.leadingAnchor, constant: 20),
+            
+            eyeButton.centerYAnchor
+                .constraint(equalTo: balanceTitle.centerYAnchor),
+            eyeButton.leadingAnchor
+                .constraint(equalTo: balanceTitle.trailingAnchor, constant: 20),
+            
+            balanceCurrency.topAnchor
+                .constraint(equalTo: balanceTitle.bottomAnchor, constant: 20),
+            balanceCurrency.leadingAnchor
+                .constraint(equalTo: balanceTitle.leadingAnchor),
+            balanceCurrency.bottomAnchor
+                .constraint(equalTo: myBalanceView.bottomAnchor, constant: -20),
+            
+            hiddenView.centerYAnchor
+                .constraint(equalTo: balanceCurrency.centerYAnchor),
+            hiddenView.centerXAnchor
+                .constraint(equalTo: balanceCurrency.centerXAnchor),
+            hiddenView.widthAnchor
+                .constraint(equalTo: balanceCurrency.widthAnchor),
+            hiddenView.heightAnchor
+                .constraint(equalToConstant: 5),
+            
+            tableViewHeader.topAnchor
+                .constraint(equalTo: myBalanceView.bottomAnchor, constant: 20),
+            tableViewHeader.leadingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            
+            tableView.topAnchor
+                .constraint(equalTo: tableViewHeader.bottomAnchor, constant: 20),
+            tableView.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            tableView.leadingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
         ])
     }
 }

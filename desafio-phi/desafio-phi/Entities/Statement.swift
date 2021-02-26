@@ -8,7 +8,6 @@
 import Foundation
 
 struct Statement: Codable {
-    
     //MARK: - Non Optionals
     let createdAt: String
     let id: String
@@ -21,6 +20,18 @@ struct Statement: Codable {
     let from: String?
     var bankName: String?
     let authentication: String?
+    
+    init() {
+        self.createdAt = ""
+        self.id = ""
+        self.amount = 0
+        self.description = ""
+        self.tType = ""
+        self.to = ""
+        self.from = ""
+        self.bankName = ""
+        self.authentication = ""
+    }
 }
 
 extension Statement {

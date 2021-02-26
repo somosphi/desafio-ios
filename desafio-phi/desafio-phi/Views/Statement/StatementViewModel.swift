@@ -15,11 +15,13 @@ final class StatementViewModel {
     
     // MARK: - Internal variables
     var statements: [Statement]
+    var balance: Balance
     
     // MARK: - Init
     init(coordinator: Coordinator) {
         self.coordinator = coordinator
         self.statements = []
+        self.balance = Balance()
     }
 }
 
@@ -35,5 +37,9 @@ extension StatementViewModel {
         service.get(resource: StatementResponse.statementList) { response in
             completion(response)
         }
+    }
+    
+    func goToDetail(withId id: String) {
+        coordinator.routeToStatementDetail(statementId: id)
     }
 }
