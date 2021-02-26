@@ -13,9 +13,8 @@ struct StatementResponse: Codable {
 
 extension StatementResponse {
     
-    static var statementList: Resource<[Statement]> {
-        
-        return Resource<[Statement]>(url: .myStatementList(withOffset: 0)) { data in
+    static func list(with offSet: Int) -> Resource<[Statement]> {
+        return Resource<[Statement]>(url: .myStatementList(withOffset: offSet)) { data in
             
             var statementList = [Statement]()
             

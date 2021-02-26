@@ -65,7 +65,7 @@ extension StatementViewController {
     }
     
     private func getStatements() {
-        viewModel.getStatementList { [weak self] response in
+        viewModel.getStatementList(offSet: 0) { [weak self] response in
             switch response {
             case .success(let statements):
                 guard let statements = statements else {

@@ -33,8 +33,8 @@ extension StatementViewModel {
         }
     }
     
-    func getStatementList(completion: @escaping (Result<[Statement]?, NetworkError>) -> Void) {
-        service.get(resource: StatementResponse.statementList) { response in
+    func getStatementList(offSet: Int ,completion: @escaping (Result<[Statement]?, NetworkError>) -> Void) {
+        service.get(resource: StatementResponse.list(with: offSet)) { response in
             completion(response)
         }
     }
