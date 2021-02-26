@@ -31,6 +31,7 @@ extension StatementDetailViewController {
     
     // MARK: - Private methods
     private func setup() {
+        navigationItem.backButtonTitle = ""
     }
     
     private func getStatement() {

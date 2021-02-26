@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Coordinator {
+final class Coordinator: NSObject {
 
     private let window: UIWindow
     private let navigationController: UINavigationController
@@ -21,7 +21,18 @@ final class Coordinator {
         window.rootViewController =  navigationController
         window.makeKeyAndVisible()
         
+        navigationController.delegate = self
+        
         routeToStatement()
+    }
+}
+
+
+extension Coordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController,
+                              willShow viewController: UIViewController, animated: Bool) {
+        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
+                                                                          target: nil, action: nil)
     }
 }
 
