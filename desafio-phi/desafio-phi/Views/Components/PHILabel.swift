@@ -24,5 +24,6 @@ open class PHILabel: UILabel {
         let metrics = UIFontMetrics(forTextStyle: fontStyle)
         self.font = metrics.scaledFont(for: font)
         self.adjustsFontForContentSizeCategory = true
+        self.adjustsFontSizeToFitWidth = true
     }
 }

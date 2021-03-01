@@ -100,7 +100,7 @@ extension StatementTableViewCell {
         transferLabel.text = transferText
         forLabel.text = forText
         amountLabel.text = value
-        dateLabel.text = date
+        dateLabel.text = date.formatDate(inputSymbols: "yyyy-MM-dd'T'HH:mm:ss'Z'", outputSymbols: "dd/MM")
         showPixLabel(show: isPix)
     }
     

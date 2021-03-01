@@ -36,6 +36,12 @@ struct Statement: Codable {
 
 extension Statement {
     
+    var value: String {
+        let amount = "R$ \(self.amount)"
+        return amount.replacingOccurrences(of: ".", with: ",")
+    }
+    
+    //MARK: - Resource
     static func statement(withId id: String) -> Resource<Statement> {
         return Resource<Statement>(url: .myStatement(withId: id)) { data in
             

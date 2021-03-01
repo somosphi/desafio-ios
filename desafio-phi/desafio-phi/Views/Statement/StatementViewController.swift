@@ -103,7 +103,7 @@ extension StatementViewController: UITableViewDelegate, UITableViewDataSource {
         let currentStatement = viewModel.statements[indexPath.row]
         
         cell.setupCell(transferText: currentStatement.description, forText: currentStatement.to ?? "",
-                       value: "R$ \(currentStatement.amount)", date: "10/10", isPix: false)
+                       value: "R$ \(currentStatement.amount)", date: currentStatement.createdAt, isPix: false)
         
         return cell
     }
