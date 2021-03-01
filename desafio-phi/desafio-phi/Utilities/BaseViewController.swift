@@ -4,7 +4,6 @@
 //
 //  Created by Marcus Vinicius Vieira Badiale on 25/02/21.
 //
-
 import UIKit
 
 open class BaseViewController<View: UIView>: UIViewController {

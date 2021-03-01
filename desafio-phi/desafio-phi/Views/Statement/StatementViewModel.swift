@@ -16,12 +16,16 @@ final class StatementViewModel {
     // MARK: - Internal variables
     var statements: [Statement]
     var balance: Balance
+    var currentStatementPage: Int
+    var isPaginating: Bool
     
     // MARK: - Init
     init(coordinator: Coordinator) {
         self.coordinator = coordinator
         self.statements = []
         self.balance = Balance()
+        self.currentStatementPage = -1
+        self.isPaginating = false
     }
 }
 

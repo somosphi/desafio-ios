@@ -35,6 +35,13 @@ extension StatementViewController {
         
         setupTableView()
         addTargets()
+        showLoadingIndicator()
+    }
+    
+    private func showLoadingIndicator() {
+        if let window = UIApplication.shared.windows.first {
+            LoadingView.shared.showLoadingIndicator(view: window)
+        }
     }
     
     private func setupTableView() {
@@ -65,18 +72,30 @@ extension StatementViewController {
     }
     
     private func getStatements() {
-        viewModel.getStatementList(offSet: 0) { [weak self] response in
-            switch response {
-            case .success(let statements):
-                guard let statements = statements else {
-                    return
+        
+        if !viewModel.isPaginating {
+            
+            viewModel.currentStatementPage += 1
+            viewModel.isPaginating = true
+            
+            viewModel.getStatementList(offSet: viewModel.currentStatementPage) { [weak self] response in
+                switch response {
+                case .success(let statements):
+                    guard let statements = statements else {
+                        return
+                    }
+                    
+                    self?.viewModel.statements.append(contentsOf: statements)
+                    self?.customView.tableView.tableFooterView = nil
+                    self?.customView.tableView.reloadData()
+                    self?.viewModel.isPaginating = false
+                    
+                    LoadingView.shared.hideLoadingIndicator()
+                    
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                
-                self?.viewModel.statements = statements
-                self?.customView.tableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
             }
         }
     }
@@ -88,7 +107,36 @@ extension StatementViewController {
 }
 
 //MARK: - Table View
-extension StatementViewController: UITableViewDelegate, UITableViewDataSource {
+extension StatementViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
+        
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = .appGreen
+        activityIndicator.center = footerView.center
+        
+        footerView.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        
+        return footerView
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        
+        if position > (customView.tableView.contentSize.height - scrollView.frame.size.height) {
+            
+            if viewModel.isPaginating {
+                return
+            }
+            
+            customView.tableView.tableFooterView = createSpinnerFooter()
+            
+            getStatements()
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.statements.count
@@ -103,7 +151,7 @@ extension StatementViewController: UITableViewDelegate, UITableViewDataSource {
         let currentStatement = viewModel.statements[indexPath.row]
         
         cell.setupCell(transferText: currentStatement.description, forText: currentStatement.to ?? "",
-                       value: "R$ \(currentStatement.amount)", date: currentStatement.createdAt, isPix: false)
+                       value: currentStatement.value, date: currentStatement.createdAt, isPix: false)
         
         return cell
     }

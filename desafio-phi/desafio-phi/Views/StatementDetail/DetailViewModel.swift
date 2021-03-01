@@ -43,7 +43,7 @@ extension StatementDetailViewModel {
     func setupDetailArray() {
         
         statementDetailArray.append(StatementDetail(title: "Tipo de movimentação", description: statement.description))
-        statementDetailArray.append(StatementDetail(title: "Valor", description: "R$ \(statement.value)"))
+        statementDetailArray.append(StatementDetail(title: "Valor", description: statement.value))
         
         statementDetailArray.append(StatementDetail(title: "Recebedor",
                                                     description: statement.to ?? "-----------"))

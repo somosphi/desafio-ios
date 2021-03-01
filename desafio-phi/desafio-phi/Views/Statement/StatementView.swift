@@ -65,6 +65,7 @@ final class StatementView: UIView {
     // MARK: - Init
     init() {
         super.init(frame: .zero)
+        
         setupLayout()
         createConstraints()
     }
@@ -82,15 +83,29 @@ extension StatementView {
         
         balanceCurrency.alpha = eyeButton.isSelected ? 0 : 1
         hiddenView.alpha = eyeButton.isSelected ? 1 : 0
+        
+        UserDefaults.standard.set(eyeButton.isSelected, forKey: "isBalanceHidden")
     }
     
     func setBalanceAmount(value: Double) {
-        balanceCurrency.text = "R$ \(value)"
+        balanceCurrency.text = "R$ \(value)".replacingOccurrences(of: ".", with: ",")
     }
     
     // MARK: - Private methods
+    
+    private func setupBalanceVisibility() {
+        let showBalance = UserDefaults.standard.bool(forKey: "isBalanceHidden")
+        
+        eyeButton.isSelected = showBalance
+        
+        balanceCurrency.alpha = showBalance ? 0 : 1
+        hiddenView.alpha = showBalance ? 1 : 0
+    }
+    
     private func setupLayout() {
         backgroundColor = .white
+        
+        setupBalanceVisibility()
         
         addSubviews([myBalanceView, tableViewHeader, tableView], constraints: true)
         myBalanceView.addSubviews([balanceTitle, balanceCurrency, eyeButton, hiddenView], constraints: true)

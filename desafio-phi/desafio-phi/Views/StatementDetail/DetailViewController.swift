@@ -22,6 +22,8 @@ final class StatementDetailViewController: BaseViewController<StatementDetailVie
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        getStatement()
     }
 }
 
@@ -31,7 +33,7 @@ extension StatementDetailViewController {
     private func setup() {
         setupTableView()
         addTargets()
-        getStatement()
+        showLoadingIndicator()
     }
     
     private func setupTableView() {
@@ -41,6 +43,12 @@ extension StatementDetailViewController {
     
     private func addTargets() {
         customView.shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
+    }
+    
+    private func showLoadingIndicator() {
+        if let window = UIApplication.shared.windows.first {
+            LoadingView.shared.showLoadingIndicator(view: window)
+        }
     }
     
     private func getStatement() {
@@ -54,6 +62,8 @@ extension StatementDetailViewController {
                 self?.viewModel.statement = statement
                 self?.viewModel.setupDetailArray()
                 self?.customView.tableView.reloadData()
+                
+                LoadingView.shared.hideLoadingIndicator()
                 
             case .failure(let error):
                 print(error)
