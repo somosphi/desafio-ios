@@ -26,7 +26,7 @@ class ExtractViewController: UIViewController {
     /// View Model que configura os dados das transações para a view
     let extractViewModel = ExtractViewModel(extracts: [Item]())
     
-    //MARK: Life Circle
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -38,7 +38,7 @@ class ReceiptViewController: UIViewController {
     /// instância da classe utilizada para exibir mensagens na view controller
     var sharePresenter: SharePresenterProtocol?
     
-    //MARK: Life Circle
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

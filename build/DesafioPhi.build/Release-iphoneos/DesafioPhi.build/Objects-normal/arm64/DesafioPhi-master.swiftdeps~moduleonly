@@ -1,0 +1,23 @@
+version: "Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)"
+options: "ef09014cc5bd178b21176fd289ad4e54"
+build_time: [1616165845, 124062000]
+inputs:
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/ExtractViewModel.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ReceiptViewController.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractTableView.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Utils/Protocols/SharePresenterProtocol.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Utils/Preferences.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Model/ReceiptModel.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Model/ExtractModel.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Utils/DataPersistence.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Utils/SharePresenter.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/Protocols/ViewControllerProtocol.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/ReceiptViewModel.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/BalanceViewModel.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/AppDelegate.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/TransactionsViewCell.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Utils/APIRequest.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/Protocols/ViewModelProtocol.swift": [9223372036, 854775807]
+  "/Users/flipper/Documents/desafio-ios/DesafioPhi/Model/BalanceModel.swift": [9223372036, 854775807]

@@ -1,0 +1,194 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/AppDelegate.swift",
+      "line": 11,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/AppDelegate.swift",
+      "line": 15,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/AppDelegate.swift",
+      "line": 22,
+      "symbol": "AppDelegate.application(_:configurationForConnecting:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/AppDelegate.swift",
+      "line": 28,
+      "symbol": "AppDelegate.application(_:didDiscardSceneSessions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 10,
+      "symbol": "SceneDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 12,
+      "symbol": "SceneDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 15,
+      "symbol": "SceneDelegate.scene(_:willConnectTo:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 22,
+      "symbol": "SceneDelegate.sceneDidDisconnect(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 29,
+      "symbol": "SceneDelegate.sceneDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 34,
+      "symbol": "SceneDelegate.sceneWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 39,
+      "symbol": "SceneDelegate.sceneWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/AppDelegate/SceneDelegate.swift",
+      "line": 44,
+      "symbol": "SceneDelegate.sceneDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/Model/ExtractModel.swift",
+      "line": 14,
+      "symbol": "ExtractModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractTableView.swift",
+      "line": 27,
+      "symbol": "ExtractViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractTableView.swift",
+      "line": 31,
+      "symbol": "ExtractViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractTableView.swift",
+      "line": 44,
+      "symbol": "ExtractViewController.tableView(_:willDisplay:forRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 10,
+      "symbol": "ExtractViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 11,
+      "symbol": "ExtractViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 31,
+      "symbol": "ExtractViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 36,
+      "symbol": "ExtractViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 51,
+      "symbol": "ExtractViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ExtractViewController.swift",
+      "line": 63,
+      "symbol": "ExtractViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ReceiptViewController.swift",
+      "line": 43,
+      "symbol": "ReceiptViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/View/ReceiptViewController.swift",
+      "line": 49,
+      "symbol": "ReceiptViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/BalanceViewModel.swift",
+      "line": 25,
+      "symbol": "BalanceViewModel.init(balance:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/ExtractViewModel.swift",
+      "line": 25,
+      "symbol": "ExtractViewModel.init(extracts:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/flipper/Documents/desafio-ios/DesafioPhi/ViewModel/ReceiptViewModel.swift",
+      "line": 25,
+      "symbol": "ReceiptViewModel.init(receipt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/flipper/Documents/desafio-ios"
+}
