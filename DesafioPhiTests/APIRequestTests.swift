@@ -29,8 +29,8 @@ class APIRequestTests: XCTestCase {
         sut?.getContentData()
         
         // Assert
-        let exp = expectation(description: "Test depois de 5 segundos")
-        let result = XCTWaiter.wait(for: [exp], timeout: 5.0)
+        let expect = expectation(description: "Test depois de 5 segundos")
+        let result = XCTWaiter.wait(for: [expect], timeout: 5.0)
         if result == XCTWaiter.Result.timedOut{
             XCTAssertEqual(sut?.requestResult, "Sucess")
         }else{
@@ -51,8 +51,8 @@ class APIRequestTests: XCTestCase {
         sut?.getContentData()
         
         // Assert
-        let exp = expectation(description: "Test depois de 5 segundos")
-        let result = XCTWaiter.wait(for: [exp], timeout: 5.0)
+        let expect = expectation(description: "Test depois de 5 segundos")
+        let result = XCTWaiter.wait(for: [expect], timeout: 5.0)
         if result == XCTWaiter.Result.timedOut{
             XCTAssertEqual(sut?.requestResult, "Sucess")
         }else{
@@ -75,8 +75,8 @@ class APIRequestTests: XCTestCase {
         sut.getContentData()
         
         // Assert
-        let exp = expectation(description: "Test depois de 5 segundos")
-        let result = XCTWaiter.wait(for: [exp], timeout: 5.0)
+        let expect = expectation(description: "Test depois de 5 segundos")
+        let result = XCTWaiter.wait(for: [expect], timeout: 5.0)
         if result == XCTWaiter.Result.timedOut{
             XCTAssertEqual(sut.requestResult, "Sucess")
         }else{
