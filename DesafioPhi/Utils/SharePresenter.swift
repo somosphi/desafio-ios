@@ -15,6 +15,7 @@ import UIKit
 class SharePresenter: SharePresenterProtocol {
     
     // MARK: Present Share
+    
     func presentShare(on viewController: UIViewController, completion: @escaping () -> Void) {
         let bounds = UIScreen.main.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)

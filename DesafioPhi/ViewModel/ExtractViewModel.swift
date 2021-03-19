@@ -31,6 +31,9 @@ class ExtractViewModel: ViewModelProtocol {
         return extracts.count
     }
     
+    /// Número de itens que cada request deve adquirir
+    private let itemsPerRequest = 10
+    
     //MARK: Functions
     
     /**
@@ -119,7 +122,7 @@ class ExtractViewModel: ViewModelProtocol {
     var requestResult = "Loading"
     
     func getContentData(){
-        APIRequest.getContent(endpoint: "myStatement/\(10)/\(countItems/10)/") { [weak self] (result: Result<ExtractModel, Error>) in
+        APIRequest.getContent(endpoint: "myStatement/\(itemsPerRequest)/\(countItems/itemsPerRequest)/") { [weak self] (result: Result<ExtractModel, Error>) in
             switch result {
                 case .success(let data):
                     self?.requestResult = "Sucess"

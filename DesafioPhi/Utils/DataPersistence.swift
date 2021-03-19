@@ -9,8 +9,8 @@ import Foundation
 
 /// Classe que configura a persistência de dados
 class DataPersistence {
-    
     //MARK: - Instance properties
+    
     /// Sengleton da persistência de dados
     static let shared = DataPersistence ()
 

@@ -14,6 +14,7 @@ import UIKit
 protocol SharePresenterProtocol {
     
     // MARK: Present Share
+    
     /**
      Método que exibe a aba de compartilhamento na view controller
      - Parameters:

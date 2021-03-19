@@ -15,8 +15,10 @@ class APIRequest {
     
     /// Caminho base para acesso à API
     private static let basePath = "https://desafio-mobile-bff.herokuapp.com/"
+    
     /// Chave de acesso à API
     private static let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    
     /// Variável estática que cria uma sessão personalizada
     private static let configurationSession: URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
@@ -26,10 +28,12 @@ class APIRequest {
         config.httpMaximumConnectionsPerHost = 500
         return config
     }()
+    
     /// Sessão que faz a requisição à API
     private static let session = URLSession.init(configuration: configurationSession)
     
     //MARK: Enum Error
+    
     /**
      Enum com os casos de erro ao requisitar conteúdo da API
      */
@@ -45,6 +49,7 @@ class APIRequest {
     }
     
     //MARK: Function
+    
     /**
      Método que realiza a requisição do conteúdo à API com base no endpoint
      - Parameters:
@@ -59,11 +64,13 @@ class APIRequest {
      - Throws: Retorna a causa da falha da requisição. Os erros retornados são do tipo *RequestError*
      */
     class func getContent<T: Codable> (endpoint: String, completionHandler: @escaping (_ result: Result<T, Error>) -> Void){
+        
         guard let url = URL(string: "\(basePath)\(endpoint)") else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue(key, forHTTPHeaderField: "token")
-            let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        
+        let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let error = error {
                 completionHandler(.failure(RequestError.networkError(error)))
                 return
