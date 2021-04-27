@@ -14,6 +14,7 @@
 		BF3520E526387564005A077A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E426387564005A077A /* Assets.xcassets */; };
 		BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E626387564005A077A /* LaunchScreen.storyboard */; };
 		BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520F226387565005A077A /* desafio_ios_phiTests.swift */; };
+		BF35211D2638828D005A077A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35211C2638828D005A077A /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		BF3520F226387565005A077A /* desafio_ios_phiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_ios_phiTests.swift; sourceTree = "<group>"; };
 		BF3520F426387565005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF35211C2638828D005A077A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		BF3520DA26387563005A077A /* desafio-ios-phi */ = {
 			isa = PBXGroup;
 			children = (
+				BF35211B26388271005A077A /* Utils */,
 				BF35211626387CFF005A077A /* View */,
 				BF35211526387CF7005A077A /* ViewModel */,
 				BF35211426387CEE005A077A /* Model */,
@@ -137,6 +140,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BF35211B26388271005A077A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF35211C2638828D005A077A /* Colors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3520E026387563005A077A /* ViewController.swift in Sources */,
+				BF35211D2638828D005A077A /* Colors.swift in Sources */,
 				BF3520DC26387563005A077A /* AppDelegate.swift in Sources */,
 				BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */,
 			);
