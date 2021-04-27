@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF3520DC26387563005A077A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DB26387563005A077A /* AppDelegate.swift */; };
+		BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DD26387563005A077A /* SceneDelegate.swift */; };
+		BF3520E026387563005A077A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DF26387563005A077A /* ViewController.swift */; };
+		BF3520E326387563005A077A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E126387563005A077A /* Main.storyboard */; };
+		BF3520E526387564005A077A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E426387564005A077A /* Assets.xcassets */; };
+		BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E626387564005A077A /* LaunchScreen.storyboard */; };
+		BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520F226387565005A077A /* desafio_ios_phiTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF3520EF26387565005A077A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3520D026387563005A077A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF3520D726387563005A077A;
+			remoteInfo = "desafio-ios-phi";
+		};
+		BF3520FA26387565005A077A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3520D026387563005A077A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF3520D726387563005A077A;
+			remoteInfo = "desafio-ios-phi";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF3520D826387563005A077A /* desafio-ios-phi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-phi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF3520DB26387563005A077A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF3520DD26387563005A077A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BF3520DF26387563005A077A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF3520E226387563005A077A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF3520E426387564005A077A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF3520E726387564005A077A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF3520E926387564005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF3520F226387565005A077A /* desafio_ios_phiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_ios_phiTests.swift; sourceTree = "<group>"; };
+		BF3520F426387565005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF3520D526387563005A077A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520EB26387565005A077A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520F626387565005A077A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF3520CF26387563005A077A = {
+			isa = PBXGroup;
+			children = (
+				BF3520DA26387563005A077A /* desafio-ios-phi */,
+				BF3520F126387565005A077A /* desafio-ios-phiTests */,
+				BF3520D926387563005A077A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF3520D926387563005A077A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF3520D826387563005A077A /* desafio-ios-phi.app */,
+				BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */,
+				BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF3520DA26387563005A077A /* desafio-ios-phi */ = {
+			isa = PBXGroup;
+			children = (
+				BF35211626387CFF005A077A /* View */,
+				BF35211526387CF7005A077A /* ViewModel */,
+				BF35211426387CEE005A077A /* Model */,
+				BF3520DB26387563005A077A /* AppDelegate.swift */,
+				BF3520DD26387563005A077A /* SceneDelegate.swift */,
+				BF3520DF26387563005A077A /* ViewController.swift */,
+				BF3520E126387563005A077A /* Main.storyboard */,
+				BF3520E426387564005A077A /* Assets.xcassets */,
+				BF3520E626387564005A077A /* LaunchScreen.storyboard */,
+				BF3520E926387564005A077A /* Info.plist */,
+			);
+			path = "desafio-ios-phi";
+			sourceTree = "<group>";
+		};
+		BF3520F126387565005A077A /* desafio-ios-phiTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF3520F226387565005A077A /* desafio_ios_phiTests.swift */,
+				BF3520F426387565005A077A /* Info.plist */,
+			);
+			path = "desafio-ios-phiTests";
+			sourceTree = "<group>";
+		};
+		BF35211426387CEE005A077A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF35211526387CF7005A077A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF35211626387CFF005A077A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF3520D726387563005A077A /* desafio-ios-phi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF35210226387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phi" */;
+			buildPhases = (
+				BF3520D426387563005A077A /* Sources */,
+				BF3520D526387563005A077A /* Frameworks */,
+				BF3520D626387563005A077A /* Resources */,
+				BF35211726387F2B005A077A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "desafio-ios-phi";
+			productName = "desafio-ios-phi";
+			productReference = BF3520D826387563005A077A /* desafio-ios-phi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF3520ED26387565005A077A /* desafio-ios-phiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF35210526387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiTests" */;
+			buildPhases = (
+				BF3520EA26387565005A077A /* Sources */,
+				BF3520EB26387565005A077A /* Frameworks */,
+				BF3520EC26387565005A077A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF3520F026387565005A077A /* PBXTargetDependency */,
+			);
+			name = "desafio-ios-phiTests";
+			productName = "desafio-ios-phiTests";
+			productReference = BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF3520F826387565005A077A /* desafio-ios-phiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF35210826387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiUITests" */;
+			buildPhases = (
+				BF3520F526387565005A077A /* Sources */,
+				BF3520F626387565005A077A /* Frameworks */,
+				BF3520F726387565005A077A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF3520FB26387565005A077A /* PBXTargetDependency */,
+			);
+			name = "desafio-ios-phiUITests";
+			productName = "desafio-ios-phiUITests";
+			productReference = BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF3520D026387563005A077A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					BF3520D726387563005A077A = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					BF3520ED26387565005A077A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF3520D726387563005A077A;
+					};
+					BF3520F826387565005A077A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF3520D726387563005A077A;
+					};
+				};
+			};
+			buildConfigurationList = BF3520D326387563005A077A /* Build configuration list for PBXProject "desafio-ios-phi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF3520CF26387563005A077A;
+			productRefGroup = BF3520D926387563005A077A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF3520D726387563005A077A /* desafio-ios-phi */,
+				BF3520ED26387565005A077A /* desafio-ios-phiTests */,
+				BF3520F826387565005A077A /* desafio-ios-phiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF3520D626387563005A077A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */,
+				BF3520E526387564005A077A /* Assets.xcassets in Resources */,
+				BF3520E326387563005A077A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520EC26387565005A077A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520F726387565005A077A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF35211726387F2B005A077A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF3520D426387563005A077A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3520E026387563005A077A /* ViewController.swift in Sources */,
+				BF3520DC26387563005A077A /* AppDelegate.swift in Sources */,
+				BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520EA26387565005A077A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF3520F526387565005A077A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF3520F026387565005A077A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF3520D726387563005A077A /* desafio-ios-phi */;
+			targetProxy = BF3520EF26387565005A077A /* PBXContainerItemProxy */;
+		};
+		BF3520FB26387565005A077A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF3520D726387563005A077A /* desafio-ios-phi */;
+			targetProxy = BF3520FA26387565005A077A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF3520E126387563005A077A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF3520E226387563005A077A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF3520E626387564005A077A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF3520E726387564005A077A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF35210026387565005A077A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF35210126387565005A077A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF35210326387565005A077A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phi/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF35210426387565005A077A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phi/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF35210626387565005A077A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phiTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-phi.app/desafio-ios-phi";
+			};
+			name = Debug;
+		};
+		BF35210726387565005A077A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phiTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-phi.app/desafio-ios-phi";
+			};
+			name = Release;
+		};
+		BF35210926387565005A077A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "desafio-ios-phi";
+			};
+			name = Debug;
+		};
+		BF35210A26387565005A077A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T373QFGJQA;
+				INFOPLIST_FILE = "desafio-ios-phiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "desafio-ios-phi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF3520D326387563005A077A /* Build configuration list for PBXProject "desafio-ios-phi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF35210026387565005A077A /* Debug */,
+				BF35210126387565005A077A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF35210226387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF35210326387565005A077A /* Debug */,
+				BF35210426387565005A077A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF35210526387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF35210626387565005A077A /* Debug */,
+				BF35210726387565005A077A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF35210826387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF35210926387565005A077A /* Debug */,
+				BF35210A26387565005A077A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF3520D026387563005A077A /* Project object */;
+}
