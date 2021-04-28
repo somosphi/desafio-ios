@@ -9,23 +9,26 @@
 /* Begin PBXBuildFile section */
 		BF3520DC26387563005A077A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DB26387563005A077A /* AppDelegate.swift */; };
 		BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DD26387563005A077A /* SceneDelegate.swift */; };
-		BF3520E026387563005A077A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DF26387563005A077A /* ViewController.swift */; };
-		BF3520E326387563005A077A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E126387563005A077A /* Main.storyboard */; };
 		BF3520E526387564005A077A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E426387564005A077A /* Assets.xcassets */; };
 		BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E626387564005A077A /* LaunchScreen.storyboard */; };
 		BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520F226387565005A077A /* desafio_ios_phiTests.swift */; };
 		BF35211D2638828D005A077A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35211C2638828D005A077A /* Colors.swift */; };
+		BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF352125263889EA005A077A /* ApplicationCoordinator.swift */; };
+		BF35212B26388EB1005A077A /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35212A26388EB0005A077A /* StatementViewController.swift */; };
+		BF35213026388F07005A077A /* StatementCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35212F26388F07005A077A /* StatementCollectionView.swift */; };
+		BF35213526388F31005A077A /* StatementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213426388F31005A077A /* StatementCollectionViewCell.swift */; };
+		BF35213A26388F6D005A077A /* StatementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213926388F6D005A077A /* StatementDetailViewController.swift */; };
+		BF35213F26389023005A077A /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213E26389023005A077A /* Statement.swift */; };
+		BF352144263890B9005A077A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF352143263890B9005A077A /* Transaction.swift */; };
+		BF3521492638912D005A077A /* StatementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3521482638912D005A077A /* StatementViewModel.swift */; };
+		BF35214E2638914B005A077A /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35214D2638914B005A077A /* TransactionViewModel.swift */; };
+		BF35216126389303005A077A /* StatementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35216026389303005A077A /* StatementCoordinator.swift */; };
+		BF35216926389653005A077A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35216826389653005A077A /* Coordinator.swift */; };
+		BF35216E26389C99005A077A /* StatementDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35216D26389C99005A077A /* StatementDetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		BF3520EF26387565005A077A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF3520D026387563005A077A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF3520D726387563005A077A;
-			remoteInfo = "desafio-ios-phi";
-		};
-		BF3520FA26387565005A077A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF3520D026387563005A077A /* Project object */;
 			proxyType = 1;
@@ -38,16 +41,25 @@
 		BF3520D826387563005A077A /* desafio-ios-phi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-phi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3520DB26387563005A077A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3520DD26387563005A077A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF3520DF26387563005A077A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF3520E226387563005A077A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF3520E426387564005A077A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF3520E726387564005A077A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3520E926387564005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3520F226387565005A077A /* desafio_ios_phiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_ios_phiTests.swift; sourceTree = "<group>"; };
 		BF3520F426387565005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF35211C2638828D005A077A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BF352125263889EA005A077A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		BF35212A26388EB0005A077A /* StatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewController.swift; sourceTree = "<group>"; };
+		BF35212F26388F07005A077A /* StatementCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCollectionView.swift; sourceTree = "<group>"; };
+		BF35213426388F31005A077A /* StatementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF35213926388F6D005A077A /* StatementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailViewController.swift; sourceTree = "<group>"; };
+		BF35213E26389023005A077A /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		BF352143263890B9005A077A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		BF3521482638912D005A077A /* StatementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModel.swift; sourceTree = "<group>"; };
+		BF35214D2638914B005A077A /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		BF35216026389303005A077A /* StatementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCoordinator.swift; sourceTree = "<group>"; };
+		BF35216826389653005A077A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF35216D26389C99005A077A /* StatementDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +71,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BF3520EB26387565005A077A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF3520F626387565005A077A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,7 +94,6 @@
 			children = (
 				BF3520D826387563005A077A /* desafio-ios-phi.app */,
 				BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */,
-				BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,17 +101,13 @@
 		BF3520DA26387563005A077A /* desafio-ios-phi */ = {
 			isa = PBXGroup;
 			children = (
+				BF3520E926387564005A077A /* Info.plist */,
+				BF3521522638919F005A077A /* Shared */,
+				BF352124263889C0005A077A /* Coordinators */,
+				BF35211426387CEE005A077A /* Model */,
 				BF35211B26388271005A077A /* Utils */,
 				BF35211626387CFF005A077A /* View */,
 				BF35211526387CF7005A077A /* ViewModel */,
-				BF35211426387CEE005A077A /* Model */,
-				BF3520DB26387563005A077A /* AppDelegate.swift */,
-				BF3520DD26387563005A077A /* SceneDelegate.swift */,
-				BF3520DF26387563005A077A /* ViewController.swift */,
-				BF3520E126387563005A077A /* Main.storyboard */,
-				BF3520E426387564005A077A /* Assets.xcassets */,
-				BF3520E626387564005A077A /* LaunchScreen.storyboard */,
-				BF3520E926387564005A077A /* Info.plist */,
 			);
 			path = "desafio-ios-phi";
 			sourceTree = "<group>";
@@ -124,6 +124,8 @@
 		BF35211426387CEE005A077A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF35213E26389023005A077A /* Statement.swift */,
+				BF352143263890B9005A077A /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +133,8 @@
 		BF35211526387CF7005A077A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BF3521482638912D005A077A /* StatementViewModel.swift */,
+				BF35214D2638914B005A077A /* TransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -138,6 +142,10 @@
 		BF35211626387CFF005A077A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF35212A26388EB0005A077A /* StatementViewController.swift */,
+				BF35212F26388F07005A077A /* StatementCollectionView.swift */,
+				BF35213426388F31005A077A /* StatementCollectionViewCell.swift */,
+				BF35213926388F6D005A077A /* StatementDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +156,28 @@
 				BF35211C2638828D005A077A /* Colors.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BF352124263889C0005A077A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				BF352125263889EA005A077A /* ApplicationCoordinator.swift */,
+				BF35216026389303005A077A /* StatementCoordinator.swift */,
+				BF35216826389653005A077A /* Coordinator.swift */,
+				BF35216D26389C99005A077A /* StatementDetailCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		BF3521522638919F005A077A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BF3520E626387564005A077A /* LaunchScreen.storyboard */,
+				BF3520E426387564005A077A /* Assets.xcassets */,
+				BF3520DD26387563005A077A /* SceneDelegate.swift */,
+				BF3520DB26387563005A077A /* AppDelegate.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,24 +219,6 @@
 			productReference = BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BF3520F826387565005A077A /* desafio-ios-phiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF35210826387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiUITests" */;
-			buildPhases = (
-				BF3520F526387565005A077A /* Sources */,
-				BF3520F626387565005A077A /* Frameworks */,
-				BF3520F726387565005A077A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF3520FB26387565005A077A /* PBXTargetDependency */,
-			);
-			name = "desafio-ios-phiUITests";
-			productName = "desafio-ios-phiUITests";
-			productReference = BF3520F926387565005A077A /* desafio-ios-phiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,10 +232,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					BF3520ED26387565005A077A = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = BF3520D726387563005A077A;
-					};
-					BF3520F826387565005A077A = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = BF3520D726387563005A077A;
 					};
@@ -244,7 +252,6 @@
 			targets = (
 				BF3520D726387563005A077A /* desafio-ios-phi */,
 				BF3520ED26387565005A077A /* desafio-ios-phiTests */,
-				BF3520F826387565005A077A /* desafio-ios-phiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,18 +263,10 @@
 			files = (
 				BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */,
 				BF3520E526387564005A077A /* Assets.xcassets in Resources */,
-				BF3520E326387563005A077A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BF3520EC26387565005A077A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF3520F726387565005A077A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -301,10 +300,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF3520E026387563005A077A /* ViewController.swift in Sources */,
+				BF35214E2638914B005A077A /* TransactionViewModel.swift in Sources */,
+				BF352144263890B9005A077A /* Transaction.swift in Sources */,
+				BF35213526388F31005A077A /* StatementCollectionViewCell.swift in Sources */,
+				BF35212B26388EB1005A077A /* StatementViewController.swift in Sources */,
+				BF35213A26388F6D005A077A /* StatementDetailViewController.swift in Sources */,
+				BF3521492638912D005A077A /* StatementViewModel.swift in Sources */,
+				BF35216926389653005A077A /* Coordinator.swift in Sources */,
+				BF35213026388F07005A077A /* StatementCollectionView.swift in Sources */,
+				BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */,
 				BF35211D2638828D005A077A /* Colors.swift in Sources */,
 				BF3520DC26387563005A077A /* AppDelegate.swift in Sources */,
 				BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */,
+				BF35213F26389023005A077A /* Statement.swift in Sources */,
+				BF35216126389303005A077A /* StatementCoordinator.swift in Sources */,
+				BF35216E26389C99005A077A /* StatementDetailCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,13 +326,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF3520F526387565005A077A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -331,22 +334,9 @@
 			target = BF3520D726387563005A077A /* desafio-ios-phi */;
 			targetProxy = BF3520EF26387565005A077A /* PBXContainerItemProxy */;
 		};
-		BF3520FB26387565005A077A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF3520D726387563005A077A /* desafio-ios-phi */;
-			targetProxy = BF3520FA26387565005A077A /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF3520E126387563005A077A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF3520E226387563005A077A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF3520E626387564005A077A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -558,46 +548,6 @@
 			};
 			name = Release;
 		};
-		BF35210926387565005A077A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T373QFGJQA;
-				INFOPLIST_FILE = "desafio-ios-phiUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "desafio-ios-phi";
-			};
-			name = Debug;
-		};
-		BF35210A26387565005A077A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T373QFGJQA;
-				INFOPLIST_FILE = "desafio-ios-phiUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "desafio-ios-phi";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -624,15 +574,6 @@
 			buildConfigurations = (
 				BF35210626387565005A077A /* Debug */,
 				BF35210726387565005A077A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF35210826387565005A077A /* Build configuration list for PBXNativeTarget "desafio-ios-phiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF35210926387565005A077A /* Debug */,
-				BF35210A26387565005A077A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
