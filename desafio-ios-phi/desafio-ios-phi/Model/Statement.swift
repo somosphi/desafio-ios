@@ -6,6 +6,8 @@
 //
 
 import Foundation
-class Statement {
-   
+
+struct Statement: Codable {
+    var amount: Double
+    var listOfTransactions: [Transaction]
 }
