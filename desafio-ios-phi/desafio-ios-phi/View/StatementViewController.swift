@@ -8,7 +8,7 @@
 import UIKit
 
 class StatementViewController: UIViewController {
-    var coordinator: StatementCoordinator?
+    var startDetail: (() -> Void)?
     
     let buttonTest: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
@@ -23,7 +23,6 @@ class StatementViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.title = "Extrato"
        
-        // Do any additional setup after loading the view.
         buttonTest.addTarget(self, action: #selector(presentDetail), for: .touchUpInside)
         view.addSubview(buttonTest)
       
@@ -33,6 +32,6 @@ class StatementViewController: UIViewController {
     }
 
     @objc func presentDetail() {
-        coordinator?.startDetail()
+        startDetail?()
     }
 }

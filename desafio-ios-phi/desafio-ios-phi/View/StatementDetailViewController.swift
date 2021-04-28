@@ -8,8 +8,7 @@
 import UIKit
 
 class StatementDetailViewController: UIViewController {
-    weak var coordinator: StatementDetailCoordinator?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow

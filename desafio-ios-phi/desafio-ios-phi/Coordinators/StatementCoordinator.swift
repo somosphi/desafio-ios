@@ -9,25 +9,24 @@ import Foundation
 import UIKit
 
 class StatementCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    private var statementViewController: StatementViewController?
+    private var statementViewController: StatementViewController
     private var statementDetailCoordinator: StatementDetailCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.statementViewController = StatementViewController()
     }
     
     func start() {
-        let statementViewController = StatementViewController()
-        statementViewController.coordinator = self
+        statementViewController.startDetail = { [weak self] in
+            self?.startStatementDetail()
+        }
         navigationController.pushViewController(statementViewController, animated: true)
-        self.statementViewController = statementViewController
     }
     
-    func startDetail() {
+    private func startStatementDetail() {
         let childCoordinator = StatementDetailCoordinator(navigationController: navigationController)
-        childCoordinators.append(childCoordinator)
         childCoordinator.start()
         self.statementDetailCoordinator = childCoordinator
     }

@@ -9,20 +9,16 @@ import Foundation
 import UIKit
 
 class ApplicationCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    let window: UIWindow
+    var statementCoordinator: StatementCoordinator?
     
-    init(window: UIWindow) {
-        self.window = window
-        navigationController = UINavigationController()
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
         let childCoordinator = StatementCoordinator(navigationController: navigationController)
-        childCoordinators.append(childCoordinator)
         childCoordinator.start()
+        self.statementCoordinator = childCoordinator
     }
 }
