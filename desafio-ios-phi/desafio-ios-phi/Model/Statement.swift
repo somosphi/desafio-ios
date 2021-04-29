@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct Statement: Codable {
+struct Statement: Decodable {
     var amount: Double
-    var listOfTransactions: [Transaction]
 }

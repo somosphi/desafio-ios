@@ -6,6 +6,6 @@
 //
 
 import Foundation
-enum TransactionType: String, Codable {
+enum TransactionType: String, Decodable {
     case TRANSFEROUT, TRANSFERIN, PIXCASHIN, PIXCASHOUT, BANKSLIPCASHIN
 }

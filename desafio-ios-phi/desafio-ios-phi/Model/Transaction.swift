@@ -7,28 +7,29 @@
 
 import Foundation
 
-struct Transaction: Codable {
-    let uuid: UUID
-    let date: Date
+struct Transaction {
+    let uuid: UUID?
+    let date: Date?
     let amount: Double
     let description: String
-    let type: TransactionType
-    let sentTo: String?
-    let from: String?
+    let type: TransactionType?
+    var person: String?
     let bankName: String?
-
-    enum CodingKeys: String, CodingKey {
-        case uuid = "id", date = "createdAt", amount, description, type = "tType", bankName, sentTo = "to", from
-    }
+    let authentication: String?
     
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        uuid = try container.decode(UUID.self, forKey: .uuid)
-//        date = try container.decode(Date.self, forKey: .date)
-//        amount = try container.decode(Double.self, forKey: .amount)
-//        description = try container.decode(String.self, forKey: .description)
-//        type = try container.decode(TransactionType.self, forKey: .type)
-//        userName = try container.decode(String.self, forKey: .userName)
-//        bankName = try container.decode(String.self, forKey: .bankName)
-//    }
+    init(from data: DecodableTransaction) {
+        self.uuid = UUID(uuidString: data.uuid)
+        self.date = .formatFromString(data.date)
+        self.amount = data.amount
+        self.description = data.description
+        self.type = TransactionType(rawValue: data.type)
+        self.bankName = data.bankName
+        self.authentication = data.authentication
+        if let from = data.from, data.sentTo == nil {
+            person = from
+        } else if let sentTo = data.sentTo, data.from == nil {
+            person = sentTo
+        }
+    }
+
 }
