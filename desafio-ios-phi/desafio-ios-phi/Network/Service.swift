@@ -1,14 +1,14 @@
 //
-//  StatementRepository.swift
+//  StatementService.swift
 //  desafio-ios-phi
 //
 //  Created by Lidiane Gomes on 29/04/21.
 //
 
 import Foundation
-struct StatementRepository {
-    static func getMyBalance(completion: @escaping ((Statement?) -> Void)) {
-        NetworkManager.request(router: .getMyBalance) { result in
+struct StatementService {
+    static func getMyBalance(completion: @escaping ((Balance?) -> Void)) {
+        NetworkManager.request(router: .myBalance) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -19,14 +19,14 @@ struct StatementRepository {
                     completion(nil)
                     return
                 }
-                let statement: Statement? = (try? JSONDecoder().decode(Statement.self, from: data))
+                let statement: Balance? = (try? JSONDecoder().decode(Balance.self, from: data))
                 completion(statement)
             }
         }
     }
     
-    static func getMyStatement(limit: Int, offset: Int, completion: @escaping (([Transaction]) -> Void)) {
-        NetworkManager.request(router: .getMyStatement(limit: limit, offset: offset)) { result in
+    static func getMyStatement(limit: Int, offset: Int, completion: @escaping (([Satatement]) -> Void)) {
+        NetworkManager.request(router: .mySatatemet(limit: limit, offset: offset)) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -39,9 +39,7 @@ struct StatementRepository {
         
                 let item = (try? JSONDecoder().decode(DecodableData.self, from: data))
                 if let item = item {
-                    let datas = item.items
-                    let transactions = datas.map {Transaction(from: $0)}
-                    completion(transactions)
+                    completion(item.items)
                 } else {
                     completion([])
                 }
@@ -50,8 +48,8 @@ struct StatementRepository {
         }
     }
     
-    static func getMyStatementDetail(transactionID: String, completion: @escaping ((Transaction?) -> Void)) {
-        NetworkManager.request(router: .getMyStatementDetail(transactionID: transactionID)) { result in
+    static func getMyStatementDetail(transactionID: String, completion: @escaping ((Satatement?) -> Void)) {
+        NetworkManager.request(router: .myStatementDetail(transactionID: transactionID)) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -62,12 +60,8 @@ struct StatementRepository {
                     return
                 }
     
-                let dataTransaction = (try? JSONDecoder().decode(DecodableTransaction.self, from: data))
-                guard let dataTransaction = dataTransaction else {
-                    completion(nil)
-                    return
-                }
-                completion(Transaction(from: dataTransaction))
+                let dataTransaction = (try? JSONDecoder().decode(Satatement.self, from: data))
+                completion(dataTransaction)
             }
         }
     }
