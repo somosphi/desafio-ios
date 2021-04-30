@@ -7,7 +7,7 @@
 
 import Foundation
 extension Date {
-    static func formatFromString(_ dateString: String) -> Self? {
+    static func fromString(_ dateString: String) -> Self? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
