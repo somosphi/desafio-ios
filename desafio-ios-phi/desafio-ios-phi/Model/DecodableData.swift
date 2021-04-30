@@ -7,5 +7,5 @@
 
 import Foundation
 struct DecodableData: Decodable {
-    let items: [DecodableTransaction]
+    let items: [Statement]
 }
