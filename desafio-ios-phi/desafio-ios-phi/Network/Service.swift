@@ -1,13 +1,13 @@
 //
-//  StatementService.swift
+//  Service.swift
 //  desafio-ios-phi
 //
 //  Created by Lidiane Gomes on 29/04/21.
 //
 
 import Foundation
-struct StatementService {
-    static func getMyBalance(completion: @escaping ((Balance?) -> Void)) {
+struct Service {
+   static func getMyBalance(completion: @escaping ((Balance?) -> Void)) {
         NetworkManager.request(router: .myBalance) { result in
             switch result {
             case .failure(let error):
@@ -25,7 +25,7 @@ struct StatementService {
         }
     }
     
-    static func getMyStatement(limit: Int, offset: Int, completion: @escaping (([Satatement]) -> Void)) {
+   static func getMyStatement(limit: Int, offset: Int, completion: @escaping (([Statement]) -> Void)) {
         NetworkManager.request(router: .mySatatemet(limit: limit, offset: offset)) { result in
             switch result {
             case .failure(let error):
@@ -48,7 +48,7 @@ struct StatementService {
         }
     }
     
-    static func getMyStatementDetail(transactionID: String, completion: @escaping ((Satatement?) -> Void)) {
+   static func getMyStatementDetail(transactionID: String, completion: @escaping ((Statement?) -> Void)) {
         NetworkManager.request(router: .myStatementDetail(transactionID: transactionID)) { result in
             switch result {
             case .failure(let error):
@@ -60,7 +60,7 @@ struct StatementService {
                     return
                 }
     
-                let dataTransaction = (try? JSONDecoder().decode(Satatement.self, from: data))
+                let dataTransaction = (try? JSONDecoder().decode(Statement.self, from: data))
                 completion(dataTransaction)
             }
         }
