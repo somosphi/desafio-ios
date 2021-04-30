@@ -8,9 +8,9 @@
 import Foundation
 
 enum Router {
-    case getMyBalance
-    case getMyStatement(limit: Int, offset: Int)
-    case getMyStatementDetail(transactionID: String)
+    case myBalance
+    case mySatatemet(limit: Int, offset: Int)
+    case myStatementDetail(transactionID: String)
     
     private var scheme: String {
         return "https"
@@ -22,18 +22,20 @@ enum Router {
     
     private var path: String {
         switch self {
-        case .getMyBalance:
+        case .myBalance:
             return "/myBalance"
-        case .getMyStatement(let limit, let offset):
+        case .mySatatemet(let limit, let offset):
             return "/myStatement/\(limit)/\(offset)"
-        case .getMyStatementDetail(let transactionID):
+        case .myStatementDetail(let transactionID):
             return "/myStatement/detail/\(transactionID)"
         }
     }
     
     private var header: [String: String] {
         return ["token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
+                ".eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ" +
+                ".SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
         ]
     }
     
