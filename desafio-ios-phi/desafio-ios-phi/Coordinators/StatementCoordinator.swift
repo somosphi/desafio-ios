@@ -19,14 +19,13 @@ class StatementCoordinator: Coordinator {
     }
     
     func start() {
-        statementViewController.startDetail = { [weak self] in
-            self?.startStatementDetail()
-        }
+        statementViewController.coordinator = self
         navigationController.pushViewController(statementViewController, animated: true)
     }
     
-    private func startStatementDetail() {
-        let childCoordinator = StatementDetailCoordinator(navigationController: navigationController)
+    func startStatementDetail(transactionId: String) {
+        let childCoordinator = StatementDetailCoordinator(navigationController: navigationController,
+                                                          transactionId: transactionId)
         childCoordinator.start()
         self.statementDetailCoordinator = childCoordinator
     }
