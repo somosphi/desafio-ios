@@ -11,8 +11,8 @@ class StatementDetailViewModel {
     private var transaction: Statement?
     private var transactionId: String
     
-    var uuid: UUID? {
-        return UUID(uuidString: transaction?.uuid ?? "")
+    var uuid: String {
+        return transaction?.uuid ?? ""
     }
     
     var date: String {
