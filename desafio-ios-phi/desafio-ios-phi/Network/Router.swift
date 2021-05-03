@@ -13,11 +13,11 @@ enum Router {
     case myStatementDetail(transactionID: String)
     
     private var scheme: String {
-        return "https"
+        return APISCHEME
     }
     
     private var host: String {
-        return "desafio-mobile-bff.herokuapp.com"
+        return APIHOST
     }
     
     private var path: String {
@@ -32,15 +32,11 @@ enum Router {
     }
     
     private var header: [String: String] {
-        return ["token":
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
-                ".eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ" +
-                ".SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        ]
+        return ["token": APITOKEN]
     }
     
     private var method: String {
-        return "GET"
+        return HTTPMethods.GET.rawValue
     }
     
     var url: URL? {

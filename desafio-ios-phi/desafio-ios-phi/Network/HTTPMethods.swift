@@ -6,3 +6,6 @@
 //
 
 import Foundation
+enum HTTPMethods: String {
+    case GET, PUT, DELETE, POST, PATCH
+}
