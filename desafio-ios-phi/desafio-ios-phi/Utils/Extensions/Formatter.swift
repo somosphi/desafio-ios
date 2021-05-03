@@ -16,9 +16,3 @@ extension Formatter {
         return formatter
     }()
 }
-
-extension Double {
-    var formattedWithSeparator: String {
-        return Formatter.withSeparator.string(for: self) ?? ""
-    }
-}
