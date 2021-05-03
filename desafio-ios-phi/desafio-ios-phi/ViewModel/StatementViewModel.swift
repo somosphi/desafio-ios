@@ -19,11 +19,16 @@ class StatementViewModel {
         return statement.count
     }
     
-    func transaction(for index: Int) -> StatementDetailViewModel? {
+    func getTransaction(for index: Int) -> StatementDetailViewModel? {
         if statement.count > index {
             return statement[index]
         }
         return nil
+    }
+    
+    func getTransactionId(for index: Int) -> String? {
+        let transaction = getTransaction(for: index)
+        return transaction?.uuid
     }
     
     func updateBalance() {
@@ -35,17 +40,23 @@ class StatementViewModel {
 
 extension StatementViewModel {
     
-    func get(limit: Int = 10, offset: Int = 0, completion :@escaping (StatementViewModel) -> Void) {
+    func getMyBalance(completion :@escaping (StatementViewModel) -> Void) {
         Service.getMyBalance { balance in
             self.balance = balance
+            
+            DispatchQueue.main.async {
+                completion(self)
+            }
         }
-        
+    }
+    
+    func getStatement(limit: Int = 10, offset: Int = 0, completion :@escaping (StatementViewModel) -> Void) {
         Service.getMyStatement(limit: limit, offset: offset) { statement in
             self.statement = statement.map {StatementDetailViewModel(transaction: $0)}
-        }
-        
-        DispatchQueue.main.async {
-            completion(self)
+            
+            DispatchQueue.main.async {
+                completion(self)
+            }
         }
     }
 }
