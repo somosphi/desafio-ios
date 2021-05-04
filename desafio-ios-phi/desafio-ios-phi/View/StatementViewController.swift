@@ -12,6 +12,7 @@ class StatementViewController: UIViewController {
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
     private var balanceHeaderView = BalanceHeaderView()
+    private var statementHeaderView = StatementsHeaderView()
     
     private let loadingActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -31,8 +32,7 @@ class StatementViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
-        tableView.layoutMargins = .zero
-        tableView.contentInset = .zero
+        tableView.isHidden = true
         return tableView
     }()
     
@@ -57,6 +57,7 @@ class StatementViewController: UIViewController {
         self.statementViewModel.getStatement { statementViewModel in
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
+                self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
         }
@@ -65,6 +66,8 @@ class StatementViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(StatementTableViewCell.self,
+                           forCellReuseIdentifier: StatementTableViewCell.reusableIdentifier)
     }
     
     private func configureNavigation() {
@@ -107,16 +110,14 @@ extension StatementViewController: ViewConfiguration {
 }
 
 extension StatementViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
-    }
-    
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let transactionId = statementViewModel.getTransactionId(for: indexPath.row) else {
             return
         }
-        coordinator?.startStatementDetail(transactionId: transactionId)
+        
+        self.coordinator?.startStatementDetail(transactionId: transactionId)
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -124,7 +125,7 @@ extension StatementViewController: UITableViewDelegate {
         case 0:
             return balanceHeaderView
         default:
-            return nil
+            return statementHeaderView
         }
         
     }
@@ -144,29 +145,26 @@ extension StatementViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 1:
-            return 5
+            return statementViewModel.numberOfTransactions
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.selectionStyle = .none
-        cell.insetsLayoutMarginsFromSafeArea = false
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return "Suas movimentações"
-        default:
-            return nil
+
+        guard let tableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: StatementTableViewCell.reusableIdentifier,
+                for: indexPath) as? StatementTableViewCell, let statementDetail =
+                    statementViewModel.getTransaction(for: indexPath.row) else {
+            return UITableViewCell()
         }
+        
+        tableViewCell.setup(statementDetail: statementDetail)
+        
+        return tableViewCell
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
