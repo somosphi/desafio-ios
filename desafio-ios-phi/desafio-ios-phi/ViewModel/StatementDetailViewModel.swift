@@ -8,6 +8,8 @@
 import Foundation
 class StatementDetailViewModel {
     
+    // MARK: - Properties
+    
     private var transaction: Statement?
     private var transactionId: String
     
@@ -57,6 +59,8 @@ class StatementDetailViewModel {
         return transaction?.authentication ?? ""
     }
     
+    // MARK: - Inicialization
+    
     init(transactionId: String) {
         self.transactionId = transactionId
     }
@@ -68,6 +72,8 @@ class StatementDetailViewModel {
 
 }
 
+// MARK: - Network
+
 extension StatementDetailViewModel {
     func get(transactionId: String, completion :@escaping (StatementDetailViewModel) -> Void) {
         Service.getMyStatementDetail(transactionID: transactionId) { transaction in
@@ -78,4 +84,18 @@ extension StatementDetailViewModel {
             }
         }
     }
+}
+
+// MARK: - Conforms to the Hashable
+
+extension StatementDetailViewModel: Hashable {
+    
+    static func == (lhs: StatementDetailViewModel, rhs: StatementDetailViewModel) -> Bool {
+        lhs.transactionId == rhs.transactionId
+    }
+    
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(transactionId)
+    }
+    
 }
