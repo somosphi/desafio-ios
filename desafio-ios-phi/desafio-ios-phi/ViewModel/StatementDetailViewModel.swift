@@ -25,8 +25,11 @@ class StatementDetailViewModel {
         return String.fromDateResume(date ?? Date())
     }
     
-    var amount: Double {
-        return transaction?.amount ?? 0
+    var amount: String {
+        guard let value = transaction?.amount.formattedWithSeparator else {
+            return ""
+        }
+        return "R$ \(value)"
     }
     
     var description: String {
