@@ -23,6 +23,7 @@ class StatementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         loadViewModel()
     }
 

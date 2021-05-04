@@ -15,8 +15,7 @@
 		BF35211D2638828D005A077A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35211C2638828D005A077A /* Colors.swift */; };
 		BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF352125263889EA005A077A /* ApplicationCoordinator.swift */; };
 		BF35212B26388EB1005A077A /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35212A26388EB0005A077A /* StatementViewController.swift */; };
-		BF35213026388F07005A077A /* StatementCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35212F26388F07005A077A /* StatementCollectionView.swift */; };
-		BF35213526388F31005A077A /* StatementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213426388F31005A077A /* StatementCollectionViewCell.swift */; };
+		BF35213526388F31005A077A /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213426388F31005A077A /* StatementTableViewCell.swift */; };
 		BF35213A26388F6D005A077A /* StatementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213926388F6D005A077A /* StatementDetailViewController.swift */; };
 		BF35213F26389023005A077A /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35213E26389023005A077A /* Balance.swift */; };
 		BF3521492638912D005A077A /* StatementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3521482638912D005A077A /* StatementViewModel.swift */; };
@@ -30,6 +29,7 @@
 		BF39B7D5264080CF005E5758 /* UserDefaultsPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */; };
 		BF39B7D7264090CD005E5758 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D6264090CD005E5758 /* Formatter.swift */; };
 		BF39B7DA2640991A005E5758 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D92640991A005E5758 /* Double.swift */; };
+		BFA018C12641CBEE001ADD82 /* StatementsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */; };
 		BFA74EB726405FE1003C3D8E /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */; };
 		BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */; };
 		BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BB263B1BFA003AAF74 /* Service.swift */; };
@@ -65,8 +65,7 @@
 		BF35211C2638828D005A077A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BF352125263889EA005A077A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		BF35212A26388EB0005A077A /* StatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewController.swift; sourceTree = "<group>"; };
-		BF35212F26388F07005A077A /* StatementCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCollectionView.swift; sourceTree = "<group>"; };
-		BF35213426388F31005A077A /* StatementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF35213426388F31005A077A /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		BF35213926388F6D005A077A /* StatementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailViewController.swift; sourceTree = "<group>"; };
 		BF35213E26389023005A077A /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		BF3521482638912D005A077A /* StatementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistence.swift; sourceTree = "<group>"; };
 		BF39B7D6264090CD005E5758 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		BF39B7D92640991A005E5758 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsHeaderView.swift; sourceTree = "<group>"; };
 		BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFCED6BB263B1BFA003AAF74 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -176,10 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				BF35212A26388EB0005A077A /* StatementViewController.swift */,
-				BF35212F26388F07005A077A /* StatementCollectionView.swift */,
-				BF35213426388F31005A077A /* StatementCollectionViewCell.swift */,
+				BF35213426388F31005A077A /* StatementTableViewCell.swift */,
 				BF35213926388F6D005A077A /* StatementDetailViewController.swift */,
 				BF39B7CE26406C2F005E5758 /* BalanceHeaderView.swift */,
+				BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */,
 				BFD837B6263C7CC60089F7CB /* String.swift in Sources */,
 				BF35214E2638914B005A077A /* StatementDetailViewModel.swift in Sources */,
-				BF35213526388F31005A077A /* StatementCollectionViewCell.swift in Sources */,
+				BF35213526388F31005A077A /* StatementTableViewCell.swift in Sources */,
 				BF39B7D326407AFA005E5758 /* HTTPMethods.swift in Sources */,
 				BF35212B26388EB1005A077A /* StatementViewController.swift in Sources */,
 				BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */,
@@ -376,9 +376,9 @@
 				BF3521492638912D005A077A /* StatementViewModel.swift in Sources */,
 				BFEC4B342639F848001B69D9 /* Router.swift in Sources */,
 				BF35216926389653005A077A /* Coordinator.swift in Sources */,
-				BF35213026388F07005A077A /* StatementCollectionView.swift in Sources */,
 				BFCED6C0263B5587003AAF74 /* Statement.swift in Sources */,
 				BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */,
+				BFA018C12641CBEE001ADD82 /* StatementsHeaderView.swift in Sources */,
 				BF39B7D5264080CF005E5758 /* UserDefaultsPersistence.swift in Sources */,
 				BFEC4B2C2639F412001B69D9 /* NetworkResponseError.swift in Sources */,
 				BF35211D2638828D005A077A /* Colors.swift in Sources */,
