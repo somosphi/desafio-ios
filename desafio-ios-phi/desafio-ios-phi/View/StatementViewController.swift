@@ -7,12 +7,23 @@
 
 import UIKit
 
+enum Section: Int, CaseIterable {
+    case balance, statement
+}
+
 class StatementViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    typealias DataSource = UITableViewDiffableDataSource<Section, StatementDetailViewModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, StatementDetailViewModel>
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
     private var balanceHeaderView = BalanceHeaderView()
     private var statementHeaderView = StatementsHeaderView()
+    private lazy var dataSource = makeDataSource()
+    
+    // MARK: - Views
     
     private let loadingActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -36,12 +47,16 @@ class StatementViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
         loadMyBalance()
         loadViewModel()
     }
+    
+    // MARK: - Functions
     
     private func loadMyBalance() {
         self.statementViewModel.getMyBalance { statementViewModel in
@@ -58,6 +73,7 @@ class StatementViewController: UIViewController {
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.tableView.isHidden = false
+                self.aplySnapshot(animatingDifferences: false)
                 self.tableView.reloadData()
             }
         }
@@ -65,7 +81,6 @@ class StatementViewController: UIViewController {
     
     private func configureTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(StatementTableViewCell.self,
                            forCellReuseIdentifier: StatementTableViewCell.reusableIdentifier)
     }
@@ -76,7 +91,31 @@ class StatementViewController: UIViewController {
         navigationItem.title = "Extrato"
     }
     
+    // MARK: - Data source
+    
+    private func makeDataSource() -> DataSource {
+        let dataSource = DataSource(tableView: tableView, cellProvider: { tableView, indexPath, statement in
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: StatementTableViewCell.reusableIdentifier,
+                    for: indexPath) as? StatementTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setup(statementDetail: statement)
+            return cell
+        })
+       return dataSource
+    }
+    
+    private func aplySnapshot(animatingDifferences: Bool = true) {
+        var snapshot = Snapshot()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems([], toSection: .balance)
+        snapshot.appendItems(statementViewModel.statement, toSection: .statement)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
 }
+
+// MARK: - ViewConfiguration
 
 extension StatementViewController: ViewConfiguration {
     
@@ -109,6 +148,8 @@ extension StatementViewController: ViewConfiguration {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension StatementViewController: UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -139,33 +180,4 @@ extension StatementViewController: UITableViewDelegate {
         }
     }
     
-}
-
-extension StatementViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 1:
-            return statementViewModel.numberOfTransactions
-        default:
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard let tableViewCell = tableView.dequeueReusableCell(
-                withIdentifier: StatementTableViewCell.reusableIdentifier,
-                for: indexPath) as? StatementTableViewCell, let statementDetail =
-                    statementViewModel.getTransaction(for: indexPath.row) else {
-            return UITableViewCell()
-        }
-        
-        tableViewCell.setup(statementDetail: statementDetail)
-        
-        return tableViewCell
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
 }
