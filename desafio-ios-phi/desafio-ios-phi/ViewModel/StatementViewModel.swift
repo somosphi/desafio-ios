@@ -8,18 +8,21 @@
 import Foundation
 class StatementViewModel {
     
+    // MARK: - Properties
+    
     private var balance: Balance?
-    private var statement = [StatementDetailViewModel]()
+    var statement = [StatementDetailViewModel]()
     
-    var amount: Double {
-        return balance?.amount ?? 0
+    var amount: String {
+        guard let value = balance?.amount else {
+            return ""
+        }
+        return value.formattedWithSeparator
     }
     
-    var numberOfTransactions: Int {
-        return statement.count
-    }
+    // MARK: - Functions
     
-    func getTransaction(for index: Int) -> StatementDetailViewModel? {
+    private func getTransaction(for index: Int) -> StatementDetailViewModel? {
         if statement.count > index {
             return statement[index]
         }
@@ -30,13 +33,9 @@ class StatementViewModel {
         let transaction = getTransaction(for: index)
         return transaction?.uuid
     }
-    
-    func updateBalance() {
-        Service.getMyBalance { balance in
-            self.balance = balance
-        }
-    }
 }
+
+// MARK: - Network
 
 extension StatementViewModel {
     
