@@ -10,10 +10,13 @@ import UIKit
 
 class BalanceHeaderView: UIView {
     
-    private var isAmountHidden: Bool = UserDefaultsPersistence.shared.getIsAmountHidden()
+    // MARK: - Properties
     
+    private var isAmountHidden: Bool = UserDefaultsPersistence.shared.getIsAmountHidden()
     private let hiddenAmountImage = UIImage(systemName: "eye.slash.fill")
     private let shownAmountImage = UIImage(systemName: "eye.fill")
+    
+    // MARK: - Views
     
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -52,6 +55,8 @@ class BalanceHeaderView: UIView {
         return stackView
     }()
     
+    // MARK: - Inicialization
+    
     public init() {
         super.init(frame: .zero)
         
@@ -63,9 +68,7 @@ class BalanceHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func formatAmount(_ value: Double) -> String {
-        return "R$ \(value.formattedWithSeparator)"
-    }
+    // MARK: - Functions
     
     @objc func hideAmount() {
         isAmountHidden = !isAmountHidden
@@ -76,11 +79,47 @@ class BalanceHeaderView: UIView {
         layoutSubviews()
     }
     
-    func updateAmount(_ value: Double) {
-        amountLabel.text = formatAmount(value)
+    func updateAmount(_ text: String) {
+        amountLabel.text = text
         layoutIfNeeded()
     }
+    
+    private func setupHorizontalStackConstraints() {
+        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
+            
+        ])
+    }
+    
+    private func setupAmountLabelConstraints() {
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            amountLabel.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 16),
+            amountLabel.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
+            amountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+        ])
+        
+    }
+    
+    private func setupViewForHiddenAmountConstraints() {
+        viewForHiddenAmount.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            viewForHiddenAmount.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor,
+                                                     constant: 20),
+            viewForHiddenAmount.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
+            viewForHiddenAmount.widthAnchor.constraint(equalToConstant: 120),
+            viewForHiddenAmount.heightAnchor.constraint(equalToConstant: 5)
+            
+        ])
+    }
 }
+
+// MARK: - ViewConfiguration
 
 extension BalanceHeaderView: ViewConfiguration {
     
@@ -102,26 +141,9 @@ extension BalanceHeaderView: ViewConfiguration {
     }
     
     func setupConstraints() {
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        viewForHiddenAmount.translatesAutoresizingMaskIntoConstraints = false
-        amountLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            
-            amountLabel.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 16),
-            amountLabel.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
-            amountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            
-            viewForHiddenAmount.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor,
-                                                     constant: 20),
-            viewForHiddenAmount.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
-            viewForHiddenAmount.widthAnchor.constraint(equalToConstant: 120),
-            viewForHiddenAmount.heightAnchor.constraint(equalToConstant: 5)
-            
-        ])
-        
+        setupHorizontalStackConstraints()
+        setupAmountLabelConstraints()
+        setupViewForHiddenAmountConstraints()
     }
     
 }
