@@ -16,11 +16,11 @@ class BalanceHeaderView: UIView {
     private let shownAmountImage = UIImage(systemName: "eye.fill")
     
     private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Seu saldo"
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = .blackTextColor
-        return label
+        let titleLabel = UILabel()
+        titleLabel.text = "Seu saldo"
+        titleLabel.font = UIFont.systemFont(ofSize: 17)
+        titleLabel.textColor = .blackTextColor
+        return titleLabel
     }()
     
     private let viewForHiddenAmount: UIView = {
@@ -30,11 +30,11 @@ class BalanceHeaderView: UIView {
     }()
     
     private let amountLabel: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        label.textColor = .lightGreenColor
-        return label
+        let amountLabel = UILabel()
+        amountLabel.text = ""
+        amountLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        amountLabel.textColor = .lightGreenColor
+        return amountLabel
     }()
     
     private let hideAmountButton: UIButton = {
@@ -78,7 +78,7 @@ class BalanceHeaderView: UIView {
     
     func updateAmount(_ value: Double) {
         amountLabel.text = formatAmount(value)
-        layoutSubviews()
+        layoutIfNeeded()
     }
 }
 
