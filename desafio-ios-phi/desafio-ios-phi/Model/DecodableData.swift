@@ -6,6 +6,6 @@
 //
 
 import Foundation
-struct DecodableData: Decodable {
+class DecodableData: Decodable {
     let items: [Statement]
 }
