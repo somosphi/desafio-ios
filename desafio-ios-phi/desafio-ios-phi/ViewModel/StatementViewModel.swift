@@ -9,9 +9,9 @@ import Foundation
 class StatementViewModel {
     
     // MARK: - Properties
-    
+    var isPaginating = false
     private var balance: Balance?
-    var statement = [StatementDetailViewModel]()
+    private var listOfTransactions = [StatementDetailViewModel]()
     
     var amount: String {
         guard let value = balance?.amount else {
@@ -22,16 +22,16 @@ class StatementViewModel {
     
     // MARK: - Functions
     
-    private func getTransaction(for index: Int) -> StatementDetailViewModel? {
-        if statement.count > index {
-            return statement[index]
-        }
-        return nil
+    func getAllTransactions() -> [StatementDetailViewModel] {
+        return listOfTransactions
     }
     
-    func getTransactionId(for index: Int) -> String? {
-        let transaction = getTransaction(for: index)
-        return transaction?.uuid
+    func getStatementDetailId(for index: Int) -> String? {
+        var statementDetail: StatementDetailViewModel?
+        if listOfTransactions.count > index {
+            statementDetail = self.listOfTransactions[index]
+        }
+        return statementDetail?.uuid
     }
 }
 
@@ -49,12 +49,31 @@ extension StatementViewModel {
         }
     }
     
-    func getStatement(limit: Int = 10, offset: Int = 0, completion :@escaping (StatementViewModel) -> Void) {
-        Service.getMyStatement(limit: limit, offset: offset) { statement in
-            self.statement = statement.map {StatementDetailViewModel(transaction: $0)}
+    func getStatement(completion :@escaping (StatementViewModel) -> Void) {
+        Service.getMyStatement(limit: 10, offset: 0) { statement in
+            self.listOfTransactions = statement.map {StatementDetailViewModel(transaction: $0)}
             
             DispatchQueue.main.async {
                 completion(self)
+            }
+        }
+    }
+    
+    func getStatementWithPagination(pagination: Bool = false,
+                                    limit: Int = 10,
+                                    offset: Int = 0,
+                                    completion :@escaping (StatementViewModel, [StatementDetailViewModel]) -> Void) {
+        if pagination {
+            isPaginating = true
+        }
+        Service.getMyStatement(limit: limit, offset: offset) { statement in
+            let newStatements = statement.map {StatementDetailViewModel(transaction: $0)}
+            self.listOfTransactions += newStatements
+            DispatchQueue.main.async {
+                completion(self, newStatements)
+                if pagination {
+                    self.isPaginating = false
+                }
             }
         }
     }

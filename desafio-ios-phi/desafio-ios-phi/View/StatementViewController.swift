@@ -17,10 +17,12 @@ class StatementViewController: UIViewController {
     
     typealias DataSource = UITableViewDiffableDataSource<Section, StatementDetailViewModel>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, StatementDetailViewModel>
+    
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
     private var balanceHeaderView = BalanceHeaderView()
     private var statementHeaderView = StatementsHeaderView()
+    private var page: Int = 1
     private lazy var dataSource = makeDataSource()
     
     // MARK: - Views
@@ -52,31 +54,35 @@ class StatementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
-        loadMyBalance()
         loadViewModel()
     }
     
     // MARK: - Functions
+    
+    private func loadViewModel() {
+        loadMyBalance()
+        loadStatements()
+    }
     
     private func loadMyBalance() {
         self.statementViewModel.getMyBalance { statementViewModel in
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.balanceHeaderView.updateAmount(statementViewModel.amount)
-                self.loadingActivityIndicator.stopAnimating()
             }
         }
     }
     
-    private func loadViewModel() {
-        self.statementViewModel.getStatement { statementViewModel in
+    private func loadStatements() {
+        self.statementViewModel.getStatement(completion: { statementViewModel in
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
+                self.aplySnapshot(statementViewModel)
+                self.loadingActivityIndicator.stopAnimating()
                 self.tableView.isHidden = false
-                self.aplySnapshot(animatingDifferences: false)
                 self.tableView.reloadData()
             }
-        }
+        })
     }
     
     private func configureTableView() {
@@ -89,6 +95,7 @@ class StatementViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.title = "Extrato"
+        
     }
     
     // MARK: - Data source
@@ -103,15 +110,21 @@ class StatementViewController: UIViewController {
             cell.setup(statementDetail: statement)
             return cell
         })
-       return dataSource
+        return dataSource
     }
     
-    private func aplySnapshot(animatingDifferences: Bool = true) {
+    private func aplySnapshot(_ statementViewModel: StatementViewModel) {
         var snapshot = Snapshot()
         snapshot.appendSections(Section.allCases)
         snapshot.appendItems([], toSection: .balance)
-        snapshot.appendItems(statementViewModel.statement, toSection: .statement)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+        snapshot.appendItems(statementViewModel.getAllTransactions(), toSection: .statement)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+    
+    private func updateSnapshot(_ statement: [StatementDetailViewModel]) {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(statement, toSection: .statement)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -153,7 +166,7 @@ extension StatementViewController: ViewConfiguration {
 extension StatementViewController: UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let transactionId = statementViewModel.getTransactionId(for: indexPath.row) else {
+        guard let transactionId = statementViewModel.getStatementDetailId(for: indexPath.row) else {
             return
         }
         
@@ -180,4 +193,22 @@ extension StatementViewController: UITableViewDelegate {
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 100 - scrollView.frame.height) {
+            if statementViewModel.isPaginating {
+                return
+            }
+            statementViewModel.getStatementWithPagination(pagination: true,
+                                                          offset: page) { statementViewModel, newStatement in
+                if !newStatement.isEmpty {
+                    self.page += 1
+                    self.statementViewModel = statementViewModel
+                    DispatchQueue.main.async {
+                        self.updateSnapshot(newStatement)
+                    }
+                }
+            }
+        }
+    }
 }
