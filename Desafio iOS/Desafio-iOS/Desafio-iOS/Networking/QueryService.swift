@@ -8,54 +8,36 @@
 import Foundation
 
 enum NetworkError: Error {
-    case badURL
+    case unexpectedError
+    case decodingError
 }
 
 class QueryService {
     let defaultSession = URLSession(configuration: .default)
+    let baseURL = "https://desafio-mobile-bff.herokuapp.com"
 
-    var dataTask: URLSessionDataTask?
-    var errorMessage = ""
-    let urlString = "https://desafio-mobile-bff.herokuapp.com/myBalance"
-
-    var amountString = ""
-
-    func getAmount(completion: @escaping (Double) -> Void) {
-        dataTask?.cancel()
-
-        let url = URL(string: urlString)!
+    func getAmount(completion: @escaping (Result<Double, NetworkError>) -> Void) {
+        guard let url = URL(string: baseURL + "/myBalance") else { return }
         var request = URLRequest(url: url)
 
         request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
                          forHTTPHeaderField: "token")
 
-        dataTask = defaultSession.dataTask(with: request) { [weak self] data, response, error in
-            defer {
-                self?.dataTask = nil
-            }
-
-            if let error = error {
-                self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        defaultSession.dataTask(with: request) { data, response, error in
+            if let _ = error {
+                completion(.failure(.unexpectedError))
             } else if let data = data,
                       let response = response as? HTTPURLResponse,
                       response.statusCode == 200 {
-                if let result = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as String? {
-                    print(result)   // {"amount":1345} remover
-                }
-
                 do {
                     let decoder = JSONDecoder()
-
                     let amountInfo = try decoder.decode(AmountInfo.self, from: data)
-                    self?.amountString = String(amountInfo.amount)
-                    completion(amountInfo.amount)
+                    completion(.success(amountInfo.amount))
                 } catch {
-                    print("Error \(error)")
+                    completion(.failure(.decodingError))
                 }
             }
-        }
-
-        dataTask?.resume()
+        }.resume()
     }
 }
 

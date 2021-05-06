@@ -14,12 +14,16 @@ class ViewController: UIViewController {
     @IBAction func apiTest(_ sender: Any) {
         let service = QueryService()
 
-        service.getAmount { amountInfo in
-            DispatchQueue.main.async {
-                self.amountLabel.text = String(amountInfo)
+        service.getAmount { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let amount):
+                DispatchQueue.main.async {
+                    self.amountLabel.text = String(amount)
+                }
             }
         }
-
     }
 
     override func viewDidLoad() {
