@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Balance: Decodable {
+class Balance: Decodable {
     var amount: Double
 }
