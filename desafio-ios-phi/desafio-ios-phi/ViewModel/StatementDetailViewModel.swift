@@ -59,7 +59,7 @@ class StatementDetailViewModel {
         return transaction?.authentication ?? ""
     }
     
-    // MARK: - Inicialization
+    // MARK: - Initialization
     
     init(transactionId: String) {
         self.transactionId = transactionId
