@@ -14,7 +14,7 @@ class StatementDetailCoordinator: Coordinator {
     init(navigationController: UINavigationController, transactionId: String) {
         self.navigationController = navigationController
         self.statementDetailViewController = StatementDetailViewController(
-            transactionId: transactionId)
+            transactionId: transactionId, navigationController: navigationController)
     }
     
     func start() {
