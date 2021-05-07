@@ -26,6 +26,14 @@ class StatementViewModel {
         return listOfTransactions
     }
     
+    func getStatementDetail(for index: Int) -> StatementDetailViewModel? {
+       
+        if listOfTransactions.count > index {
+            return self.listOfTransactions[index]
+        }
+        return nil
+    }
+    
     func getStatementDetailId(for index: Int) -> String? {
         var statementDetail: StatementDetailViewModel?
         if listOfTransactions.count > index {
