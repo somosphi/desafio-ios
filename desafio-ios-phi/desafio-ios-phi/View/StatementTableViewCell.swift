@@ -31,6 +31,7 @@ class StatementTableViewCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.textColor = .blackTextColor
         titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 0
         return titleLabel
     }()
     
@@ -38,6 +39,7 @@ class StatementTableViewCell: UITableViewCell {
         let nameLabel = UILabel()
         nameLabel.textColor = .grayTextColor
         nameLabel.textAlignment = .left
+        nameLabel.numberOfLines = 0
         return nameLabel
     }()
     
@@ -45,6 +47,7 @@ class StatementTableViewCell: UITableViewCell {
         let amountLabel = UILabel()
         amountLabel.font = UIFont.boldSystemFont(ofSize: 17)
         amountLabel.textAlignment = .left
+        amountLabel.numberOfLines = 0
         amountLabel.textColor = .blackTextColor
         return amountLabel
     }()
@@ -52,7 +55,8 @@ class StatementTableViewCell: UITableViewCell {
     var dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.textColor = .grayTextColor
-        dateLabel.textAlignment = .right
+        dateLabel.textAlignment = .center
+        dateLabel.numberOfLines = 0
         return dateLabel
     }()
     
@@ -114,17 +118,7 @@ class StatementTableViewCell: UITableViewCell {
             customBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             customBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             customBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            customBackgroundView.heightAnchor.constraint(equalToConstant: 100),
             customBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
-        ])
-    }
-    
-    private func setupTitleLabelConstraints() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: lineDetail.leadingAnchor, constant: 20)
         ])
     }
     
@@ -134,8 +128,27 @@ class StatementTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             pixLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
             pixLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            pixLabel.widthAnchor.constraint(equalToConstant: 50),
-            pixLabel.heightAnchor.constraint(equalToConstant: 20)
+            pixLabel.widthAnchor.constraint(equalToConstant: 60),
+            pixLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
+        ])
+    }
+    
+    private func setupDateLabelConstraints() {
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            dateLabel.topAnchor.constraint(equalTo: pixLabel.bottomAnchor, constant: 10),
+            dateLabel.centerXAnchor.constraint(equalTo: pixLabel.centerXAnchor)
+        ])
+    }
+    
+    private func setupTitleLabelConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: lineDetail.trailingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: pixLabel.leadingAnchor, constant: -20)
         ])
     }
     
@@ -144,7 +157,8 @@ class StatementTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            nameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+            nameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -20)
         ])
     }
     
@@ -158,22 +172,14 @@ class StatementTableViewCell: UITableViewCell {
             circleDetail.heightAnchor.constraint(equalToConstant: 15)
         ])
     }
-    
-    private func setupDateLabelConstraints() {
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            dateLabel.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
-            dateLabel.centerXAnchor.constraint(equalTo: pixLabel.centerXAnchor)
-        ])
-    }
-    
+  
     private func setupAmountLabelConstraints() {
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             amountLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             amountLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
             amountLabel.bottomAnchor.constraint(equalTo: customBackgroundView.bottomAnchor, constant: -10)
         ])
     }
@@ -189,11 +195,11 @@ extension StatementTableViewCell: ViewConfiguration {
     func setupConstraints() {
         setupLineDetailConstraints()
         setupCustomBackgroundConstraints()
-        setupTitleLabelConstraints()
+        setupDateLabelConstraints()
         setupPixLabelConstraints()
+        setupTitleLabelConstraints()
         setupNameLabelConstraints()
         setupCircleDetailConstraints()
-        setupDateLabelConstraints()
         setupAmountLabelConstraints()
     }
     
