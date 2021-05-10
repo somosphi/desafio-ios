@@ -35,7 +35,6 @@ class StatementDetailViewController: UIViewController {
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         stackView.backgroundColor = .white
-        stackView.isHidden = true
         stackView.spacing = 20
         return stackView
     }()
@@ -97,6 +96,7 @@ class StatementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingActivityIndicator()
         loadViewModel()
     }
     
@@ -109,7 +109,6 @@ class StatementDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.setupProperties()
                 self.setupViewConfiguration()
-                self.stackView.isHidden = false
                 self.loadingActivityIndicator.stopAnimating()
                 self.view.layoutIfNeeded()
             }
@@ -120,6 +119,14 @@ class StatementDetailViewController: UIViewController {
     private func configureNavigation() {
         myNavigationController.navigationBar.topItem?.title = ""
         myNavigationController.navigationBar.tintColor = .darkText
+    }
+    
+    private func setupLoadingActivityIndicator() {
+        view.addSubview(loadingActivityIndicator)
+        loadingActivityIndicator.center = CGPoint(
+            x: view.bounds.midX,
+            y: view.bounds.midY
+        )
     }
     
     @objc func share() {
@@ -137,7 +144,7 @@ class StatementDetailViewController: UIViewController {
         return image
     }
     
-    private func createActivityViewController(_ imageToShare: [UIImage]) -> UIActivityViewController {
+    private func createActivityViewController(_ imageToShare: [Any]) -> UIActivityViewController {
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = stackView // so that iPads won't crash
         activityViewController.title = "Phi App"
@@ -337,7 +344,6 @@ extension StatementDetailViewController: ViewConfiguration {
         view.addSubview(scrollView)
         view.addSubview(shareButton)
         
-        scrollView.addSubview(loadingActivityIndicator)
         scrollView.addSubview(stackView)
         
         stackView.addArrangedSubview(UIView())
@@ -371,9 +377,5 @@ extension StatementDetailViewController: ViewConfiguration {
     
     func configureViews() {
         shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
-        loadingActivityIndicator.center = CGPoint(
-            x: view.bounds.midX,
-            y: view.bounds.midY
-        )
     }
 }
