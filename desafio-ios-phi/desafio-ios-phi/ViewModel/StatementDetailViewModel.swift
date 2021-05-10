@@ -10,67 +10,62 @@ class StatementDetailViewModel {
     
     // MARK: - Properties
     
-    private var transaction: Statement?
-    private var transactionId: String = ""
+    private var statement: Statement?
     
     var uuid: String {
-        return transaction?.uuid ?? ""
+        return statement?.uuid ?? ""
     }
     
     var date: String? {
-        let date = Date.fromString(transaction?.date ?? "")
+        let date = Date.fromString(statement?.date ?? "")
         return String.fromDate(date ?? Date())
     }
     
     var dateResume: String? {
-        let date = Date.fromString(transaction?.date ?? "")
+        let date = Date.fromString(statement?.date ?? "")
         return String.fromDateResume(date ?? Date())
     }
     
     var amount: String? {
-        guard let value = transaction?.amount?.formattedWithSeparator else {
+        guard let value = statement?.amount?.formattedWithSeparator else {
             return ""
         }
         return "R$ \(value)"
     }
     
     var description: String? {
-        return transaction?.description
+        return statement?.description
     }
     
     var type: TransactionType? {
-       return TransactionType(rawValue: transaction?.type ?? "")
+       return TransactionType(rawValue: statement?.type ?? "")
     }
     
     var userName: String? {
-        if let from = transaction?.from, transaction?.sentTo == nil {
+        if let from = statement?.from, statement?.sentTo == nil {
             return from
-        } else if let sentTo = transaction?.sentTo, transaction?.from == nil {
+        } else if let sentTo = statement?.sentTo, statement?.from == nil {
             return sentTo
         }
         return ""
     }
     
     var bankName: String? {
-        return transaction?.bankName
+        return statement?.bankName
     }
     
     var authentication: String? {
-        return transaction?.authentication ?? ""
+        return statement?.authentication ?? ""
     }
     
     // MARK: - Initialization
     
-    init(transactionId: String) {
-        self.transactionId = transactionId
+    init(statementDetailViewModel: StatementDetailViewModel) {
+        self.statement = statementDetailViewModel.statement
     }
     
-    init(transaction: Statement?) {
-        guard let transaction = transaction, let uuid = transaction.uuid else {
-            return
-        }
-        self.transaction = transaction
-        self.transactionId = uuid
+    init(statement: Statement?) {
+        self.statement = statement
     }
 
 }
@@ -78,9 +73,9 @@ class StatementDetailViewModel {
 // MARK: - Network
 
 extension StatementDetailViewModel {
-    func get(transactionId: String, completion :@escaping (StatementDetailViewModel) -> Void) {
-        Service.getMyStatementDetail(transactionID: transactionId) { transaction in
-            self.transaction = transaction
+    func get(completion :@escaping (StatementDetailViewModel) -> Void) {
+        Service.getMyStatementDetail(transactionID: self.uuid) { transaction in
+            self.statement = transaction
             
             DispatchQueue.main.async {
                 completion(self)
@@ -94,11 +89,11 @@ extension StatementDetailViewModel {
 extension StatementDetailViewModel: Hashable {
     
     static func == (lhs: StatementDetailViewModel, rhs: StatementDetailViewModel) -> Bool {
-        lhs.transactionId == rhs.transactionId
+        lhs.uuid == rhs.uuid
     }
     
     func hash(into hasher: inout Hasher) {
-      hasher.combine(transactionId)
+      hasher.combine(uuid)
     }
     
 }
