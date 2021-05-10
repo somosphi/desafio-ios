@@ -29,6 +29,7 @@
 		BF39B7D5264080CF005E5758 /* UserDefaultsPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */; };
 		BF39B7D7264090CD005E5758 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D6264090CD005E5758 /* Formatter.swift */; };
 		BF39B7DA2640991A005E5758 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39B7D92640991A005E5758 /* Double.swift */; };
+		BF4FA0782644786B009380C1 /* StatementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA0772644786B009380C1 /* StatementDetailView.swift */; };
 		BFA018C12641CBEE001ADD82 /* StatementsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */; };
 		BFA74EB726405FE1003C3D8E /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */; };
 		BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */; };
@@ -79,6 +80,7 @@
 		BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistence.swift; sourceTree = "<group>"; };
 		BF39B7D6264090CD005E5758 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		BF39B7D92640991A005E5758 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		BF4FA0772644786B009380C1 /* StatementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailView.swift; sourceTree = "<group>"; };
 		BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsHeaderView.swift; sourceTree = "<group>"; };
 		BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				BF35213926388F6D005A077A /* StatementDetailViewController.swift */,
 				BF39B7CE26406C2F005E5758 /* BalanceHeaderView.swift */,
 				BFA018C02641CBEE001ADD82 /* StatementsHeaderView.swift */,
+				BF4FA0772644786B009380C1 /* StatementDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				BF35213F26389023005A077A /* Balance.swift in Sources */,
 				BFA74EB726405FE1003C3D8E /* ViewConfiguration.swift in Sources */,
 				BF35216126389303005A077A /* StatementCoordinator.swift in Sources */,
+				BF4FA0782644786B009380C1 /* StatementDetailView.swift in Sources */,
 				BF39B7DA2640991A005E5758 /* Double.swift in Sources */,
 				BF35216E26389C99005A077A /* StatementDetailCoordinator.swift in Sources */,
 			);
@@ -475,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

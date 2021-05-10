@@ -121,6 +121,27 @@ class StatementDetailViewController: UIViewController {
         myNavigationController.navigationBar.tintColor = .darkText
     }
     
+    @objc func share() {
+        let image = renderViewToUIImage()
+        let activityViewController = createActivityViewController([image])
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func renderViewToUIImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: stackView.bounds.size)
+        let image = renderer.image { _ in
+            stackView.drawHierarchy(in: stackView.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
+    
+    private func createActivityViewController(_ imageToShare: [UIImage]) -> UIActivityViewController {
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+
+        return activityViewController
+    }
+    
     private func setupProperties() {
         
         if let description = statementDetailViewModel.description {
@@ -224,52 +245,52 @@ class StatementDetailViewController: UIViewController {
         guard let viewDescription = viewDescription else {
             return
         }
-
+        
         viewDescription.translatesAutoresizingMaskIntoConstraints = false
         viewDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
     }
-
+    
     private func setupViewAmountConstraints() {
         guard let viewAmount = viewAmount else {
             return
         }
-
+        
         viewAmount.translatesAutoresizingMaskIntoConstraints = false
         viewAmount.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
     }
-
+    
     private func setupViewUserNameConstraints() {
         guard let viewUserName = viewUserName else {
             return
         }
-
+        
         viewUserName.translatesAutoresizingMaskIntoConstraints = false
         viewUserName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
     }
-
+    
     private func setupViewBankNameConstraints() {
         guard let viewBankName = viewBankName else {
             return
         }
-
+        
         viewBankName.translatesAutoresizingMaskIntoConstraints = false
         viewBankName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
     }
-
+    
     private func setupViewDateHourConstraints() {
         guard let viewDateHour = viewDateHour else {
             return
         }
-
+        
         viewDateHour.translatesAutoresizingMaskIntoConstraints = false
         viewDateHour.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
     }
-
+    
     private func setupViewAuthenticationConstraints() {
         guard let viewAuthentication = viewAuthentication else {
             return
         }
-
+        
         viewAuthentication.translatesAutoresizingMaskIntoConstraints = false
         viewAuthentication.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
         
@@ -302,7 +323,7 @@ extension StatementDetailViewController: ViewConfiguration {
         scrollView.addSubview(dividingLine)
         scrollView.addSubview(loadingActivityIndicator)
         scrollView.addSubview(stackView)
-    
+        
         if let viewDescription = viewDescription {
             stackView.addArrangedSubview(viewDescription)
         }
@@ -329,6 +350,7 @@ extension StatementDetailViewController: ViewConfiguration {
     }
     
     func configureViews() {
+        shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
         loadingActivityIndicator.center = CGPoint(
             x: view.bounds.midX,
             y: view.bounds.midY
