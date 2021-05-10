@@ -11,38 +11,38 @@ class StatementDetailViewModel {
     // MARK: - Properties
     
     private var transaction: Statement?
-    private var transactionId: String
+    private var transactionId: String = ""
     
     var uuid: String {
         return transaction?.uuid ?? ""
     }
     
-    var date: String {
+    var date: String? {
         let date = Date.fromString(transaction?.date ?? "")
         return String.fromDate(date ?? Date())
     }
     
-    var dateResume: String {
+    var dateResume: String? {
         let date = Date.fromString(transaction?.date ?? "")
         return String.fromDateResume(date ?? Date())
     }
     
-    var amount: String {
-        guard let value = transaction?.amount.formattedWithSeparator else {
+    var amount: String? {
+        guard let value = transaction?.amount?.formattedWithSeparator else {
             return ""
         }
         return "R$ \(value)"
     }
     
-    var description: String {
-        return transaction?.description ?? ""
+    var description: String? {
+        return transaction?.description
     }
     
     var type: TransactionType? {
        return TransactionType(rawValue: transaction?.type ?? "")
     }
     
-    var userName: String {
+    var userName: String? {
         if let from = transaction?.from, transaction?.sentTo == nil {
             return from
         } else if let sentTo = transaction?.sentTo, transaction?.from == nil {
@@ -55,7 +55,7 @@ class StatementDetailViewModel {
         return transaction?.bankName
     }
     
-    var authentication: String {
+    var authentication: String? {
         return transaction?.authentication ?? ""
     }
     
@@ -65,9 +65,12 @@ class StatementDetailViewModel {
         self.transactionId = transactionId
     }
     
-    init(transaction: Statement) {
+    init(transaction: Statement?) {
+        guard let transaction = transaction, let uuid = transaction.uuid else {
+            return
+        }
         self.transaction = transaction
-        self.transactionId = transaction.uuid
+        self.transactionId = uuid
     }
 
 }

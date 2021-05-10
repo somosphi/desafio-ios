@@ -7,11 +7,11 @@
 
 import Foundation
 class Statement: Decodable {
-    let uuid: String
-    let date: String
-    let amount: Double
-    let description: String
-    let type: String
+    let uuid: String?
+    let date: String?
+    let amount: Double?
+    let description: String?
+    let type: String?
     let sentTo: String?
     let from: String?
     let bankName: String?

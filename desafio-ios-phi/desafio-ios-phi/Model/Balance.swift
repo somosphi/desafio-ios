@@ -8,5 +8,5 @@
 import Foundation
 
 class Balance: Decodable {
-    var amount: Double
+    var amount: Double?
 }
