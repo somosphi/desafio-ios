@@ -23,9 +23,9 @@ class StatementCoordinator: Coordinator {
         navigationController.pushViewController(statementViewController, animated: true)
     }
     
-    func startStatementDetail(transactionId: String) {
+    func startStatementDetail(statementDetailViewModel: StatementDetailViewModel) {
         let childCoordinator = StatementDetailCoordinator(navigationController: navigationController,
-                                                          transactionId: transactionId)
+                                                          statementDetailViewModel: statementDetailViewModel)
         childCoordinator.start()
         self.statementDetailCoordinator = childCoordinator
     }

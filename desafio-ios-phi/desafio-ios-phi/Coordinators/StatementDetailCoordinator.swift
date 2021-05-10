@@ -11,10 +11,10 @@ class StatementDetailCoordinator: Coordinator {
     var navigationController: UINavigationController
     private var statementDetailViewController: StatementDetailViewController
    
-    init(navigationController: UINavigationController, transactionId: String) {
+    init(navigationController: UINavigationController, statementDetailViewModel: StatementDetailViewModel) {
         self.navigationController = navigationController
         self.statementDetailViewController = StatementDetailViewController(
-            transactionId: transactionId, navigationController: navigationController)
+            statementDetailViewModel: statementDetailViewModel, navigationController: navigationController)
     }
     
     func start() {
