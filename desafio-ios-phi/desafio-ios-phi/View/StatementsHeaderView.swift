@@ -13,6 +13,7 @@ class StatementsHeaderView: UIView {
         label.text = "Suas movimentações"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = .blackTextColor
+        label.numberOfLines = 0
         return label
     }()
     
@@ -32,7 +33,9 @@ extension StatementsHeaderView: ViewConfiguration {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
 
         ])
     }
