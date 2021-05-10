@@ -33,14 +33,6 @@ class StatementViewModel {
         }
         return nil
     }
-    
-    func getStatementDetailId(for index: Int) -> String? {
-        var statementDetail: StatementDetailViewModel?
-        if listOfTransactions.count > index {
-            statementDetail = self.listOfTransactions[index]
-        }
-        return statementDetail?.uuid
-    }
 }
 
 // MARK: - Network
@@ -59,7 +51,7 @@ extension StatementViewModel {
     
     func getStatement(completion :@escaping (StatementViewModel) -> Void) {
         Service.getMyStatement(limit: 10, offset: 0) { statement in
-            self.listOfTransactions = statement.map {StatementDetailViewModel(transaction: $0)}
+            self.listOfTransactions = statement.map {StatementDetailViewModel(statement: $0)}
             
             DispatchQueue.main.async {
                 completion(self)
@@ -75,7 +67,7 @@ extension StatementViewModel {
             isPaginating = true
         }
         Service.getMyStatement(limit: limit, offset: offset) { statement in
-            let newStatements = statement.map {StatementDetailViewModel(transaction: $0)}
+            let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
             self.listOfTransactions += newStatements
             DispatchQueue.main.async {
                 completion(self, newStatements)
