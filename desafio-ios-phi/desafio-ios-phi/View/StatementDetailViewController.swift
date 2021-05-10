@@ -33,10 +33,10 @@ class StatementDetailViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.backgroundColor = .white
         stackView.isHidden = true
-        stackView.spacing = 10
+        stackView.spacing = 20
         return stackView
     }()
     
@@ -83,8 +83,10 @@ class StatementDetailViewController: UIViewController {
     init(statementDetailViewModel: StatementDetailViewModel, navigationController: UINavigationController) {
         self.myNavigationController = navigationController
         self.statementDetailViewModel = StatementDetailViewModel(statementDetailViewModel: statementDetailViewModel)
+        
         super.init(nibName: nil, bundle: nil)
         self.configureNavigation()
+        self.view.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -95,7 +97,6 @@ class StatementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         loadViewModel()
     }
     
@@ -124,6 +125,7 @@ class StatementDetailViewController: UIViewController {
     @objc func share() {
         let image = renderViewToUIImage()
         let activityViewController = createActivityViewController([image])
+      
         self.present(activityViewController, animated: true, completion: nil)
     }
     
@@ -137,8 +139,9 @@ class StatementDetailViewController: UIViewController {
     
     private func createActivityViewController(_ imageToShare: [UIImage]) -> UIActivityViewController {
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-
+        activityViewController.popoverPresentationController?.sourceView = stackView // so that iPads won't crash
+        activityViewController.title = "Phi App"
+    
         return activityViewController
     }
     
@@ -208,14 +211,24 @@ class StatementDetailViewController: UIViewController {
         ])
     }
     
+    private func setupStackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: scrollView.bottomAnchor, constant: -100)
+        ])
+    }
+    
     private func setupTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: scrollView.trailingAnchor),
-            titleLabel.leadingAnchor.constraint(lessThanOrEqualTo: scrollView.leadingAnchor)
+            titleLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
+            titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
         ])
     }
     
@@ -223,21 +236,8 @@ class StatementDetailViewController: UIViewController {
         dividingLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dividingLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            dividingLine.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            dividingLine.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.90),
+            dividingLine.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.90),
             dividingLine.heightAnchor.constraint(equalToConstant: 0.5)
-        ])
-    }
-    
-    private func setupStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: dividingLine.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: scrollView.bottomAnchor, constant: -100)
         ])
     }
     
@@ -247,7 +247,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewDescription.translatesAutoresizingMaskIntoConstraints = false
-        viewDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            viewDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewDescription.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
     }
     
     private func setupViewAmountConstraints() {
@@ -256,7 +259,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewAmount.translatesAutoresizingMaskIntoConstraints = false
-        viewAmount.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            viewAmount.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewAmount.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
     }
     
     private func setupViewUserNameConstraints() {
@@ -265,7 +271,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewUserName.translatesAutoresizingMaskIntoConstraints = false
-        viewUserName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            viewUserName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewUserName.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
     }
     
     private func setupViewBankNameConstraints() {
@@ -274,7 +283,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewBankName.translatesAutoresizingMaskIntoConstraints = false
-        viewBankName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            viewBankName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewBankName.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
     }
     
     private func setupViewDateHourConstraints() {
@@ -283,7 +295,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewDateHour.translatesAutoresizingMaskIntoConstraints = false
-        viewDateHour.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            viewDateHour.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewDateHour.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
     }
     
     private func setupViewAuthenticationConstraints() {
@@ -292,7 +307,10 @@ class StatementDetailViewController: UIViewController {
         }
         
         viewAuthentication.translatesAutoresizingMaskIntoConstraints = false
-        viewAuthentication.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
+        NSLayoutConstraint.activate([
+            viewAuthentication.heightAnchor.constraint(greaterThanOrEqualToConstant: 100),
+            viewAuthentication.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+        ])
         
     }
     
@@ -319,10 +337,12 @@ extension StatementDetailViewController: ViewConfiguration {
         view.addSubview(scrollView)
         view.addSubview(shareButton)
         
-        scrollView.addSubview(titleLabel)
-        scrollView.addSubview(dividingLine)
         scrollView.addSubview(loadingActivityIndicator)
         scrollView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(UIView())
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(dividingLine)
         
         if let viewDescription = viewDescription {
             stackView.addArrangedSubview(viewDescription)
