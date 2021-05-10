@@ -81,11 +81,13 @@ class StatementTableViewCell: UITableViewCell {
         nameLabel.text = statementDetail.userName
         dateLabel.text = statementDetail.dateResume
         
-        switch statementDetail.type {
-        case .PIXCASHOUT, .TRANSFEROUT:
-            amountLabel.text = "-" + statementDetail.amount
-        default:
-            amountLabel.text = statementDetail.amount
+        if let amount = statementDetail.amount {
+            switch statementDetail.type {
+            case .PIXCASHOUT, .TRANSFEROUT:
+                amountLabel.text = "-" + amount
+            default:
+                amountLabel.text = amount
+            }
         }
         
         switch statementDetail.type {
