@@ -168,11 +168,11 @@ extension StatementViewController: ViewConfiguration {
 extension StatementViewController: UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let transactionId = statementViewModel.getStatementDetailId(for: indexPath.row) else {
+        guard let statementDetailViewModel = statementViewModel.getStatementDetail(for: indexPath.row) else {
             return
         }
         
-        self.coordinator?.startStatementDetail(transactionId: transactionId)
+        self.coordinator?.startStatementDetail(statementDetailViewModel: statementDetailViewModel)
         
     }
     
