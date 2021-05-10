@@ -106,7 +106,7 @@ class StatementTableViewCell: UITableViewCell {
         lineDetail.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            lineDetail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            lineDetail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             lineDetail.heightAnchor.constraint(equalTo: heightAnchor),
             lineDetail.widthAnchor.constraint(equalToConstant: 0.5),
             lineDetail.centerYAnchor.constraint(equalTo: centerYAnchor)
@@ -129,7 +129,7 @@ class StatementTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             pixLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
-            pixLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            pixLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             pixLabel.widthAnchor.constraint(equalToConstant: 60),
             pixLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
         ])
@@ -149,8 +149,8 @@ class StatementTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: lineDetail.trailingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: pixLabel.leadingAnchor, constant: -20)
+            titleLabel.leadingAnchor.constraint(equalTo: lineDetail.trailingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: pixLabel.leadingAnchor, constant: -16)
         ])
     }
     
@@ -160,7 +160,7 @@ class StatementTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -20)
+            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -16)
         ])
     }
     
@@ -181,7 +181,7 @@ class StatementTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             amountLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             amountLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
+            amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
             amountLabel.bottomAnchor.constraint(equalTo: customBackgroundView.bottomAnchor, constant: -10)
         ])
     }
