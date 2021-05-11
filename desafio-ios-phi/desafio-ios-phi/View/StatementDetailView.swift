@@ -45,7 +45,7 @@ extension StatementDetailView: ViewConfiguration {
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)
         ])
     }
     
