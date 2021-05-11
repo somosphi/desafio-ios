@@ -16,14 +16,18 @@ class StatementDetailViewModel {
         return statement?.uuid ?? ""
     }
     
+    var sharedName: String {
+        return "comprovante-\(uuid).png"
+    }
+    
     var date: String? {
-        let date = Date.fromString(statement?.date ?? "")
-        return String.fromDate(date ?? Date())
+        let date = statement?.date?.toDate
+        return date?.toString
     }
     
     var dateResume: String? {
-        let date = Date.fromString(statement?.date ?? "")
-        return String.fromDateResume(date ?? Date())
+        let date = statement?.date?.toDate
+        return date?.toShortString
     }
     
     var amount: String? {
