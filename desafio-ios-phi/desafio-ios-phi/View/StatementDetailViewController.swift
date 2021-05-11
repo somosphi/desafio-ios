@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LinkPresentation
 
 class StatementDetailViewController: UIViewController {
     
@@ -22,12 +23,7 @@ class StatementDetailViewController: UIViewController {
     private var viewBankName: StatementDetailView?
     private var viewDateHour: StatementDetailView?
     private var viewAuthentication: StatementDetailView?
-    
-    private var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.alwaysBounceHorizontal = false
-        return scrollView
-    }()
+    private var scrollView = UIScrollView()
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -55,7 +51,6 @@ class StatementDetailViewController: UIViewController {
     var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Comprovante"
-        titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .darkText
@@ -82,10 +77,8 @@ class StatementDetailViewController: UIViewController {
     init(statementDetailViewModel: StatementDetailViewModel, navigationController: UINavigationController) {
         self.myNavigationController = navigationController
         self.statementDetailViewModel = StatementDetailViewModel(statementDetailViewModel: statementDetailViewModel)
-        
         super.init(nibName: nil, bundle: nil)
         self.configureNavigation()
-        self.view.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -110,7 +103,6 @@ class StatementDetailViewController: UIViewController {
                 self.setupProperties()
                 self.setupViewConfiguration()
                 self.loadingActivityIndicator.stopAnimating()
-                self.view.layoutIfNeeded()
             }
         }
         
@@ -119,6 +111,7 @@ class StatementDetailViewController: UIViewController {
     private func configureNavigation() {
         myNavigationController.navigationBar.topItem?.title = ""
         myNavigationController.navigationBar.tintColor = .darkText
+        self.view.backgroundColor = .white
     }
     
     private func setupLoadingActivityIndicator() {
@@ -130,28 +123,19 @@ class StatementDetailViewController: UIViewController {
     }
     
     @objc func share() {
-        let image = renderViewToUIImage()
-        let activityViewController = createActivityViewController([image])
-      
+        if !FileManagerPersistence.shared.fileExists(fileName: statementDetailViewModel.sharedName) {
+            let imageForShare = stackView.renderViewToUIImage
+            FileManagerPersistence.shared.saveImage(image: imageForShare,
+                                                    imageName: statementDetailViewModel.sharedName)
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [self],
+                                                              applicationActivities: [])
+        activityViewController.popoverPresentationController?.sourceView = shareButton
+        activityViewController.isModalInPresentation = true
         self.present(activityViewController, animated: true, completion: nil)
     }
-    
-    private func renderViewToUIImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: stackView.bounds.size)
-        let image = renderer.image { _ in
-            stackView.drawHierarchy(in: stackView.bounds, afterScreenUpdates: true)
-        }
-        return image
-    }
-    
-    private func createActivityViewController(_ imageToShare: [Any]) -> UIActivityViewController {
-        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = stackView // so that iPads won't crash
-        activityViewController.title = "Phi App"
-    
-        return activityViewController
-    }
-    
+ 
     private func setupProperties() {
         
         if let description = statementDetailViewModel.description {
@@ -212,7 +196,7 @@ class StatementDetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
@@ -255,7 +239,7 @@ class StatementDetailViewController: UIViewController {
         
         viewDescription.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            viewDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewDescription.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             viewDescription.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
@@ -267,7 +251,7 @@ class StatementDetailViewController: UIViewController {
         
         viewAmount.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            viewAmount.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewAmount.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             viewAmount.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
@@ -279,7 +263,7 @@ class StatementDetailViewController: UIViewController {
         
         viewUserName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            viewUserName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewUserName.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             viewUserName.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
@@ -291,7 +275,7 @@ class StatementDetailViewController: UIViewController {
         
         viewBankName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            viewBankName.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewBankName.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             viewBankName.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
@@ -303,7 +287,7 @@ class StatementDetailViewController: UIViewController {
         
         viewDateHour.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            viewDateHour.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            viewDateHour.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             viewDateHour.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
@@ -326,6 +310,7 @@ class StatementDetailViewController: UIViewController {
 // MARK: - ViewConfiguration
 
 extension StatementDetailViewController: ViewConfiguration {
+    
     func setupConstraints() {
         setupShareButtonConstraints()
         setupScrollViewConstraints()
@@ -377,5 +362,36 @@ extension StatementDetailViewController: ViewConfiguration {
     
     func configureViews() {
         shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
+    }
+    
+    func getMetadataForSharingManually(title: String) -> LPLinkMetadata {
+        
+        let linkMetaData = LPLinkMetadata()
+        linkMetaData.title = title
+        return linkMetaData
+    }
+}
+
+extension StatementDetailViewController: UIActivityItemSource {
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return "Comprovante"
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController,
+                                itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        
+        return FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
+    }
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        
+        let urlImage = FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
+        let linkMetaData = LPLinkMetadata()
+        linkMetaData.title = "Phi App"
+        linkMetaData.originalURL = urlImage
+        linkMetaData.imageProvider = NSItemProvider.init(contentsOf: urlImage)
+        linkMetaData.iconProvider = NSItemProvider.init(contentsOf: urlImage)
+        
+        return linkMetaData
     }
 }

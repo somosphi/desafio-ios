@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFCB0D89264B120100F67BFB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB0D88264B120100F67BFB /* UIView.swift */; };
+		AFCB0D8F264B1CDA00F67BFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB0D8E264B1CDA00F67BFB /* Date.swift */; };
+		AFCB0D91264B1EC100F67BFB /* FileManagerPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB0D90264B1EC100F67BFB /* FileManagerPersistence.swift */; };
 		BF3520DC26387563005A077A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DB26387563005A077A /* AppDelegate.swift */; };
 		BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DD26387563005A077A /* SceneDelegate.swift */; };
 		BF3520E526387564005A077A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E426387564005A077A /* Assets.xcassets */; };
@@ -36,7 +39,6 @@
 		BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BB263B1BFA003AAF74 /* Service.swift */; };
 		BFCED6BE263B4D15003AAF74 /* DecodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BD263B4D15003AAF74 /* DecodableData.swift */; };
 		BFCED6C0263B5587003AAF74 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BF263B5587003AAF74 /* Statement.swift */; };
-		BFCED6C2263B6354003AAF74 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6C1263B6354003AAF74 /* Date.swift */; };
 		BFD837B6263C7CC60089F7CB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD837B5263C7CC60089F7CB /* String.swift */; };
 		BFEC4B2C2639F412001B69D9 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC4B2B2639F412001B69D9 /* NetworkResponseError.swift */; };
 		BFEC4B2E2639F44C001B69D9 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC4B2D2639F44C001B69D9 /* TransactionType.swift */; };
@@ -53,7 +55,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AFCB0D84264AFB5C00F67BFB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AFCB0D88264B120100F67BFB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AFCB0D8E264B1CDA00F67BFB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		AFCB0D90264B1EC100F67BFB /* FileManagerPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerPersistence.swift; sourceTree = "<group>"; };
 		BF3520D826387563005A077A /* desafio-ios-phi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-phi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3520DB26387563005A077A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3520DD26387563005A077A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +105,6 @@
 		BFCED6BB263B1BFA003AAF74 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BFCED6BD263B4D15003AAF74 /* DecodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableData.swift; sourceTree = "<group>"; };
 		BFCED6BF263B5587003AAF74 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
-		BFCED6C1263B6354003AAF74 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BFD837B5263C7CC60089F7CB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BFEC4B2B2639F412001B69D9 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
 		BFEC4B2D2639F44C001B69D9 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
@@ -191,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				BF39B7D8264098F4005E5758 /* Extensions */,
+				AFCB0D90264B1EC100F67BFB /* FileManagerPersistence.swift */,
 				BF39B7D026407966005E5758 /* Constants.swift */,
 				BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */,
 			);
@@ -225,9 +243,10 @@
 			children = (
 				BF39B7D6264090CD005E5758 /* Formatter.swift */,
 				BFD837B5263C7CC60089F7CB /* String.swift */,
-				BFCED6C1263B6354003AAF74 /* Date.swift */,
 				BF35211C2638828D005A077A /* Colors.swift */,
 				BF39B7D92640991A005E5758 /* Double.swift */,
+				AFCB0D88264B120100F67BFB /* UIView.swift */,
+				AFCB0D8E264B1CDA00F67BFB /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 				BF3520D526387563005A077A /* Frameworks */,
 				BF3520D626387563005A077A /* Resources */,
 				BF35211726387F2B005A077A /* ShellScript */,
+				AFCB0D84264AFB5C00F67BFB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -289,7 +309,7 @@
 		BF3520D026387563005A077A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					BF3520D726387563005A077A = {
@@ -364,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFCED6C2263B6354003AAF74 /* Date.swift in Sources */,
 				BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */,
 				BFD837B6263C7CC60089F7CB /* String.swift in Sources */,
 				BF35214E2638914B005A077A /* StatementDetailViewModel.swift in Sources */,
@@ -382,8 +401,10 @@
 				BFCED6C0263B5587003AAF74 /* Statement.swift in Sources */,
 				BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */,
 				BFA018C12641CBEE001ADD82 /* StatementsHeaderView.swift in Sources */,
+				AFCB0D91264B1EC100F67BFB /* FileManagerPersistence.swift in Sources */,
 				BF39B7D5264080CF005E5758 /* UserDefaultsPersistence.swift in Sources */,
 				BFEC4B2C2639F412001B69D9 /* NetworkResponseError.swift in Sources */,
+				AFCB0D8F264B1CDA00F67BFB /* Date.swift in Sources */,
 				BF35211D2638828D005A077A /* Colors.swift in Sources */,
 				BFEC4B2E2639F44C001B69D9 /* TransactionType.swift in Sources */,
 				BF3520DC26387563005A077A /* AppDelegate.swift in Sources */,
@@ -391,6 +412,7 @@
 				BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */,
 				BF35213F26389023005A077A /* Balance.swift in Sources */,
 				BFA74EB726405FE1003C3D8E /* ViewConfiguration.swift in Sources */,
+				AFCB0D89264B120100F67BFB /* UIView.swift in Sources */,
 				BF35216126389303005A077A /* StatementCoordinator.swift in Sources */,
 				BF4FA0782644786B009380C1 /* StatementDetailView.swift in Sources */,
 				BF39B7DA2640991A005E5758 /* Double.swift in Sources */,
