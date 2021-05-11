@@ -17,11 +17,9 @@ class FileManagerPersistence {
     }
     
     func saveImage(image: UIImage, imageName: String) {
-        if !fileExists(fileName: imageName) {
-            if let data = image.pngData() {
-                let filename = getDocumentsDirectory().appendingPathComponent(imageName)
-                try? data.write(to: filename)
-            }
+        if let data = image.pngData() {
+            let filename = getDocumentsDirectory().appendingPathComponent(imageName)
+            try? data.write(to: filename)
         }
     }
     
@@ -32,7 +30,7 @@ class FileManagerPersistence {
         return nil
     }
     
-    private func fileExists(fileName: String) -> Bool {
+    func fileExists(fileName: String) -> Bool {
         let filename = getDocumentsDirectory().appendingPathComponent(fileName)
         return FileManager.default.fileExists(atPath: filename.path)
     }
