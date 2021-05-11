@@ -7,15 +7,11 @@
 
 import Foundation
 extension String {
-    static let dateFormatter = DateFormatter()
-    
-    static func fromDate(_ date: Date) -> Self {
-        dateFormatter.dateFormat = "dd/MM/YYYY - HH:MM:ss"
-        return dateFormatter.string(from: date)
-    }
-    
-    static func fromDateResume(_ date: Date) -> Self {
-        dateFormatter.dateFormat = "dd/MM"
-        return dateFormatter.string(from: date)
+    var toDate: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+00:00")
+        return dateFormatter.date(from: self)
     }
 }
