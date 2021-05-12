@@ -20,7 +20,7 @@ class StatementViewController: UIViewController {
     
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
-    private var headerView = BalanceHeaderView()
+    private var headerView = HeaderView()
     private var page: Int = 1
     private lazy var dataSource = makeDataSource()
     private let refreshControl = UIRefreshControl()
