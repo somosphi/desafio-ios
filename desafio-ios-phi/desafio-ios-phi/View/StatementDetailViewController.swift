@@ -167,7 +167,7 @@ class StatementDetailViewController: UIViewController {
        
         activityViewController = UIActivityViewController(activityItems: [self],
                                                               applicationActivities: [])
-        activityViewController?.excludedActivityTypes = [.message]
+        
         activityViewController?.popoverPresentationController?.sourceView = shareButton
         
     }
