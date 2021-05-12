@@ -132,10 +132,12 @@ class StatementDetailViewController: UIViewController {
         
         if let userName = statementDetailViewModel.userName {
             viewUserName = StatementDetailView()
+            
             switch statementDetailViewModel.type {
             case .BANKSLIPCASHIN, .TRANSFERIN, .PIXCASHIN:
                 viewUserName?.configureLayout(title: "Rementente",
                                               subtitle: userName)
+                
             default:
                 viewUserName?.configureLayout(title: "Recebedor",
                                               subtitle: userName)

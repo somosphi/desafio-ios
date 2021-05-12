@@ -54,6 +54,7 @@ struct Service {
             case .failure(let error):
                 print(error)
                 completion(nil)
+                
             case .success(let data):
                 guard let data = data else {
                     completion(nil)

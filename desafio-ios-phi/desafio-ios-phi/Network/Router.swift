@@ -24,8 +24,10 @@ enum Router {
         switch self {
         case .myBalance:
             return "/myBalance"
+            
         case .mySatatemet(let limit, let offset):
             return "/myStatement/\(limit)/\(offset)"
+            
         case .myStatementDetail(let transactionID):
             return "/myStatement/detail/\(transactionID)"
         }

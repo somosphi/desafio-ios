@@ -28,10 +28,13 @@ struct NetworkManager {
             switch response.statusCode {
             case 200, 201:
                 completion(.success(data))
+                
             case 400:
                 completion(.failure(.badRequest))
+                
             case 404:
                 completion(.failure(.notFound))
+                
             default:
                 completion(.failure(.unknownError(statusCode: response.statusCode)))
             }

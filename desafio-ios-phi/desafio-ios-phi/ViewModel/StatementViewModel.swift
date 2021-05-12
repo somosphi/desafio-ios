@@ -95,6 +95,7 @@ extension StatementViewModel {
                         self.isPaginating = false
                     }
                 }
+                
             case .failure:
                 completion(self, [])
             }

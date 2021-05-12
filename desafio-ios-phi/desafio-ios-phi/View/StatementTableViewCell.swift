@@ -70,6 +70,7 @@ class StatementTableViewCell: UITableViewCell {
             switch statementDetail.type {
             case .PIXCASHOUT, .TRANSFEROUT:
                 amountLabel.text = "-" + amount
+                
             default:
                 amountLabel.text = amount
             }
@@ -79,6 +80,7 @@ class StatementTableViewCell: UITableViewCell {
         case .PIXCASHOUT, .PIXCASHIN:
             pixLabel.isHidden = false
             customBackgroundView.isHidden = false
+            
         default:
             pixLabel.isHidden = true
             customBackgroundView.isHidden = true
