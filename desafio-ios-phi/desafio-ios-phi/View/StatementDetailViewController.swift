@@ -164,9 +164,10 @@ class StatementDetailViewController: UIViewController {
             FileManagerPersistence.shared.saveImage(image: imageForShare,
                                                     imageName: statementDetailViewModel.sharedName)
         }
-        
+       
         activityViewController = UIActivityViewController(activityItems: [self],
                                                               applicationActivities: [])
+        activityViewController?.excludedActivityTypes = [.message]
         activityViewController?.popoverPresentationController?.sourceView = shareButton
         
     }
