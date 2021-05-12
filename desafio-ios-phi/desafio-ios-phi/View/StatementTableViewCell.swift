@@ -10,18 +10,18 @@ import UIKit
 class StatementTableViewCell: UITableViewCell {
     static let reusableIdentifier = "StatementTableViewCell"
     
-    var lineDetail: UIView = {
+    var leftLine: UIView = {
         let line = UIView()
         line.backgroundColor = .blackTextColor
         return line
     }()
     
-    var circleDetail: UIView = {
+    var circleInLine: UIView = {
         let circle = UIView()
         circle.backgroundColor = .blackTextColor
         circle.clipsToBounds = true
         circle.backgroundColor = .lightGreenColor
-        circle.layer.cornerRadius = 7.5
+        circle.layer.cornerRadius = 6
         circle.layer.borderColor = UIColor.white.cgColor
         circle.layer.borderWidth = 2
         return circle
@@ -103,13 +103,13 @@ class StatementTableViewCell: UITableViewCell {
     }
     
     private func setupLineDetailConstraints() {
-        lineDetail.translatesAutoresizingMaskIntoConstraints = false
+        leftLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            lineDetail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            lineDetail.heightAnchor.constraint(equalTo: heightAnchor),
-            lineDetail.widthAnchor.constraint(equalToConstant: 0.5),
-            lineDetail.centerYAnchor.constraint(equalTo: centerYAnchor)
+            leftLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            leftLine.heightAnchor.constraint(equalTo: heightAnchor),
+            leftLine.widthAnchor.constraint(equalToConstant: 0.3),
+            leftLine.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
@@ -117,10 +117,10 @@ class StatementTableViewCell: UITableViewCell {
         customBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            customBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            customBackgroundView.topAnchor.constraint(equalTo: topAnchor),
             customBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             customBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            customBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            customBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
     }
     
@@ -149,7 +149,7 @@ class StatementTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: lineDetail.trailingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: leftLine.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: pixLabel.leadingAnchor, constant: -16)
         ])
     }
@@ -165,13 +165,13 @@ class StatementTableViewCell: UITableViewCell {
     }
     
     private func setupCircleDetailConstraints() {
-        circleDetail.translatesAutoresizingMaskIntoConstraints = false
+        circleInLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            circleDetail.centerXAnchor.constraint(equalTo: lineDetail.centerXAnchor),
-            circleDetail.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
-            circleDetail.widthAnchor.constraint(equalToConstant: 15),
-            circleDetail.heightAnchor.constraint(equalToConstant: 15)
+            circleInLine.centerXAnchor.constraint(equalTo: leftLine.centerXAnchor),
+            circleInLine.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
+            circleInLine.widthAnchor.constraint(equalToConstant: 12),
+            circleInLine.heightAnchor.constraint(equalToConstant: 12)
         ])
     }
   
@@ -207,8 +207,8 @@ extension StatementTableViewCell: ViewConfiguration {
     
     func buildViewHierarchy() {
         addSubview(customBackgroundView)
-        addSubview(lineDetail)
-        addSubview(circleDetail)
+        addSubview(leftLine)
+        addSubview(circleInLine)
         addSubview(titleLabel)
         addSubview(pixLabel)
         addSubview(nameLabel)
