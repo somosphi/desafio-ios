@@ -12,11 +12,12 @@ enum NetWorkResponseError: Error {
     case notFound
     case badRequest
     case unknownError(statusCode: Int)
+    case decodableDataError
     
     var localizedDescription: String {
         switch self {
         case .requestFailed(let description):
-            return "Could not run request because: \(description)."
+            return description
         case .malformedURLRequest(let url):
             return "Could not build URLRequest with \(url)"
         case .notFound:
@@ -25,6 +26,8 @@ enum NetWorkResponseError: Error {
             return "The Request returned status code 400, Bad Request."
         case .unknownError(let statusCode):
             return "The Request returned status code \(statusCode), unknown meaning."
+        case .decodableDataError:
+            return "The datas could not be decodable."
         }
     }
 }

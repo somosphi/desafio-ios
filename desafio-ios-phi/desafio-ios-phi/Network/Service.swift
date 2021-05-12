@@ -7,41 +7,41 @@
 
 import Foundation
 struct Service {
-   static func getMyBalance(completion: @escaping ((Balance?) -> Void)) {
+   static func getMyBalance(completion: @escaping ((Result<Balance?, NetWorkResponseError>) -> Void)) {
         NetworkManager.request(router: .myBalance) { result in
             switch result {
             case .failure(let error):
                 print(error)
-                completion(nil)
+                completion(.failure(error))
                
             case .success(let data):
                 guard let data = data else {
-                    completion(nil)
                     return
                 }
                 let statement: Balance? = (try? JSONDecoder().decode(Balance.self, from: data))
-                completion(statement)
+                completion(.success(statement))
             }
         }
     }
     
-   static func getMyStatement(limit: Int, offset: Int, completion: @escaping (([Statement]) -> Void)) {
+   static func getMyStatement(limit: Int, offset: Int,
+                              completion: @escaping ((Result<[Statement], NetWorkResponseError>) -> Void)) {
         NetworkManager.request(router: .mySatatemet(limit: limit, offset: offset)) { result in
             switch result {
             case .failure(let error):
                 print(error)
-                completion([])
+                completion(.failure(error))
+                
             case .success(let data):
                 guard let data = data else {
-                    completion([])
                     return
                 }
         
                 let item = (try? JSONDecoder().decode(DecodableData.self, from: data))
                 if let item = item {
-                    completion(item.items)
+                    completion(.success(item.items))
                 } else {
-                    completion([])
+                    completion(.failure(.decodableDataError))
                 }
                
             }

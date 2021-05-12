@@ -19,6 +19,7 @@ class StatementViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, StatementDetailViewModel>
     private var page: Int = 1
     private lazy var dataSource = makeDataSource()
+    private var alertIsShowing = false
     
     // MARK: - Views
     
@@ -27,7 +28,8 @@ class StatementViewController: UIViewController {
     private var headerView = HeaderView()
     private let refreshControl = UIRefreshControl()
     private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
-  
+    private var alertController: UIAlertController?
+    
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.tableFooterView = UIView()
@@ -56,8 +58,39 @@ class StatementViewController: UIViewController {
         loadStatements()
     }
     
+    private func showAlert() {
+        
+        alertController = UIAlertController(title: "Ocorreu um erro",
+                                            message: "Não conseguimos processar sua solicitação. Tente novamente",
+                                            preferredStyle: .alert)
+        alertController?.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        guard let alertController = alertController else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
+    }
+    
     private func loadMyBalance() {
-        self.statementViewModel.getMyBalance { statementViewModel in
+        self.statementViewModel.getMyBalance { (statementViewModel, error) in
+            
+            if error != nil {
+                if self.alertIsShowing {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.showAlert()
+                    self.alertIsShowing = true
+                    self.loadingActivityIndicator.stopAnimating()
+                    self.refreshControl.endRefreshing()
+                    self.tableView.isHidden = false
+                    return
+                }
+            }
+            
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.headerView.updateAmount(statementViewModel.amount)
@@ -66,7 +99,20 @@ class StatementViewController: UIViewController {
     }
     
     private func loadStatements() {
-        self.statementViewModel.getStatement(completion: { statementViewModel in
+        self.statementViewModel.getStatement(completion: { (statementViewModel, error) in
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showAlert()
+                    self.alertIsShowing = true
+                    self.loadingActivityIndicator.stopAnimating()
+                    self.refreshControl.endRefreshing()
+                    self.tableView.isHidden = false
+                    return
+                }
+                
+            }
+            
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.aplySnapshot(statementViewModel)
@@ -158,7 +204,7 @@ extension StatementViewController: ViewConfiguration {
 // MARK: - UITableViewDelegate
 
 extension StatementViewController: UITableViewDelegate {
-  
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let statementDetailViewModel = statementViewModel.getStatementDetail(for: indexPath.row) else {
             return
@@ -168,9 +214,9 @@ extension StatementViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       return headerView
+        return headerView
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > (tableView.contentSize.height - 100 - scrollView.frame.height) {

@@ -27,7 +27,7 @@ class StatementViewModel {
     }
     
     func getStatementDetail(for index: Int) -> StatementDetailViewModel? {
-       
+        
         if listOfTransactions.count > index {
             return self.listOfTransactions[index]
         }
@@ -39,23 +39,39 @@ class StatementViewModel {
 
 extension StatementViewModel {
     
-    func getMyBalance(completion :@escaping (StatementViewModel) -> Void) {
-        Service.getMyBalance { balance in
-            self.balance = balance
+    func getMyBalance(completion: @escaping ((StatementViewModel, NetWorkResponseError?) -> Void)) {
+        Service.getMyBalance { result in
             
-            DispatchQueue.main.async {
-                completion(self)
+            switch result {
+            case .success(let balance):
+                self.balance = balance
+                DispatchQueue.main.async {
+                    completion(self, nil)
+                }
+                
+            case .failure(let error):
+                completion(self, error)
             }
+            
         }
     }
     
-    func getStatement(completion :@escaping (StatementViewModel) -> Void) {
-        Service.getMyStatement(limit: 10, offset: 0) { statement in
-            self.listOfTransactions = statement.map {StatementDetailViewModel(statement: $0)}
+    func getStatement(completion :@escaping ((StatementViewModel, NetWorkResponseError?) -> Void)) {
+        Service.getMyStatement(limit: 10, offset: 0) { result in
             
-            DispatchQueue.main.async {
-                completion(self)
+            switch result {
+            case .success(let statement):
+                self.listOfTransactions = statement.map {StatementDetailViewModel(statement: $0)}
+                DispatchQueue.main.async {
+                    completion(self, nil)
+                }
+                
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completion(self, error)
+                }
             }
+            
         }
     }
     
@@ -66,15 +82,23 @@ extension StatementViewModel {
         if pagination {
             isPaginating = true
         }
-        Service.getMyStatement(limit: limit, offset: offset) { statement in
-            let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
-            self.listOfTransactions += newStatements
-            DispatchQueue.main.async {
-                completion(self, newStatements)
-                if pagination {
-                    self.isPaginating = false
+        Service.getMyStatement(limit: limit, offset: offset) { result in
+            
+            switch result {
+            case .success(let statement):
+                
+                let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
+                self.listOfTransactions += newStatements
+                DispatchQueue.main.async {
+                    completion(self, newStatements)
+                    if pagination {
+                        self.isPaginating = false
+                    }
                 }
+            case .failure:
+                completion(self, [])
             }
+           
         }
     }
 }
