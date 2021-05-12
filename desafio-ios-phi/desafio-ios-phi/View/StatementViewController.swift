@@ -20,25 +20,13 @@ class StatementViewController: UIViewController {
     
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
-    private var balanceHeaderView = BalanceHeaderView()
-    private var statementHeaderView = StatementsHeaderView()
+    private var headerView = BalanceHeaderView()
     private var page: Int = 1
     private lazy var dataSource = makeDataSource()
+    private let refreshControl = UIRefreshControl()
+    private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
     
     // MARK: - Views
-    
-    private let loadingActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.style = .large
-        indicator.color = .black
-        indicator.startAnimating()
-        indicator.autoresizingMask = [
-            .flexibleLeftMargin, .flexibleRightMargin,
-            .flexibleTopMargin, .flexibleBottomMargin
-        ]
-        
-        return indicator
-    }()
     
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -46,7 +34,7 @@ class StatementViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 100
-        tableView.estimatedSectionHeaderHeight = 100
+        tableView.estimatedSectionHeaderHeight = 200
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.isHidden = true
@@ -63,7 +51,7 @@ class StatementViewController: UIViewController {
     
     // MARK: - Functions
     
-    private func loadViewModel() {
+    @objc private func loadViewModel() {
         loadMyBalance()
         loadStatements()
     }
@@ -72,7 +60,7 @@ class StatementViewController: UIViewController {
         self.statementViewModel.getMyBalance { statementViewModel in
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
-                self.balanceHeaderView.updateAmount(statementViewModel.amount)
+                self.headerView.updateAmount(statementViewModel.amount)
             }
         }
     }
@@ -83,6 +71,7 @@ class StatementViewController: UIViewController {
             DispatchQueue.main.async {
                 self.aplySnapshot(statementViewModel)
                 self.loadingActivityIndicator.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
@@ -91,6 +80,7 @@ class StatementViewController: UIViewController {
     
     private func configureTableView() {
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
         tableView.register(StatementTableViewCell.self,
                            forCellReuseIdentifier: StatementTableViewCell.reusableIdentifier)
     }
@@ -142,27 +132,21 @@ extension StatementViewController: ViewConfiguration {
             x: view.bounds.midX,
             y: view.bounds.midY
         )
-        
+        refreshControl.addTarget(self, action: #selector(loadViewModel), for: .valueChanged)
         configureNavigation()
         configureTableView()
     }
     
     func buildViewHierarchy() {
-        view.addSubview(balanceHeaderView)
         view.addSubview(tableView)
         view.addSubview(loadingActivityIndicator)
     }
     
     func setupConstraints() {
-        balanceHeaderView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            balanceHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            balanceHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            balanceHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: balanceHeaderView.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -184,7 +168,7 @@ extension StatementViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       return statementHeaderView
+       return headerView
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
