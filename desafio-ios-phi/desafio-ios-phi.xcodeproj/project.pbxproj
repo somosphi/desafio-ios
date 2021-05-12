@@ -211,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				BF39B7D8264098F4005E5758 /* Extensions */,
+				BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */,
 				AFCB0D90264B1EC100F67BFB /* FileManagerPersistence.swift */,
 				BF39B7D026407966005E5758 /* Constants.swift */,
 				BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */,
@@ -236,7 +237,6 @@
 				BF3520E426387564005A077A /* Assets.xcassets */,
 				BF3520DD26387563005A077A /* SceneDelegate.swift */,
 				BF3520DB26387563005A077A /* AppDelegate.swift */,
-				BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

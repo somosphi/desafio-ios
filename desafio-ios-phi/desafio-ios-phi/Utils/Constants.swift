@@ -13,3 +13,7 @@ let APITOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
     ".SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 let APIHOST = "desafio-mobile-bff.herokuapp.com"
 let APISCHEME = "https"
+let STATEMENT = "Extrato"
+let STATEMENTDETAIL = "Comprovante"
+let SHAREBUTTONTITLE = "Compartilhar"
+let APPNAME = "Phi App"

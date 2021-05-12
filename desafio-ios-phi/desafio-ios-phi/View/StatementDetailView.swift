@@ -7,7 +7,9 @@
 
 import UIKit
 class StatementDetailView: UIView {
-
+    
+    // MARK: - Views
+    
     let titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
                                       font: UIFont.boldSystemFont(ofSize: 17),
                                       alignment: .left)
@@ -16,12 +18,16 @@ class StatementDetailView: UIView {
                                          font: UIFont.systemFont(ofSize: 17),
                                          alignment: .left)
 
+    // MARK: - Functions
+    
     func configureLayout(title: String, subtitle: String) {
         self.titleLabel.text = title
         self.subtitleLabel.text = subtitle
         setupViewConfiguration()
     }
 }
+
+// MARK: - ViewConfiguration
 
 extension StatementDetailView: ViewConfiguration {
     

@@ -7,6 +7,7 @@
 
 import UIKit
 class ActivityIndicatorView: UIActivityIndicatorView {
+    
     override init(style: UIActivityIndicatorView.Style) {
         super.init(style: style)
         color = .black

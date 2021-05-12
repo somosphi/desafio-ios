@@ -39,7 +39,7 @@ class StatementDetailViewController: UIViewController {
   
     var titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
                                       font: UIFont.boldSystemFont(ofSize: 17),
-                                      text: "Comprovante",
+                                      text: STATEMENTDETAIL,
                                       alignment: .center)
 
     private var dividingLine: UIView = {
@@ -51,7 +51,7 @@ class StatementDetailViewController: UIViewController {
     private var shareButton: UIButton = {
         let shareButton = UIButton()
         shareButton.backgroundColor = .lightGreenColor
-        shareButton.setTitle("Compartilhar", for: .normal)
+        shareButton.setTitle(SHAREBUTTONTITLE, for: .normal)
         shareButton.titleLabel?.textColor = .white
         shareButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         return shareButton
@@ -170,6 +170,8 @@ class StatementDetailViewController: UIViewController {
         activityViewController?.popoverPresentationController?.sourceView = shareButton
         
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupShareButtonConstraints() {
         shareButton.translatesAutoresizingMaskIntoConstraints = false
@@ -363,10 +365,12 @@ extension StatementDetailViewController: ViewConfiguration {
     }
 }
 
+// MARK: - UIActivityItemSource
+
 extension StatementDetailViewController: UIActivityItemSource {
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return "Comprovante"
+        return STATEMENTDETAIL
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController,
@@ -378,7 +382,7 @@ extension StatementDetailViewController: UIActivityItemSource {
         
         let urlImage = FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
         let linkMetaData = LPLinkMetadata()
-        linkMetaData.title = "Phi App"
+        linkMetaData.title = APPNAME
         linkMetaData.originalURL = urlImage
         linkMetaData.imageProvider = NSItemProvider.init(contentsOf: urlImage)
         linkMetaData.iconProvider = NSItemProvider.init(contentsOf: urlImage)

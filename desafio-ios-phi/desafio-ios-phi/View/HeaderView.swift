@@ -19,11 +19,11 @@ class HeaderView: UIView {
     // MARK: - Views
     
     private let amountDescriptionLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.text = "Seu saldo"
-        titleLabel.font = UIFont.systemFont(ofSize: 17)
-        titleLabel.textColor = .blackTextColor
-        return titleLabel
+        let amountDescriptionLabel = UILabel()
+        amountDescriptionLabel.text = "Seu saldo"
+        amountDescriptionLabel.font = UIFont.systemFont(ofSize: 17)
+        amountDescriptionLabel.textColor = .blackTextColor
+        return amountDescriptionLabel
     }()
     
     private let titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
@@ -90,6 +90,8 @@ class HeaderView: UIView {
         amountLabel.text = text
         layoutIfNeeded()
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupCustomBackgroundConstraints() {
         customBackgroundView.translatesAutoresizingMaskIntoConstraints = false

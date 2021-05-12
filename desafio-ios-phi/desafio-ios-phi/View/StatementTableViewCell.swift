@@ -8,7 +8,12 @@
 import UIKit
 
 class StatementTableViewCell: UITableViewCell {
+    
+    // MARK: - Properties
+    
     static let reusableIdentifier = "StatementTableViewCell"
+    
+    // MARK: - Views
     
     var leftLine: UIView = {
         let line = UIView()
@@ -54,6 +59,8 @@ class StatementTableViewCell: UITableViewCell {
         return customBackgroundView
     }()
     
+    // MARK: - Functions
+    
     func setup(statementDetail: StatementDetailViewModel) {
         titleLabel.text = statementDetail.description
         nameLabel.text = statementDetail.userName
@@ -79,6 +86,8 @@ class StatementTableViewCell: UITableViewCell {
         
         setupViewConfiguration()
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupLineDetailConstraints() {
         leftLine.translatesAutoresizingMaskIntoConstraints = false
@@ -164,6 +173,8 @@ class StatementTableViewCell: UITableViewCell {
         ])
     }
 }
+
+// MARK: - ViewConfiguration
 
 extension StatementTableViewCell: ViewConfiguration {
     

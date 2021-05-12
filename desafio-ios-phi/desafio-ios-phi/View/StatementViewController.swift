@@ -17,17 +17,17 @@ class StatementViewController: UIViewController {
     
     typealias DataSource = UITableViewDiffableDataSource<Section, StatementDetailViewModel>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, StatementDetailViewModel>
+    private var page: Int = 1
+    private lazy var dataSource = makeDataSource()
+    
+    // MARK: - Views
     
     weak var coordinator: StatementCoordinator?
     private var statementViewModel = StatementViewModel()
     private var headerView = HeaderView()
-    private var page: Int = 1
-    private lazy var dataSource = makeDataSource()
     private let refreshControl = UIRefreshControl()
     private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
-    
-    // MARK: - Views
-    
+  
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.tableFooterView = UIView()
@@ -88,7 +88,7 @@ class StatementViewController: UIViewController {
     private func configureNavigation() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationItem.title = "Extrato"
+        navigationItem.title = STATEMENT
         
     }
     
