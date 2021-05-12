@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BalanceHeaderView: UIView {
+class HeaderView: UIView {
     
     // MARK: - Properties
     
@@ -18,12 +18,21 @@ class BalanceHeaderView: UIView {
     
     // MARK: - Views
     
-    private let titleLabel: UILabel = {
+    private let amountDescriptionLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Seu saldo"
         titleLabel.font = UIFont.systemFont(ofSize: 17)
         titleLabel.textColor = .blackTextColor
         return titleLabel
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Suas movimentações"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.textColor = .blackTextColor
+        label.numberOfLines = 0
+        return label
     }()
     
     private let viewForHiddenAmount: UIView = {
@@ -55,6 +64,12 @@ class BalanceHeaderView: UIView {
         return stackView
     }()
     
+    var customBackgroundView: UIView = {
+        let customBackgroundView = UIView()
+        customBackgroundView.backgroundColor = .whiteOffColor
+        return customBackgroundView
+    }()
+    
     // MARK: - Inicialization
     
     public init() {
@@ -84,23 +99,35 @@ class BalanceHeaderView: UIView {
         layoutIfNeeded()
     }
     
+    private func setupCustomBackgroundConstraints() {
+        customBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            customBackgroundView.topAnchor.constraint(equalTo: topAnchor),
+            customBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            customBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            customBackgroundView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100)
+    
+        ])
+        
+    }
+    
     private func setupHorizontalStackConstraints() {
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
+            horizontalStackView.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 16),
+            horizontalStackView.leadingAnchor.constraint(equalTo: customBackgroundView.leadingAnchor, constant: 16)
             
         ])
     }
-    
+
     private func setupAmountLabelConstraints() {
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             amountLabel.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 16),
-            amountLabel.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
-            amountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            amountLabel.leadingAnchor.constraint(equalTo: customBackgroundView.leadingAnchor, constant: 16)
         ])
         
     }
@@ -117,14 +144,26 @@ class BalanceHeaderView: UIView {
             
         ])
     }
+    
+    private func setupTitleLabelConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+        ])
+        
+    }
 }
 
 // MARK: - ViewConfiguration
 
-extension BalanceHeaderView: ViewConfiguration {
+extension HeaderView: ViewConfiguration {
     
     func configureViews() {
-        backgroundColor = .whiteOffColor
+        backgroundColor = .white
         hideAmountButton.addTarget(self, action: #selector(hideAmount), for: .touchUpInside)
         hideAmountButton.setImage(isAmountHidden ? hiddenAmountImage : shownAmountImage, for: .normal)
         viewForHiddenAmount.isHidden = !isAmountHidden
@@ -132,18 +171,22 @@ extension BalanceHeaderView: ViewConfiguration {
     }
     
     func buildViewHierarchy() {
-        horizontalStackView.addArrangedSubview(titleLabel)
+        horizontalStackView.addArrangedSubview(amountDescriptionLabel)
         horizontalStackView.addArrangedSubview(hideAmountButton)
         
+        addSubview(customBackgroundView)
         addSubview(horizontalStackView)
         addSubview(viewForHiddenAmount)
         addSubview(amountLabel)
+        addSubview(titleLabel)
     }
     
     func setupConstraints() {
+        setupCustomBackgroundConstraints()
         setupHorizontalStackConstraints()
         setupAmountLabelConstraints()
         setupViewForHiddenAmountConstraints()
+        setupTitleLabelConstraints()
     }
     
 }
