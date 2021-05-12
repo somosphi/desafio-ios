@@ -8,7 +8,7 @@
 import UIKit
 
 enum Section: Int, CaseIterable {
-    case balance, statement
+    case statement
 }
 
 class StatementViewController: UIViewController {
@@ -46,6 +46,8 @@ class StatementViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 100
+        tableView.estimatedSectionHeaderHeight = 100
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.isHidden = true
         return tableView
@@ -118,7 +120,6 @@ class StatementViewController: UIViewController {
     private func aplySnapshot(_ statementViewModel: StatementViewModel) {
         var snapshot = Snapshot()
         snapshot.appendSections(Section.allCases)
-        snapshot.appendItems([], toSection: .balance)
         snapshot.appendItems(statementViewModel.getAllTransactions(), toSection: .statement)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
@@ -147,14 +148,21 @@ extension StatementViewController: ViewConfiguration {
     }
     
     func buildViewHierarchy() {
+        view.addSubview(balanceHeaderView)
         view.addSubview(tableView)
         view.addSubview(loadingActivityIndicator)
     }
     
     func setupConstraints() {
+        balanceHeaderView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            balanceHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            balanceHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            balanceHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: balanceHeaderView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -173,28 +181,12 @@ extension StatementViewController: UITableViewDelegate {
         }
         
         self.coordinator?.startStatementDetail(statementDetailViewModel: statementDetailViewModel)
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 0:
-            return balanceHeaderView
-        default:
-            return statementHeaderView
-        }
-        
+       return statementHeaderView
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return 100
-        default:
-            return 44
-        }
-    }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > (tableView.contentSize.height - 100 - scrollView.frame.height) {

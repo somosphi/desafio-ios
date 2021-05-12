@@ -32,10 +32,10 @@ extension StatementsHeaderView: ViewConfiguration {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25)
 
         ])
     }
