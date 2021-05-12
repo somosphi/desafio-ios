@@ -37,15 +37,11 @@ class StatementDetailViewController: UIViewController {
         return stackView
     }()
   
-    var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.text = "Comprovante"
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        titleLabel.textColor = .darkText
-        return titleLabel
-    }()
-    
+    var titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                      font: UIFont.boldSystemFont(ofSize: 17),
+                                      text: "Comprovante",
+                                      alignment: .center)
+
     private var dividingLine: UIView = {
         var dividingLine = UIView()
         dividingLine.backgroundColor = .grayTextColor

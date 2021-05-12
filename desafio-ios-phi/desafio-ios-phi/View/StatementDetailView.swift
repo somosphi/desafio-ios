@@ -8,22 +8,14 @@
 import UIKit
 class StatementDetailView: UIView {
 
-     let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.numberOfLines = 0
-        label.textColor = .blackTextColor
-        return label
-    }()
-    
-     let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.numberOfLines = 0
-        label.textColor = .blackTextColor
-        return label
-    }()
-    
+    let titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                      font: UIFont.boldSystemFont(ofSize: 17),
+                                      alignment: .left)
+
+    let subtitleLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                         font: UIFont.systemFont(ofSize: 17),
+                                         alignment: .left)
+
     func configureLayout(title: String, subtitle: String) {
         self.titleLabel.text = title
         self.subtitleLabel.text = subtitle

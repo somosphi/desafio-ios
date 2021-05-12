@@ -27,55 +27,33 @@ class StatementTableViewCell: UITableViewCell {
         return circle
     }()
     
-    var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .blackTextColor
-        titleLabel.textAlignment = .left
-        titleLabel.numberOfLines = 0
-        return titleLabel
-    }()
+    var titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                      font: UIFont.systemFont(ofSize: 17),
+                                      alignment: .left)
     
-    var nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.textColor = .grayTextColor
-        nameLabel.textAlignment = .left
-        nameLabel.numberOfLines = 0
-        return nameLabel
-    }()
+    var nameLabel: UILabel = MyLabel(textColor: .grayTextColor,
+                                     font: UIFont.systemFont(ofSize: 17),
+                                     alignment: .left)
+
+    var amountLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                       font: UIFont.boldSystemFont(ofSize: 17),
+                                       alignment: .left)
+    var dateLabel: UILabel = MyLabel(textColor: .grayTextColor,
+                                     font: UIFont.systemFont(ofSize: 17),
+                                     alignment: .center)
     
-    var amountLabel: UILabel = {
-        let amountLabel = UILabel()
-        amountLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        amountLabel.textAlignment = .left
-        amountLabel.numberOfLines = 0
-        amountLabel.textColor = .blackTextColor
-        return amountLabel
-    }()
-    
-    var dateLabel: UILabel = {
-        let dateLabel = UILabel()
-        dateLabel.textColor = .grayTextColor
-        dateLabel.textAlignment = .center
-        dateLabel.numberOfLines = 0
-        return dateLabel
-    }()
-    
+    var pixLabel: UILabel = MyLabel(textColor: .white,
+                                    font: UIFont.systemFont(ofSize: 15),
+                                    text: "Pix",
+                                    alignment: .center,
+                                    backgroundColor: .lightGreenColor)
+
     var customBackgroundView: UIView = {
         let customBackgroundView = UIView()
         customBackgroundView.backgroundColor = .whiteOffColor
         return customBackgroundView
     }()
     
-    var pixLabel: UILabel = {
-        let pixLabel = UILabel()
-        pixLabel.text = "Pix"
-        pixLabel.font = UIFont.systemFont(ofSize: 15)
-        pixLabel.textColor = .white
-        pixLabel.backgroundColor = .lightGreenColor
-        pixLabel.textAlignment = .center
-        return pixLabel
-    }()
-
     func setup(statementDetail: StatementDetailViewModel) {
         titleLabel.text = statementDetail.description
         nameLabel.text = statementDetail.userName

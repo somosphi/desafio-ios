@@ -26,27 +26,19 @@ class HeaderView: UIView {
         return titleLabel
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Suas movimentações"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.textColor = .blackTextColor
-        label.numberOfLines = 0
-        return label
-    }()
+    private let titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
+                                              font: UIFont.boldSystemFont(ofSize: 17),
+                                              text: "Suas movimentações",
+                                              alignment: .left)
     
+    private let amountLabel: UILabel = MyLabel(textColor: .lightGreenColor,
+                                               font: UIFont.boldSystemFont(ofSize: 25),
+                                               alignment: .left)
+
     private let viewForHiddenAmount: UIView = {
         let viewForHiddenAmount = UIView()
         viewForHiddenAmount.backgroundColor = .lightGreenColor
         return viewForHiddenAmount
-    }()
-    
-    private let amountLabel: UILabel = {
-        let amountLabel = UILabel()
-        amountLabel.text = ""
-        amountLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        amountLabel.textColor = .lightGreenColor
-        return amountLabel
     }()
     
     private let hideAmountButton: UIButton = {
