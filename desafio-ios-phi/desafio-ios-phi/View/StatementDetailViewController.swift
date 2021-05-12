@@ -132,8 +132,10 @@ class StatementDetailViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: [self],
                                                               applicationActivities: [])
         activityViewController.popoverPresentationController?.sourceView = shareButton
-        activityViewController.isModalInPresentation = true
-        self.present(activityViewController, animated: true, completion: nil)
+        
+        DispatchQueue.main.async {
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
  
     private func setupProperties() {
