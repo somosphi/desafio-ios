@@ -24,6 +24,8 @@ class StatementDetailViewController: UIViewController {
     private var viewDateHour: StatementDetailView?
     private var viewAuthentication: StatementDetailView?
     private var scrollView = UIScrollView()
+    private var activityViewController: UIActivityViewController?
+    private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -34,20 +36,7 @@ class StatementDetailViewController: UIViewController {
         stackView.spacing = 20
         return stackView
     }()
-    
-    private let loadingActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.style = .large
-        indicator.color = .black
-        indicator.startAnimating()
-        indicator.autoresizingMask = [
-            .flexibleLeftMargin, .flexibleRightMargin,
-            .flexibleTopMargin, .flexibleBottomMargin
-        ]
-        
-        return indicator
-    }()
-    
+  
     var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Comprovante"
@@ -123,16 +112,9 @@ class StatementDetailViewController: UIViewController {
     }
     
     @objc func share() {
-        if !FileManagerPersistence.shared.fileExists(fileName: statementDetailViewModel.sharedName) {
-            let imageForShare = stackView.renderViewToUIImage
-            FileManagerPersistence.shared.saveImage(image: imageForShare,
-                                                    imageName: statementDetailViewModel.sharedName)
+        guard let activityViewController = activityViewController else {
+            return
         }
-        
-        let activityViewController = UIActivityViewController(activityItems: [self],
-                                                              applicationActivities: [])
-        activityViewController.popoverPresentationController?.sourceView = shareButton
-        
         DispatchQueue.main.async {
             self.present(activityViewController, animated: true, completion: nil)
         }
@@ -180,6 +162,17 @@ class StatementDetailViewController: UIViewController {
             viewAuthentication?.configureLayout(title: "Autenticação",
                                                 subtitle: authentication)
         }
+        
+        if !FileManagerPersistence.shared.fileExists(fileName: statementDetailViewModel.sharedName) {
+            let imageForShare = stackView.renderViewToUIImage
+            FileManagerPersistence.shared.saveImage(image: imageForShare,
+                                                    imageName: statementDetailViewModel.sharedName)
+        }
+        
+        activityViewController = UIActivityViewController(activityItems: [self],
+                                                              applicationActivities: [])
+        activityViewController?.popoverPresentationController?.sourceView = shareButton
+        
     }
     
     private func setupShareButtonConstraints() {
