@@ -9,7 +9,6 @@ import Foundation
 class StatementViewModel {
     
     // MARK: - Properties
-    
     var isPaginating = false
     private var balance: Balance?
     private var listOfTransactions = [StatementDetailViewModel]()
@@ -80,6 +79,7 @@ extension StatementViewModel {
             
             switch result {
             case .success(let statement):
+
                 let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
                 self.listOfTransactions += newStatements
                 completion(self, newStatements)

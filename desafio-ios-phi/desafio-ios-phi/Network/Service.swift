@@ -48,21 +48,21 @@ struct Service {
         }
     }
     
-   static func getMyStatementDetail(transactionID: String, completion: @escaping ((Statement?) -> Void)) {
+   static func getMyStatementDetail(transactionID: String,
+                                    completion: @escaping ((Result<Statement?, NetWorkResponseError>) -> Void)) {
         NetworkManager.request(router: .myStatementDetail(transactionID: transactionID)) { result in
             switch result {
             case .failure(let error):
                 print(error)
-                completion(nil)
+                completion(.failure(error))
                 
             case .success(let data):
                 guard let data = data else {
-                    completion(nil)
                     return
                 }
     
                 let dataTransaction = (try? JSONDecoder().decode(Statement.self, from: data))
-                completion(dataTransaction)
+                completion(.success(dataTransaction))
             }
         }
     }

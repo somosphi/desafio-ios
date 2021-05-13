@@ -9,7 +9,6 @@ import UIKit
 import LinkPresentation
 
 class StatementDetailViewController: UIViewController {
-    
     // MARK: - Properties
     
     private var statementDetailViewModel: StatementDetailViewModel
@@ -33,6 +32,7 @@ class StatementDetailViewController: UIViewController {
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         stackView.backgroundColor = .white
+        stackView.isHidden = true
         stackView.spacing = 20
         return stackView
     }()
@@ -81,16 +81,33 @@ class StatementDetailViewController: UIViewController {
     // MARK: - Functions
     
     private func loadViewModel() {
-        self.statementDetailViewModel.get { statementViewModel in
+        self.statementDetailViewModel.get { statementViewModel, error  in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showAlert()
+                }
+                return
+            }
+            
             self.statementDetailViewModel = statementViewModel
             
             DispatchQueue.main.async {
                 self.setupProperties()
+                self.stackView.isHidden = false
                 self.setupViewConfiguration()
                 self.loadingActivityIndicator.stopAnimating()
             }
         }
-        
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Ocorreu um erro",
+                                            message: "Não conseguimos processar sua solicitação. Tente novamente",
+                                            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            self.myNavigationController.popViewController(animated: true)
+        }))
+        self.present(alertController, animated: true)
     }
     
     private func configureNavigation() {
@@ -111,13 +128,13 @@ class StatementDetailViewController: UIViewController {
         guard let activityViewController = activityViewController else {
             return
         }
+        
         DispatchQueue.main.async {
             self.present(activityViewController, animated: true, completion: nil)
         }
     }
  
     private func setupProperties() {
-        
         if let description = statementDetailViewModel.description {
             viewDescription = StatementDetailView()
             viewDescription?.configureLayout(title: "Tipo de movimentação",
@@ -169,9 +186,7 @@ class StatementDetailViewController: UIViewController {
        
         activityViewController = UIActivityViewController(activityItems: [self],
                                                               applicationActivities: [])
-        
         activityViewController?.popoverPresentationController?.sourceView = shareButton
-        
     }
     
     // MARK: - Setup Constraints
@@ -298,15 +313,11 @@ class StatementDetailViewController: UIViewController {
             viewAuthentication.heightAnchor.constraint(greaterThanOrEqualToConstant: 100),
             viewAuthentication.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
-        
     }
-    
 }
-
 // MARK: - ViewConfiguration
 
 extension StatementDetailViewController: ViewConfiguration {
-    
     func setupConstraints() {
         setupShareButtonConstraints()
         setupScrollViewConstraints()
@@ -324,9 +335,7 @@ extension StatementDetailViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(scrollView)
         view.addSubview(shareButton)
-        
         scrollView.addSubview(stackView)
-        
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(dividingLine)
@@ -361,35 +370,30 @@ extension StatementDetailViewController: ViewConfiguration {
     }
     
     func getMetadataForSharingManually(title: String) -> LPLinkMetadata {
-        
         let linkMetaData = LPLinkMetadata()
         linkMetaData.title = title
         return linkMetaData
     }
 }
-
 // MARK: - UIActivityItemSource
 
 extension StatementDetailViewController: UIActivityItemSource {
-    
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return STATEMENTDETAIL
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController,
                                 itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        
         return FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
     }
+    
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        
         let urlImage = FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
         let linkMetaData = LPLinkMetadata()
         linkMetaData.title = APPNAME
         linkMetaData.originalURL = urlImage
         linkMetaData.imageProvider = NSItemProvider.init(contentsOf: urlImage)
         linkMetaData.iconProvider = NSItemProvider.init(contentsOf: urlImage)
-        
         return linkMetaData
     }
 }

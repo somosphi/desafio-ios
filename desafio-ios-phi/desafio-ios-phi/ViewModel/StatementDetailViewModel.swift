@@ -42,7 +42,7 @@ class StatementDetailViewModel {
     }
     
     var type: TransactionType? {
-       return TransactionType(rawValue: statement?.type ?? "")
+        return TransactionType(rawValue: statement?.type ?? "")
     }
     
     var userName: String? {
@@ -71,18 +71,22 @@ class StatementDetailViewModel {
     init(statement: Statement?) {
         self.statement = statement
     }
-
+    
 }
 
 // MARK: - Network
 
 extension StatementDetailViewModel {
-    func get(completion :@escaping (StatementDetailViewModel) -> Void) {
-        Service.getMyStatementDetail(transactionID: self.uuid) { transaction in
-            self.statement = transaction
+    func get(completion :@escaping ((StatementDetailViewModel, NetWorkResponseError?) -> Void)) {
+        Service.getMyStatementDetail(transactionID: self.uuid) { result in
             
-            DispatchQueue.main.async {
-                completion(self)
+            switch result {
+            case .failure(let error):
+                completion(self, error)
+                
+            case .success(let statement):
+                self.statement = statement
+                completion(self, nil)
             }
         }
     }
@@ -97,7 +101,7 @@ extension StatementDetailViewModel: Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-      hasher.combine(uuid)
+        hasher.combine(uuid)
     }
     
 }
