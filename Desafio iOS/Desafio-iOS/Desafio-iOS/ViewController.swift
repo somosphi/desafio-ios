@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var showHideButton: UIButton!
     @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet weak var amountActivityIndicator: UIActivityIndicatorView!
 
     var amountValue: Double = 0.0
 
@@ -24,6 +25,10 @@ class ViewController: UIViewController {
 //            showHideButton.tintColor = UIColor.init(named: "phiGreen")
 //        }
 
+        self.amountLabel.isHidden = true
+        self.amountActivityIndicator.startAnimating()
+        self.amountActivityIndicator.isHidden = false
+
         testImage.tintColor = UIColor.init(named: "phiGreen")
 
         let service = QueryService()
@@ -33,17 +38,29 @@ class ViewController: UIViewController {
             case .failure(let error):
                 print(error)
             case .success(let amount):
-                self.amountValue = amount
+                DispatchQueue.main.async {
+                    self.amountValue = amount
+                    self.amountActivityIndicator.isHidden = true
+                    self.amountLabel.isHidden = false
+                }
+                hideAmount()
             }
         }
 
-        if UserDefaults.standard.bool(forKey: "HideAmount") {
-            showHideButton.setImage(UIImage(named: "view-show"), for: .normal)
-            self.amountLabel.text = "💸💸💸"
-        } else {
-            showHideButton.setImage(UIImage(named: "view-hide"), for: .normal)
-            self.amountLabel.text = String(format: "%.2f", amountValue)
+        func hideAmount() {
+            if UserDefaults.standard.bool(forKey: "HideAmount") {
+                DispatchQueue.main.async {
+                    self.showHideButton.setImage(UIImage(named: "view-show"), for: .normal)
+                    self.amountLabel.text = "💸💸💸"
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showHideButton.setImage(UIImage(named: "view-hide"), for: .normal)
+                    self.amountLabel.text = String(format: "%.2f", self.amountValue)
+                }
+            }
         }
+
     }
 
     @IBAction func showHideButtonPressed(_ sender: Any) {

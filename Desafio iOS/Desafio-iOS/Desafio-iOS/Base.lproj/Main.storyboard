@@ -60,12 +60,15 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-T4-wdK">
-                                                <rect key="frame" x="0.0" y="34" width="100.5" height="46"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="R$ 0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-T4-wdK">
+                                                <rect key="frame" x="0.0" y="34" width="100.5" height="38"/>
                                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-AO-JeK">
+                                                <rect key="frame" x="0.0" y="80" width="20" height="0.0"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -97,6 +100,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amountActivityIndicator" destination="OvM-AO-JeK" id="Rs5-qd-DVD"/>
                         <outlet property="amountLabel" destination="UXu-T4-wdK" id="wsj-Kt-1c5"/>
                         <outlet property="showHideButton" destination="q3t-mv-g3p" id="cEq-X8-j68"/>
                         <outlet property="testImage" destination="IMc-6H-rYi" id="HUw-4A-ltD"/>

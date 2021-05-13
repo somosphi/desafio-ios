@@ -45,6 +45,10 @@ class QueryService {
         }.resume()
     }
 
+    func getTransactions() {
+        
+    }
+
 }
 
 struct AmountInfo: Codable {
