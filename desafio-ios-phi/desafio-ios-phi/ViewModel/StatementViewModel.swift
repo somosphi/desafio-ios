@@ -45,14 +45,11 @@ extension StatementViewModel {
             switch result {
             case .success(let balance):
                 self.balance = balance
-                DispatchQueue.main.async {
-                    completion(self, nil)
-                }
+                completion(self, nil)
                 
             case .failure(let error):
                 completion(self, error)
             }
-            
         }
     }
     
@@ -62,14 +59,10 @@ extension StatementViewModel {
             switch result {
             case .success(let statement):
                 self.listOfTransactions = statement.map {StatementDetailViewModel(statement: $0)}
-                DispatchQueue.main.async {
-                    completion(self, nil)
-                }
+                completion(self, nil)
                 
             case .failure(let error):
-                DispatchQueue.main.async {
-                    completion(self, error)
-                }
+                completion(self, error)
             }
             
         }
@@ -86,20 +79,17 @@ extension StatementViewModel {
             
             switch result {
             case .success(let statement):
-                
                 let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
                 self.listOfTransactions += newStatements
-                DispatchQueue.main.async {
-                    completion(self, newStatements)
-                    if pagination {
-                        self.isPaginating = false
-                    }
+                completion(self, newStatements)
+                if pagination {
+                    self.isPaginating = false
                 }
                 
             case .failure:
                 completion(self, [])
             }
-           
+            
         }
     }
 }
