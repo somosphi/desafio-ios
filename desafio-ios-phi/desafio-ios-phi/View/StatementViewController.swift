@@ -88,6 +88,7 @@ class StatementViewController: UIViewController {
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.headerView.updateAmount(statementViewModel.amount)
+                self.updateUI()
             }
         }
     }
