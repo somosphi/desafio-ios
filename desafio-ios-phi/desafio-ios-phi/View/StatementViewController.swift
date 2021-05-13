@@ -79,14 +79,14 @@ class StatementViewController: UIViewController {
             
             if error != nil {
                 if self.alertIsShowing {
+                    self.alertIsShowing = false
                     return
                 }
+                
                 DispatchQueue.main.async {
                     self.showAlert()
                     self.alertIsShowing = true
-                    self.loadingActivityIndicator.stopAnimating()
-                    self.refreshControl.endRefreshing()
-                    self.tableView.isHidden = false
+                    self.updateUI()
                     return
                 }
             }
@@ -102,12 +102,15 @@ class StatementViewController: UIViewController {
         self.statementViewModel.getStatement(completion: { (statementViewModel, error) in
             
             if error != nil {
+                if self.alertIsShowing {
+                    self.alertIsShowing = false
+                    return
+                }
+                
                 DispatchQueue.main.async {
                     self.showAlert()
                     self.alertIsShowing = true
-                    self.loadingActivityIndicator.stopAnimating()
-                    self.refreshControl.endRefreshing()
-                    self.tableView.isHidden = false
+                    self.updateUI()
                     return
                 }
                 
@@ -116,12 +119,16 @@ class StatementViewController: UIViewController {
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.aplySnapshot(statementViewModel)
-                self.loadingActivityIndicator.stopAnimating()
-                self.refreshControl.endRefreshing()
-                self.tableView.isHidden = false
+                self.updateUI()
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    private func updateUI() {
+        self.loadingActivityIndicator.stopAnimating()
+        self.refreshControl.endRefreshing()
+        self.tableView.isHidden = false
     }
     
     private func configureTableView() {
