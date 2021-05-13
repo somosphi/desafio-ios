@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,31 +17,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5v-2p-Tv3">
-                                <rect key="frame" x="116" y="415" width="182" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5v-2p-Tv3">
+                                <rect key="frame" x="116" y="419.5" width="182" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <state key="normal" title="Teste API"/>
                                 <connections>
                                     <action selector="apiTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FIM-CP-BFZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEW-Om-fV3">
-                                <rect key="frame" x="114" y="554" width="186" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOF-RZ-YPZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Extrato" id="6Si-bk-7iG"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPo-rP-Gi7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="urj-M8-vP5">
+                                        <rect key="frame" x="10" y="10" width="394" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="VBy-al-Dea">
+                                                <rect key="frame" x="0.0" y="0.0" width="115.5" height="26"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu saldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cG-k3-3UI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="26"/>
+                                                        <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3t-mv-g3p">
+                                                        <rect key="frame" x="89.5" y="0.0" width="26" height="26"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="26" id="FsO-XV-OhM"/>
+                                                            <constraint firstAttribute="height" constant="26" id="h4Y-O5-rBc"/>
+                                                        </constraints>
+                                                        <state key="normal" image="view-hide"/>
+                                                        <connections>
+                                                            <action selector="showHideButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ult-fb-ggT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-T4-wdK">
+                                                <rect key="frame" x="0.0" y="34" width="100.5" height="46"/>
+                                                <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="phiWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="urj-M8-vP5" secondAttribute="bottom" constant="10" id="5Rm-9J-gUi"/>
+                                    <constraint firstAttribute="height" constant="100" id="gNn-XA-IEA"/>
+                                    <constraint firstAttribute="trailing" secondItem="urj-M8-vP5" secondAttribute="trailing" constant="10" id="j6H-7E-OqO"/>
+                                    <constraint firstItem="urj-M8-vP5" firstAttribute="leading" secondItem="nPo-rP-Gi7" secondAttribute="leading" constant="10" id="okA-cl-qZP"/>
+                                    <constraint firstItem="urj-M8-vP5" firstAttribute="top" secondItem="nPo-rP-Gi7" secondAttribute="top" constant="10" id="yum-Rs-qmC"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IMc-6H-rYi">
+                                <rect key="frame" x="70" y="636" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GEW-Om-fV3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7Vr-Vo-2wT"/>
+                            <constraint firstItem="dOF-RZ-YPZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CGl-Vy-2rm"/>
+                            <constraint firstItem="nPo-rP-Gi7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DoP-3m-PfC"/>
+                            <constraint firstItem="nPo-rP-Gi7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Gpw-21-a7l"/>
+                            <constraint firstItem="dOF-RZ-YPZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ydo-yV-yiK"/>
                             <constraint firstItem="H5v-2p-Tv3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Yr9-Cr-4yg"/>
-                            <constraint firstItem="GEW-Om-fV3" firstAttribute="top" secondItem="H5v-2p-Tv3" secondAttribute="bottom" constant="68" id="Zrx-wd-jIf"/>
+                            <constraint firstItem="dOF-RZ-YPZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fNG-fA-7lG"/>
                             <constraint firstItem="H5v-2p-Tv3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fTD-4k-edJ"/>
+                            <constraint firstItem="nPo-rP-Gi7" firstAttribute="top" secondItem="dOF-RZ-YPZ" secondAttribute="bottom" id="s7p-Rt-vuT"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="amountLabel" destination="GEW-Om-fV3" id="dfi-Uv-GCj"/>
+                        <outlet property="amountLabel" destination="UXu-T4-wdK" id="wsj-Kt-1c5"/>
+                        <outlet property="showHideButton" destination="q3t-mv-g3p" id="cEq-X8-j68"/>
+                        <outlet property="testImage" destination="IMc-6H-rYi" id="HUw-4A-ltD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -49,6 +108,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="view-hide" width="512" height="512"/>
+        <namedColor name="phiWhite">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
