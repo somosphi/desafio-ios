@@ -28,7 +28,6 @@ class StatementViewController: UIViewController {
     private var headerView = HeaderView()
     private let refreshControl = UIRefreshControl()
     private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
-    private var alertController: UIAlertController?
     
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -59,15 +58,10 @@ class StatementViewController: UIViewController {
     }
     
     private func showAlert() {
-        
-        alertController = UIAlertController(title: "Ocorreu um erro",
+        let alertController = UIAlertController(title: "Ocorreu um erro",
                                             message: "Não conseguimos processar sua solicitação. Tente novamente",
                                             preferredStyle: .alert)
-        alertController?.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
-        guard let alertController = alertController else {
-            return
-        }
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         DispatchQueue.main.async {
             self.present(alertController, animated: true)
