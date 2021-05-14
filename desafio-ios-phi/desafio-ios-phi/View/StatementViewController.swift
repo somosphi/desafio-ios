@@ -59,32 +59,32 @@ class StatementViewController: UIViewController {
     
     private func showAlert() {
         let alertController = UIAlertController(title: "Ocorreu um erro",
-                                            message: "Não conseguimos processar sua solicitação. Tente novamente",
-                                            preferredStyle: .alert)
+                                                message: "Não conseguimos processar sua solicitação. Tente novamente",
+                                                preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true)
+        if alertIsShowing {
+            alertController.dismiss(animated: true, completion: nil)
+            
+        } else {
+            self.alertIsShowing = true
+            self.present(alertController, animated: true) {
+                self.alertIsShowing = false
+            }
         }
     }
     
     private func loadMyBalance() {
         self.statementViewModel.getMyBalance { (statementViewModel, error) in
             
-            if error != nil {
-                if self.alertIsShowing {
-                    self.alertIsShowing = false
-                    return
-                }
-                
+            if error != nil, !self.alertIsShowing {
                 DispatchQueue.main.async {
                     self.showAlert()
-                    self.alertIsShowing = true
                     self.updateUI()
-                    return
                 }
+                return
             }
-            
+        
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.headerView.updateAmount(statementViewModel.amount)
@@ -96,21 +96,14 @@ class StatementViewController: UIViewController {
     private func loadStatements() {
         self.statementViewModel.getStatement(completion: { (statementViewModel, error) in
             
-            if error != nil {
-                if self.alertIsShowing {
-                    self.alertIsShowing = false
-                    return
-                }
-                
+            if error != nil, !self.alertIsShowing {
                 DispatchQueue.main.async {
                     self.showAlert()
-                    self.alertIsShowing = true
                     self.updateUI()
-                    return
                 }
-                
+                return
             }
-            
+          
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.aplySnapshot(statementViewModel)
