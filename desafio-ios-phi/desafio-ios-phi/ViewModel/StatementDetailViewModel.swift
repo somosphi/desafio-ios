@@ -16,10 +16,6 @@ class StatementDetailViewModel {
         return statement?.uuid ?? ""
     }
     
-    var sharedName: String {
-        return "comprovante-\(uuid).png"
-    }
-    
     var date: String? {
         let date = statement?.date?.toDate
         return date?.toString
