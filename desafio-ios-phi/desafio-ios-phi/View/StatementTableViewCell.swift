@@ -26,7 +26,7 @@ class StatementTableViewCell: UITableViewCell {
         circle.backgroundColor = .blackTextColor
         circle.clipsToBounds = true
         circle.backgroundColor = .lightGreenColor
-        circle.layer.cornerRadius = 6
+        circle.layer.cornerRadius = 7
         circle.layer.borderColor = UIColor.white.cgColor
         circle.layer.borderWidth = 2
         return circle
@@ -159,8 +159,8 @@ class StatementTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             circleInLine.centerXAnchor.constraint(equalTo: leftLine.centerXAnchor),
             circleInLine.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
-            circleInLine.widthAnchor.constraint(equalToConstant: 12),
-            circleInLine.heightAnchor.constraint(equalToConstant: 12)
+            circleInLine.widthAnchor.constraint(equalToConstant: 14),
+            circleInLine.heightAnchor.constraint(equalToConstant: 14)
         ])
     }
   
