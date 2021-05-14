@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 public protocol ViewConfiguration: AnyObject {
     func setupConstraints()
     func buildViewHierarchy()

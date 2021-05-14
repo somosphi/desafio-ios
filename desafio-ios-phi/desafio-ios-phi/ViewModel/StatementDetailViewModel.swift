@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class StatementDetailViewModel {
     
     // MARK: - Properties

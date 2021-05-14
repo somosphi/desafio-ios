@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Service {
    static func getMyBalance(completion: @escaping ((Result<Balance?, NetWorkResponseError>) -> Void)) {
         NetworkManager.request(router: .myBalance) { result in

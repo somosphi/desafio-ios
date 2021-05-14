@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class StatementDetailView: UIView {
     
     // MARK: - Views

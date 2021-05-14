@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum NetWorkResponseError: Error {
     case requestFailed(description: String)
     case malformedURLRequest(url: String)

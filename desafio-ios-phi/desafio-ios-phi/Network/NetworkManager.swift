@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct NetworkManager {
     static func request(router: Router, completion: @escaping (Result<Data?, NetWorkResponseError>) -> Void) {
         guard let urlRequest = router.urlRequest else {

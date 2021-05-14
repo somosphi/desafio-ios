@@ -129,6 +129,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFE96339264EFF1D00BFA3FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */,
+				BF35216826389653005A077A /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		BF3520CF26387563005A077A = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				BF3520E926387564005A077A /* Info.plist */,
-				BFEC4B2A2639F25E001B69D9 /* Network */,
 				BF3521522638919F005A077A /* Shared */,
+				AFE96339264EFF1D00BFA3FB /* Protocols */,
+				BFEC4B2A2639F25E001B69D9 /* Network */,
 				BF352124263889C0005A077A /* Coordinators */,
 				BF35211426387CEE005A077A /* Model */,
 				BF35211B26388271005A077A /* Utils */,
@@ -209,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				BF39B7D8264098F4005E5758 /* Extensions */,
-				BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */,
 				BF39B7D026407966005E5758 /* Constants.swift */,
 				BF39B7D4264080CF005E5758 /* UserDefaultsPersistence.swift */,
 			);
@@ -221,7 +230,6 @@
 			children = (
 				BF352125263889EA005A077A /* ApplicationCoordinator.swift */,
 				BF35216026389303005A077A /* StatementCoordinator.swift */,
-				BF35216826389653005A077A /* Coordinator.swift */,
 				BF35216D26389C99005A077A /* StatementDetailCoordinator.swift */,
 			);
 			path = Coordinators;

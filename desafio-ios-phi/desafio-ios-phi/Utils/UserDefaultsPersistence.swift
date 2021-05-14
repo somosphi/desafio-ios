@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct UserDefaultsPersistence {
     static var shared = UserDefaultsPersistence()
     private let standard = UserDefaults.standard

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 class StatementDetailCoordinator: Coordinator {
     var navigationController: UINavigationController
     private var statementDetailViewController: StatementDetailViewController
