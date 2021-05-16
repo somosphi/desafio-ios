@@ -21,7 +21,7 @@ class HeaderView: UIView {
     private let amountDescriptionLabel: UILabel = {
         let amountDescriptionLabel = UILabel()
         amountDescriptionLabel.text = "Seu saldo"
-        amountDescriptionLabel.font = UIFont.systemFont(ofSize: 17)
+        amountDescriptionLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         amountDescriptionLabel.textColor = .blackTextColor
         return amountDescriptionLabel
     }()

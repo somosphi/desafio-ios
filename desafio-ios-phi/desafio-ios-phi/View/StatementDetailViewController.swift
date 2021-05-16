@@ -38,7 +38,7 @@ class StatementDetailViewController: UIViewController {
     }()
   
     var titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
-                                      font: UIFont.boldSystemFont(ofSize: 17),
+                                      font: UIFont.boldSystemFont(ofSize: 20),
                                       text: STATEMENTDETAIL,
                                       alignment: .center)
 

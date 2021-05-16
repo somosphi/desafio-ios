@@ -29,6 +29,11 @@ class StatementViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
     
+    private let titleLabel: MyLabel = MyLabel(textColor: .blackTextColor,
+                                              font: UIFont.systemFont(ofSize: 20, weight: .bold),
+                                              text: STATEMENT,
+                                              alignment: .center)
+    
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.tableFooterView = UIView()
@@ -48,6 +53,10 @@ class StatementViewController: UIViewController {
         super.viewDidLoad()
         setupViewConfiguration()
         loadViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigation()
     }
     
     // MARK: - Functions
@@ -129,7 +138,7 @@ class StatementViewController: UIViewController {
     private func configureNavigation() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationItem.title = STATEMENT
+        navigationItem.titleView = titleLabel
         
     }
     
@@ -174,7 +183,6 @@ extension StatementViewController: ViewConfiguration {
             y: view.bounds.midY
         )
         refreshControl.addTarget(self, action: #selector(loadViewModel), for: .valueChanged)
-        configureNavigation()
         configureTableView()
     }
     
