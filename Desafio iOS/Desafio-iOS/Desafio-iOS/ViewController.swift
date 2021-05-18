@@ -11,10 +11,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var showHideButton: UIButton!
-    @IBOutlet weak var testImage: UIImageView!
     @IBOutlet weak var amountActivityIndicator: UIActivityIndicatorView!
 
     var amountValue: Double = 0.0
+    var favourites: [Int] = []
 
     override func viewDidLoad() {
 
@@ -29,7 +29,8 @@ class ViewController: UIViewController {
         self.amountActivityIndicator.startAnimating()
         self.amountActivityIndicator.isHidden = false
 
-        testImage.tintColor = UIColor.init(named: "phiGreen")
+        // teste de tint em imagem do sistema
+//        testImage.tintColor = UIColor.init(named: "phiGreen")
 
         let service = QueryService()
 
@@ -44,6 +45,16 @@ class ViewController: UIViewController {
                     self.amountLabel.isHidden = false
                 }
                 hideAmount()
+            }
+        }
+
+        service.getStatement { result in
+            print(result)
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let statement):
+                print(statement)
             }
         }
 
@@ -75,21 +86,6 @@ class ViewController: UIViewController {
             UserDefaults.standard.setValue(true, forKey: "HideAmount")
             DispatchQueue.main.async {
                 self.amountLabel.text = "💸💸💸"
-            }
-        }
-    }
-
-    @IBAction func apiTest(_ sender: Any) {
-        let service = QueryService()
-
-        service.getAmount { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let amount):
-                DispatchQueue.main.async {
-                    self.amountLabel.text = String(amount)
-                }
             }
         }
     }

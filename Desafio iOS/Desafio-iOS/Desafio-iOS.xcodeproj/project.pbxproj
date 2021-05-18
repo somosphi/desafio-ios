@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA2A74F226402CAE00C54678 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A74F126402CAE00C54678 /* Color.swift */; };
+		FA2A74F226402CAE00C54678 /* TintableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A74F126402CAE00C54678 /* TintableImage.swift */; };
 		FA2A74F4264036DF00C54678 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A74F3264036DF00C54678 /* QueryService.swift */; };
+		FABF3E5F26540A2200908073 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF3E5E26540A2200908073 /* TableView.swift */; };
 		FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2532639A5650088A17F /* AppDelegate.swift */; };
 		FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2552639A5650088A17F /* SceneDelegate.swift */; };
 		FAF5A2582639A5650088A17F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2572639A5650088A17F /* ViewController.swift */; };
@@ -18,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA2A74F126402CAE00C54678 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		FA2A74F126402CAE00C54678 /* TintableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintableImage.swift; sourceTree = "<group>"; };
 		FA2A74F3264036DF00C54678 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		FABF3E5E26540A2200908073 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		FAF5A2502639A5650088A17F /* Desafio-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF5A2532639A5650088A17F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF5A2552639A5650088A17F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,12 +43,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA2A74F026402CA200C54678 /* Extension */ = {
+		FA2A74F026402CA200C54678 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FA2A74F126402CAE00C54678 /* Color.swift */,
+				FA2A74F126402CAE00C54678 /* TintableImage.swift */,
 			);
-			path = Extension;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FA2A74F5264037AB00C54678 /* Networking */ = {
@@ -77,14 +79,15 @@
 			isa = PBXGroup;
 			children = (
 				FA2A74F5264037AB00C54678 /* Networking */,
-				FA2A74F026402CA200C54678 /* Extension */,
-				FAF5A2532639A5650088A17F /* AppDelegate.swift */,
-				FAF5A2552639A5650088A17F /* SceneDelegate.swift */,
+				FA2A74F026402CA200C54678 /* Helpers */,
 				FAF5A2572639A5650088A17F /* ViewController.swift */,
+				FABF3E5E26540A2200908073 /* TableView.swift */,
 				FAF5A2592639A5650088A17F /* Main.storyboard */,
 				FAF5A25C2639A5670088A17F /* Assets.xcassets */,
 				FAF5A25E2639A5670088A17F /* LaunchScreen.storyboard */,
 				FAF5A2612639A5670088A17F /* Info.plist */,
+				FAF5A2532639A5650088A17F /* AppDelegate.swift */,
+				FAF5A2552639A5650088A17F /* SceneDelegate.swift */,
 			);
 			path = "Desafio-iOS";
 			sourceTree = "<group>";
@@ -181,7 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF5A2582639A5650088A17F /* ViewController.swift in Sources */,
-				FA2A74F226402CAE00C54678 /* Color.swift in Sources */,
+				FABF3E5F26540A2200908073 /* TableView.swift in Sources */,
+				FA2A74F226402CAE00C54678 /* TintableImage.swift in Sources */,
 				FA2A74F4264036DF00C54678 /* QueryService.swift in Sources */,
 				FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */,
 				FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */,
