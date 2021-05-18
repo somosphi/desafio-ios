@@ -1,5 +1,5 @@
 //
-//  double_extension_test.swift
+//  double_extension_tests.swift
 //  desafio-ios-phiTests
 //
 //  Created by Lidiane Gomes on 18/05/21.
@@ -8,7 +8,7 @@
 import XCTest
 import desafio_ios_phi
 
-class DoubleExtensionTest: XCTestCase {
+class DoubleExtensionTests: XCTestCase {
     var largeNumber: Double!
     var shortNumber: Double!
     
