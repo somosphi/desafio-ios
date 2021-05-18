@@ -1,14 +1,13 @@
 //
-//  desafio_ios_phiTests.swift
+//  statementViewModel_tests.swift
 //  desafio-ios-phiTests
 //
-//  Created by Lidiane Gomes on 27/04/21.
+//  Created by Lidiane Gomes on 18/05/21.
 //
 
 import XCTest
-@testable import desafio_ios_phi
 
-class DesafioIosPhiTests: XCTestCase {
+class statementViewModel_tests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
