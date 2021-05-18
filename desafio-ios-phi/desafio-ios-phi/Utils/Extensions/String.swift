@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension String {
+extension String {
     var toDate: Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

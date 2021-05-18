@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import desafio_ios_phi
+@testable import desafio_ios_phi
 
 class DoubleExtensionTests: XCTestCase {
     var largeNumber: Double!
