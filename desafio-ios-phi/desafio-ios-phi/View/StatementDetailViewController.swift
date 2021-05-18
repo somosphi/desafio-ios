@@ -38,7 +38,7 @@ class StatementDetailViewController: UIViewController {
     }()
   
     var titleLabel: UILabel = MyLabel(textColor: .blackTextColor,
-                                      font: UIFont.boldSystemFont(ofSize: 17),
+                                      font: UIFont.boldSystemFont(ofSize: 20),
                                       text: STATEMENTDETAIL,
                                       alignment: .center)
 
@@ -177,16 +177,11 @@ class StatementDetailViewController: UIViewController {
             viewAuthentication?.configureLayout(title: "Autenticação",
                                                 subtitle: authentication)
         }
-        
-        if !FileManagerPersistence.shared.fileExists(fileName: statementDetailViewModel.sharedName) {
-            let imageForShare = stackView.renderViewToUIImage
-            FileManagerPersistence.shared.saveImage(image: imageForShare,
-                                                    imageName: statementDetailViewModel.sharedName)
-        }
-       
-        activityViewController = UIActivityViewController(activityItems: [self],
+      
+        activityViewController = UIActivityViewController(activityItems: [UIImage(), self],
                                                               applicationActivities: [])
         activityViewController?.popoverPresentationController?.sourceView = shareButton
+        activityViewController?.excludedActivityTypes = [.mail]
     }
     
     // MARK: - Setup Constraints
@@ -384,16 +379,16 @@ extension StatementDetailViewController: UIActivityItemSource {
     
     func activityViewController(_ activityViewController: UIActivityViewController,
                                 itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        return FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
+        return  stackView.renderViewToUIImage
     }
     
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        let urlImage = FileManagerPersistence.shared.getFileURL(fileName: statementDetailViewModel.sharedName)
+        let imageProvider = stackView.renderViewToUIImage
         let linkMetaData = LPLinkMetadata()
         linkMetaData.title = APPNAME
-        linkMetaData.originalURL = urlImage
-        linkMetaData.imageProvider = NSItemProvider.init(contentsOf: urlImage)
-        linkMetaData.iconProvider = NSItemProvider.init(contentsOf: urlImage)
+        linkMetaData.originalURL = URL(string: STATEMENTDETAIL)
+        linkMetaData.imageProvider = NSItemProvider(object: imageProvider)
+
         return linkMetaData
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class StatementViewModel {
     
     // MARK: - Properties

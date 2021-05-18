@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum TransactionType: String, Decodable {
     case TRANSFEROUT, TRANSFERIN, PIXCASHIN, PIXCASHOUT, BANKSLIPCASHIN
 }

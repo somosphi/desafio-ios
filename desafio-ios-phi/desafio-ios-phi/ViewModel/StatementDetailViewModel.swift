@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class StatementDetailViewModel {
     
     // MARK: - Properties
@@ -14,10 +15,6 @@ class StatementDetailViewModel {
     
     var uuid: String {
         return statement?.uuid ?? ""
-    }
-    
-    var sharedName: String {
-        return "comprovante-\(uuid).png"
     }
     
     var date: String? {

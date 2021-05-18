@@ -29,6 +29,11 @@ class StatementViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let loadingActivityIndicator: UIActivityIndicatorView = ActivityIndicatorView(style: .large)
     
+    private let titleLabel: MyLabel = MyLabel(textColor: .blackTextColor,
+                                              font: UIFont.systemFont(ofSize: 20, weight: .bold),
+                                              text: STATEMENT,
+                                              alignment: .center)
+    
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.tableFooterView = UIView()
@@ -50,6 +55,10 @@ class StatementViewController: UIViewController {
         loadViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigation()
+    }
+    
     // MARK: - Functions
     
     @objc private func loadViewModel() {
@@ -59,35 +68,36 @@ class StatementViewController: UIViewController {
     
     private func showAlert() {
         let alertController = UIAlertController(title: "Ocorreu um erro",
-                                            message: "Não conseguimos processar sua solicitação. Tente novamente",
-                                            preferredStyle: .alert)
+                                                message: "Não conseguimos processar sua solicitação. Tente novamente",
+                                                preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true)
+        if alertIsShowing {
+            alertController.dismiss(animated: true, completion: nil)
+            
+        } else {
+            self.alertIsShowing = true
+            self.present(alertController, animated: true) {
+                self.alertIsShowing = false
+            }
         }
     }
     
     private func loadMyBalance() {
         self.statementViewModel.getMyBalance { (statementViewModel, error) in
             
-            if error != nil {
-                if self.alertIsShowing {
-                    self.alertIsShowing = false
-                    return
-                }
-                
+            if error != nil, !self.alertIsShowing {
                 DispatchQueue.main.async {
                     self.showAlert()
-                    self.alertIsShowing = true
                     self.updateUI()
-                    return
                 }
+                return
             }
-            
+        
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.headerView.updateAmount(statementViewModel.amount)
+                self.updateUI()
             }
         }
     }
@@ -95,21 +105,14 @@ class StatementViewController: UIViewController {
     private func loadStatements() {
         self.statementViewModel.getStatement(completion: { (statementViewModel, error) in
             
-            if error != nil {
-                if self.alertIsShowing {
-                    self.alertIsShowing = false
-                    return
-                }
-                
+            if error != nil, !self.alertIsShowing {
                 DispatchQueue.main.async {
                     self.showAlert()
-                    self.alertIsShowing = true
                     self.updateUI()
-                    return
                 }
-                
+                return
             }
-            
+          
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
                 self.aplySnapshot(statementViewModel)
@@ -135,7 +138,7 @@ class StatementViewController: UIViewController {
     private func configureNavigation() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationItem.title = STATEMENT
+        navigationItem.titleView = titleLabel
         
     }
     
@@ -180,7 +183,6 @@ extension StatementViewController: ViewConfiguration {
             y: view.bounds.midY
         )
         refreshControl.addTarget(self, action: #selector(loadViewModel), for: .valueChanged)
-        configureNavigation()
         configureTableView()
     }
     

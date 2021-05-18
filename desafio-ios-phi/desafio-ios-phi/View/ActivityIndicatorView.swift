@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class ActivityIndicatorView: UIActivityIndicatorView {
     
     override init(style: UIActivityIndicatorView.Style) {

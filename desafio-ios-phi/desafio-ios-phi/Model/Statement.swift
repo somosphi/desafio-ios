@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class Statement: Decodable {
     let uuid: String?
     let date: String?
