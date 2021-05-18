@@ -46,10 +46,14 @@ extension StatementViewModel {
             switch result {
             case .success(let balance):
                 self.balance = balance
-                completion(self, nil)
+                DispatchQueue.main.async {
+                    completion(self, nil)
+                }
                 
             case .failure(let error):
-                completion(self, error)
+                DispatchQueue.main.async {
+                    completion(self, error)
+                }
             }
         }
     }
@@ -60,10 +64,14 @@ extension StatementViewModel {
             switch result {
             case .success(let statement):
                 self.listOfTransactions = statement.map {StatementDetailViewModel(statement: $0)}
-                completion(self, nil)
+                DispatchQueue.main.async {
+                    completion(self, nil)
+                }
                 
             case .failure(let error):
-                completion(self, error)
+                DispatchQueue.main.async {
+                    completion(self, error)
+                }
             }
             
         }
@@ -88,7 +96,9 @@ extension StatementViewModel {
                 }
                 
             case .failure:
-                completion(self, [])
+                DispatchQueue.main.async {
+                    completion(self, [])
+                }
             }
             
         }

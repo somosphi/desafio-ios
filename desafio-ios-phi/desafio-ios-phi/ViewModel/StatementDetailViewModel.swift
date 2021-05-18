@@ -82,11 +82,15 @@ extension StatementDetailViewModel {
             
             switch result {
             case .failure(let error):
-                completion(self, error)
+                DispatchQueue.main.async {
+                    completion(self, error)
+                }
                 
             case .success(let statement):
                 self.statement = statement
-                completion(self, nil)
+                DispatchQueue.main.async {
+                    completion(self, nil)
+                }
             }
         }
     }
