@@ -35,6 +35,7 @@
 		BF622018264C58BB0056E886 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF622017264C58BB0056E886 /* ActivityIndicatorView.swift */; };
 		BF62201A264C5BC10056E886 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF622019264C5BC10056E886 /* MyLabel.swift */; };
 		BFA74EB726405FE1003C3D8E /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */; };
+		BFAE2EBA26543305005DA567 /* double_extension_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EB926543305005DA567 /* double_extension_test.swift */; };
 		BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */; };
 		BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BB263B1BFA003AAF74 /* Service.swift */; };
 		BFCED6BE263B4D15003AAF74 /* DecodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BD263B4D15003AAF74 /* DecodableData.swift */; };
@@ -101,6 +102,7 @@
 		BF622017264C58BB0056E886 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BF622019264C5BC10056E886 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
 		BFA74EB626405FE1003C3D8E /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		BFAE2EB926543305005DA567 /* double_extension_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = double_extension_test.swift; sourceTree = "<group>"; };
 		BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFCED6BB263B1BFA003AAF74 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BFCED6BD263B4D15003AAF74 /* DecodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableData.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		BF3520F126387565005A077A /* desafio-ios-phiTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFAE2EB8265432E8005DA567 /* Extensions */,
 				BF3520F226387565005A077A /* desafio_ios_phiTests.swift */,
 				BF3520F426387565005A077A /* Info.plist */,
 			);
@@ -255,6 +258,14 @@
 				BF39B7D92640991A005E5758 /* Double.swift */,
 				AFCB0D88264B120100F67BFB /* UIView.swift */,
 				AFCB0D8E264B1CDA00F67BFB /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFAE2EB8265432E8005DA567 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE2EB926543305005DA567 /* double_extension_test.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFAE2EBA26543305005DA567 /* double_extension_test.swift in Sources */,
 				BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T373QFGJQA;
 				INFOPLIST_FILE = "desafio-ios-phiTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-phi.app/desafio-ios-phi";
 			};
 			name = Debug;
@@ -644,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T373QFGJQA;
 				INFOPLIST_FILE = "desafio-ios-phiTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,7 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lidianegomes.desafio-ios-phiTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-phi.app/desafio-ios-phi";
 			};
 			name = Release;

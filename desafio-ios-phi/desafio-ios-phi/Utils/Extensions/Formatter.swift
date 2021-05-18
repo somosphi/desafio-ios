@@ -12,6 +12,7 @@ extension Formatter {
         formatter.groupingSeparator = "."
         formatter.decimalSeparator = ","
         formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
         return formatter
     }()

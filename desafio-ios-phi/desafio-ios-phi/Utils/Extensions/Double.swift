@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     var formattedWithSeparator: String {
         return Formatter.withSeparator.string(for: self) ?? ""
     }
