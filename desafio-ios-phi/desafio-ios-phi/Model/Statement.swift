@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Statement: Decodable {
+struct Statement: Decodable {
     let uuid: String?
     let date: String?
     let amount: Double?

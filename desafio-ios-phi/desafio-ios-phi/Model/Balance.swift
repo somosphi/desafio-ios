@@ -7,6 +7,10 @@
 
 import Foundation
 
-class Balance: Decodable {
+struct Balance: Decodable {
     var amount: Double?
+    
+    init(amount: Double?) {
+        self.amount = amount
+    }
 }

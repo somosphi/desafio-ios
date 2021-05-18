@@ -21,7 +21,12 @@ class StatementViewModel {
         }
         return value.formattedWithSeparator
     }
+    // MARK: - Initialization
     
+    init(balance: Balance? = nil, listOfTransactions: [StatementDetailViewModel] = []) {
+        self.balance = balance
+        self.listOfTransactions = listOfTransactions
+    }
     // MARK: - Functions
     
     func getAllTransactions() -> [StatementDetailViewModel] {

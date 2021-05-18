@@ -10,18 +10,45 @@ import XCTest
 
 class StatementViewModelTests: XCTestCase {
     var sut: StatementViewModel!
+    var balance: Balance!
+    var listOfTransactions: [StatementDetailViewModel]!
     
     override func setUp() {
-       sut = StatementViewModel()
+        balance = Balance(amount: 250)
+        listOfTransactions = StatementViewModelMockData.shared.listOfTransactions()
+        sut = StatementViewModel(balance: balance, listOfTransactions: listOfTransactions)
+    
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        balance = nil
+        listOfTransactions = nil
+        sut = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_amount() {
+        let expectedResult = "250,00"
+        XCTAssertEqual(sut.amount, expectedResult)
+    }
+    
+    func test_amount_equalNil() {
+        sut = StatementViewModel(balance: nil, listOfTransactions: [])
+        XCTAssertNil(sut.amount)
+    }
+    
+    func test_function_getAllTransactions() {
+        XCTAssertEqual(sut.getAllTransactions(), listOfTransactions)
+    }
+    
+    func test_function_getStatementDetail() {
+        let statementDetailTest = StatementDetailViewModel(statement: StatementViewModelMockData
+                                                            .shared
+                                                            .statementExemple)
+        XCTAssertEqual(sut.getStatementDetail(for: 0), statementDetailTest)
+    }
+    
+    func test_function_getStatementDetail_outOfIndex() {
+        XCTAssertNil(sut.getStatementDetail(for: listOfTransactions.count))
     }
 
 }
