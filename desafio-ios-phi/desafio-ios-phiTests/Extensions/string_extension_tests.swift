@@ -1,32 +1,33 @@
 //
-//  string_extension_phiTests.swift
+//  string_extension_tests.swift
 //  desafio-ios-phiTests
 //
 //  Created by Lidiane Gomes on 18/05/21.
 //
 
 import XCTest
+import desafio_ios_phi
 
-class StringExtensionPhiTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class StringExtensionTests: XCTestCase {
+    var correctStringDate: String!
+    var invalidStringDate: String!
+    
+    override func setUp() {
+        correctStringDate = "2021-05-18T18:25:31Z"
+        invalidStringDate = "2021-17-22T00:00:00Z"
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        correctStringDate = nil
+        invalidStringDate = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_correctStringDate() {
+        let result = Date(timeIntervalSinceReferenceDate: 643055131)
+        XCTAssertEqual(correctStringDate.toDate, result)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_invalidStringDate_isNil() {
+        XCTAssertNil(invalidStringDate.toDate)
     }
-
 }
