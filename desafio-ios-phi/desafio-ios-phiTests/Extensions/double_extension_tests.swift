@@ -21,19 +21,19 @@ class DoubleExtensionTests: XCTestCase {
         largeNumber = nil
     }
 
-    func test_largeNumber_correctFormatter() throws {
+    func test_largeNumber_correctFormatter() {
         let result = "2.458.487,25"
         let numberToTest = largeNumber.formattedWithSeparator
         XCTAssertEqual(numberToTest, result)
     }
     
-    func test_shortNumber_correctFormatter() throws {
+    func test_shortNumber_correctFormatter() {
         let result = "0,70"
         let numberToTest = shortNumber.formattedWithSeparator
         XCTAssertEqual(numberToTest, result)
     }
     
-    func test_numberIsNil() throws {
+    func test_numberIsNil() {
         let nilNumber: Double? = nil
         let numberToTest = nilNumber?.formattedWithSeparator
         XCTAssertNil(numberToTest)
