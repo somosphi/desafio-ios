@@ -13,7 +13,6 @@
 		BF3520DE26387563005A077A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520DD26387563005A077A /* SceneDelegate.swift */; };
 		BF3520E526387564005A077A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E426387564005A077A /* Assets.xcassets */; };
 		BF3520E826387564005A077A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3520E626387564005A077A /* LaunchScreen.storyboard */; };
-		BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3520F226387565005A077A /* desafio_ios_phiTests.swift */; };
 		BF35211D2638828D005A077A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35211C2638828D005A077A /* Colors.swift */; };
 		BF352126263889EA005A077A /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF352125263889EA005A077A /* ApplicationCoordinator.swift */; };
 		BF35212B26388EB1005A077A /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35212A26388EB0005A077A /* StatementViewController.swift */; };
@@ -38,6 +37,7 @@
 		BFAE2EBA26543305005DA567 /* double_extension_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EB926543305005DA567 /* double_extension_tests.swift */; };
 		BFAE2EBC26543B81005DA567 /* string_extension_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EBB26543B81005DA567 /* string_extension_tests.swift */; };
 		BFAE2EBE26544103005DA567 /* date_extension_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EBD26544103005DA567 /* date_extension_tests.swift */; };
+		BFAE2EC126544D3A005DA567 /* statementViewModel_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EC026544D3A005DA567 /* statementViewModel_tests.swift */; };
 		BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */; };
 		BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BB263B1BFA003AAF74 /* Service.swift */; };
 		BFCED6BE263B4D15003AAF74 /* DecodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BD263B4D15003AAF74 /* DecodableData.swift */; };
@@ -81,7 +81,6 @@
 		BF3520E726387564005A077A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3520E926387564005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF3520EE26387565005A077A /* desafio-ios-phiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-phiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF3520F226387565005A077A /* desafio_ios_phiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_ios_phiTests.swift; sourceTree = "<group>"; };
 		BF3520F426387565005A077A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF35211C2638828D005A077A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BF352125263889EA005A077A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		BFAE2EB926543305005DA567 /* double_extension_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = double_extension_tests.swift; sourceTree = "<group>"; };
 		BFAE2EBB26543B81005DA567 /* string_extension_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = string_extension_tests.swift; sourceTree = "<group>"; };
 		BFAE2EBD26544103005DA567 /* date_extension_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = date_extension_tests.swift; sourceTree = "<group>"; };
+		BFAE2EC026544D3A005DA567 /* statementViewModel_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statementViewModel_tests.swift; sourceTree = "<group>"; };
 		BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFCED6BB263B1BFA003AAF74 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BFCED6BD263B4D15003AAF74 /* DecodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableData.swift; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		BF3520F126387565005A077A /* desafio-ios-phiTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFAE2EBF26544CFB005DA567 /* ViewModel */,
 				BFAE2EB8265432E8005DA567 /* Extensions */,
-				BF3520F226387565005A077A /* desafio_ios_phiTests.swift */,
 				BF3520F426387565005A077A /* Info.plist */,
 			);
 			path = "desafio-ios-phiTests";
@@ -274,6 +274,14 @@
 				BFAE2EBD26544103005DA567 /* date_extension_tests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFAE2EBF26544CFB005DA567 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE2EC026544D3A005DA567 /* statementViewModel_tests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BFEC4B2A2639F25E001B69D9 /* Network */ = {
@@ -449,10 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFAE2EC126544D3A005DA567 /* statementViewModel_tests.swift in Sources */,
 				BFAE2EBA26543305005DA567 /* double_extension_tests.swift in Sources */,
 				BFAE2EBE26544103005DA567 /* date_extension_tests.swift in Sources */,
 				BFAE2EBC26543B81005DA567 /* string_extension_tests.swift in Sources */,
-				BF3520F326387565005A077A /* desafio_ios_phiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

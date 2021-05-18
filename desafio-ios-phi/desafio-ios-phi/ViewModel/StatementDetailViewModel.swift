@@ -29,7 +29,7 @@ class StatementDetailViewModel {
     
     var amount: String? {
         guard let value = statement?.amount?.formattedWithSeparator else {
-            return ""
+            return nil
         }
         return "R$ \(value)"
     }
@@ -56,7 +56,7 @@ class StatementDetailViewModel {
     }
     
     var authentication: String? {
-        return statement?.authentication ?? ""
+        return statement?.authentication
     }
     
     // MARK: - Initialization

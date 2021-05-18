@@ -43,6 +43,7 @@ struct Service {
                     completion(.success(item.items))
                 } else {
                     completion(.failure(.decodableDataError))
+                    print(NetWorkResponseError.decodableDataError.localizedDescription)
                 }
                
             }
@@ -62,8 +63,13 @@ struct Service {
                     return
                 }
     
-                let dataTransaction = (try? JSONDecoder().decode(Statement.self, from: data))
-                completion(.success(dataTransaction))
+                let statement = (try? JSONDecoder().decode(Statement.self, from: data))
+                if statement != nil {
+                completion(.success(statement))
+                } else {
+                    completion(.failure(.decodableDataError))
+                    print(NetWorkResponseError.decodableDataError.localizedDescription)
+                }
             }
         }
     }
