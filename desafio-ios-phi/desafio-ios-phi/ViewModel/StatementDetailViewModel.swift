@@ -48,7 +48,7 @@ class StatementDetailViewModel {
         } else if let sentTo = statement?.sentTo, statement?.from == nil {
             return sentTo
         }
-        return ""
+        return nil
     }
     
     var bankName: String? {

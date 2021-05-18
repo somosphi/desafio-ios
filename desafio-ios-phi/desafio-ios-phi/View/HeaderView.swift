@@ -86,7 +86,7 @@ class HeaderView: UIView {
         layoutSubviews()
     }
     
-    func updateAmount(_ text: String) {
+    func updateAmount(_ text: String?) {
         amountLabel.text = text
         layoutIfNeeded()
     }

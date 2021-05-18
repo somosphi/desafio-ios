@@ -15,9 +15,9 @@ class StatementViewModel {
     private var balance: Balance?
     private var listOfTransactions = [StatementDetailViewModel]()
     
-    var amount: String {
+    var amount: String? {
         guard let value = balance?.amount else {
-            return ""
+            return nil
         }
         return value.formattedWithSeparator
     }
