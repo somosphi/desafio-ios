@@ -8,9 +8,9 @@
 import Foundation
 
 struct Service {
-    private var networkManager: NetworkRequestManager
+    private var networkManager: NetworkManager
     
-    init(networkManager: NetworkRequestManager = NetworkManager()) {
+    init(networkManager: NetworkManager = NetworkManager()) {
         self.networkManager = networkManager
     }
     

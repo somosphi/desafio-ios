@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NetworkManager: NetworkRequestManager {
+struct NetworkManager {
     var session: URLSession
     
     init(session: URLSession = URLSession(configuration: .default)) {
