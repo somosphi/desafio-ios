@@ -43,7 +43,7 @@ class StatementViewModelTests: XCTestCase {
     func test_function_getStatementDetail() {
         let statementDetailTest = StatementDetailViewModel(statement: StatementViewModelMockData
                                                             .shared
-                                                            .statementExemple)
+                                                            .statementExemple1)
         XCTAssertEqual(sut.getStatementDetail(for: 0), statementDetailTest)
     }
     
