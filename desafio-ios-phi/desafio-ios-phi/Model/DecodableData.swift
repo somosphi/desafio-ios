@@ -7,6 +7,6 @@
 
 import Foundation
 
-class DecodableData: Decodable {
+class DecodableData: Codable {
     let items: [Statement]
 }
