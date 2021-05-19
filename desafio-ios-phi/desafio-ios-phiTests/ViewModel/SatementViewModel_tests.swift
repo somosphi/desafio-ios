@@ -1,5 +1,5 @@
 //
-//  statementViewModel_tests.swift
+//  StatementViewModel_tests.swift
 //  desafio-ios-phiTests
 //
 //  Created by Lidiane Gomes on 18/05/21.

@@ -1,5 +1,5 @@
 //
-//  statementDetailViewModel_tests.swift
+//  StatementDetailViewModel_tests.swift
 //  desafio-ios-phiTests
 //
 //  Created by Lidiane Gomes on 19/05/21.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class statementDetailViewModel_tests: XCTestCase {
+class StatementDetailViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

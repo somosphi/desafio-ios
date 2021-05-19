@@ -1,5 +1,5 @@
 //
-//  string_extension_tests.swift
+//  String_extension_tests.swift
 //  desafio-ios-phiTests
 //
 //  Created by Lidiane Gomes on 18/05/21.
