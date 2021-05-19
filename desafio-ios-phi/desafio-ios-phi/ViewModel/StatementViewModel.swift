@@ -10,7 +10,7 @@ import Foundation
 class StatementViewModel {
     
     // MARK: - Properties
-    
+    private let service = Service()
     var isPaginating = false
     private var balance: Balance?
     private var listOfTransactions = [StatementDetailViewModel]()
@@ -47,7 +47,7 @@ class StatementViewModel {
 extension StatementViewModel {
     
     func getMyBalance(completion: @escaping ((StatementViewModel, NetWorkResponseError?) -> Void)) {
-        Service.getMyBalance { result in
+        service.getMyBalance { result in
             
             switch result {
             case .success(let balance):
@@ -65,7 +65,7 @@ extension StatementViewModel {
     }
     
     func getStatement(completion :@escaping ((StatementViewModel, NetWorkResponseError?) -> Void)) {
-        Service.getMyStatement(limit: 10, offset: 0) { result in
+        service.getMyStatement(limit: 10, offset: 0) { result in
             
             switch result {
             case .success(let statement):
@@ -90,7 +90,8 @@ extension StatementViewModel {
         if pagination {
             isPaginating = true
         }
-        Service.getMyStatement(limit: limit, offset: offset) { result in
+        
+        service.getMyStatement(limit: limit, offset: offset) { result in
             
             switch result {
             case .success(let statement):

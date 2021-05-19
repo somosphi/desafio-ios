@@ -8,14 +8,18 @@
 import Foundation
 
 struct NetworkManager {
-    static func request(router: Router, completion: @escaping (Result<Data?, NetWorkResponseError>) -> Void) {
+    var session: URLSession
+    
+    init(session: URLSession = URLSession(configuration: .default)) {
+        self.session = session
+    }
+    
+    func request(router: Router, completion: @escaping (Result<Data?, NetWorkResponseError>) -> Void) {
         guard let urlRequest = router.urlRequest else {
             completion(.failure(.malformedURLRequest(url: router.url?.absoluteString ?? "nil")))
             return
         }
         
-        let session = URLSession(configuration: .default)
-      
         let dataTask = session.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(.failure(.requestFailed(description: error.localizedDescription)))

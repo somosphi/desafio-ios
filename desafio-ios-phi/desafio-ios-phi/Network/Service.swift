@@ -8,13 +8,15 @@
 import Foundation
 
 struct Service {
-   static func getMyBalance(completion: @escaping ((Result<Balance?, NetWorkResponseError>) -> Void)) {
-        NetworkManager.request(router: .myBalance) { result in
+    let networkManager = NetworkManager()
+    
+    func getMyBalance(completion: @escaping ((Result<Balance?, NetWorkResponseError>) -> Void)) {
+        networkManager.request(router: .myBalance) { result in
             switch result {
             case .failure(let error):
                 print(error)
                 completion(.failure(error))
-               
+                
             case .success(let data):
                 guard let data = data else {
                     return
@@ -25,9 +27,10 @@ struct Service {
         }
     }
     
-   static func getMyStatement(limit: Int, offset: Int,
-                              completion: @escaping ((Result<[Statement], NetWorkResponseError>) -> Void)) {
-        NetworkManager.request(router: .mySatatemet(limit: limit, offset: offset)) { result in
+    func getMyStatement(limit: Int,
+                        offset: Int,
+                        completion: @escaping ((Result<[Statement], NetWorkResponseError>) -> Void)) {
+        networkManager.request(router: .mySatatemet(limit: limit, offset: offset)) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -37,7 +40,7 @@ struct Service {
                 guard let data = data else {
                     return
                 }
-        
+                
                 let item = (try? JSONDecoder().decode(DecodableData.self, from: data))
                 if let item = item {
                     completion(.success(item.items))
@@ -45,14 +48,14 @@ struct Service {
                     completion(.failure(.decodableDataError))
                     print(NetWorkResponseError.decodableDataError.localizedDescription)
                 }
-               
+                
             }
         }
     }
     
-   static func getMyStatementDetail(transactionID: String,
-                                    completion: @escaping ((Result<Statement?, NetWorkResponseError>) -> Void)) {
-        NetworkManager.request(router: .myStatementDetail(transactionID: transactionID)) { result in
+    func getMyStatementDetail(transactionID: String,
+                              completion: @escaping ((Result<Statement?, NetWorkResponseError>) -> Void)) {
+        networkManager.request(router: .myStatementDetail(transactionID: transactionID)) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -62,10 +65,10 @@ struct Service {
                 guard let data = data else {
                     return
                 }
-    
+                
                 let statement = (try? JSONDecoder().decode(Statement.self, from: data))
                 if statement != nil {
-                completion(.success(statement))
+                    completion(.success(statement))
                 } else {
                     completion(.failure(.decodableDataError))
                     print(NetWorkResponseError.decodableDataError.localizedDescription)

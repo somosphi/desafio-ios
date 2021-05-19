@@ -10,7 +10,7 @@ import Foundation
 class StatementDetailViewModel {
     
     // MARK: - Properties
-    
+    private let service = Service()
     private var statement: Statement?
     
     var uuid: String {
@@ -75,7 +75,7 @@ class StatementDetailViewModel {
 
 extension StatementDetailViewModel {
     func get(completion :@escaping ((StatementDetailViewModel, NetWorkResponseError?) -> Void)) {
-        Service.getMyStatementDetail(transactionID: self.uuid) { result in
+        service.getMyStatementDetail(transactionID: self.uuid) { result in
             
             switch result {
             case .failure(let error):
