@@ -8,7 +8,11 @@
 import Foundation
 
 struct Service {
-    let networkManager = NetworkManager()
+    private var networkManager: NetworkRequestManager
+    
+    init(networkManager: NetworkRequestManager = NetworkManager()) {
+        self.networkManager = networkManager
+    }
     
     func getMyBalance(completion: @escaping ((Result<Balance?, NetWorkResponseError>) -> Void)) {
         networkManager.request(router: .myBalance) { result in
@@ -19,6 +23,7 @@ struct Service {
                 
             case .success(let data):
                 guard let data = data else {
+                    completion(.failure(.decodableDataError))
                     return
                 }
                 let statement: Balance? = (try? JSONDecoder().decode(Balance.self, from: data))

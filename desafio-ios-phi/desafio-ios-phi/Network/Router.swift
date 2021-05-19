@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Router {
+public enum Router {
     case myBalance
     case mySatatemet(limit: Int, offset: Int)
     case myStatementDetail(transactionID: String)

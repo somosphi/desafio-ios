@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetWorkResponseError: Error {
+public enum NetWorkResponseError: Error, Equatable {
     case requestFailed(description: String)
     case malformedURLRequest(url: String)
     case notFound
