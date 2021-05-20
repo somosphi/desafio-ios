@@ -10,7 +10,7 @@ import Foundation
 class StatementDetailViewModel {
     
     // MARK: - Properties
-    private let service = Service()
+    private var service: Service
     private var statement: Statement?
     
     var uuid: String {
@@ -61,11 +61,13 @@ class StatementDetailViewModel {
     
     // MARK: - Initialization
     
-    init(statementDetailViewModel: StatementDetailViewModel) {
+    init(statementDetailViewModel: StatementDetailViewModel, service: Service = Service()) {
+        self.service = service
         self.statement = statementDetailViewModel.statement
     }
     
-    init(statement: Statement?) {
+    init(statement: Statement?, service: Service = Service()) {
+        self.service = service
         self.statement = statement
     }
     
@@ -74,8 +76,8 @@ class StatementDetailViewModel {
 // MARK: - Network
 
 extension StatementDetailViewModel {
-    func get(completion :@escaping ((StatementDetailViewModel, NetWorkResponseError?) -> Void)) {
-        service.getMyStatementDetail(transactionID: self.uuid) { result in
+    func get(uuid: String, completion :@escaping ((StatementDetailViewModel, NetWorkResponseError?) -> Void)) {
+        service.getMyStatementDetail(transactionID: uuid) { result in
             
             switch result {
             case .failure(let error):

@@ -10,7 +10,7 @@ import Foundation
 class StatementViewModel {
     
     // MARK: - Properties
-    private let service = Service()
+    private var service: Service
     var isPaginating = false
     private var balance: Balance?
     private var listOfTransactions = [StatementDetailViewModel]()
@@ -23,9 +23,10 @@ class StatementViewModel {
     }
     // MARK: - Initialization
     
-    init(balance: Balance? = nil, listOfTransactions: [StatementDetailViewModel] = []) {
+    init(balance: Balance? = nil, listOfTransactions: [StatementDetailViewModel] = [], service: Service = Service()) {
         self.balance = balance
         self.listOfTransactions = listOfTransactions
+        self.service = service
     }
     // MARK: - Functions
     
