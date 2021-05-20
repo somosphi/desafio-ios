@@ -81,7 +81,7 @@ class StatementDetailViewController: UIViewController {
     // MARK: - Functions
     
     private func loadViewModel() {
-        self.statementDetailViewModel.get { statementViewModel, error  in
+        self.statementDetailViewModel.get(uuid: statementDetailViewModel.uuid) { statementViewModel, error  in
             if error != nil {
                 DispatchQueue.main.async {
                     self.showAlert()
