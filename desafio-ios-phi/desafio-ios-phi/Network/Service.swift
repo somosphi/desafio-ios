@@ -23,7 +23,6 @@ struct Service {
                 
             case .success(let data):
                 guard let data = data else {
-                    completion(.failure(.decodableDataError))
                     return
                 }
                 let statement: Balance? = (try? JSONDecoder().decode(Balance.self, from: data))
