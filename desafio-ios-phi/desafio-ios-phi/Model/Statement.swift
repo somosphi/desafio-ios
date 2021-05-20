@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Statement: Codable {
+struct Statement: Codable, Equatable {
     let uuid: String?
     let date: String?
     let amount: Double?
