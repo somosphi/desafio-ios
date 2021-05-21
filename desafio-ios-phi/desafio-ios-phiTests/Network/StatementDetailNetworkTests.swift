@@ -44,48 +44,9 @@ class StatementDetailNetworkTests: XCTestCase {
     }
     
     func test_getMyStatementDetail_successfulResponse() {
-        MockURLProtocol.requestHandler = { request in
-            guard let url = request.url, url == self.statementDetailURL,
-                  let statementURL = self.statementDetailURL else {
-                throw NetWorkResponseError.badRequest
-            }
-           
-            let response = HTTPURLResponse(url: statementURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, self.data)
-        }
-        
-        service.getMyStatementDetail(transactionID: "49E27207-F3A7-4264-B021-0188690F7D43") { result in
-            switch result {
-            case .success(let statement):
-                XCTAssertEqual( statement?.uuid, self.statement.uuid)
-                XCTAssertEqual( statement?.amount, self.statement.amount)
-                XCTAssertEqual( statement?.authentication, self.statement.authentication)
-                XCTAssertEqual( statement?.date, self.statement.date)
-                XCTAssertEqual( statement?.bankName, self.statement.bankName)
-                XCTAssertEqual( statement?.description, self.statement.description)
-                XCTAssertEqual( statement?.from, self.statement.from)
-                XCTAssertEqual( statement?.sentTo, self.statement.sentTo)
-                XCTAssertEqual( statement?.type, self.statement.type)
-                
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-            
-            self.expectation.fulfill()
-        }
-       
-        waitForExpectations(timeout: 1, handler: nil)
-        
-    }
-    
-    func test_getMyStatementDetailViewModel_successfulResponse() {
-        MockURLProtocol.requestHandler = { request in
-            guard let url = request.url, url == self.statementDetailURL,
-                  let statementURL = self.statementDetailURL else {
-                throw NetWorkResponseError.badRequest
-            }
-           
-            let response = HTTPURLResponse(url: statementURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementDetailURL, statusCode: 200,
+                                           httpVersion: nil, headerFields: nil)!
             return (response, self.data)
         }
         
@@ -106,5 +67,65 @@ class StatementDetailNetworkTests: XCTestCase {
        
         waitForExpectations(timeout: 1, handler: nil)
         
+    }
+    
+    func test_getMyStatementDetail_dataIsNil_decodableDataError() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementDetailURL, statusCode: 200,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, nil)
+        }
+        
+        statementDetailViewModel.get(uuid: "49E27207-F3A7-4264-B021-0188690F7D43") { _, error in
+            XCTAssertEqual(error, .decodableDataError)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func test_getMyStatementDetail_badRequest() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementDetailURL, statusCode: 400,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementDetailViewModel.get(uuid: "49E27207-F3A7-4264-B021-0188690F7D43") { _, error in
+            XCTAssertEqual( error, .badRequest)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func test_getMyStatementDetail_notFound() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementDetailURL, statusCode: 404,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementDetailViewModel.get(uuid: "49E27207-F3A7-4264-B021-0188690F7D43") { _, error in
+            XCTAssertEqual( error, .notFound)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func test_getMyStatementDetail_unknownError() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementDetailURL, statusCode: 500,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementDetailViewModel.get(uuid: "49E27207-F3A7-4264-B021-0188690F7D43") { _, error in
+            XCTAssertEqual( error, .unknownError(statusCode: 500))
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
     }
 }
