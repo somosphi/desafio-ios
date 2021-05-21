@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StatementViewModel {
+class StatementViewModel: Equatable {
     
     // MARK: - Properties
     private var service: Service
@@ -40,6 +40,15 @@ class StatementViewModel {
             return self.listOfTransactions[index]
         }
         return nil
+    }
+}
+
+// MARK: - Equatable
+extension StatementViewModel {
+    static func == (lhs: StatementViewModel, rhs: StatementViewModel) -> Bool {
+        return lhs.balance == rhs.balance &&
+            lhs.listOfTransactions == rhs.listOfTransactions
+        
     }
 }
 
@@ -98,9 +107,11 @@ extension StatementViewModel {
             case .success(let statement):
                 let newStatements = statement.map {StatementDetailViewModel(statement: $0)}
                 self.listOfTransactions += newStatements
-                completion(self, newStatements)
-                if pagination {
-                    self.isPaginating = false
+                DispatchQueue.main.async {
+                    completion(self, newStatements)
+                    if pagination {
+                        self.isPaginating = false
+                    }
                 }
                 
             case .failure:
