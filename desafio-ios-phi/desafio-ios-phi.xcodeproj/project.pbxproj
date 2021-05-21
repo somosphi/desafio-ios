@@ -39,7 +39,13 @@
 		BFAE2EBE26544103005DA567 /* Date_extension_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EBD26544103005DA567 /* Date_extension_tests.swift */; };
 		BFAE2EC126544D3A005DA567 /* SatementViewModel_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EC026544D3A005DA567 /* SatementViewModel_tests.swift */; };
 		BFAE2EC326545449005DA567 /* StatementViewModelMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE2EC226545449005DA567 /* StatementViewModelMockData.swift */; };
+		BFB15EE22656D30B00E117D0 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15EE12656D30B00E117D0 /* MockURLProtocol.swift */; };
+		BFB15EE42656DAFF00E117D0 /* JsonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15EE32656DAFF00E117D0 /* JsonMock.swift */; };
+		BFB15EE82656E47000E117D0 /* BalanceNewtorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15EE72656E47000E117D0 /* BalanceNewtorkTests.swift */; };
+		BFB15EEA2656E4D000E117D0 /* StatementDetailNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15EE92656E4D000E117D0 /* StatementDetailNetworkTests.swift */; };
 		BFB5BAAB265572690005F806 /* StatementDetailViewModel_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB5BAAA265572690005F806 /* StatementDetailViewModel_tests.swift */; };
+		BFB5BAB52655A2180005F806 /* StatementNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB5BAB42655A2180005F806 /* StatementNetworkTests.swift */; };
+		BFB5BAB92655A7CC0005F806 /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB5BAB82655A7CC0005F806 /* DataMock.swift */; };
 		BFCED6BA263B16CC003AAF74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */; };
 		BFCED6BC263B1BFA003AAF74 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BB263B1BFA003AAF74 /* Service.swift */; };
 		BFCED6BE263B4D15003AAF74 /* DecodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED6BD263B4D15003AAF74 /* DecodableData.swift */; };
@@ -110,7 +116,13 @@
 		BFAE2EBD26544103005DA567 /* Date_extension_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_extension_tests.swift; sourceTree = "<group>"; };
 		BFAE2EC026544D3A005DA567 /* SatementViewModel_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatementViewModel_tests.swift; sourceTree = "<group>"; };
 		BFAE2EC226545449005DA567 /* StatementViewModelMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModelMockData.swift; sourceTree = "<group>"; };
+		BFB15EE12656D30B00E117D0 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		BFB15EE32656DAFF00E117D0 /* JsonMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMock.swift; sourceTree = "<group>"; };
+		BFB15EE72656E47000E117D0 /* BalanceNewtorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceNewtorkTests.swift; sourceTree = "<group>"; };
+		BFB15EE92656E4D000E117D0 /* StatementDetailNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailNetworkTests.swift; sourceTree = "<group>"; };
 		BFB5BAAA265572690005F806 /* StatementDetailViewModel_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailViewModel_tests.swift; sourceTree = "<group>"; };
+		BFB5BAB42655A2180005F806 /* StatementNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementNetworkTests.swift; sourceTree = "<group>"; };
+		BFB5BAB82655A7CC0005F806 /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
 		BFCED6B9263B16CC003AAF74 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFCED6BB263B1BFA003AAF74 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BFCED6BD263B4D15003AAF74 /* DecodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableData.swift; sourceTree = "<group>"; };
@@ -185,6 +197,7 @@
 		BF3520F126387565005A077A /* desafio-ios-phiTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFB5BAAF2655A1080005F806 /* Network */,
 				BFAE2EBF26544CFB005DA567 /* ViewModel */,
 				BFAE2EB8265432E8005DA567 /* Extensions */,
 				BF3520F426387565005A077A /* Info.plist */,
@@ -288,6 +301,19 @@
 				BFB5BAAA265572690005F806 /* StatementDetailViewModel_tests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFB5BAAF2655A1080005F806 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BFB5BAB82655A7CC0005F806 /* DataMock.swift */,
+				BFB15EE32656DAFF00E117D0 /* JsonMock.swift */,
+				BFB15EE12656D30B00E117D0 /* MockURLProtocol.swift */,
+				BFB5BAB42655A2180005F806 /* StatementNetworkTests.swift */,
+				BFB15EE72656E47000E117D0 /* BalanceNewtorkTests.swift */,
+				BFB15EE92656E4D000E117D0 /* StatementDetailNetworkTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BFEC4B2A2639F25E001B69D9 /* Network */ = {
@@ -465,9 +491,15 @@
 			files = (
 				BFAE2EC126544D3A005DA567 /* SatementViewModel_tests.swift in Sources */,
 				BFB5BAAB265572690005F806 /* StatementDetailViewModel_tests.swift in Sources */,
+				BFB15EE22656D30B00E117D0 /* MockURLProtocol.swift in Sources */,
+				BFB15EEA2656E4D000E117D0 /* StatementDetailNetworkTests.swift in Sources */,
+				BFB5BAB52655A2180005F806 /* StatementNetworkTests.swift in Sources */,
 				BFAE2EC326545449005DA567 /* StatementViewModelMockData.swift in Sources */,
 				BFAE2EBA26543305005DA567 /* Double_extension_tests.swift in Sources */,
+				BFB5BAB92655A7CC0005F806 /* DataMock.swift in Sources */,
 				BFAE2EBE26544103005DA567 /* Date_extension_tests.swift in Sources */,
+				BFB15EE42656DAFF00E117D0 /* JsonMock.swift in Sources */,
+				BFB15EE82656E47000E117D0 /* BalanceNewtorkTests.swift in Sources */,
 				BFAE2EBC26543B81005DA567 /* String_extension_tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
