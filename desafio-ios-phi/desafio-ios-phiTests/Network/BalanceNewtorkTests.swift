@@ -49,28 +49,6 @@ class BalanceNetWorkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyBalance { result in
-            switch result {
-            case .success(let balance):
-                XCTAssertEqual( balance, self.balance)
-                    
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-            
-            self.expectation.fulfill()
-        }
-       
-        waitForExpectations(timeout: 1, handler: nil)
-        
-    }
-    
-    func test_getMyBalanceViewModel_successfulResponse() {
-        MockURLProtocol.requestHandler = { _ in
-            let response = HTTPURLResponse(url: self.balanceURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, self.data)
-        }
-        
         statementViewModel.getMyBalance { statementViewModel, error in
             XCTAssertEqual(statementViewModel.amount, self.balance.amount?.formattedWithSeparator)
             XCTAssertNil(error)
@@ -103,8 +81,8 @@ class BalanceNetWorkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyBalance { result in
-            XCTAssertEqual( result, .failure(.badRequest))
+        statementViewModel.getMyBalance { _, error in
+            XCTAssertEqual( error, .badRequest)
             self.expectation.fulfill()
         }
        
@@ -118,8 +96,8 @@ class BalanceNetWorkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyBalance { result in
-            XCTAssertEqual( result, .failure(.notFound))
+        statementViewModel.getMyBalance { _, error in
+            XCTAssertEqual( error, .notFound)
             self.expectation.fulfill()
         }
        
@@ -133,8 +111,8 @@ class BalanceNetWorkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyBalance { result in
-            XCTAssertEqual( result, .failure(.unknownError(statusCode: 500)))
+        statementViewModel.getMyBalance { _, error in
+            XCTAssertEqual( error, .unknownError(statusCode: 500))
             self.expectation.fulfill()
         }
        
