@@ -45,34 +45,8 @@ class StatementNetworkTests: XCTestCase {
     
     func test_getMyStatement_successfulResponse() {
         MockURLProtocol.requestHandler = { _ in
-        
             let response = HTTPURLResponse(url: self.statementURL, statusCode: 200,
                                            httpVersion: nil, headerFields: nil)!
-            return (response, self.data)
-        }
-        
-        service.getMyStatement(limit: 10, offset: 0) { result in
-            switch result {
-            case .success(let statement):
-                XCTAssertEqual( statement, self.listOfStatement)
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-            
-            self.expectation.fulfill()
-        }
-       
-        waitForExpectations(timeout: 1, handler: nil)
-        
-    }
-    
-    func test_getMyStatementViewModel_successfulResponse() {
-        MockURLProtocol.requestHandler = { request in
-            guard let url = request.url, url == self.statementURL, let statementURL = self.statementURL else {
-                throw NetWorkResponseError.badRequest
-            }
-           
-            let response = HTTPURLResponse(url: statementURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
             return (response, self.data)
         }
         
@@ -86,16 +60,48 @@ class StatementNetworkTests: XCTestCase {
         
     }
     
+    func test_getMyStatementPagination_successfulResponse() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementURL, statusCode: 200,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementViewModel.getStatementWithPagination { statementViewModel, newStatements in
+            XCTAssertEqual( statementViewModel, self.statementViewModel)
+            XCTAssertEqual(newStatements, self.statementViewModel.getAllTransactions())
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+    
     func test_getMyStatement_dataIsNil_decodableDataError() {
         MockURLProtocol.requestHandler = { _ in
-           
             let response = HTTPURLResponse(url: self.statementURL, statusCode: 200,
                                            httpVersion: nil, headerFields: nil)!
             return (response, nil)
         }
         
-        service.getMyStatement(limit: 10, offset: 0) { result in
-            XCTAssertEqual(result, .failure(.decodableDataError))
+        statementViewModel.getStatement { _, error in
+            XCTAssertEqual(error, .decodableDataError)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+    
+    func test_getMyStatementPagination_decodableDataError() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementURL, statusCode: 200,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, nil)
+        }
+        
+        statementViewModel.getStatementWithPagination { _, newStatements in
+            XCTAssertEqual(newStatements, [])
             self.expectation.fulfill()
         }
        
@@ -111,9 +117,25 @@ class StatementNetworkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyStatement(limit: 10, offset: 0) { result in
+        statementViewModel.getStatement { _, error in
 
-            XCTAssertEqual(result, .failure(.badRequest))
+            XCTAssertEqual(error, .badRequest)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+    
+    func test_getMyStatementPagination_badRequest() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementURL, statusCode: 400,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementViewModel.getStatementWithPagination { _, newStatements in
+            XCTAssertEqual(newStatements, [])
             self.expectation.fulfill()
         }
        
@@ -128,9 +150,25 @@ class StatementNetworkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyStatement(limit: 10, offset: 0) { result in
+        statementViewModel.getStatement { _, error in
 
-            XCTAssertEqual(result, .failure(.notFound))
+            XCTAssertEqual(error, .notFound)
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+    
+    func test_getMyStatementPagination_notFound() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementURL, statusCode: 404,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementViewModel.getStatementWithPagination { _, newStatements in
+            XCTAssertEqual(newStatements, [])
             self.expectation.fulfill()
         }
        
@@ -145,9 +183,25 @@ class StatementNetworkTests: XCTestCase {
             return (response, self.data)
         }
         
-        service.getMyStatement(limit: 10, offset: 0) { result in
+        statementViewModel.getStatement { _, error in
 
-            XCTAssertEqual(result, .failure(.unknownError(statusCode: 500)))
+            XCTAssertEqual(error, .unknownError(statusCode: 500))
+            self.expectation.fulfill()
+        }
+       
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+    
+    func test_getMyStatementPagination_unknwonError() {
+        MockURLProtocol.requestHandler = { _ in
+            let response = HTTPURLResponse(url: self.statementURL, statusCode: 500,
+                                           httpVersion: nil, headerFields: nil)!
+            return (response, self.data)
+        }
+        
+        statementViewModel.getStatementWithPagination { _, newStatements in
+            XCTAssertEqual(newStatements, [])
             self.expectation.fulfill()
         }
        
