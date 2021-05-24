@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		FA2A74F226402CAE00C54678 /* TintableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A74F126402CAE00C54678 /* TintableImage.swift */; };
 		FA2A74F4264036DF00C54678 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A74F3264036DF00C54678 /* QueryService.swift */; };
-		FABF3E5F26540A2200908073 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF3E5E26540A2200908073 /* TableView.swift */; };
+		FACA4F5E2659D97C00A85095 /* AmountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F5D2659D97C00A85095 /* AmountInfo.swift */; };
+		FACA4F602659D9A500A85095 /* StatementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F5F2659D9A500A85095 /* StatementInfo.swift */; };
+		FACA4F622659EBC700A85095 /* StatementItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F612659EBC700A85095 /* StatementItemTableViewCell.swift */; };
+		FACA4F64265AB39400A85095 /* StatementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F63265AB39400A85095 /* StatementsViewModel.swift */; };
+		FACA4F66265AB86700A85095 /* StatementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F65265AB86700A85095 /* StatementDetail.swift */; };
+		FACA4F69265BA15300A85095 /* StatementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */; };
 		FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2532639A5650088A17F /* AppDelegate.swift */; };
 		FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2552639A5650088A17F /* SceneDelegate.swift */; };
 		FAF5A2582639A5650088A17F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2572639A5650088A17F /* ViewController.swift */; };
@@ -21,7 +26,12 @@
 /* Begin PBXFileReference section */
 		FA2A74F126402CAE00C54678 /* TintableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintableImage.swift; sourceTree = "<group>"; };
 		FA2A74F3264036DF00C54678 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
-		FABF3E5E26540A2200908073 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		FACA4F5D2659D97C00A85095 /* AmountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountInfo.swift; sourceTree = "<group>"; };
+		FACA4F5F2659D9A500A85095 /* StatementInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementInfo.swift; sourceTree = "<group>"; };
+		FACA4F612659EBC700A85095 /* StatementItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementItemTableViewCell.swift; sourceTree = "<group>"; };
+		FACA4F63265AB39400A85095 /* StatementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsViewModel.swift; sourceTree = "<group>"; };
+		FACA4F65265AB86700A85095 /* StatementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetail.swift; sourceTree = "<group>"; };
+		FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailViewController.swift; sourceTree = "<group>"; };
 		FAF5A2502639A5650088A17F /* Desafio-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF5A2532639A5650088A17F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF5A2552639A5650088A17F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,33 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		FA9F6CAA26569285003DABB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FACA4F63265AB39400A85095 /* StatementsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FACA4F5C2659D6A000A85095 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FACA4F5D2659D97C00A85095 /* AmountInfo.swift */,
+				FACA4F5F2659D9A500A85095 /* StatementInfo.swift */,
+				FACA4F65265AB86700A85095 /* StatementDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FACA4F67265BA0E200A85095 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FACA4F612659EBC700A85095 /* StatementItemTableViewCell.swift */,
+				FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FAF5A2472639A5650088A17F = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +115,12 @@
 		FAF5A2522639A5650088A17F /* Desafio-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FACA4F67265BA0E200A85095 /* View */,
+				FACA4F5C2659D6A000A85095 /* Model */,
+				FA9F6CAA26569285003DABB6 /* ViewModel */,
 				FA2A74F5264037AB00C54678 /* Networking */,
 				FA2A74F026402CA200C54678 /* Helpers */,
 				FAF5A2572639A5650088A17F /* ViewController.swift */,
-				FABF3E5E26540A2200908073 /* TableView.swift */,
 				FAF5A2592639A5650088A17F /* Main.storyboard */,
 				FAF5A25C2639A5670088A17F /* Assets.xcassets */,
 				FAF5A25E2639A5670088A17F /* LaunchScreen.storyboard */,
@@ -184,10 +223,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF5A2582639A5650088A17F /* ViewController.swift in Sources */,
-				FABF3E5F26540A2200908073 /* TableView.swift in Sources */,
+				FACA4F5E2659D97C00A85095 /* AmountInfo.swift in Sources */,
 				FA2A74F226402CAE00C54678 /* TintableImage.swift in Sources */,
 				FA2A74F4264036DF00C54678 /* QueryService.swift in Sources */,
+				FACA4F66265AB86700A85095 /* StatementDetail.swift in Sources */,
+				FACA4F622659EBC700A85095 /* StatementItemTableViewCell.swift in Sources */,
+				FACA4F69265BA15300A85095 /* StatementDetailViewController.swift in Sources */,
 				FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */,
+				FACA4F64265AB39400A85095 /* StatementsViewModel.swift in Sources */,
+				FACA4F602659D9A500A85095 /* StatementInfo.swift in Sources */,
 				FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
