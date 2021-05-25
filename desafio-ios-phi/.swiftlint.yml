@@ -1,2 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
+  
+file_length:
+  warning: 500
+  error: 1200
