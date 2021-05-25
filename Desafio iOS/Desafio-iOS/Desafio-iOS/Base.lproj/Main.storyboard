@@ -38,6 +38,7 @@
                                                             <constraint firstAttribute="width" constant="26" id="FsO-XV-OhM"/>
                                                             <constraint firstAttribute="height" constant="26" id="h4Y-O5-rBc"/>
                                                         </constraints>
+                                                        <color key="tintColor" name="phiGreen"/>
                                                         <state key="normal" image="phiHide"/>
                                                         <connections>
                                                             <action selector="showHideButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ult-fb-ggT"/>
@@ -45,19 +46,30 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-GG-TX6">
-                                                <rect key="frame" x="0.0" y="34" width="190" height="42"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-GG-TX6">
+                                                <rect key="frame" x="0.0" y="34" width="322" height="42"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-T4-wdK">
                                                         <rect key="frame" x="0.0" y="0.0" width="162" height="42"/>
                                                         <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="30"/>
-                                                        <color key="textColor" name="phiBlack"/>
+                                                        <color key="textColor" name="phiGreen"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0C-yC-Eke">
+                                                        <rect key="frame" x="162" y="18" width="140" height="6"/>
+                                                        <color key="backgroundColor" name="phiGreen"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="140" id="97a-7V-AFY"/>
+                                                            <constraint firstAttribute="height" constant="6" id="9Al-T6-Eg3"/>
+                                                        </constraints>
+                                                    </view>
                                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-AO-JeK">
-                                                        <rect key="frame" x="170" y="11" width="20" height="20"/>
+                                                        <rect key="frame" x="302" y="11" width="20" height="20"/>
                                                     </activityIndicatorView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="Hoq-UQ-blU"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -95,13 +107,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-fq-N7U">
                                                             <rect key="frame" x="25" y="24" width="241.5" height="83.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-Yh-SEM">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-Yh-SEM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="21"/>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="15"/>
                                                                     <color key="textColor" name="phiBlack"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jp2-dc-G5P">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jp2-dc-G5P">
                                                                     <rect key="frame" x="0.0" y="29" width="179" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quem envia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cew-XR-dKD">
@@ -118,7 +130,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csE-xk-XGD">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csE-xk-XGD">
                                                                     <rect key="frame" x="0.0" y="58" width="97.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="18"/>
                                                                     <color key="textColor" name="phiBlack"/>
@@ -166,6 +178,7 @@
                     <navigationItem key="navigationItem" title="Extrato" id="U9u-39-oNp"/>
                     <connections>
                         <outlet property="amountActivityIndicator" destination="OvM-AO-JeK" id="Rs5-qd-DVD"/>
+                        <outlet property="amountBar" destination="J0C-yC-Eke" id="cas-9g-IK2"/>
                         <outlet property="amountLabel" destination="UXu-T4-wdK" id="wsj-Kt-1c5"/>
                         <outlet property="showHideButton" destination="q3t-mv-g3p" id="cEq-X8-j68"/>
                         <outlet property="tableView" destination="L9J-2T-5aN" id="eaA-hD-pyc"/>

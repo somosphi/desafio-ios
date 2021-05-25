@@ -20,6 +20,10 @@ class ReceiptViewController: UIViewController {
     }
 
     private func presentShareSheet(image: UIImage) {
-
+        let shareSheet = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+//        shareSheet.popoverPresentationController?.sourceView = self.view
+//        shareSheet.excludedActivityTypes = [.assignToContact]
+//        shareSheet.isModalInPresentation = true
+        present(shareSheet, animated: true, completion: nil)
     }
 }

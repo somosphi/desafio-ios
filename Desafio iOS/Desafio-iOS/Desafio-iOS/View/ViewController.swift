@@ -9,81 +9,54 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: Amount outlets
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var amountBar: UIView!
     @IBOutlet weak var showHideButton: UIButton!
     @IBOutlet weak var amountActivityIndicator: UIActivityIndicatorView!
-    var amountValue: Double?
-
     @IBOutlet weak var tableView: UITableView!
 
     var statementList: [StatementInfo] = []
     var statementInfo: StatementInfo?
 
+    private var viewModel: ViewControllerViewModel = ViewControllerViewModel()
+
     override func viewDidLoad() {
+        super.viewDidLoad()
 
-        setupAmountView()
+        viewModel.bindViewModelToController = bind
 
-        self.amountLabel.isHidden = true
-        self.amountActivityIndicator.startAnimating()
-        self.amountActivityIndicator.isHidden = false
+        amountLabel.text = nil
+        amountBar.isHidden = true
+        amountActivityIndicator.isHidden = true
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        let service = QueryService()
-
-        service.getAmount { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let amount):
-                DispatchQueue.main.async {
-                    self.amountValue = amount
-                    self.amountActivityIndicator.isHidden = true
-                    self.amountLabel.isHidden = false
-                    self.setupAmountView()
-                }
-            }
-        }
-
-        service.getStatement { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let statement):
-                DispatchQueue.main.async {
-                    self.statementList = statement
-                    self.tableView.reloadData()
-                }
-            }
-        }
     }
 
-    func setupAmountView() {
-        let shouldHide = UserDefaults.standard.bool(forKey: "HideAmount") == true
-
-        let imageName = shouldHide ? "phiHide" : "phiShow"
-        if let image = UIImage(named: imageName) {
-            let tintableImage = image.withRenderingMode(.alwaysTemplate)
-            showHideButton.setImage(tintableImage, for: .normal)
-            showHideButton.tintColor = UIColor.init(named: "phiGreen")
-        }
-
-        if shouldHide {
-            self.amountLabel.text = "💸💸💸"
-        } else if let amount = self.amountValue {
-            self.amountLabel.text = String(format: "%.2f", amount)
-        }
+    func bind() {
+        setupAmountView()
     }
 
     @IBAction func showHideButtonPressed(_ sender: Any) {
-        if UserDefaults.standard.bool(forKey: "HideAmount") {
-            UserDefaults.standard.setValue(false, forKey: "HideAmount")
-        } else {
-            UserDefaults.standard.setValue(true, forKey: "HideAmount")
+        viewModel.showHideButtonPressed()
+    }
+
+    private func setupAmountView() {
+        let imageName = viewModel.hideAmount ? "phiShow" : "phiHide"
+        if let image = UIImage(named: imageName) {
+            showHideButton.setImage(image, for: .normal)
         }
-        setupAmountView()
+
+        amountLabel.text = viewModel.amountText
+        amountBar.isHidden = viewModel.hideAmountBar
+
+        if viewModel.isLoadingAmount {
+            amountActivityIndicator.startAnimating()
+            amountActivityIndicator.isHidden = false
+        } else {
+            amountActivityIndicator.stopAnimating()
+            amountActivityIndicator.isHidden = true
+        }
     }
 }
 
@@ -98,7 +71,7 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.transferValueLabel.text = String(self.statementList[indexPath.row].amount)
+        cell.transferValueLabel.text = String(statementList[indexPath.row].amount)
         cell.transferTypeLabel.text = self.statementList[indexPath.row].tType
         cell.transferDate.text = self.statementList[indexPath.row].createdAt
         return cell
