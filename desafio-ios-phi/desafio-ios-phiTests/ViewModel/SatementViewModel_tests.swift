@@ -27,7 +27,7 @@ class StatementViewModelTests: XCTestCase {
     }
 
     func test_amount() {
-        let expectedResult = "250,00"
+        let expectedResult = "R$ 250,00"
         XCTAssertEqual(sut.amount, expectedResult)
     }
     

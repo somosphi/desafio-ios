@@ -22,13 +22,13 @@ class DoubleExtensionTests: XCTestCase {
     }
 
     func test_largeNumber_correctFormatter() {
-        let result = "2.458.487,25"
+        let result = "R$ 2.458.487,25"
         let numberToTest = largeNumber.formattedWithSeparator
         XCTAssertEqual(numberToTest, result)
     }
     
     func test_shortNumber_correctFormatter() {
-        let result = "0,70"
+        let result = "R$ 0,70"
         let numberToTest = shortNumber.formattedWithSeparator
         XCTAssertEqual(numberToTest, result)
     }
