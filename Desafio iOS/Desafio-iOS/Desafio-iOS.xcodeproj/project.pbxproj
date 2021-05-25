@@ -15,6 +15,7 @@
 		FACA4F64265AB39400A85095 /* StatementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F63265AB39400A85095 /* StatementsViewModel.swift */; };
 		FACA4F66265AB86700A85095 /* StatementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F65265AB86700A85095 /* StatementDetail.swift */; };
 		FACA4F69265BA15300A85095 /* StatementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */; };
+		FACA4F6B265C631300A85095 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4F6A265C631300A85095 /* ReceiptViewController.swift */; };
 		FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2532639A5650088A17F /* AppDelegate.swift */; };
 		FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2552639A5650088A17F /* SceneDelegate.swift */; };
 		FAF5A2582639A5650088A17F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A2572639A5650088A17F /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		FACA4F63265AB39400A85095 /* StatementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsViewModel.swift; sourceTree = "<group>"; };
 		FACA4F65265AB86700A85095 /* StatementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetail.swift; sourceTree = "<group>"; };
 		FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailViewController.swift; sourceTree = "<group>"; };
+		FACA4F6A265C631300A85095 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
 		FAF5A2502639A5650088A17F /* Desafio-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF5A2532639A5650088A17F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF5A2552639A5650088A17F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				FACA4F612659EBC700A85095 /* StatementItemTableViewCell.swift */,
 				FACA4F68265BA15300A85095 /* StatementDetailViewController.swift */,
+				FACA4F6A265C631300A85095 /* ReceiptViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				FACA4F69265BA15300A85095 /* StatementDetailViewController.swift in Sources */,
 				FAF5A2542639A5650088A17F /* AppDelegate.swift in Sources */,
 				FACA4F64265AB39400A85095 /* StatementsViewModel.swift in Sources */,
+				FACA4F6B265C631300A85095 /* ReceiptViewController.swift in Sources */,
 				FACA4F602659D9A500A85095 /* StatementInfo.swift in Sources */,
 				FAF5A2562639A5650088A17F /* SceneDelegate.swift in Sources */,
 			);

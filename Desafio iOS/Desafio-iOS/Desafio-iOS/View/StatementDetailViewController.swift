@@ -12,9 +12,17 @@ class StatementDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var transferTo: UILabel!
-    // banco
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var authenticationLabel: UILabel!
+    @IBOutlet weak var shareButton: UIButton!
+
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        shareButton.isHidden = true
+        let screenshot = self.view.takeScreenshot()
+        receiptScreenshot = screenshot
+        shareButton.isHidden = false
+        performSegue(withIdentifier: "ShareReceipt", sender: nil)
+    }
 
     let service = QueryService()
     var statementInfo: StatementInfo?
@@ -43,23 +51,26 @@ class StatementDetailViewController: UIViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShareReceipt" {
+            guard let viewController = segue.destination as? ReceiptViewController else {
+                print(Error.self)
+                return
+            }
+        }
+    }
 }
 
-//extension UIView {
-//
-//    // Using a function since `var image` might conflict with an existing variable
-//    // (like on `UIImageView`)
-//    func asImage() -> UIImage {
-//        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-//        return renderer.image { rendererContext in
-//            layer.render(in: rendererContext.cgContext)
-//        }
-//    }
-//}
-
-/*
- let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
- let image = renderer.image { ctx in
-     view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
- }
- */
+extension UIView {
+    func takeScreenshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return image
+        } else {
+            return UIImage()
+        }
+    }
+}
