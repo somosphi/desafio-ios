@@ -11,7 +11,8 @@ extension Formatter {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = "."
         formatter.decimalSeparator = ","
-        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
         return formatter
