@@ -3,7 +3,7 @@
 //  desafio-ios-phi
 //
 //  Created by Lidiane Gomes on 27/04/21.
-//
+//  swiftlint:disable cyclomatic_complexity
 
 import Foundation
 
@@ -22,16 +22,41 @@ class StatementDetailViewModel {
         return date?.toString
     }
     
+    var dateDescription: String? {
+        let values = date?.split(separator: "/")
+        guard let day = values?[0], let month = values?[1],
+              let monthValue = Int(month), let year = values?[2] else {
+            return nil
+        }
+        
+        return "\(day) de \(getMonthDescription(month: monthValue)) de \(year)"
+    }
+    
     var dateResume: String? {
         let date = statement?.date?.toDate
         return date?.toShortString
     }
     
-    var amount: String? {
-        guard let value = statement?.amount?.formattedWithSeparator else {
+    var dateResumeDescription: String? {
+        let values = dateResume?.split(separator: "/")
+        guard let day = values?[0], let month = values?[1], let monthValue = Int(month) else {
             return nil
         }
-        return "R$ \(value)"
+        
+        return "\(day) de \(getMonthDescription(month: monthValue))"
+    }
+    
+    var amount: String? {
+        return statement?.amount?.formattedWithSeparator
+    }
+    
+    var amountDescription: String? {
+        guard let doubleValue = statement?.amount else {
+            return amount
+        }
+        
+        let description = String(format: "%.2f", doubleValue)
+        return "\(description) reais"
     }
     
     var description: String? {
@@ -70,6 +95,35 @@ class StatementDetailViewModel {
         self.service = service
         self.statement = statement
     }
+    
+    private func getMonthDescription(month: Int) -> String {
+         switch month {
+         case 1:
+             return "Janeiro"
+         case 2:
+             return "Fevereiro"
+         case 3:
+             return "Março"
+         case 4:
+             return "Abril"
+         case 5:
+             return "Maio"
+         case 6:
+             return "Junho"
+         case 7:
+             return "Julho"
+         case 8:
+             return "Agosto"
+         case 9:
+             return "Setembro"
+         case 10:
+             return "Outubro"
+         case 11:
+             return "Novembro"
+         default:
+             return "Dezembro"
+         }
+     }
     
 }
 

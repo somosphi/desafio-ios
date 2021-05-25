@@ -16,10 +16,16 @@ class StatementViewModel: Equatable {
     private var listOfTransactions = [StatementDetailViewModel]()
     
     var amount: String? {
-        guard let value = balance?.amount else {
-            return nil
+        return balance?.amount?.formattedWithSeparator
+    }
+    
+    var amountDescription: String? {
+        guard let doubleValue = balance?.amount else {
+            return amount
         }
-        return value.formattedWithSeparator
+        
+        let description = String(format: "%.2f", doubleValue)
+        return "\(description) reais"
     }
     // MARK: - Initialization
     
