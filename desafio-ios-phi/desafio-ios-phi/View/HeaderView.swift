@@ -69,6 +69,7 @@ class HeaderView: UIView {
         
         UserDefaultsPersistence.shared.setupUserPreference()
         setupViewConfiguration()
+        makeAccessible()
     }
     
     required init?(coder: NSCoder) {
@@ -82,15 +83,33 @@ class HeaderView: UIView {
         hideAmountButton.setImage(isAmountHidden ? hiddenAmountImage : shownAmountImage, for: .normal)
         viewForHiddenAmount.isHidden = !isAmountHidden
         amountLabel.isHidden = isAmountHidden
+        hideAmountButton.accessibilityValue = isAmountHidden ? "Saldo oculto" : "Saldo visível"
+        hideAmountButton.accessibilityHint = isAmountHidden ? "Dê tois toques para exibir o saldo" :
+            "Dê dois toques para ocultar o saldo"
         UserDefaultsPersistence.shared.setIsAmountHidden(value: isAmountHidden)
         layoutSubviews()
     }
     
-    func updateAmount(_ text: String?) {
-        amountLabel.text = text
+    func updateAmount(_ statementViewModel: StatementViewModel) {
+        amountLabel.text = statementViewModel.amount
+        amountLabel.accessibilityLabel = statementViewModel.amountDescription
+        amountLabel.accessibilityTraits = .none
         layoutIfNeeded()
     }
     
+    private func makeAccessible() {
+        hideAmountButton.isAccessibilityElement = true
+        hideAmountButton.accessibilityLabel = "Ocultar e exibir saldo"
+        hideAmountButton.accessibilityValue = isAmountHidden ? "Saldo oculto" : "Saldo visível"
+        hideAmountButton.accessibilityHint = isAmountHidden ? "Dê tois toques para exibir o saldo" :
+            "Dê dois toques para ocultar o saldo"
+        hideAmountButton.accessibilityTraits = .button
+        
+        amountDescriptionLabel.isAccessibilityElement = true
+        amountDescriptionLabel.accessibilityLabel = "Seu saldo"
+        amountDescriptionLabel.accessibilityHint = "Título"
+        amountDescriptionLabel.accessibilityTraits = .staticText
+    }
     // MARK: - Setup Constraints
     
     private func setupCustomBackgroundConstraints() {

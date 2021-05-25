@@ -96,7 +96,7 @@ class StatementViewController: UIViewController {
         
             self.statementViewModel = statementViewModel
             DispatchQueue.main.async {
-                self.headerView.updateAmount(statementViewModel.amount)
+                self.headerView.updateAmount(statementViewModel)
                 self.updateUI()
             }
         }
@@ -139,7 +139,12 @@ class StatementViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.titleView = titleLabel
-        
+    }
+    
+    private func makeAccessible() {
+        titleLabel.isAccessibilityElement = true
+        titleLabel.accessibilityLabel = "Página de extrato"
+        titleLabel.accessibilityTraits = .staticText
     }
     
     // MARK: - Data source
@@ -151,6 +156,7 @@ class StatementViewController: UIViewController {
                     for: indexPath) as? StatementTableViewCell else {
                 return UITableViewCell()
             }
+            cell.accessibilityHint = "Dê dois cliques para mais informações"
             cell.setup(statementDetail: statement)
             return cell
         })
@@ -184,6 +190,7 @@ extension StatementViewController: ViewConfiguration {
         )
         refreshControl.addTarget(self, action: #selector(loadViewModel), for: .valueChanged)
         configureTableView()
+        makeAccessible()
     }
     
     func buildViewHierarchy() {

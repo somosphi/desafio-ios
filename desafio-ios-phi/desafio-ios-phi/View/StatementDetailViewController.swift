@@ -76,10 +76,20 @@ class StatementDetailViewController: UIViewController {
         super.viewDidLoad()
         setupLoadingActivityIndicator()
         loadViewModel()
+        makeAccessible()
     }
     
     // MARK: - Functions
     
+    private func makeAccessible() {
+        titleLabel.accessibilityLabel = "Tela de comprovante"
+        titleLabel.accessibilityTraits = .header
+       
+        viewAuthentication?.titleLabel.accessibilityLabel = "Código de autenticação"
+        loadingActivityIndicator.isAccessibilityElement = false
+        loadingActivityIndicator.accessibilityLabel = "Carregando informações"
+        loadingActivityIndicator.accessibilityHint = "Aguarde"
+    }
     private func loadViewModel() {
         self.statementDetailViewModel.get(uuid: statementDetailViewModel.uuid) { statementViewModel, error  in
             if error != nil {
@@ -143,6 +153,7 @@ class StatementDetailViewController: UIViewController {
         
         if let amount = statementDetailViewModel.amount {
             viewAmount = StatementDetailView()
+            viewAmount?.subtitleLabel.accessibilityLabel = statementDetailViewModel.amountDescription
             viewAmount?.configureLayout(title: "Valor",
                                         subtitle: amount)
         }
@@ -168,6 +179,7 @@ class StatementDetailViewController: UIViewController {
         
         if let date = statementDetailViewModel.date {
             viewDateHour = StatementDetailView()
+            viewDateHour?.subtitleLabel.accessibilityLabel = statementDetailViewModel.dateDescription
             viewDateHour?.configureLayout(title: "Data/Hora",
                                           subtitle: date)
         }

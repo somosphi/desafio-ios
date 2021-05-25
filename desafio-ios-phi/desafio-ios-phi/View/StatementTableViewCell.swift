@@ -61,6 +61,12 @@ class StatementTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     
+    private func makeAccessible(statementDetail: StatementDetailViewModel) {
+        dateLabel.accessibilityLabel = statementDetail.dateResumeDescription
+        amountLabel.accessibilityLabel = statementDetail.amountDescription
+        pixLabel.isAccessibilityElement = false
+    }
+    
     func setup(statementDetail: StatementDetailViewModel) {
         titleLabel.text = statementDetail.description
         nameLabel.text = statementDetail.userName
@@ -86,6 +92,7 @@ class StatementTableViewCell: UITableViewCell {
             customBackgroundView.isHidden = true
         }
         
+        makeAccessible(statementDetail: statementDetail)
         setupViewConfiguration()
     }
     
