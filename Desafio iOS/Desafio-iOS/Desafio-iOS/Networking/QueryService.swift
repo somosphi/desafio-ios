@@ -29,7 +29,7 @@ class QueryService {
 
     func getAmount(completion: @escaping (Result<Double, NetworkError>) -> Void) {
         defaultSession.dataTask(with: requestConfiguration(for: "/myBalance")) { data, response, error in
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.unexpectedError))
             } else if let data = data,
                       let response = response as? HTTPURLResponse,
@@ -48,7 +48,7 @@ class QueryService {
     func getStatement(completion: @escaping (Result<[StatementInfo], NetworkError>) -> Void) {
         defaultSession.dataTask(with: requestConfiguration(for: "/myStatement/10/0")) { data, response, error
             in
-                if let _ = error {
+                if error != nil {
                     completion(.failure(.unexpectedError))
                 } else if let data = data,
                           let response = response as? HTTPURLResponse,
@@ -68,7 +68,7 @@ class QueryService {
         let detailConfig = "/myStatement/detail/\(id)/"
         defaultSession.dataTask(with: requestConfiguration(for: detailConfig)) { data, response, error
             in
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.unexpectedError))
             } else if let data = data,
                       let response = response as? HTTPURLResponse,

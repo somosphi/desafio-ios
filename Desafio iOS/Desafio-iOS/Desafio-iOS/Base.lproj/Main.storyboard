@@ -139,13 +139,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-fq-N7U">
                                                             <rect key="frame" x="22" y="8.5" width="282" height="83.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-Yh-SEM">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-Yh-SEM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="21"/>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="15"/>
                                                                     <color key="textColor" name="phiBlack"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jp2-dc-G5P">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jp2-dc-G5P">
                                                                     <rect key="frame" x="0.0" y="29" width="179" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quem envia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cew-XR-dKD">
@@ -162,7 +162,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csE-xk-XGD">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csE-xk-XGD">
                                                                     <rect key="frame" x="0.0" y="58" width="97.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="18"/>
                                                                     <color key="textColor" name="phiBlack"/>
@@ -176,7 +176,6 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58O-Dd-oRo">
                                                                     <rect key="frame" x="0.0" y="37" width="60" height="26"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="J0x-5p-KpJ"/>
                                                                         <constraint firstAttribute="height" constant="26" id="cqU-yu-f7Z"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="18"/>
@@ -187,7 +186,6 @@
                                                                     <rect key="frame" x="0.0" y="8" width="60" height="22"/>
                                                                     <color key="backgroundColor" name="phiGreen"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="FiT-ed-X8L"/>
                                                                         <constraint firstAttribute="height" constant="22" id="oWe-BL-Fde"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="14"/>
@@ -197,10 +195,12 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Uf3-Mc-eB0" firstAttribute="top" secondItem="sdQ-Hc-1Tj" secondAttribute="topMargin" id="5G4-aG-dUP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Uf3-Mc-eB0" secondAttribute="trailing" id="CSI-wV-FbQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="58O-Dd-oRo" secondAttribute="trailing" id="JrC-Wy-z9w"/>
                                                                 <constraint firstAttribute="width" constant="60" id="NXs-S4-DaJ"/>
-                                                                <constraint firstAttribute="trailing" secondItem="58O-Dd-oRo" secondAttribute="trailing" id="WDa-GN-VMh"/>
                                                                 <constraint firstAttribute="height" constant="100" id="ZM0-Xk-mqg"/>
-                                                                <constraint firstItem="Uf3-Mc-eB0" firstAttribute="centerX" secondItem="sdQ-Hc-1Tj" secondAttribute="centerX" id="gFL-Dp-zQr"/>
+                                                                <constraint firstItem="Uf3-Mc-eB0" firstAttribute="leading" secondItem="sdQ-Hc-1Tj" secondAttribute="leading" id="ij8-z9-bBX"/>
+                                                                <constraint firstItem="58O-Dd-oRo" firstAttribute="leading" secondItem="sdQ-Hc-1Tj" secondAttribute="leading" id="mrQ-zb-ZTo"/>
                                                                 <constraint firstItem="58O-Dd-oRo" firstAttribute="centerY" secondItem="sdQ-Hc-1Tj" secondAttribute="centerY" id="qlg-ed-uSe"/>
                                                             </constraints>
                                                         </view>
