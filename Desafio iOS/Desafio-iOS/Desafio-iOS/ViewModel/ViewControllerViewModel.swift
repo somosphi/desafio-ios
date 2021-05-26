@@ -35,12 +35,6 @@ class ViewControllerViewModel: NSObject {
         }
     }
 
-//    var brCurrencyText: String? {
-//        if let value =  {
-//            self.bindViewModelToController()
-//        }
-//    }
-
     var amountText: String? {
         if !hideAmount, let amount = amount {
             return FormatterHelper.brCurrency(value: amount)
@@ -75,13 +69,17 @@ class ViewControllerViewModel: NSObject {
             }
         }
 
-        self.service.getStatement { result in
+        getMoreData()
+    }
+
+    func getMoreData() {
+        self.service.getStatement { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let statement):
                 DispatchQueue.main.async {
-                    self.statementList = statement
+                    self?.statementList.append(contentsOf: statement)
                 }
             }
         }
@@ -91,8 +89,4 @@ class ViewControllerViewModel: NSObject {
         hideAmount.toggle()
         UserDefaults.standard.setValue(hideAmount, forKey: "HideAmount")
     }
-
-//    func currencyFormatter() -> String {
-//        return FormatterHelper.brCurrency(value: currencyValue)
-//    }
 }

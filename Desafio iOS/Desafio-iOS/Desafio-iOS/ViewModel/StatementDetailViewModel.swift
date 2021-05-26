@@ -27,10 +27,10 @@ class StatementDetailViewModel: NSObject {
 
     override init() {
         super.init()
-        getData()
+//        getData()
     }
 
-    func getData() {
+//    func getData() {
 //        service.getDetail(transfer: statementInfo.id) { result in
 //            switch result {
 //            case .failure(let error):
@@ -41,5 +41,5 @@ class StatementDetailViewModel: NSObject {
 //                }
 //            }
 //        }
-    }
+//    }
 }

@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 
     var statementList: [StatementInfo] = []
     var statementInfo: StatementInfo?
+    var spinner = UIActivityIndicatorView(style: .large)
 
     private var viewModel: ViewControllerViewModel = ViewControllerViewModel()
 
@@ -31,6 +32,11 @@ class ViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        spinner.translatesAutoresizingMaskIntoConstraints = true
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        spinner.center = view.center
     }
 
     func bind() {
@@ -73,17 +79,19 @@ extension ViewController: UITableViewDataSource {
         }
 
         cell.configure(with: viewModel.statementList[indexPath.row])
+        spinner.removeFromSuperview()
 
         return cell
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ViewController: UITableViewDelegate, UIScrollViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         statementInfo = viewModel.statementList[indexPath.row]
         performSegue(withIdentifier: "statementDetailSegue", sender: nil)
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "statementDetailSegue" {
             guard let viewController = segue.destination as? StatementDetailViewController else {
@@ -91,6 +99,13 @@ extension ViewController: UITableViewDelegate {
                 return
             }
             viewController.statementInfo = statementInfo
+        }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height-100-scrollView.frame.size.height) {
+            viewModel.getMoreData()
         }
     }
 }

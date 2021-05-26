@@ -9,9 +9,9 @@ import UIKit
 
 class StatementInfoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var transferDate: UILabel!
+    @IBOutlet weak var transferDateLabel: UILabel!
     @IBOutlet weak var transferTypeLabel: UILabel!
-//    @IBOutlet weak var transferToLabel: UILabel!
+    @IBOutlet weak var transferInfoLabel: UILabel!
     @IBOutlet weak var transferValueLabel: UILabel!
     @IBOutlet weak var pixIndicator: UILabel!
 
@@ -23,17 +23,21 @@ class StatementInfoTableViewCell: UITableViewCell {
     }
 
     public func configure(with statementInfo: StatementInfo) {
-        let transferType = statementInfo.tType.description
+        let transferType = statementInfo.description
         let transferValue = FormatterHelper.brCurrency(value: statementInfo.amount)
         let transferDate = FormatterHelper.shortDate(date: statementInfo.createdAt)
 
-        self.transferTypeLabel.text = transferType
-        self.transferValueLabel.text = transferValue
-        self.transferDate.text = transferDate
+        transferTypeLabel.text = transferType
+        transferValueLabel.text = transferValue
+        transferDateLabel.text = transferDate
+        transferInfoLabel.text = statementInfo.from ?? statementInfo.to
 
         if transferType.range(of: "pix", options: .caseInsensitive) != nil {
-            self.pixIndicator.isHidden = false
+            pixIndicator.isHidden = false
             self.backgroundColor = UIColor(named: "phiWhite")
+        } else {
+            pixIndicator.isHidden = true
+            self.backgroundColor = .white
         }
     }
 }

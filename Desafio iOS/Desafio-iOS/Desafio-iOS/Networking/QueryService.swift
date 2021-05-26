@@ -18,7 +18,6 @@ class QueryService {
     private func requestConfiguration(for route: String) -> URLRequest {
         let baseURL = "https://desafio-mobile-bff.herokuapp.com"
 
-//        guard let url = URL(string: baseURL + "/myBalance") else { return }
         let url = URL(string: baseURL + route)
         var request = URLRequest(url: url!) // evitar forçar, fazer o unwrap da url
 
@@ -45,8 +44,19 @@ class QueryService {
         }.resume()
     }
 
+    private var isFetchingPage = false
+    private var shouldFetchMorePages = true
+    private var page: Int = -1
+
     func getStatement(completion: @escaping (Result<[StatementInfo], NetworkError>) -> Void) {
-        defaultSession.dataTask(with: requestConfiguration(for: "/myStatement/10/0")) { data, response, error
+        if isFetchingPage || !shouldFetchMorePages {
+            return
+        }
+
+        isFetchingPage = true
+        page += 1
+
+        defaultSession.dataTask(with: requestConfiguration(for: "/myStatement/10/\(page)")) { data, response, error
             in
                 if error != nil {
                     completion(.failure(.unexpectedError))
@@ -57,9 +67,11 @@ class QueryService {
                         let decoder = JSONDecoder()
                         let statementInfo = try decoder.decode(Response.self, from: data)
                         completion(.success(statementInfo.items))
+                        self.shouldFetchMorePages = !statementInfo.items.isEmpty
                     } catch {
                         completion(.failure(.decodingError))
                     }
+                    self.isFetchingPage = false
                 }
         }.resume()
     }

@@ -11,18 +11,24 @@ struct StatementDetail: Codable {
     let createdAt: String
     let id: String
     let amount: Double
-    let to: String
+    let to: String?
+    let bankName: String?
+    let from: String?
     let description: String
     let tType: String
     let authentication: String
 
-    /*
-     "amount": 1615,
-     "id": "49E27207-F3A7-4264-B021-0188690F7D43",
-     "authentication": "15BA0BB3-EFDB-44E9-99BA-3D0F8725C0E3",
-     "tType": "PIXCASHIN",
-     "createdAt": "2020-11-19T03:00:00Z",
-     "to": "Karen Amidala",
-     "description": "Transferência PIX recebida"
-     */
+    var person: String? {
+        return to ?? from ?? nil
+    }
+
+    var personType: String? {
+        if to != nil {
+            return "Recebedor(a)"
+        } else if from != nil {
+            return "Transferidor(a)"
+        }
+
+        return nil
+    }
 }
