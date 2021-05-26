@@ -26,9 +26,8 @@ struct StatementDetail: Codable {
         if to != nil {
             return "Recebedor(a)"
         } else if from != nil {
-            return "Transferidor(a)"
+            return "Pagador(a)"
         }
-
         return nil
     }
 }

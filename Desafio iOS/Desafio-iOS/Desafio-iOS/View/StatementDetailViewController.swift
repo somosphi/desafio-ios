@@ -11,14 +11,16 @@ class StatementDetailViewController: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var transferPerson: UILabel!
-    @IBOutlet weak var transferName: UILabel!
+    @IBOutlet weak var personType: UILabel!
+    @IBOutlet weak var personName: UILabel!
+    @IBOutlet weak var personStackView: UIStackView!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var authenticationLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var detailInformation: UIView!
-    @IBOutlet weak var personStackView: UIStackView!
+    @IBOutlet weak var bankNameLabel: UILabel!
+    @IBOutlet weak var bankStackView: UIStackView!
 
     @IBAction func shareButtonPressed(_ sender: Any) {
         shareButton.isHidden = true
@@ -31,11 +33,8 @@ class StatementDetailViewController: UIViewController {
     let service = QueryService()
     var statementInfo: StatementInfo?
 
-//    private var viewModel: StatementDetailViewModel = StatementDetailViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.bindViewModelToController = bind
         activityIndicator.isHidden = false
         detailInformation.isHidden = true
 
@@ -43,20 +42,6 @@ class StatementDetailViewController: UIViewController {
             getDetail(id: transferId)
         }
     }
-
-//    func bind() {
-//        setupDetailView()
-//    }
-
-//    func setupDetailView() {
-//        DispatchQueue.main.async { [self] in
-//            descriptionLabel.text = viewModel.statementDetail.description
-//            amountLabel.text = String(viewModel.statementDetail.amount)
-//            createdAtLabel.text = viewModel.statementDetail.createdAt
-//            authenticationLabel.text = viewModel.statementDetail.authentication
-//            transferTo.text = viewModel.statementDetail.to
-//        }
-//    }
 
     func getDetail(id: String) {
         service.getDetail(transfer: id) { result in
@@ -72,16 +57,22 @@ class StatementDetailViewController: UIViewController {
                     self.amountLabel.text = amountValue
                     self.createdAtLabel.text = transferDate
                     self.authenticationLabel.text = statementDetail.authentication
-                    self.transferName.text = statementDetail.to
+                    self.personName.text = statementDetail.to
                     self.activityIndicator.isHidden = true
                     self.detailInformation.isHidden = false
 
                     if let person = statementDetail.person,
                        let personType = statementDetail.personType {
-                        self.transferPerson.text = personType
-                        self.transferName.text = person
+                        self.personType.text = personType
+                        self.personName.text = person
                     } else {
                         self.personStackView.removeFromSuperview()
+                    }
+
+                    if let bank = statementDetail.bankName {
+                        self.bankNameLabel.text = bank
+                    } else {
+                        self.bankStackView.removeFromSuperview()
                     }
                 }
             }

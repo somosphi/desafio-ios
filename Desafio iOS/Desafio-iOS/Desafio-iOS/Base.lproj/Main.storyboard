@@ -454,13 +454,15 @@
                         <outlet property="activityIndicator" destination="8xj-02-nNw" id="8fF-jL-iRq"/>
                         <outlet property="amountLabel" destination="c2i-QP-fXu" id="FtF-ny-U0B"/>
                         <outlet property="authenticationLabel" destination="rdM-Tz-EHH" id="4MW-Uy-SGS"/>
+                        <outlet property="bankNameLabel" destination="nFG-w0-9gG" id="MaV-t0-shY"/>
+                        <outlet property="bankStackView" destination="wpv-yR-zPP" id="j7I-08-OcN"/>
                         <outlet property="createdAtLabel" destination="gvQ-J7-49r" id="Wct-KJ-h0V"/>
                         <outlet property="descriptionLabel" destination="hq6-8w-Vty" id="RuR-ps-TWn"/>
                         <outlet property="detailInformation" destination="L6D-Xe-Ezj" id="odF-3Y-ebM"/>
+                        <outlet property="personName" destination="9ou-jf-AuC" id="GDi-j0-hem"/>
                         <outlet property="personStackView" destination="tjn-q4-PlN" id="hdh-km-e1s"/>
+                        <outlet property="personType" destination="giP-Ce-mV5" id="gwT-Iw-VFo"/>
                         <outlet property="shareButton" destination="eRF-bn-XRY" id="mxu-wj-jAP"/>
-                        <outlet property="transferName" destination="9ou-jf-AuC" id="GDi-j0-hem"/>
-                        <outlet property="transferPerson" destination="giP-Ce-mV5" id="gwT-Iw-VFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csE-II-1my" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
