@@ -35,6 +35,7 @@ class ViewController: UIViewController {
 
     func bind() {
         setupAmountView()
+        tableView.reloadData()
     }
 
     @IBAction func showHideButtonPressed(_ sender: Any) {
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.statementList.count
+        return viewModel.statementList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,9 +72,8 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.transferValueLabel.text = String(statementList[indexPath.row].amount)
-        cell.transferTypeLabel.text = self.statementList[indexPath.row].tType
-        cell.transferDate.text = self.statementList[indexPath.row].createdAt
+        cell.configure(with: viewModel.statementList[indexPath.row])
+
         return cell
     }
 }
@@ -81,7 +81,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        statementInfo = statementList[indexPath.row]
+        statementInfo = viewModel.statementList[indexPath.row]
         performSegue(withIdentifier: "statementDetailSegue", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

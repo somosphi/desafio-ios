@@ -29,9 +29,21 @@ class ViewControllerViewModel: NSObject {
         }
     }
 
+    private(set) var statementList: [StatementInfo] = [] {
+        didSet {
+            self.bindViewModelToController()
+        }
+    }
+
+//    var brCurrencyText: String? {
+//        if let value =  {
+//            self.bindViewModelToController()
+//        }
+//    }
+
     var amountText: String? {
         if !hideAmount, let amount = amount {
-            return String(format: "%.2f", amount)
+            return FormatterHelper.brCurrency(value: amount)
         }
 
         return nil
@@ -69,7 +81,7 @@ class ViewControllerViewModel: NSObject {
                 print(error)
             case .success(let statement):
                 DispatchQueue.main.async {
-//                    self.statementList = statement
+                    self.statementList = statement
                 }
             }
         }
@@ -79,4 +91,8 @@ class ViewControllerViewModel: NSObject {
         hideAmount.toggle()
         UserDefaults.standard.setValue(hideAmount, forKey: "HideAmount")
     }
+
+//    func currencyFormatter() -> String {
+//        return FormatterHelper.brCurrency(value: currencyValue)
+//    }
 }

@@ -13,17 +13,27 @@ class StatementInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var transferTypeLabel: UILabel!
 //    @IBOutlet weak var transferToLabel: UILabel!
     @IBOutlet weak var transferValueLabel: UILabel!
+    @IBOutlet weak var pixIndicator: UILabel!
 
     static let identifier = "StatementItem"
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        pixIndicator.isHidden = true
     }
 
     public func configure(with statementInfo: StatementInfo) {
-        self.transferTypeLabel.text = statementInfo.tType
-        self.transferValueLabel.text = String(statementInfo.amount)
-        self.transferDate.text = statementInfo.createdAt
+        let transferType = statementInfo.tType.description
+        let transferValue = FormatterHelper.brCurrency(value: statementInfo.amount)
+        let transferDate = FormatterHelper.shortDate(date: statementInfo.createdAt)
+
+        self.transferTypeLabel.text = transferType
+        self.transferValueLabel.text = transferValue
+        self.transferDate.text = transferDate
+
+        if transferType.range(of: "pix", options: .caseInsensitive) != nil {
+            self.pixIndicator.isHidden = false
+            self.backgroundColor = UIColor(named: "phiWhite")
+        }
     }
 }

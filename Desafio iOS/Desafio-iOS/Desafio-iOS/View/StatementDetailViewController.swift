@@ -19,21 +19,38 @@ class StatementDetailViewController: UIViewController {
     @IBAction func shareButtonPressed(_ sender: Any) {
         shareButton.isHidden = true
         let screenshot = self.view.takeScreenshot()
-        receiptScreenshot = screenshot
         shareButton.isHidden = false
-        performSegue(withIdentifier: "ShareReceipt", sender: nil)
+        presentShareSheet(image: screenshot)
     }
 
     let service = QueryService()
     var statementInfo: StatementInfo?
 
+//    private var viewModel: StatementDetailViewModel = StatementDetailViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        viewModel.bindViewModelToController = bind
 
         if let transferId = statementInfo?.id {
             getDetail(id: transferId)
         }
     }
+
+//    func bind() {
+//        setupDetailView()
+//    }
+
+//    func setupDetailView() {
+//        DispatchQueue.main.async { [self] in
+//            descriptionLabel.text = viewModel.statementDetail.description
+//            amountLabel.text = String(viewModel.statementDetail.amount)
+//            createdAtLabel.text = viewModel.statementDetail.createdAt
+//            authenticationLabel.text = viewModel.statementDetail.authentication
+//            transferTo.text = viewModel.statementDetail.to
+//        }
+//    }
 
     func getDetail(id: String) {
         service.getDetail(transfer: id) { result in
@@ -41,10 +58,13 @@ class StatementDetailViewController: UIViewController {
             case .failure(let error):
                 print(error)
             case .success(let statementDetail):
+                let amountValue = FormatterHelper.brCurrency(value: statementDetail.amount)
+                let transferDate = FormatterHelper.detailedDate(date: statementDetail.createdAt)
+
                 DispatchQueue.main.async {
                     self.descriptionLabel.text = statementDetail.description
-                    self.amountLabel.text = String(statementDetail.amount)
-                    self.createdAtLabel.text = statementDetail.createdAt
+                    self.amountLabel.text = amountValue
+                    self.createdAtLabel.text = transferDate
                     self.authenticationLabel.text = statementDetail.authentication
                     self.transferTo.text = statementDetail.to
                 }
@@ -52,14 +72,11 @@ class StatementDetailViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShareReceipt" {
-            guard let viewController = segue.destination as? ReceiptViewController else {
-                print(Error.self)
-                return
-            }
-        }
+    private func presentShareSheet(image: UIImage) {
+        let shareSheet = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(shareSheet, animated: true, completion: nil)
     }
+
 }
 
 extension UIView {

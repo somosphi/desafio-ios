@@ -82,30 +82,62 @@
                                     <constraint firstItem="urj-M8-vP5" firstAttribute="top" secondItem="nPo-rP-Gi7" secondAttribute="top" constant="20" id="yRd-cR-FzT"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9J-2T-5aN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9J-2T-5aN">
                                 <rect key="frame" x="0.0" y="204" width="414" height="658"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatementItem" rowHeight="153" id="1iY-fr-uhj" customClass="StatementInfoTableViewCell" customModule="Desafio_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="153"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatementItem" rowHeight="100" id="1iY-fr-uhj" customClass="StatementInfoTableViewCell" customModule="Desafio_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1iY-fr-uhj" id="izI-iE-GqR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-0M-N1W">
-                                                    <rect key="frame" x="20" y="11" width="374" height="131"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="template-vertical-line" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-Dc-PLC">
-                                                            <rect key="frame" x="0.0" y="21" width="15" height="89"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-5t-7Le">
+                                                            <rect key="frame" x="0.0" y="0.0" width="12" height="100"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytH-J7-w9N">
+                                                                    <rect key="frame" x="5.5" y="0.0" width="1" height="100"/>
+                                                                    <color key="backgroundColor" name="phiGray"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="1" id="P0v-fc-K7G"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="YFq-PW-jjN"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circlebadge.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hI7-lM-dy0">
+                                                                    <rect key="frame" x="-2.5" y="42" width="17" height="16"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="17" id="oyL-Ws-dws"/>
+                                                                        <constraint firstAttribute="height" constant="21" id="tTW-xQ-CSE"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circlebadge.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n53-h6-NNI">
+                                                                    <rect key="frame" x="0.0" y="44" width="12" height="12"/>
+                                                                    <color key="tintColor" name="phiGreen"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="12" id="COD-Ot-A3C"/>
+                                                                        <constraint firstAttribute="height" constant="17" id="SGo-Cg-3B4"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="15" id="9pk-Ji-5OZ"/>
-                                                                <constraint firstAttribute="height" constant="89" id="eRR-pY-l7F"/>
+                                                                <constraint firstItem="ytH-J7-w9N" firstAttribute="centerY" secondItem="rcg-5t-7Le" secondAttribute="centerY" id="28k-Em-G7Q"/>
+                                                                <constraint firstItem="n53-h6-NNI" firstAttribute="centerX" secondItem="rcg-5t-7Le" secondAttribute="centerX" id="8a0-DX-jDr"/>
+                                                                <constraint firstItem="n53-h6-NNI" firstAttribute="centerY" secondItem="rcg-5t-7Le" secondAttribute="centerY" id="ATa-2k-GvZ"/>
+                                                                <constraint firstAttribute="height" constant="100" id="Dsd-xW-11i"/>
+                                                                <constraint firstItem="ytH-J7-w9N" firstAttribute="centerX" secondItem="rcg-5t-7Le" secondAttribute="centerX" id="O1P-xY-sK1"/>
+                                                                <constraint firstAttribute="width" constant="12" id="ORT-be-jdv"/>
+                                                                <constraint firstItem="hI7-lM-dy0" firstAttribute="centerY" secondItem="rcg-5t-7Le" secondAttribute="centerY" id="Pzl-7J-8yX"/>
+                                                                <constraint firstItem="hI7-lM-dy0" firstAttribute="centerX" secondItem="rcg-5t-7Le" secondAttribute="centerX" id="vel-3E-8a4"/>
                                                             </constraints>
-                                                        </imageView>
+                                                        </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-fq-N7U">
-                                                            <rect key="frame" x="25" y="24" width="241.5" height="83.5"/>
+                                                            <rect key="frame" x="22" y="8.5" width="282" height="83.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-Yh-SEM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="21"/>
@@ -138,23 +170,56 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58O-Dd-oRo">
-                                                            <rect key="frame" x="276.5" y="53" width="97.5" height="25.5"/>
-                                                            <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="18"/>
-                                                            <color key="textColor" name="phiGray"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdQ-Hc-1Tj">
+                                                            <rect key="frame" x="314" y="0.0" width="60" height="100"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58O-Dd-oRo">
+                                                                    <rect key="frame" x="0.0" y="37" width="60" height="26"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="J0x-5p-KpJ"/>
+                                                                        <constraint firstAttribute="height" constant="26" id="cqU-yu-f7Z"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="18"/>
+                                                                    <color key="textColor" name="phiGray"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uf3-Mc-eB0">
+                                                                    <rect key="frame" x="0.0" y="8" width="60" height="22"/>
+                                                                    <color key="backgroundColor" name="phiGreen"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="FiT-ed-X8L"/>
+                                                                        <constraint firstAttribute="height" constant="22" id="oWe-BL-Fde"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="14"/>
+                                                                    <color key="textColor" name="phiWhite"/>
+                                                                    <color key="highlightedColor" name="phiGreen"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Uf3-Mc-eB0" firstAttribute="top" secondItem="sdQ-Hc-1Tj" secondAttribute="topMargin" id="5G4-aG-dUP"/>
+                                                                <constraint firstAttribute="width" constant="60" id="NXs-S4-DaJ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="58O-Dd-oRo" secondAttribute="trailing" id="WDa-GN-VMh"/>
+                                                                <constraint firstAttribute="height" constant="100" id="ZM0-Xk-mqg"/>
+                                                                <constraint firstItem="Uf3-Mc-eB0" firstAttribute="centerX" secondItem="sdQ-Hc-1Tj" secondAttribute="centerX" id="gFL-Dp-zQr"/>
+                                                                <constraint firstItem="58O-Dd-oRo" firstAttribute="centerY" secondItem="sdQ-Hc-1Tj" secondAttribute="centerY" id="qlg-ed-uSe"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="rcg-5t-7Le" firstAttribute="leading" secondItem="pKz-0M-N1W" secondAttribute="leading" id="MBl-KR-lOB"/>
+                                                        <constraint firstAttribute="height" constant="100" id="q0c-I3-D19"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="pKz-0M-N1W" secondAttribute="bottom" id="65P-zT-ig2"/>
-                                                <constraint firstItem="pKz-0M-N1W" firstAttribute="leading" secondItem="izI-iE-GqR" secondAttribute="leadingMargin" id="6eK-4c-fBI"/>
-                                                <constraint firstItem="pKz-0M-N1W" firstAttribute="top" secondItem="izI-iE-GqR" secondAttribute="topMargin" id="cm6-6A-HPF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pKz-0M-N1W" secondAttribute="trailing" id="sDq-2L-UN6"/>
+                                                <constraint firstItem="pKz-0M-N1W" firstAttribute="leading" secondItem="izI-iE-GqR" secondAttribute="leadingMargin" id="CiU-gt-qNf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pKz-0M-N1W" secondAttribute="trailing" id="GzN-eI-1BK"/>
+                                                <constraint firstItem="pKz-0M-N1W" firstAttribute="top" secondItem="izI-iE-GqR" secondAttribute="top" id="lNX-eb-xWH"/>
+                                                <constraint firstAttribute="bottom" secondItem="pKz-0M-N1W" secondAttribute="bottom" id="lZl-Ni-PkK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="pixIndicator" destination="Uf3-Mc-eB0" id="Cks-hh-Jxq"/>
                                             <outlet property="transferDate" destination="58O-Dd-oRo" id="zcj-3m-xbh"/>
                                             <outlet property="transferTypeLabel" destination="7Ww-Yh-SEM" id="pu2-TK-cPK"/>
                                             <outlet property="transferValueLabel" destination="csE-xk-XGD" id="h0c-bR-qxN"/>
@@ -384,42 +449,11 @@
                         <outlet property="descriptionLabel" destination="hq6-8w-Vty" id="RuR-ps-TWn"/>
                         <outlet property="shareButton" destination="eRF-bn-XRY" id="mxu-wj-jAP"/>
                         <outlet property="transferTo" destination="9ou-jf-AuC" id="GDi-j0-hem"/>
-                        <segue destination="XzE-he-3NU" kind="show" identifier="ShareReceipt" id="UO9-9K-AOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csE-II-1my" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957" y="70"/>
-        </scene>
-        <!--Receipt View Controller-->
-        <scene sceneID="KaF-31-TYE">
-            <objects>
-                <viewController id="XzE-he-3NU" customClass="ReceiptViewController" customModule="Desafio_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AVG-BS-VJ9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YQ4-j5-6pP">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="YSm-sc-f5b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="YSm-sc-f5b" firstAttribute="trailing" secondItem="YQ4-j5-6pP" secondAttribute="trailing" id="6jY-eg-Ysy"/>
-                            <constraint firstItem="YQ4-j5-6pP" firstAttribute="top" secondItem="YSm-sc-f5b" secondAttribute="top" id="7jb-UR-ZXp"/>
-                            <constraint firstItem="YSm-sc-f5b" firstAttribute="bottom" secondItem="YQ4-j5-6pP" secondAttribute="bottom" id="FzB-bG-skP"/>
-                            <constraint firstItem="YQ4-j5-6pP" firstAttribute="leading" secondItem="YSm-sc-f5b" secondAttribute="leading" id="b21-Nk-nYv"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="LE7-Tz-mJ0"/>
-                    <connections>
-                        <outlet property="receiptImage" destination="YQ4-j5-6pP" id="qUb-mK-J4g"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fnh-KI-zZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2893" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Kq-Ca-Oxf">
@@ -441,8 +475,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circlebadge.fill" catalog="system" width="128" height="120"/>
         <image name="phiHide" width="20" height="20"/>
-        <image name="template-vertical-line" width="15" height="89"/>
         <namedColor name="phiBlack">
             <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
