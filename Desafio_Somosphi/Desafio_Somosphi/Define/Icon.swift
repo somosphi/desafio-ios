@@ -22,4 +22,3 @@ enum Icon: String {
     }
 
 }
-
