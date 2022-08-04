@@ -16,6 +16,7 @@
 		8CA3C72C289AEB4E001581BF /* VoucherStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CA3C72B289AEB4E001581BF /* VoucherStoryboard.storyboard */; };
 		8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3C72D289AEB6D001581BF /* VoucherViewController.swift */; };
 		8CA3C731289AF6CA001581BF /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3C730289AF6CA001581BF /* Icon.swift */; };
+		8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8CA3C72B289AEB4E001581BF /* VoucherStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoucherStoryboard.storyboard; sourceTree = "<group>"; };
 		8CA3C72D289AEB6D001581BF /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		8CA3C730289AF6CA001581BF /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				8C9287D12899FA9800E9C696 /* ExtractStoryboard.storyboard */,
 				8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */,
+				8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */,
 			);
 			path = Extract;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */,
+				8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */,
 				8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */,
 				8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */,
 				8CA3C731289AF6CA001581BF /* Icon.swift in Sources */,

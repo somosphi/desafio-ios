@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="246" width="414" height="650"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="96" id="hmi-rr-kaj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExtractTableViewCell" rowHeight="96" id="hmi-rr-kaj" customClass="ExtractTableViewCell" customModule="Desafio_Somosphi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hmi-rr-kaj" id="ZMQ-ou-MZ7">
@@ -169,6 +169,14 @@
                                                 <constraint firstItem="r1U-z2-XFT" firstAttribute="leading" secondItem="Ap6-d8-qZf" secondAttribute="trailing" constant="38" id="zQ8-XB-XK2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="wb4-Sn-56Q" id="oCc-96-mDX"/>
+                                            <outlet property="circleView" destination="MDj-qQ-fhK" id="BqV-qs-SNe"/>
+                                            <outlet property="dateLabel" destination="Yw6-Ym-iZ7" id="k0a-nC-Cop"/>
+                                            <outlet property="pixImage" destination="DgO-Ni-QlF" id="vzT-Vb-hgC"/>
+                                            <outlet property="receiverLabel" destination="UUo-fz-FHF" id="ffz-D0-rtj"/>
+                                            <outlet property="typeMovementLabel" destination="r1U-z2-XFT" id="JTg-Rb-cXf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -197,6 +205,13 @@
                             <constraint firstItem="9Ga-El-Alr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u6I-s9-h3x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="balanceLabel" destination="97g-e8-CXd" id="HhD-ya-zap"/>
+                        <outlet property="iconImage" destination="j35-hJ-xlZ" id="hUj-Fe-6BB"/>
+                        <outlet property="movement" destination="VXY-oc-ztD" id="qbW-2M-m1c"/>
+                        <outlet property="tableView" destination="J6k-JI-OUO" id="sKm-NP-yvS"/>
+                        <outlet property="textBalanceLabel" destination="p2W-2v-HfY" id="fW0-hH-QvB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
