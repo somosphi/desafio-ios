@@ -15,10 +15,10 @@ class ExtractViewController: UIViewController {
     @IBOutlet weak var movement: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
+    weak var coordinator: ExtractCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
         // let color = UIColor(named: "action")
     }
 

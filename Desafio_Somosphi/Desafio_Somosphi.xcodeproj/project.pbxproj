@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C175CD6289C4BAE00C4625B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175CD5289C4BAE00C4625B /* Coordinator.swift */; };
+		8C175CD8289C4C4800C4625B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175CD7289C4C4800C4625B /* AppCoordinator.swift */; };
+		8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */; };
 		8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CB2899FA9800E9C696 /* AppDelegate.swift */; };
 		8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */; };
 		8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C175CD5289C4BAE00C4625B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8C175CD7289C4C4800C4625B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractCoordinator.swift; sourceTree = "<group>"; };
 		8C9287C82899FA9800E9C696 /* Desafio_Somosphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Somosphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9287CB2899FA9800E9C696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C175CD4289C4B9300C4625B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8C175CD5289C4BAE00C4625B /* Coordinator.swift */,
+				8C175CD7289C4C4800C4625B /* AppCoordinator.swift */,
+			);
+			name = Coordinator;
+			sourceTree = "<group>";
+		};
 		8C9287BF2899FA9800E9C696 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +79,10 @@
 		8C9287CA2899FA9800E9C696 /* Desafio_Somosphi */ = {
 			isa = PBXGroup;
 			children = (
-				8CA3C72F289AF692001581BF /* Define */,
 				8C9287CB2899FA9800E9C696 /* AppDelegate.swift */,
 				8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */,
+				8C175CD4289C4B9300C4625B /* Coordinator */,
+				8CA3C72F289AF692001581BF /* Define */,
 				8CA3C729289AEAAC001581BF /* Extract */,
 				8CA3C72A289AEAD3001581BF /* Voucher */,
 				8C9287D42899FA9A00E9C696 /* Assets.xcassets */,
@@ -80,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8C9287D12899FA9800E9C696 /* ExtractStoryboard.storyboard */,
+				8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */,
 				8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */,
 				8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */,
 			);
@@ -197,11 +214,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */,
+				8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */,
 				8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */,
 				8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */,
 				8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */,
+				8C175CD8289C4C4800C4625B /* AppCoordinator.swift in Sources */,
 				8CA3C731289AF6CA001581BF /* Icon.swift in Sources */,
 				8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */,
+				8C175CD6289C4BAE00C4625B /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +374,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Desafio_Somosphi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ExtractStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -383,7 +403,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Desafio_Somosphi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ExtractStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
