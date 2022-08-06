@@ -9,13 +9,18 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    var coordinator: AppCoordinator?
     var window: UIWindow?
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions
     ) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowscene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowscene)
+        let navigationController = UINavigationController()
+        coordinator = AppCoordinator(navigationController: navigationController, window: window)
+        coordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
