@@ -208,7 +208,6 @@
                     <connections>
                         <outlet property="balanceLabel" destination="97g-e8-CXd" id="HhD-ya-zap"/>
                         <outlet property="iconImage" destination="j35-hJ-xlZ" id="hUj-Fe-6BB"/>
-                        <outlet property="movement" destination="VXY-oc-ztD" id="qbW-2M-m1c"/>
                         <outlet property="tableView" destination="J6k-JI-OUO" id="sKm-NP-yvS"/>
                         <outlet property="textBalanceLabel" destination="p2W-2v-HfY" id="fW0-hH-QvB"/>
                     </connections>
