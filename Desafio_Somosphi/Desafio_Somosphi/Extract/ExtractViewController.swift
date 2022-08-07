@@ -9,23 +9,18 @@ import UIKit
 
 class ExtractViewController: UIViewController {
 
-    @IBOutlet weak var textBalanceLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
 
     weak var coordinator: ExtractCoordinator?
 
-    var movements = ["Brent Berg", "Cody Preston", "Kareem Dixon", "Xander Clark",
-                    "Francis Frederick", "Carson Hopkins", "Anthony Nguyen", "Dean Franklin",
-                    "Jeremy Davenport", "Rigel Bradford", "John Ball", "Zachery Norman",
-                    "Valentine Lindsey", "Slade Thornton", "Jelani Dickson", "Vance Hurley",
-                    "Wayne Ellison", "Kasimir Mueller", "Emery Pruitt", "Lucius Lawrence",
-                    "Kenneth Mendez"]
+    var movements: [Extract] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
+        movements = mockExtract()
     }
 
 }
@@ -40,9 +35,23 @@ extension ExtractViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "")
-        cell.textLabel?.text = movements[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell", for: indexPath
+        ) as? ExtractTableViewCell else {
+            fatalError()
+        }
+        let extract = movements[indexPath.row]
+        cell.prepare(model: extract)
         return cell
     }
 
+}
+
+private func mockExtract() -> [Extract] {
+    return [
+        .fixture(),
+        .fixture(),
+        .fixture(),
+        .fixture()
+    ]
 }
