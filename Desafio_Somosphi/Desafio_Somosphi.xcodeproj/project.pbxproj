@@ -20,6 +20,10 @@
 		8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3C72D289AEB6D001581BF /* VoucherViewController.swift */; };
 		8CA3C731289AF6CA001581BF /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3C730289AF6CA001581BF /* Icon.swift */; };
 		8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */; };
+		8CF18962289F247400F8D938 /* Extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18961289F247400F8D938 /* Extract.swift */; };
+		8CF18965289F263000F8D938 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18964289F263000F8D938 /* Amount.swift */; };
+		8CF18967289F270100F8D938 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18966289F270100F8D938 /* Items.swift */; };
+		8CF18969289F2B9E00F8D938 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18968289F2B9E00F8D938 /* Voucher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		8CA3C72D289AEB6D001581BF /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		8CA3C730289AF6CA001581BF /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractTableViewCell.swift; sourceTree = "<group>"; };
+		8CF18961289F247400F8D938 /* Extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extract.swift; sourceTree = "<group>"; };
+		8CF18964289F263000F8D938 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		8CF18966289F270100F8D938 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		8CF18968289F2B9E00F8D938 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 				8C9287CB2899FA9800E9C696 /* AppDelegate.swift */,
 				8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */,
 				8C175CD4289C4B9300C4625B /* Coordinator */,
+				8CF18963289F261700F8D938 /* Model */,
 				8CA3C72F289AF692001581BF /* Define */,
 				8CA3C729289AEAAC001581BF /* Extract */,
 				8CA3C72A289AEAD3001581BF /* Voucher */,
@@ -118,6 +127,17 @@
 				8CA3C730289AF6CA001581BF /* Icon.swift */,
 			);
 			path = Define;
+			sourceTree = "<group>";
+		};
+		8CF18963289F261700F8D938 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CF18964289F263000F8D938 /* Amount.swift */,
+				8CF18961289F247400F8D938 /* Extract.swift */,
+				8CF18968289F2B9E00F8D938 /* Voucher.swift */,
+				8CF18966289F270100F8D938 /* Items.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +234,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */,
+				8CF18962289F247400F8D938 /* Extract.swift in Sources */,
 				8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */,
 				8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */,
+				8CF18967289F270100F8D938 /* Items.swift in Sources */,
 				8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */,
 				8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */,
+				8CF18969289F2B9E00F8D938 /* Voucher.swift in Sources */,
+				8CF18965289F263000F8D938 /* Amount.swift in Sources */,
 				8C175CD8289C4C4800C4625B /* AppCoordinator.swift in Sources */,
 				8CA3C731289AF6CA001581BF /* Icon.swift in Sources */,
 				8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */,

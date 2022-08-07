@@ -63,11 +63,12 @@
                                 <color key="textColor" name="text"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-JI-OUO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-JI-OUO">
                                 <rect key="frame" x="0.0" y="246" width="414" height="650"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExtractTableViewCell" rowHeight="96" id="hmi-rr-kaj" customClass="ExtractTableViewCell" customModule="Desafio_Somosphi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="96" id="hmi-rr-kaj" customClass="ExtractTableViewCell" customModule="Desafio_Somosphi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hmi-rr-kaj" id="ZMQ-ou-MZ7">
@@ -87,8 +88,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yw6-Ym-iZ7">
-                                                    <rect key="frame" x="334" y="36" width="44" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="338.5" y="36" width="39.5" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="description"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -209,7 +210,6 @@
                         <outlet property="balanceLabel" destination="97g-e8-CXd" id="HhD-ya-zap"/>
                         <outlet property="iconImage" destination="j35-hJ-xlZ" id="hUj-Fe-6BB"/>
                         <outlet property="tableView" destination="J6k-JI-OUO" id="sKm-NP-yvS"/>
-                        <outlet property="textBalanceLabel" destination="p2W-2v-HfY" id="fW0-hH-QvB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

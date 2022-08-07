@@ -27,4 +27,12 @@ class ExtractTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func prepare(model: Extract) {
+        typeMovementLabel.text = model.description
+        receiverLabel.text = model.to
+        amountLabel.text = String(model.amount)
+        dateLabel.text = model.createdAt
+        pixImage.isHidden = false
+        circleView.layer.cornerRadius = circleView.frame.size.height/2
+    }
 }
