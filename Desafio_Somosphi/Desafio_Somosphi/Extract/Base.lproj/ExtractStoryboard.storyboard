@@ -142,6 +142,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="M5X-kY-Anx" secondAttribute="bottom" id="2iy-7T-yVq"/>
                                                 <constraint firstItem="r1U-z2-XFT" firstAttribute="top" secondItem="ZMQ-ou-MZ7" secondAttribute="top" constant="8" id="6ln-HX-mEX"/>
@@ -189,7 +190,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="J6k-JI-OUO" secondAttribute="bottom" id="3Zj-6Z-uy5"/>
                             <constraint firstItem="FG9-Ml-bwo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="9tc-SD-Qp1"/>

@@ -15,12 +15,12 @@ class ExtractViewController: UIViewController {
 
     weak var coordinator: ExtractCoordinator?
 
-    var movements: [Extract] = []
+    var model = ExtractModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
-        movements = mockExtract()
+        model.fetchExtract()
     }
 
 }
@@ -31,7 +31,7 @@ extension ExtractViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movements.count
+        return model.extract.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,18 +40,16 @@ extension ExtractViewController: UITableViewDataSource {
         ) as? ExtractTableViewCell else {
             fatalError()
         }
-        let extract = movements[indexPath.row]
+        let extract = model.extract[indexPath.row]
         cell.prepare(model: extract)
         return cell
     }
 
 }
 
-private func mockExtract() -> [Extract] {
-    return [
-        .fixture(),
-        .fixture(),
-        .fixture(),
-        .fixture()
-    ]
+extension ExtractViewController: ExtractModelDelegate {
+    func didUpExtracts() {
+        tableView.reloadData()
+    }
+
 }
