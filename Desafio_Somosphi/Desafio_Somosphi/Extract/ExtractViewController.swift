@@ -52,6 +52,11 @@ private func mockExtract() -> [Extract] {
         .fixture(),
         .fixture(),
         .fixture(),
+        .fixture(),
+        .fixture(),
+        .fixture(),
+        .fixture(),
+        .fixture(),
         .fixture()
     ]
 }
