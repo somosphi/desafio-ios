@@ -21,6 +21,14 @@ class ExtractViewController: UIViewController {
         super.viewDidLoad()
         tableView?.dataSource = self
         model.fetchExtract()
+        iconImage?.image = UIImage(named: "eyeFill.png")
+        balanceLabel?.isHidden = false
+        balanceLabel?.text = "R$ 1234.55"
+        print("Passeiiiiii")
+    }
+
+    @IBAction func showAmount() {
+
     }
 
 }

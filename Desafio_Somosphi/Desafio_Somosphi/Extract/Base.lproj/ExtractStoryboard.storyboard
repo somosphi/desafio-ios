@@ -29,6 +29,10 @@
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j35-hJ-xlZ">
                                         <rect key="frame" x="76" y="17" width="27" height="17.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="XMc-FC-cRj"/>
+                                            <constraint firstAttribute="width" constant="27" id="qLH-e7-Zuk"/>
+                                        </constraints>
                                         <imageReference key="image" image="eye.slash.fill" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
                                             <hierarchicalColors>
                                                 <color name="action"/>
