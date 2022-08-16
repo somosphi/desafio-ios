@@ -19,11 +19,13 @@ class ExtractViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Extrato"
         tableView?.dataSource = self
+        model.delegate = self
         model.fetchExtract()
         iconImage?.image = UIImage(named: "eyeFill.png")
-        balanceLabel?.isHidden = false
-        balanceLabel?.text = "R$ 1234.55"
+        // balanceLabel?.isHidden = false
+        // balanceLabel?.text = "R$ 1234.55"
         print("Passeiiiiii")
     }
 
@@ -56,6 +58,16 @@ extension ExtractViewController: UITableViewDataSource {
 }
 
 extension ExtractViewController: ExtractModelDelegate {
+    func didUpdateBalance() {
+        DispatchQueue.main.async { [weak self] in
+            guard let selfRef = self else {
+                return
+            }
+
+            selfRef.balanceLabel?.text = String(selfRef.model.amount)
+        }
+    }
+
     func didUpExtracts() {
         tableView.reloadData()
     }

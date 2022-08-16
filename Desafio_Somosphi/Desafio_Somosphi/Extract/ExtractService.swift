@@ -20,7 +20,7 @@ class ExtractService {
         let request = Request.init(
             baseURL: Config.baseURL,
             path: "myBalance",
-            method: RequestMethod.post
+            method: RequestMethod.get
         )
 
         network.request(request: request, returning: Amount.self) { result in
