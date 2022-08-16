@@ -11,6 +11,11 @@
 		8C175CD8289C4C4800C4625B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175CD7289C4C4800C4625B /* AppCoordinator.swift */; };
 		8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */; };
 		8C71BD7128A3EA170065832C /* ExtractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7028A3EA170065832C /* ExtractModel.swift */; };
+		8C71BD7428A549830065832C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7328A549830065832C /* Token.swift */; };
+		8C71BD7828A552660065832C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7728A552660065832C /* Config.swift */; };
+		8C71BD7A28A5585A0065832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7928A5585A0065832C /* Request.swift */; };
+		8C71BD7C28A558CD0065832C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7B28A558CD0065832C /* Network.swift */; };
+		8C71BD7E28A58C070065832C /* ExtractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7D28A58C070065832C /* ExtractService.swift */; };
 		8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CB2899FA9800E9C696 /* AppDelegate.swift */; };
 		8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */; };
 		8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */; };
@@ -32,6 +37,11 @@
 		8C175CD7289C4C4800C4625B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractCoordinator.swift; sourceTree = "<group>"; };
 		8C71BD7028A3EA170065832C /* ExtractModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractModel.swift; sourceTree = "<group>"; };
+		8C71BD7328A549830065832C /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		8C71BD7728A552660065832C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8C71BD7928A5585A0065832C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8C71BD7B28A558CD0065832C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8C71BD7D28A58C070065832C /* ExtractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractService.swift; sourceTree = "<group>"; };
 		8C9287C82899FA9800E9C696 /* Desafio_Somosphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Somosphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9287CB2899FA9800E9C696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +80,17 @@
 			name = Coordinator;
 			sourceTree = "<group>";
 		};
+		8C71BD7228A5494D0065832C /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				8C71BD7328A549830065832C /* Token.swift */,
+				8C71BD7B28A558CD0065832C /* Network.swift */,
+				8C71BD7928A5585A0065832C /* Request.swift */,
+				8C71BD7728A552660065832C /* Config.swift */,
+			);
+			name = Networks;
+			sourceTree = "<group>";
+		};
 		8C9287BF2899FA9800E9C696 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +112,7 @@
 			children = (
 				8C9287CB2899FA9800E9C696 /* AppDelegate.swift */,
 				8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */,
+				8C71BD7228A5494D0065832C /* Networks */,
 				8C175CD4289C4B9300C4625B /* Coordinator */,
 				8CF18963289F261700F8D938 /* Model */,
 				8CA3C72F289AF692001581BF /* Define */,
@@ -110,6 +132,7 @@
 				8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */,
 				8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */,
 				8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */,
+				8C71BD7D28A58C070065832C /* ExtractService.swift */,
 				8C71BD7028A3EA170065832C /* ExtractModel.swift */,
 			);
 			path = Extract;
@@ -237,17 +260,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */,
+				8C71BD7E28A58C070065832C /* ExtractService.swift in Sources */,
 				8CF18962289F247400F8D938 /* Extract.swift in Sources */,
 				8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */,
 				8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */,
 				8CF18967289F270100F8D938 /* Items.swift in Sources */,
 				8CA3C72E289AEB6D001581BF /* VoucherViewController.swift in Sources */,
+				8C71BD7428A549830065832C /* Token.swift in Sources */,
+				8C71BD7A28A5585A0065832C /* Request.swift in Sources */,
 				8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */,
 				8C71BD7128A3EA170065832C /* ExtractModel.swift in Sources */,
 				8CF18969289F2B9E00F8D938 /* Voucher.swift in Sources */,
 				8CF18965289F263000F8D938 /* Amount.swift in Sources */,
 				8C175CD8289C4C4800C4625B /* AppCoordinator.swift in Sources */,
 				8CA3C731289AF6CA001581BF /* Icon.swift in Sources */,
+				8C71BD7C28A558CD0065832C /* Network.swift in Sources */,
+				8C71BD7828A552660065832C /* Config.swift in Sources */,
 				8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */,
 				8C175CD6289C4BAE00C4625B /* Coordinator.swift in Sources */,
 			);
