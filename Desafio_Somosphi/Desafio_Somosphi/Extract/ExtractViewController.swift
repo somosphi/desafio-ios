@@ -10,8 +10,8 @@ import UIKit
 class ExtractViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var showAmountButton: UIButton!
 
     weak var coordinator: ExtractCoordinator?
 
@@ -20,8 +20,23 @@ class ExtractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
-        model.delegate = self
+        model.delegate = self // colocar na acao do button
         model.fetchExtract()
+        updateAmount()
+    }
+
+    @IBAction func showAmount(_ sender: UIButton) {
+
+    }
+
+    private func updateAmount() {
+        if model.isAmountVisible {
+            showAmountButton?.setImage(Icon.eye.sfIcon, for: .normal)
+            print("aberto")
+        } else {
+            showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
+            print("fechado")
+        }
     }
 
 }

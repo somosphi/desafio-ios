@@ -18,8 +18,13 @@ class ExtractModel {
     weak var delegate: ExtractModelDelegate?
     var service: AmountService? = AmountService()
     private var amount: Int = 0
+    private(set) var isAmountVisible: Bool = true
+
     var formattedAmount: String {
-        return getFormattedValue(of: amount)
+        if isAmountVisible {
+            return getFormattedValue(of: amount)
+        }
+        return "––––––"
     }
 
     init() {

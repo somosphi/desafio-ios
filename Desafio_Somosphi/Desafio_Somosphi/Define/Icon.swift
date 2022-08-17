@@ -12,12 +12,6 @@ enum Icon: String {
     case eyeSlash = "eye.slash.fill"
 
     var sfIcon: UIImage? {
-//        switch self {
-//        case .eye:
-//            return UIImage(systemName: "eye.fill")
-//        case .eyeSlash:
-//            return UIImage(systemName: "eye.slash.fill")
-//        }
         UIImage(systemName: self.rawValue)
     }
 

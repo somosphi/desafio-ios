@@ -3,10 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,37 +25,36 @@
                                         <color key="textColor" name="text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j35-hJ-xlZ">
-                                        <rect key="frame" x="78.5" y="17" width="27" height="17.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="XMc-FC-cRj"/>
-                                            <constraint firstAttribute="width" constant="27" id="qLH-e7-Zuk"/>
-                                        </constraints>
-                                        <imageReference key="image" image="eye.slash.fill" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
-                                            <hierarchicalColors>
-                                                <color name="action"/>
-                                                <color systemColor="secondaryLabelColor"/>
-                                                <color systemColor="tertiaryLabelColor"/>
-                                            </hierarchicalColors>
-                                        </imageReference>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97g-e8-CXd">
                                         <rect key="frame" x="24" y="54" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <color key="textColor" name="action"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-xL-nRq">
+                                        <rect key="frame" x="78.5" y="16" width="52" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="180-Kt-uli"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system">
+                                            <color key="baseForegroundColor" name="action"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9DC-qG-dYM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="highlight"/>
                                 <constraints>
                                     <constraint firstItem="97g-e8-CXd" firstAttribute="top" secondItem="p2W-2v-HfY" secondAttribute="bottom" constant="16" id="DQe-hA-MKH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j8P-xL-nRq" secondAttribute="trailing" constant="16" id="EgK-0E-Dcu"/>
                                     <constraint firstItem="p2W-2v-HfY" firstAttribute="leading" secondItem="9Ga-El-Alr" secondAttribute="leading" constant="24" id="PWv-sn-tSg"/>
-                                    <constraint firstItem="j35-hJ-xlZ" firstAttribute="top" secondItem="9Ga-El-Alr" secondAttribute="top" constant="16" id="TNW-ed-nOi"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j35-hJ-xlZ" secondAttribute="trailing" constant="16" id="c0F-tw-9jF"/>
+                                    <constraint firstItem="j8P-xL-nRq" firstAttribute="leading" secondItem="p2W-2v-HfY" secondAttribute="trailing" constant="8" id="Z31-4H-uqA"/>
                                     <constraint firstItem="p2W-2v-HfY" firstAttribute="top" secondItem="9Ga-El-Alr" secondAttribute="top" constant="16" id="c4h-l7-Sdh"/>
                                     <constraint firstItem="97g-e8-CXd" firstAttribute="leading" secondItem="9Ga-El-Alr" secondAttribute="leading" constant="24" id="eSF-y0-on7"/>
                                     <constraint firstAttribute="trailing" secondItem="97g-e8-CXd" secondAttribute="trailing" constant="16" id="sD6-kK-Cbj"/>
-                                    <constraint firstItem="j35-hJ-xlZ" firstAttribute="leading" secondItem="p2W-2v-HfY" secondAttribute="trailing" constant="8" id="uTc-QJ-nQG"/>
+                                    <constraint firstItem="j8P-xL-nRq" firstAttribute="top" secondItem="9Ga-El-Alr" secondAttribute="top" constant="16" id="tJf-La-xEd"/>
                                     <constraint firstAttribute="bottom" secondItem="97g-e8-CXd" secondAttribute="bottom" constant="16" id="wJg-TA-oya"/>
                                 </constraints>
                             </view>
@@ -69,8 +66,10 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-JI-OUO">
                                 <rect key="frame" x="0.0" y="246" width="414" height="650"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="96" id="hmi-rr-kaj" customClass="ExtractTableViewCell" customModule="Desafio_Somosphi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="96"/>
@@ -213,7 +212,7 @@
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="97g-e8-CXd" id="HhD-ya-zap"/>
-                        <outlet property="iconImage" destination="j35-hJ-xlZ" id="hUj-Fe-6BB"/>
+                        <outlet property="showAmountButton" destination="j8P-xL-nRq" id="ZW5-aG-AtG"/>
                         <outlet property="tableView" destination="J6k-JI-OUO" id="sKm-NP-yvS"/>
                     </connections>
                 </viewController>
@@ -223,7 +222,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye.slash.fill" catalog="system" width="128" height="82"/>
+        <image name="eye" catalog="system" width="128" height="81"/>
         <namedColor name="action">
             <color red="0.0" green="0.75700002908706665" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -236,14 +235,5 @@
         <namedColor name="text">
             <color red="0.125" green="0.125" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
