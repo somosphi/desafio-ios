@@ -16,8 +16,11 @@ class ExtractModel {
 
     private(set) var extract: [Extract]
     weak var delegate: ExtractModelDelegate?
-    var service: ExtractService? = ExtractService()
-    var amount: Int = 0
+    var service: AmountService? = AmountService()
+    private var amount: Int = 0
+    var formattedAmount: String {
+        return getFormattedValue(of: amount)
+    }
 
     init() {
         extract = []
@@ -36,6 +39,16 @@ class ExtractModel {
             }
         )
 
+    }
+
+    private func getFormattedValue(of value: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "R$"
+        formatter.alwaysShowsDecimalSeparator = true
+        formatter.locale = Locale(identifier: "pt_BR")
+        let number = formatter.string(from: NSNumber(value: value))
+        return number ?? "R$ 0,00"
     }
 
 }

@@ -19,18 +19,9 @@ class ExtractViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Extrato"
         tableView?.dataSource = self
         model.delegate = self
         model.fetchExtract()
-        iconImage?.image = UIImage(named: "eyeFill.png")
-        // balanceLabel?.isHidden = false
-        // balanceLabel?.text = "R$ 1234.55"
-        print("Passeiiiiii")
-    }
-
-    @IBAction func showAmount() {
-
     }
 
 }
@@ -64,7 +55,7 @@ extension ExtractViewController: ExtractModelDelegate {
                 return
             }
 
-            selfRef.balanceLabel?.text = String(selfRef.model.amount)
+            selfRef.balanceLabel?.text = selfRef.model.formattedAmount
         }
     }
 

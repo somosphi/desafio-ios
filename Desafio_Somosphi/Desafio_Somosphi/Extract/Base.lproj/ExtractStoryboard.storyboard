@@ -21,14 +21,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-El-Alr">
                                 <rect key="frame" x="0.0" y="100" width="414" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-2v-HfY">
-                                        <rect key="frame" x="24" y="16" width="44" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-2v-HfY">
+                                        <rect key="frame" x="24" y="16" width="46.5" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" name="text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j35-hJ-xlZ">
-                                        <rect key="frame" x="76" y="17" width="27" height="17.5"/>
+                                        <rect key="frame" x="78.5" y="17" width="27" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="XMc-FC-cRj"/>
                                             <constraint firstAttribute="width" constant="27" id="qLH-e7-Zuk"/>
