@@ -37,7 +37,7 @@
                                             <constraint firstAttribute="height" constant="20" id="180-Kt-uli"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system">
                                             <color key="baseForegroundColor" name="action"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -222,7 +222,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye" catalog="system" width="128" height="81"/>
+        <image name="eye.fill" catalog="system" width="128" height="78"/>
         <namedColor name="action">
             <color red="0.0" green="0.75700002908706665" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
