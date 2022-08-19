@@ -20,9 +20,9 @@ class ExtractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
-        model.delegate = self
+        updateAmount()
         model.fetchExtract()
-        showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
+        // showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
     }
 
     @IBAction func showAmount(_ sender: UIButton) {

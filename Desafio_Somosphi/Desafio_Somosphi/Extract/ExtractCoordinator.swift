@@ -27,6 +27,7 @@ class ExtractCoordinator: Coordinator {
 
     private func makeExtractViewController() -> ExtractViewController {
         let model = ExtractModel()
+        let service = AmountService()
         let storyboard = UIStoryboard(name: "ExtractStoryboard", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(
             withIdentifier: "ExtractViewController"
@@ -34,6 +35,7 @@ class ExtractCoordinator: Coordinator {
             fatalError()
         }
 
+        model.service = service
         model.delegate = viewController
         viewController.model = model
         viewController.coordinator = self
