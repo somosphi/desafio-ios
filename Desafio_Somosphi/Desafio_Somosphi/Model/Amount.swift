@@ -11,5 +11,5 @@ struct Amount: Codable {
     var amount: Int
 }
 
-//  https://desafio-mobile-bff.herokuapp.com/myBalance
+// https://desafio-mobile-bff.herokuapp.com/myBalance
 // Method: `GET`

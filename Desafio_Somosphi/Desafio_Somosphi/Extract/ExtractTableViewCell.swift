@@ -29,7 +29,7 @@ class ExtractTableViewCell: UITableViewCell {
 
     func prepare(model: Extract) {
         typeMovementLabel.text = model.description
-        receiverLabel.text = model.to
+        receiverLabel.text = model.target
         amountLabel.text = String(model.amount)
         dateLabel.text = model.createdAt
         pixImage.isHidden = false

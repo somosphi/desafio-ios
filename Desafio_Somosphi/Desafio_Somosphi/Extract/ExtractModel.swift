@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ExtractModelDelegate: AnyObject {
-    func didUpExtracts()
+    func didUpdateExtracts()
     func didUpdateBalance()
 }
 
@@ -65,7 +65,7 @@ class ExtractModel {
         delegate?.didUpdateBalance()
     }
 
-    //MARK: - Private methods
+    // MARK: - Private methods
 
     private func getFormattedValue(of value: Int) -> String {
         let formatter = NumberFormatter()

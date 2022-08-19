@@ -15,11 +15,13 @@ enum RequestMethod: String {
 protocol RequestProtocol {
     var baseURL: String { get }
     var path: String { get }
+    var header: [String: String] { get }
     var method: RequestMethod { get }
 }
 
 struct Request: RequestProtocol {
     var baseURL: String
     var path: String
+    var header: [String: String]
     var method: RequestMethod
 }
