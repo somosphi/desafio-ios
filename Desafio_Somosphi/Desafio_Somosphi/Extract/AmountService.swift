@@ -20,6 +20,7 @@ class AmountService {
         let request = Request.init(
             baseURL: Config.baseURL,
             path: "myBalance",
+            header: [Authentication.tokenField: Authentication.tokenValue],
             method: RequestMethod.get
         )
 

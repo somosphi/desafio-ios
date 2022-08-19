@@ -22,7 +22,6 @@ class ExtractViewController: UIViewController {
         tableView?.dataSource = self
         updateAmount()
         model.fetchExtract()
-        // showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
     }
 
     @IBAction func showAmount(_ sender: UIButton) {
@@ -71,7 +70,7 @@ extension ExtractViewController: ExtractModelDelegate {
         }
     }
 
-    func didUpExtracts() {
+    func didUpdateExtracts() {
         tableView.reloadData()
     }
 
