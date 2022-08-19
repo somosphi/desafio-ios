@@ -1,5 +1,5 @@
 //
-//  ExtractModel.swift
+//  StatementModel.swift
 //  Desafio_Somosphi
 //
 //  Created by Suh on 10/08/22.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol ExtractModelDelegate: AnyObject {
-    func didUpdateExtracts()
+protocol StatementModelDelegate: AnyObject {
+    func didUpdateStatement()
     func didUpdateBalance()
 }
 
-class ExtractModel {
+class StatementModel {
 
     // MARK: - Internal Properties
 
-    weak var delegate: ExtractModelDelegate?
+    weak var delegate: StatementModelDelegate?
     var service: AmountService?
 
     var formattedAmount: String {
@@ -28,7 +28,7 @@ class ExtractModel {
 
     // MARK: - Private properties
 
-    private(set) var extract: [Extract]
+    private(set) var statement: [Statement]
     private var amount: Int = 0
 
     private(set) var isAmountVisible: Bool {
@@ -41,14 +41,14 @@ class ExtractModel {
     }
 
     init() {
-        extract = []
+        statement = []
     }
 
     // MARK: - Internal Methods
 
-    func fetchExtract() {
-        extract = mockExtract()
-        // delegate?.didUpExtracts()
+    func fetchStatement() {
+        statement = mockStatement()
+        // delegate?.didUpStatement()
         service?.fecthAmont(
             onComplete: { result in
                 self.amount = result.amount
@@ -79,7 +79,7 @@ class ExtractModel {
 
 }
 
-private func mockExtract() -> [Extract] {
+private func mockStatement() -> [Statement] {
     return [
         .fixture(),
         .fixture(),

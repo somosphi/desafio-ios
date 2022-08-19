@@ -1,5 +1,5 @@
 //
-//  ExtractTableViewCell.swift
+//  StatementTableViewCell.swift
 //  Desafio_Somosphi
 //
 //  Created by Suh on 04/08/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExtractTableViewCell: UITableViewCell {
+class StatementTableViewCell: UITableViewCell {
 
     @IBOutlet weak var typeMovementLabel: UILabel!
     @IBOutlet weak var receiverLabel: UILabel!
@@ -27,7 +27,7 @@ class ExtractTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func prepare(model: Extract) {
+    func prepare(model: Statement) {
         typeMovementLabel.text = model.description
         receiverLabel.text = model.target
         amountLabel.text = String(model.amount)

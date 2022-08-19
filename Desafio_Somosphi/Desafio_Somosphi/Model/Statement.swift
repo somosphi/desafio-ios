@@ -1,5 +1,5 @@
 //
-//  ExtractModel.swift
+//  StatementModel.swift
 //  Desafio_Somosphi
 //
 //  Created by Suh on 06/08/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Extract: Codable {
+struct Statement: Codable {
     var createdAt: String
     var userId: String
     var amount: Int
@@ -23,7 +23,7 @@ struct Extract: Codable {
 }
 
 #if DEBUG
-extension Extract {
+extension Statement {
     static func fixture(
         createdAt: String = "2020-10-22T03:00:00Z",
         userId: String = "E79E0C9A-46AE-4DBA-82F5-D0BACC53F6CF",
@@ -31,8 +31,8 @@ extension Extract {
         target: String = "David Bond",
         description: String = "Transferência realizada",
         tType: String = "TRANSFEROUT"
-    ) -> Extract {
-        Extract(
+    ) -> Statement {
+        Statement(
             createdAt: createdAt,
             userId: userId,
             amount: amount,

@@ -7,21 +7,21 @@
 
 import UIKit
 
-class ExtractViewController: UIViewController {
+class StatementViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var showAmountButton: UIButton!
 
-    weak var coordinator: ExtractCoordinator?
+    weak var coordinator: StatementCoordinator?
 
-    var model: ExtractModel!
+    var model: StatementModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
         updateAmount()
-        model.fetchExtract()
+        model.fetchStatement()
     }
 
     @IBAction func showAmount(_ sender: UIButton) {
@@ -38,29 +38,29 @@ class ExtractViewController: UIViewController {
     }
 }
 
-extension ExtractViewController: UITableViewDataSource {
+extension StatementViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.extract.count
+        return model.statement.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "cell", for: indexPath
-        ) as? ExtractTableViewCell else {
+        ) as? StatementTableViewCell else {
             fatalError()
         }
-        let extract = model.extract[indexPath.row]
-        cell.prepare(model: extract)
+        let statement = model.statement[indexPath.row]
+        cell.prepare(model: statement)
         return cell
     }
 
 }
 
-extension ExtractViewController: ExtractModelDelegate {
+extension StatementViewController: StatementModelDelegate {
     func didUpdateBalance() {
         DispatchQueue.main.async { [weak self] in
             guard let selfRef = self else {
@@ -70,7 +70,7 @@ extension ExtractViewController: ExtractModelDelegate {
         }
     }
 
-    func didUpdateExtracts() {
+    func didUpdateStatement() {
         tableView.reloadData()
     }
 

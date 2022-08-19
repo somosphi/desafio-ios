@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VoucherViewController: UIViewController {
+class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,5 +8,5 @@
 import Foundation
 
 struct Items: Codable {
-    var items: [Extract]
+    var items: [Statement]
 }
