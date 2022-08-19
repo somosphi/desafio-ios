@@ -21,9 +21,24 @@ class ExtractCoordinator: Coordinator {
     }
 
     func start() {
-        let extractVC = ExtractViewController()
-        extractVC.coordinator = self
+        let extractVC = makeExtractViewController()
         navigationController.pushViewController(extractVC, animated: true)
+    }
+
+    private func makeExtractViewController() -> ExtractViewController {
+        let model = ExtractModel()
+        let storyboard = UIStoryboard(name: "ExtractStoryboard", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(
+            withIdentifier: "ExtractViewController"
+        ) as? ExtractViewController else {
+            fatalError()
+        }
+
+        model.delegate = viewController
+        viewController.model = model
+        viewController.coordinator = self
+
+        return viewController
     }
 
 }

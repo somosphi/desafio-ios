@@ -15,42 +15,28 @@ class ExtractViewController: UIViewController {
 
     weak var coordinator: ExtractCoordinator?
 
-    var model = ExtractModel()
+    var model: ExtractModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        balanceLabel?.text = "--------"
         tableView?.dataSource = self
-        // model.delegate = self // colocar na acao do button
+        model.delegate = self
         model.fetchExtract()
         showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
     }
 
     @IBAction func showAmount(_ sender: UIButton) {
-        updateAmount()
-
+        model.changeAmountVisibility()
     }
 
     private func updateAmount() {
-//        var eye = Icon.eyeSlash.sfIcon
-//        self.showAmountButton?.setImage(eye, for: .normal)
-//        switch eye {
-//        case Icon.eyeSlash.sfIcon:
-//            eye = Icon.eye.sfIcon
-//        default:
-//            eye = Icon.eyeSlash.sfIcon
-//        }
-
+        balanceLabel?.text = model.formattedAmount
         if model.isAmountVisible == false {
             showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
+        } else {
+            showAmountButton?.setImage(Icon.eye.sfIcon, for: .normal)
         }
-        if model.isAmountVisible {
-            self.showAmountButton?.setImage(Icon.eye.sfIcon, for: .normal)
-            self.balanceLabel?.text = self.model.formattedAmount
-        }
-
     }
-
 }
 
 extension ExtractViewController: UITableViewDataSource {
@@ -81,8 +67,7 @@ extension ExtractViewController: ExtractModelDelegate {
             guard let selfRef = self else {
                 return
             }
-            selfRef.balanceLabel?.text = selfRef.model.formattedAmount
-
+            selfRef.updateAmount()
         }
     }
 

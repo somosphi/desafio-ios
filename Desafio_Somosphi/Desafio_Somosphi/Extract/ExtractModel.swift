@@ -18,7 +18,7 @@ class ExtractModel {
     weak var delegate: ExtractModelDelegate?
     var service: AmountService? = AmountService()
     private var amount: Int = 0
-    private(set) var isAmountVisible: Bool = true
+    private(set) var isAmountVisible: Bool = false
 
     var formattedAmount: String {
         if isAmountVisible {
@@ -43,7 +43,11 @@ class ExtractModel {
                 print(error.localizedDescription)
             }
         )
+    }
 
+    func changeAmountVisibility() {
+        isAmountVisible = !isAmountVisible
+        delegate?.didUpdateBalance()
     }
 
     private func getFormattedValue(of value: Int) -> String {
