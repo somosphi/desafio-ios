@@ -14,11 +14,10 @@ protocol ExtractModelDelegate: AnyObject {
 
 class ExtractModel {
 
-    private(set) var extract: [Extract]
+    // MARK: - Internal Properties
+
     weak var delegate: ExtractModelDelegate?
-    var service: AmountService? = AmountService()
-    private var amount: Int = 0
-    private(set) var isAmountVisible: Bool = false
+    var service: AmountService?
 
     var formattedAmount: String {
         if isAmountVisible {
@@ -27,9 +26,25 @@ class ExtractModel {
         return "––––––"
     }
 
+    // MARK: - Private properties
+
+    private(set) var extract: [Extract]
+    private var amount: Int = 0
+
+    private(set) var isAmountVisible: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "visibleAmount")
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "visibleAmount")
+        }
+    }
+
     init() {
         extract = []
     }
+
+    // MARK: - Internal Methods
 
     func fetchExtract() {
         extract = mockExtract()
@@ -49,6 +64,8 @@ class ExtractModel {
         isAmountVisible = !isAmountVisible
         delegate?.didUpdateBalance()
     }
+
+    //MARK: - Private methods
 
     private func getFormattedValue(of value: Int) -> String {
         let formatter = NumberFormatter()
