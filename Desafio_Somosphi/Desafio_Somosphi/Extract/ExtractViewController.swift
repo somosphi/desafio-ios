@@ -10,29 +10,33 @@ import UIKit
 class ExtractViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var showAmountButton: UIButton!
 
     weak var coordinator: ExtractCoordinator?
 
-    var model = ExtractModel()
+    var model: ExtractModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Extrato"
         tableView?.dataSource = self
         model.delegate = self
         model.fetchExtract()
-        iconImage?.image = UIImage(named: "eyeFill.png")
-        // balanceLabel?.isHidden = false
-        // balanceLabel?.text = "R$ 1234.55"
-        print("Passeiiiiii")
+        showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
     }
 
-    @IBAction func showAmount() {
-
+    @IBAction func showAmount(_ sender: UIButton) {
+        model.changeAmountVisibility()
     }
 
+    private func updateAmount() {
+        balanceLabel?.text = model.formattedAmount
+        if model.isAmountVisible == false {
+            showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
+        } else {
+            showAmountButton?.setImage(Icon.eye.sfIcon, for: .normal)
+        }
+    }
 }
 
 extension ExtractViewController: UITableViewDataSource {
@@ -63,8 +67,7 @@ extension ExtractViewController: ExtractModelDelegate {
             guard let selfRef = self else {
                 return
             }
-
-            selfRef.balanceLabel?.text = String(selfRef.model.amount)
+            selfRef.updateAmount()
         }
     }
 

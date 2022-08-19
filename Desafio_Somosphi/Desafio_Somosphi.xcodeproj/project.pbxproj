@@ -15,7 +15,7 @@
 		8C71BD7828A552660065832C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7728A552660065832C /* Config.swift */; };
 		8C71BD7A28A5585A0065832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7928A5585A0065832C /* Request.swift */; };
 		8C71BD7C28A558CD0065832C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7B28A558CD0065832C /* Network.swift */; };
-		8C71BD7E28A58C070065832C /* ExtractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7D28A58C070065832C /* ExtractService.swift */; };
+		8C71BD7E28A58C070065832C /* AmountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7D28A58C070065832C /* AmountService.swift */; };
 		8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CB2899FA9800E9C696 /* AppDelegate.swift */; };
 		8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */; };
 		8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */; };
@@ -41,7 +41,7 @@
 		8C71BD7728A552660065832C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8C71BD7928A5585A0065832C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		8C71BD7B28A558CD0065832C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		8C71BD7D28A58C070065832C /* ExtractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractService.swift; sourceTree = "<group>"; };
+		8C71BD7D28A58C070065832C /* AmountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountService.swift; sourceTree = "<group>"; };
 		8C9287C82899FA9800E9C696 /* Desafio_Somosphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Somosphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9287CB2899FA9800E9C696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				8C175CD9289C4EC400C4625B /* ExtractCoordinator.swift */,
 				8C9287CF2899FA9800E9C696 /* ExtractViewController.swift */,
 				8CE23179289C1DB700001B6D /* ExtractTableViewCell.swift */,
-				8C71BD7D28A58C070065832C /* ExtractService.swift */,
+				8C71BD7D28A58C070065832C /* AmountService.swift */,
 				8C71BD7028A3EA170065832C /* ExtractModel.swift */,
 			);
 			path = Extract;
@@ -260,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9287D02899FA9800E9C696 /* ExtractViewController.swift in Sources */,
-				8C71BD7E28A58C070065832C /* ExtractService.swift in Sources */,
+				8C71BD7E28A58C070065832C /* AmountService.swift in Sources */,
 				8CF18962289F247400F8D938 /* Extract.swift in Sources */,
 				8C175CDA289C4EC400C4625B /* ExtractCoordinator.swift in Sources */,
 				8CE2317A289C1DB700001B6D /* ExtractTableViewCell.swift in Sources */,
@@ -430,7 +430,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Desafio_Somosphi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = ExtractStoryboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,7 +459,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Desafio_Somosphi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = ExtractStoryboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

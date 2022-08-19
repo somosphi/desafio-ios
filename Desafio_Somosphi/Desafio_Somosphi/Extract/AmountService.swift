@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExtractService {
+class AmountService {
     private let network: Network
 
     init(network: Network = Network.shared) {
