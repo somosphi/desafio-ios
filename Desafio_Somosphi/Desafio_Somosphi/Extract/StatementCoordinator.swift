@@ -28,13 +28,15 @@ class StatementCoordinator: Coordinator {
     private func makeStatementViewController() -> StatementViewController {
         let model = StatementModel()
         let service = AmountService()
-        let storyboard = UIStoryboard(name: "StatementViewController", bundle: nil)
+        let serviceStatement = StatementService()
+        let storyboard = UIStoryboard(name: "StatementStoryboard", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(
             withIdentifier: "StatementViewController"
         ) as? StatementViewController else {
             fatalError()
         }
 
+        model.serviceStatement = serviceStatement
         model.service = service
         model.delegate = viewController
         viewController.model = model

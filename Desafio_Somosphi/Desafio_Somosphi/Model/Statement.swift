@@ -9,16 +9,18 @@ import UIKit
 
 struct Statement: Codable {
     var createdAt: String
-    var userId: String
+    var userId: String?
     var amount: Int
-    var target: String
+    var target: String?
     var description: String
     var tType: String
+    var from: String?
+    var bankName: String?
 
     enum CondingKeys: String, CodingKey {
         case createdAt, amount, description, tType
         case userId = "id"
-        case onto = "to"
+        case target = "to"
     }
 }
 

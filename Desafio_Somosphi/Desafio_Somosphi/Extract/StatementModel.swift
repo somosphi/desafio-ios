@@ -10,6 +10,7 @@ import UIKit
 protocol StatementModelDelegate: AnyObject {
     func didUpdateStatement()
     func didUpdateBalance()
+    func didErrorRepositories()
 }
 
 class StatementModel {
@@ -18,17 +19,18 @@ class StatementModel {
 
     weak var delegate: StatementModelDelegate?
     var service: AmountService?
+    var serviceStatement: StatementService?
 
     var formattedAmount: String {
         if isAmountVisible {
-            return getFormattedValue(of: amount)
+            return Formatter.formatCurrency(value: amount)
         }
         return "––––––"
     }
 
     // MARK: - Private properties
 
-    private(set) var statement: [Statement]
+    private(set) var statements: [Statement]
     private var amount: Int = 0
 
     private(set) var isAmountVisible: Bool {
@@ -41,15 +43,13 @@ class StatementModel {
     }
 
     init() {
-        statement = []
+        statements = []
     }
 
     // MARK: - Internal Methods
 
     func fetchStatement() {
-        statement = mockStatement()
-        // delegate?.didUpStatement()
-        service?.fecthAmont(
+        service?.fecthAmount(
             onComplete: { result in
                 self.amount = result.amount
                 self.delegate?.didUpdateBalance()
@@ -58,6 +58,16 @@ class StatementModel {
                 print(error.localizedDescription)
             }
         )
+
+        serviceStatement?.fetchStatements(
+            onComplete: { [weak self] statements in
+                self?.statements.append(contentsOf: statements.items)
+                self?.delegate?.didUpdateStatement()
+            },
+            onError: { error in
+                self.delegate?.didErrorRepositories()
+                print(error.localizedDescription)
+            })
     }
 
     func changeAmountVisibility() {
@@ -65,30 +75,14 @@ class StatementModel {
         delegate?.didUpdateBalance()
     }
 
-    // MARK: - Private methods
-
-    private func getFormattedValue(of value: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = "R$"
-        formatter.alwaysShowsDecimalSeparator = true
-        formatter.locale = Locale(identifier: "pt_BR")
-        let number = formatter.string(from: NSNumber(value: value))
-        return number ?? "R$ 0,00"
-    }
-
 }
 
+#if DEBUG
 private func mockStatement() -> [Statement] {
     return [
-        .fixture(),
-        .fixture(),
-        .fixture(),
-        .fixture(),
-        .fixture(),
-        .fixture(),
         .fixture(),
         .fixture(),
         .fixture()
     ]
 }
+#endif

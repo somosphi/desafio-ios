@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Items: Codable {
+struct Statements: Codable {
     var items: [Statement]
 }

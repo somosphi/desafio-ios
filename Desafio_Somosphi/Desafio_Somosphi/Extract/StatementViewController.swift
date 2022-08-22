@@ -15,22 +15,25 @@ class StatementViewController: UIViewController {
 
     weak var coordinator: StatementCoordinator?
 
-    var model: StatementModel!
+    var model: StatementModel?
+    var statements: [Statement] {
+        model?.statements ?? []
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
         updateAmount()
-        model.fetchStatement()
+        model?.fetchStatement()
     }
 
     @IBAction func showAmount(_ sender: UIButton) {
-        model.changeAmountVisibility()
+        model?.changeAmountVisibility()
     }
 
     private func updateAmount() {
-        balanceLabel?.text = model.formattedAmount
-        if model.isAmountVisible == false {
+        balanceLabel?.text = model?.formattedAmount
+        if model?.isAmountVisible == false {
             showAmountButton?.setImage(Icon.eyeSlash.sfIcon, for: .normal)
         } else {
             showAmountButton?.setImage(Icon.eye.sfIcon, for: .normal)
@@ -44,7 +47,7 @@ extension StatementViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.statement.count
+        return statements.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +56,7 @@ extension StatementViewController: UITableViewDataSource {
         ) as? StatementTableViewCell else {
             fatalError()
         }
-        let statement = model.statement[indexPath.row]
+        let statement = statements[indexPath.row]
         cell.prepare(model: statement)
         return cell
     }
@@ -71,7 +74,13 @@ extension StatementViewController: StatementModelDelegate {
     }
 
     func didUpdateStatement() {
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+
+    func didErrorRepositories() {
+        print("E R R O R ! ! ! ! !")
     }
 
 }
