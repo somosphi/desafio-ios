@@ -16,6 +16,8 @@
 		8C71BD7A28A5585A0065832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7928A5585A0065832C /* Request.swift */; };
 		8C71BD7C28A558CD0065832C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7B28A558CD0065832C /* Network.swift */; };
 		8C71BD7E28A58C070065832C /* AmountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71BD7D28A58C070065832C /* AmountService.swift */; };
+		8C81480A28B3C24E00EF490C /* StatementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81480928B3C24E00EF490C /* StatementService.swift */; };
+		8C81480D28B3E34D00EF490C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81480C28B3E34D00EF490C /* Formatter.swift */; };
 		8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CB2899FA9800E9C696 /* AppDelegate.swift */; };
 		8C9287CE2899FA9800E9C696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */; };
 		8C9287D02899FA9800E9C696 /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9287CF2899FA9800E9C696 /* StatementViewController.swift */; };
@@ -28,7 +30,7 @@
 		8CE2317A289C1DB700001B6D /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE23179289C1DB700001B6D /* StatementTableViewCell.swift */; };
 		8CF18962289F247400F8D938 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18961289F247400F8D938 /* Statement.swift */; };
 		8CF18965289F263000F8D938 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18964289F263000F8D938 /* Amount.swift */; };
-		8CF18967289F270100F8D938 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18966289F270100F8D938 /* Items.swift */; };
+		8CF18967289F270100F8D938 /* Statements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18966289F270100F8D938 /* Statements.swift */; };
 		8CF18969289F2B9E00F8D938 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF18968289F2B9E00F8D938 /* Voucher.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		8C71BD7928A5585A0065832C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		8C71BD7B28A558CD0065832C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8C71BD7D28A58C070065832C /* AmountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountService.swift; sourceTree = "<group>"; };
+		8C81480928B3C24E00EF490C /* StatementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementService.swift; sourceTree = "<group>"; };
+		8C81480C28B3E34D00EF490C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		8C9287C82899FA9800E9C696 /* Desafio_Somosphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Somosphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9287CB2899FA9800E9C696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +60,7 @@
 		8CE23179289C1DB700001B6D /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		8CF18961289F247400F8D938 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		8CF18964289F263000F8D938 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
-		8CF18966289F270100F8D938 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		8CF18966289F270100F8D938 /* Statements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statements.swift; sourceTree = "<group>"; };
 		8CF18968289F2B9E00F8D938 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,22 @@
 			name = Networks;
 			sourceTree = "<group>";
 		};
+		8C81480828B3BF2900EF490C /* Amount */ = {
+			isa = PBXGroup;
+			children = (
+				8C71BD7D28A58C070065832C /* AmountService.swift */,
+			);
+			path = Amount;
+			sourceTree = "<group>";
+		};
+		8C81480B28B3E30F00EF490C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8C81480C28B3E34D00EF490C /* Formatter.swift */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		8C9287BF2899FA9800E9C696 = {
 			isa = PBXGroup;
 			children = (
@@ -112,10 +132,12 @@
 			children = (
 				8C9287CB2899FA9800E9C696 /* AppDelegate.swift */,
 				8C9287CD2899FA9800E9C696 /* SceneDelegate.swift */,
+				8C81480B28B3E30F00EF490C /* Misc */,
 				8C71BD7228A5494D0065832C /* Networks */,
 				8C175CD4289C4B9300C4625B /* Coordinator */,
 				8CF18963289F261700F8D938 /* Model */,
 				8CA3C72F289AF692001581BF /* Define */,
+				8C81480828B3BF2900EF490C /* Amount */,
 				8CA3C729289AEAAC001581BF /* Extract */,
 				8CA3C72A289AEAD3001581BF /* Voucher */,
 				8C9287D42899FA9A00E9C696 /* Assets.xcassets */,
@@ -132,8 +154,8 @@
 				8C175CD9289C4EC400C4625B /* StatementCoordinator.swift */,
 				8C9287CF2899FA9800E9C696 /* StatementViewController.swift */,
 				8CE23179289C1DB700001B6D /* StatementTableViewCell.swift */,
-				8C71BD7D28A58C070065832C /* AmountService.swift */,
 				8C71BD7028A3EA170065832C /* StatementModel.swift */,
+				8C81480928B3C24E00EF490C /* StatementService.swift */,
 			);
 			path = Extract;
 			sourceTree = "<group>";
@@ -161,7 +183,7 @@
 				8CF18964289F263000F8D938 /* Amount.swift */,
 				8CF18961289F247400F8D938 /* Statement.swift */,
 				8CF18968289F2B9E00F8D938 /* Voucher.swift */,
-				8CF18966289F270100F8D938 /* Items.swift */,
+				8CF18966289F270100F8D938 /* Statements.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,10 +284,12 @@
 				8C9287D02899FA9800E9C696 /* StatementViewController.swift in Sources */,
 				8C71BD7E28A58C070065832C /* AmountService.swift in Sources */,
 				8CF18962289F247400F8D938 /* Statement.swift in Sources */,
+				8C81480D28B3E34D00EF490C /* Formatter.swift in Sources */,
 				8C175CDA289C4EC400C4625B /* StatementCoordinator.swift in Sources */,
 				8CE2317A289C1DB700001B6D /* StatementTableViewCell.swift in Sources */,
-				8CF18967289F270100F8D938 /* Items.swift in Sources */,
+				8CF18967289F270100F8D938 /* Statements.swift in Sources */,
 				8CA3C72E289AEB6D001581BF /* DetailViewController.swift in Sources */,
+				8C81480A28B3C24E00EF490C /* StatementService.swift in Sources */,
 				8C71BD7428A549830065832C /* Authentication.swift in Sources */,
 				8C71BD7A28A5585A0065832C /* Request.swift in Sources */,
 				8C9287CC2899FA9800E9C696 /* AppDelegate.swift in Sources */,

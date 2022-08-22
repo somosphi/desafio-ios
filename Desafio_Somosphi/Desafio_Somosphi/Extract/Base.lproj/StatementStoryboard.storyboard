@@ -178,8 +178,8 @@
                                             <outlet property="amountLabel" destination="wb4-Sn-56Q" id="oCc-96-mDX"/>
                                             <outlet property="circleView" destination="MDj-qQ-fhK" id="BqV-qs-SNe"/>
                                             <outlet property="dateLabel" destination="Yw6-Ym-iZ7" id="k0a-nC-Cop"/>
+                                            <outlet property="nameLabel" destination="UUo-fz-FHF" id="ffz-D0-rtj"/>
                                             <outlet property="pixImage" destination="DgO-Ni-QlF" id="vzT-Vb-hgC"/>
-                                            <outlet property="receiverLabel" destination="UUo-fz-FHF" id="ffz-D0-rtj"/>
                                             <outlet property="typeMovementLabel" destination="r1U-z2-XFT" id="JTg-Rb-cXf"/>
                                         </connections>
                                     </tableViewCell>

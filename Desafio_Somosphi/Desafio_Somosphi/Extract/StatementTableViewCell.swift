@@ -10,7 +10,7 @@ import UIKit
 class StatementTableViewCell: UITableViewCell {
 
     @IBOutlet weak var typeMovementLabel: UILabel!
-    @IBOutlet weak var receiverLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var pixImage: UIView!
@@ -29,9 +29,9 @@ class StatementTableViewCell: UITableViewCell {
 
     func prepare(model: Statement) {
         typeMovementLabel.text = model.description
-        receiverLabel.text = model.target
-        amountLabel.text = String(model.amount)
-        dateLabel.text = model.createdAt
+        nameLabel.text = model.bankName
+        amountLabel.text = Formatter.formatCurrency(value: model.amount)
+        dateLabel.text = Formatter.formatDate(string: model.createdAt)
         pixImage.isHidden = false
         circleView.layer.cornerRadius = circleView.frame.size.height/2
     }

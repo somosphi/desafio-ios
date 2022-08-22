@@ -14,8 +14,8 @@ class AmountService {
         self.network = network
     }
 
-    func fecthAmont(onComplete: @escaping (Amount) -> Void,
-                    onError: @escaping (Error) -> Void
+    func fecthAmount(onComplete: @escaping (Amount) -> Void,
+                     onError: @escaping (Error) -> Void
     ) {
         let request = Request.init(
             baseURL: Config.baseURL,
