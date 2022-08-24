@@ -24,6 +24,19 @@ struct Statement: Codable {
     }
 }
 
+extension Statement {
+    var isTypePix: Bool {
+//        let type = tType.uppercased()
+//        return type == "PIXCASHIN" ||
+//            type == "PIXCASHOUT"
+
+        return [
+            "PIXCASHIN",
+            "PIXCASHOUT"
+        ].contains(tType.uppercased())
+    }
+}
+
 #if DEBUG
 extension Statement {
     static func fixture(

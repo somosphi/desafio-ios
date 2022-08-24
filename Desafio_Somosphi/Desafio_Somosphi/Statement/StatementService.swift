@@ -15,12 +15,14 @@ class StatementService {
     }
 
     func fetchStatements(
+        page: Int,
+        size: Int = 10,
         onComplete: @escaping (Statements) -> Void,
         onError: @escaping (Error) -> Void
     ) {
         let request = Request.init(
             baseURL: Config.baseURL,
-            path: "myStatement/10/1",
+            path: "myStatement/\(size)/\(page)",
             header: [Authentication.tokenField: Authentication.tokenValue],
             method: RequestMethod.get
         )
