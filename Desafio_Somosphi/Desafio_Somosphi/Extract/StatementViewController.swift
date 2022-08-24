@@ -23,6 +23,7 @@ class StatementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
+        tableView?.delegate = self
         updateAmount()
         model?.fetchStatement()
     }
@@ -61,6 +62,14 @@ extension StatementViewController: UITableViewDataSource {
         return cell
     }
 
+}
+
+extension StatementViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if statements.count - 1 == indexPath.row {
+            self.model?.fetchStatement()
+        }
+    }
 }
 
 extension StatementViewController: StatementModelDelegate {

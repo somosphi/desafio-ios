@@ -32,6 +32,8 @@ class StatementModel {
 
     private(set) var statements: [Statement]
     private var amount: Int = 0
+    private var page: Int = 0
+    private var hasMorePages = true
 
     private(set) var isAmountVisible: Bool {
         get {
@@ -49,6 +51,10 @@ class StatementModel {
     // MARK: - Internal Methods
 
     func fetchStatement() {
+        guard hasMorePages else {
+            return
+        }
+
         service?.fecthAmount(
             onComplete: { result in
                 self.amount = result.amount
@@ -60,9 +66,19 @@ class StatementModel {
         )
 
         serviceStatement?.fetchStatements(
+            page: page,
             onComplete: { [weak self] statements in
-                self?.statements.append(contentsOf: statements.items)
-                self?.delegate?.didUpdateStatement()
+                guard let self = self else {
+                    return
+                }
+
+                self.statements.append(contentsOf: statements.items)
+                self.delegate?.didUpdateStatement()
+                self.page += 1
+
+                if statements.items.isEmpty {
+                    self.hasMorePages = false
+                }
             },
             onError: { error in
                 self.delegate?.didErrorRepositories()
