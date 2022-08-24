@@ -29,6 +29,10 @@ class StatementModel {
         return "––––––"
     }
 
+    var canShowLoading: Bool {
+        return hasMorePages
+    }
+
     private(set) var isAmountVisible: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "visibleAmount")
@@ -36,10 +40,6 @@ class StatementModel {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "visibleAmount")
         }
-    }
-
-    var canShowLoading: Bool {
-        return hasMorePages
     }
 
     // MARK: - Private properties

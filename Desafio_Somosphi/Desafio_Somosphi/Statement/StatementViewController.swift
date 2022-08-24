@@ -26,6 +26,7 @@ class StatementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Extrato"
         tableView?.dataSource = self
         tableView?.delegate = self
         updateAmount()
@@ -71,6 +72,7 @@ extension StatementViewController: UITableViewDataSource {
         ) as? StatementTableViewCell else {
             fatalError()
         }
+
         let statement = statements[indexPath.row]
         cell.prepare(model: statement)
         return cell

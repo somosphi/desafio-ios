@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-El-Alr">
-                                <rect key="frame" x="0.0" y="100" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-2v-HfY">
                                         <rect key="frame" x="24" y="16" width="46.5" height="22"/>
@@ -58,14 +58,8 @@
                                     <constraint firstAttribute="bottom" secondItem="97g-e8-CXd" secondAttribute="bottom" constant="16" id="wJg-TA-oya"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extrato" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG9-Ml-bwo">
-                                <rect key="frame" x="154" y="60" width="106" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" name="text"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-JI-OUO">
-                                <rect key="frame" x="0.0" y="246" width="414" height="650"/>
+                                <rect key="frame" x="0.0" y="190" width="414" height="706"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -209,7 +203,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suas movimentações" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXY-oc-ztD">
-                                <rect key="frame" x="16" y="216" width="382" height="22"/>
+                                <rect key="frame" x="16" y="160" width="382" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" name="text"/>
                                 <nil key="highlightedColor"/>
@@ -219,14 +213,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="J6k-JI-OUO" secondAttribute="bottom" id="3Zj-6Z-uy5"/>
-                            <constraint firstItem="FG9-Ml-bwo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="9tc-SD-Qp1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VXY-oc-ztD" secondAttribute="trailing" constant="16" id="IdF-lB-bgG"/>
                             <constraint firstItem="VXY-oc-ztD" firstAttribute="top" secondItem="9Ga-El-Alr" secondAttribute="bottom" constant="16" id="M91-aS-3Xk"/>
                             <constraint firstItem="J6k-JI-OUO" firstAttribute="top" secondItem="VXY-oc-ztD" secondAttribute="bottom" constant="8" id="Ng7-Gl-pct"/>
+                            <constraint firstItem="9Ga-El-Alr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TaR-Xf-D7Y"/>
                             <constraint firstItem="9Ga-El-Alr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UEM-Fw-g8S"/>
-                            <constraint firstItem="FG9-Ml-bwo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="154" id="VnE-jC-B8y"/>
-                            <constraint firstItem="9Ga-El-Alr" firstAttribute="top" secondItem="FG9-Ml-bwo" secondAttribute="bottom" constant="16" id="VsI-so-G3j"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FG9-Ml-bwo" secondAttribute="trailing" constant="154" id="ZPF-Nf-OaY"/>
                             <constraint firstItem="J6k-JI-OUO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fgw-jP-IjT"/>
                             <constraint firstItem="J6k-JI-OUO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="l4c-4F-00G"/>
                             <constraint firstItem="VXY-oc-ztD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pvP-Z2-rym"/>

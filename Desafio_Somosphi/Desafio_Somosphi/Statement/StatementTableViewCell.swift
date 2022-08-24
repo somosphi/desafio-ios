@@ -32,7 +32,16 @@ class StatementTableViewCell: UITableViewCell {
         nameLabel.text = model.bankName
         amountLabel.text = Formatter.formatCurrency(value: model.amount)
         dateLabel.text = Formatter.formatDate(string: model.createdAt)
-        pixImage.isHidden = false
+
+        pixImage.isHidden = true
+        contentView.backgroundColor = .clear
+
+        if model.isTypePix {
+            pixImage.isHidden = false
+            contentView.backgroundColor = Color.highlight.uiColor
+        }
+
+        // pixImage.isHidden = false
         circleView.layer.cornerRadius = circleView.frame.size.height/2
     }
 }
