@@ -20,6 +20,10 @@ class StatementViewController: UIViewController {
         model?.statements ?? []
     }
 
+    var canShowLoading: Bool {
+        model?.canShowLoading == true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
@@ -44,6 +48,9 @@ class StatementViewController: UIViewController {
 
 extension StatementViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if canShowLoading {
+            return 2
+        }
         return 1
     }
 
@@ -52,6 +59,13 @@ extension StatementViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if canShowLoading && indexPath.section == 1 {
+            return makeLoadingCell(tableView: tableView, indexPath: indexPath)
+        }
+        return makeStatementCell(tableView: tableView, indexPath: indexPath)
+    }
+
+    private func makeStatementCell(tableView: UITableView, indexPath: IndexPath) -> StatementTableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "cell", for: indexPath
         ) as? StatementTableViewCell else {
@@ -59,6 +73,15 @@ extension StatementViewController: UITableViewDataSource {
         }
         let statement = statements[indexPath.row]
         cell.prepare(model: statement)
+        return cell
+    }
+
+    private func makeLoadingCell(tableView: UITableView, indexPath: IndexPath) -> LoadingCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "loading", for: indexPath
+        ) as? LoadingCell else {
+            fatalError()
+        }
         return cell
     }
 

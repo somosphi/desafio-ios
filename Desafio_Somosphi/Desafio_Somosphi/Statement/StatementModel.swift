@@ -20,6 +20,7 @@ class StatementModel {
     weak var delegate: StatementModelDelegate?
     var service: AmountService?
     var serviceStatement: StatementService?
+    private(set) var statements: [Statement]
 
     var formattedAmount: String {
         if isAmountVisible {
@@ -27,13 +28,6 @@ class StatementModel {
         }
         return "––––––"
     }
-
-    // MARK: - Private properties
-
-    private(set) var statements: [Statement]
-    private var amount: Int = 0
-    private var page: Int = 0
-    private var hasMorePages = true
 
     private(set) var isAmountVisible: Bool {
         get {
@@ -43,6 +37,16 @@ class StatementModel {
             UserDefaults.standard.setValue(newValue, forKey: "visibleAmount")
         }
     }
+
+    var canShowLoading: Bool {
+        return hasMorePages
+    }
+
+    // MARK: - Private properties
+
+    private var amount: Int = 0
+    private var page: Int = 0
+    private var hasMorePages = true
 
     init() {
         statements = []
