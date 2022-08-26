@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authenticationLabel: UILabel!
     @IBOutlet weak var descriptionTargetLabel: UILabel!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = "Transferência realizada"
@@ -29,17 +28,7 @@ class DetailViewController: UIViewController {
         descriptionTargetLabel.text = "Minha Conta"
     }
 
-//    func getDetailStatement() {
-//        descriptionLabel.text = detail?.description
-//        valueLabel.text = Formatter.formatCurrency(value: detail!.amount)
-//        targetLabel.text = detail?.target
-//        bankLabel.text = detail?.bankName
-//        dateHourLabel.text = Formatter.formatDate(string: detail!.createdAt, from: .long, to: .long)
-//        // authenticationLabel.text = detail?.authentication
-//        // descriptionTargetLabel.text = detail?.typeTarget
-//    }
-
-    @IBAction func showDetailButton(_ sender: UIButton) {
+    @IBAction func share(_ sender: UIButton) {
 
     }
 
