@@ -23,13 +23,20 @@ class AppCoordinator: Coordinator {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-        showStatementCoordinator(navigationController)
+        // showStatementCoordinator(navigationController)
+        showDetailCoordinator(navigationController)
     }
 
     fileprivate func showStatementCoordinator(_ navigationController: UINavigationController) {
         let statementCoordinator = StatementCoordinator(navigationController: navigationController)
         statementCoordinator.start()
         childCoordinator = statementCoordinator
+    }
+
+    fileprivate func showDetailCoordinator(_ navigationController: UINavigationController) {
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
+        detailCoordinator.start()
+        childCoordinator = detailCoordinator
     }
 
 }

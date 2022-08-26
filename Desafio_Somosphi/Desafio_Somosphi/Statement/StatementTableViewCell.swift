@@ -29,10 +29,10 @@ class StatementTableViewCell: UITableViewCell {
 
     func prepare(model: Statement) {
         typeMovementLabel.text = model.description
-        nameLabel.text = model.bankName
+        nameLabel.text = model.destinationName
         amountLabel.text = Formatter.formatCurrency(value: model.amount)
         dateLabel.text = Formatter.formatDate(string: model.createdAt)
-
+        circleView.layer.cornerRadius = circleView.frame.size.height/2
         pixImage.isHidden = true
         contentView.backgroundColor = .clear
 
@@ -41,7 +41,5 @@ class StatementTableViewCell: UITableViewCell {
             contentView.backgroundColor = Color.highlight.uiColor
         }
 
-        // pixImage.isHidden = false
-        circleView.layer.cornerRadius = circleView.frame.size.height/2
     }
 }

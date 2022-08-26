@@ -16,9 +16,10 @@ struct Statement: Codable {
     var tType: String
     var from: String?
     var bankName: String?
+    // var authentication: String
 
-    enum CondingKeys: String, CodingKey {
-        case createdAt, amount, description, tType
+    enum CodingKeys: String, CodingKey {
+        case createdAt, amount, description, tType, bankName, from //authentication
         case userId = "id"
         case target = "to"
     }
@@ -26,15 +27,31 @@ struct Statement: Codable {
 
 extension Statement {
     var isTypePix: Bool {
-//        let type = tType.uppercased()
-//        return type == "PIXCASHIN" ||
-//            type == "PIXCASHOUT"
-
         return [
             "PIXCASHIN",
             "PIXCASHOUT"
         ].contains(tType.uppercased())
     }
+
+    var destinationName: String {
+        if let target = target {
+            return target
+        } else if let from = from {
+            return from
+        }
+        return ""
+
+    }
+
+//    var typeTarget: String {
+//        if target != nil {
+//            return "Destinatario"
+//        } else if from != nil {
+//            return "Recebedor"
+//        }
+//        return "Minha Conta"
+//    }
+
 }
 
 #if DEBUG
@@ -45,6 +62,7 @@ extension Statement {
         amount: Int = 1807,
         target: String = "David Bond",
         description: String = "Transferência realizada",
+        authentication: String = "",
         tType: String = "TRANSFEROUT"
     ) -> Statement {
         Statement(
@@ -54,6 +72,7 @@ extension Statement {
             target: target,
             description: description,
             tType: tType
+            // authentication: authentication
         )
 
     }
