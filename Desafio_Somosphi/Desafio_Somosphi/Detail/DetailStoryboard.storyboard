@@ -108,6 +108,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="showDetailButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cAC-AF-TTg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comprovante" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dH-V8-pM4">
                                 <rect key="frame" x="30" y="74" width="354" height="24"/>
@@ -166,6 +169,15 @@
                             <constraint firstItem="AZT-Ue-ce2" firstAttribute="top" secondItem="HqD-i2-eQB" secondAttribute="bottom" constant="30" id="xSV-cR-t2Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authenticationLabel" destination="KUt-wV-UDd" id="FRH-sx-Ail"/>
+                        <outlet property="bankLabel" destination="doz-q8-N6n" id="Y8h-ns-E88"/>
+                        <outlet property="dateHourLabel" destination="BlF-1h-UWV" id="izJ-Wj-DQb"/>
+                        <outlet property="descriptionLabel" destination="bPb-jE-bTN" id="tC1-OJ-mx7"/>
+                        <outlet property="descriptionTargetLabel" destination="TNJ-F0-cX5" id="f5f-Ce-2Jj"/>
+                        <outlet property="targetLabel" destination="of5-BW-dUZ" id="tG8-HL-Clv"/>
+                        <outlet property="valueLabel" destination="Wma-K7-zlY" id="Ax1-aC-3hd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+class DetailModel {
+
+    var detail: Statement
+
+    init(detail: Statement) {
+        self.detail = detail
+    }
+
+    func prepare() {
+
+    }
+
+}
