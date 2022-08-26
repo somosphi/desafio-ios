@@ -11,6 +11,7 @@ struct Formatter {
     enum DateFormat: String {
         case long = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         case short = "dd/MM"
+        case longBrDateTime = "MM/dd/yyyy - HH:mm:ss"
     }
 
     static func formatCurrency(value: Int) -> String {

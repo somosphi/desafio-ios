@@ -16,10 +16,10 @@ struct Statement: Codable {
     var tType: String
     var from: String?
     var bankName: String?
-    // var authentication: String
+    var authentication: String?
 
     enum CodingKeys: String, CodingKey {
-        case createdAt, amount, description, tType, bankName, from //authentication
+        case createdAt, amount, description, tType, bankName, from, authentication
         case userId = "id"
         case target = "to"
     }
@@ -43,14 +43,14 @@ extension Statement {
 
     }
 
-//    var typeTarget: String {
-//        if target != nil {
-//            return "Destinatario"
-//        } else if from != nil {
-//            return "Recebedor"
-//        }
-//        return "Minha Conta"
-//    }
+    var typeTarget: String {
+        if target != nil {
+            return "Destinatario"
+        } else if from != nil {
+            return "Recebedor"
+        }
+        return "Minha Conta"
+    }
 
 }
 
@@ -71,22 +71,10 @@ extension Statement {
             amount: amount,
             target: target,
             description: description,
-            tType: tType
-            // authentication: authentication
+            tType: tType,
+            authentication: authentication
         )
 
     }
 }
 #endif
-
-// "items": [
-// {
-//    "createdAt": "2020-10-22T03:00:00Z",
-//    "id": "E79E0C9A-46AE-4DBA-82F5-D0BACC53F6CF",
-//    "amount": 1807,
-//    "to": "David Bond",
-//    "description": "Transferência realizada",
-//    "tType": "TRANSFEROUT"
-
-//    "from": "Arthur Hunt",
-//    "bankName": "Banco Phi",
