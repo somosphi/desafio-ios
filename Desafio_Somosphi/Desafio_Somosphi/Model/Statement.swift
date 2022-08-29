@@ -9,7 +9,7 @@ import UIKit
 
 struct Statement: Codable {
     var createdAt: String
-    var userId: String?
+    var statementID: String
     var amount: Int
     var target: String?
     var description: String
@@ -20,7 +20,7 @@ struct Statement: Codable {
 
     enum CodingKeys: String, CodingKey {
         case createdAt, amount, description, tType, bankName, from, authentication
-        case userId = "id"
+        case statementID = "id"
         case target = "to"
     }
 }
@@ -58,7 +58,7 @@ extension Statement {
 extension Statement {
     static func fixture(
         createdAt: String = "2020-10-22T03:00:00Z",
-        userId: String = "E79E0C9A-46AE-4DBA-82F5-D0BACC53F6CF",
+        statementID: String = "E79E0C9A-46AE-4DBA-82F5-D0BACC53F6CF",
         amount: Int = 1807,
         target: String = "David Bond",
         description: String = "Transferência realizada",
@@ -67,7 +67,7 @@ extension Statement {
     ) -> Statement {
         Statement(
             createdAt: createdAt,
-            userId: userId,
+            statementID: statementID,
             amount: amount,
             target: target,
             description: description,

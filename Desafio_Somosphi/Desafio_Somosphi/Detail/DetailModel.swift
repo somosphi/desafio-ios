@@ -7,23 +7,33 @@
 
 import Foundation
 
+protocol DetailModelDelegate: AnyObject {
+    func didUpShowDetail()
+}
+
 class DetailModel {
 
-    var detail: Statement?
+    private(set) var statement: Statement?
+    private let statementID: String
     var service: DetailService?
+    var delegate: DetailModelDelegate?
 
-    init(detail: Statement) {
-        self.detail = detail
+    init(statementID: String) {
+        self.statementID = statementID
     }
-    //    func getDetailStatement() {
-    //        descriptionLabel.text = detail?.description
-    //        valueLabel.text = Formatter.formatCurrency(value: detail!.amount)
-    //        targetLabel.text = detail?.target
-    //        bankLabel.text = detail?.bankName
-    //        dateHourLabel.text = Formatter.formatDate(string: detail!.createdAt, from: .long, to: .long)
-    //        // authenticationLabel.text = detail?.authentication
-    //        // descriptionTargetLabel.text = detail?.typeTarget
-    //    }
+
+    func loadDetail() {
+        service?.fetchDetail(
+            id: statementID,
+            onComplete: { [weak self] result in
+                self?.statement = result
+                self?.delegate?.didUpShowDetail()
+            },
+            onError: { error in
+                print(error.localizedDescription)
+            })
+    }
+
 }
 
 // https://desafio-mobile-bff.herokuapp.com/myStatement/detail/49E27207-F3A7-4264-B021-0188690F7D43

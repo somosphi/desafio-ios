@@ -175,8 +175,8 @@
 				8CA3C72B289AEB4E001581BF /* DetailStoryboard.storyboard */,
 				8CD21EE128B7BF9E00A761B9 /* DetailCoordinator.swift */,
 				8CA3C72D289AEB6D001581BF /* DetailViewController.swift */,
-				8CD21EE528B90AED00A761B9 /* DetailService.swift */,
 				8CD21EE328B8399E00A761B9 /* DetailModel.swift */,
+				8CD21EE528B90AED00A761B9 /* DetailService.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";

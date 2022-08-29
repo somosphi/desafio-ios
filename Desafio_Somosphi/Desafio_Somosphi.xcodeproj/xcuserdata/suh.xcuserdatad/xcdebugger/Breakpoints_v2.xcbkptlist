@@ -39,48 +39,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC4748FD-90A8-4072-8753-D20B9B0A1CE7"
+            uuid = "1CB9415D-B5CF-4F8A-9860-E74EBF607BFD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Desafio_Somosphi/Statement/StatementModel.swift"
+            filePath = "Desafio_Somosphi/Detail/DetailModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "fetchStatement()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "loadDetail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07E7676E-0B35-47E7-9D92-CE307374D1F3"
+            uuid = "9BA4E1C5-2417-440C-A986-A171886C8ED0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Desafio_Somosphi/Statement/StatementModel.swift"
+            filePath = "Desafio_Somosphi/Detail/DetailModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "fetchStatement()"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "loadDetail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "18139459-CCF4-4D15-A154-FDB2FD8B7A03"
+            uuid = "D62C5921-ABDA-4A84-9378-908FC0AC571C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Desafio_Somosphi/Statement/StatementModel.swift"
+            filePath = "Desafio_Somosphi/Detail/DetailModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "fetchStatement()"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "loadDetail()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62BA9C15-EAFB-4115-A341-A341621ACB08"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Desafio_Somosphi/Detail/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
