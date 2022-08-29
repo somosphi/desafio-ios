@@ -40,13 +40,13 @@ extension DetailViewController: DetailModelDelegate {
                 return
             }
             self.descriptionLabel.text = self.model?.statement?.description ?? ""
-            self.targetLabel.text = self.model?.statement?.target
+            self.targetLabel.text = self.model?.statement?.destinationName
             self.bankLabel.text = self.model?.statement?.bankName
             self.authenticationLabel.text = self.model?.statement?.authentication
             self.descriptionTargetLabel.text = self.model?.statement?.typeTarget
             self.valueLabel.text = Formatter.formatCurrency(value: self.model?.statement?.amount ?? 0)
             self.dateHourLabel.text = Formatter.formatDate(
-                string: self.model?.statement?.createdAt ?? "", from: .long, to: .long)
+                string: self.model?.statement?.createdAt ?? "", from: .long, to: .longBrDateTime)
 
             print("chegueiiii")
         }

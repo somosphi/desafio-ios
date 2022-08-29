@@ -47,7 +47,7 @@ extension Statement {
         if target != nil {
             return "Destinatario"
         } else if from != nil {
-            return "Recebedor"
+            return "Emissor"
         }
         return "Minha Conta"
     }

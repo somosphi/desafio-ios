@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StatementViewControllerDelegate: AnyObject {
+    func showDetailStatement(statementID: String)
+}
+
 class StatementViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
@@ -14,6 +18,7 @@ class StatementViewController: UIViewController {
     @IBOutlet weak var showAmountButton: UIButton!
 
     weak var coordinator: StatementCoordinator?
+    weak var delegate: StatementViewControllerDelegate?
 
     var model: StatementModel?
     var statements: [Statement] {
@@ -90,6 +95,12 @@ extension StatementViewController: UITableViewDataSource {
 }
 
 extension StatementViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let statement = statements[indexPath.row]
+        delegate?.showDetailStatement(statementID: statement.statementID)
+
+    }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if statements.count - 1 == indexPath.row {
             self.model?.fetchStatement()

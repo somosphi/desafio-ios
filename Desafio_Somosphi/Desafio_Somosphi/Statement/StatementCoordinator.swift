@@ -9,11 +9,11 @@ import UIKit
 
 class StatementCoordinator: Coordinator {
     var navigationController: UINavigationController
-    // var viewController: StatementViewController
+    private var viewController: StatementViewController?
+    private var detailCoordinator: DetailCoordinator?
 
-    init(navigationController: UINavigationController) { // viewController: StatementViewController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        // self.viewController = viewController
     }
 
     deinit {
@@ -40,9 +40,18 @@ class StatementCoordinator: Coordinator {
         model.service = service
         model.delegate = viewController
         viewController.model = model
-        viewController.coordinator = self
+        viewController.delegate = self
 
         return viewController
+    }
+
+}
+
+extension StatementCoordinator: StatementViewControllerDelegate {
+    func showDetailStatement(statementID: String) {
+        let detailCoordinator = DetailCoordinator(statementID: statementID, navigationController: navigationController)
+        detailCoordinator.start()
+        self.detailCoordinator = detailCoordinator
     }
 
 }

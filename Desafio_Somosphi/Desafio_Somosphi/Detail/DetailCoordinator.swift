@@ -10,7 +10,8 @@ import UIKit
 
 class DetailCoordinator: Coordinator {
     var navigationController: UINavigationController
-    var statementID: String
+    private var viewController: DetailViewController?
+    private let statementID: String
 
     init(statementID: String, navigationController: UINavigationController) {
         self.statementID = statementID
@@ -19,6 +20,7 @@ class DetailCoordinator: Coordinator {
 
     func start() {
         let detailViewController = makeDetailViewController()
+        self.viewController = detailViewController
         navigationController.pushViewController(detailViewController, animated: true)
     }
 
